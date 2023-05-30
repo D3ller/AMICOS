@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <php 
-    require_once 'header.php';
+    <?php 
+    require 'header.php';
     ?>
-
+    <h1>test</h1>
     
-    <php
-    require_once 'footer.php';
+    <?php
+    require 'footer.php';
     ?>
     
 </body>
