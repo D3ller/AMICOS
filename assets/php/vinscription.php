@@ -49,37 +49,26 @@ $password = password_hash($password, PASSWORD_DEFAULT);
 
 $dbh = connect();
 
-$sql = "SELECT * FROM profil WHERE email = :email";
-$stmt = $dbh->prepare($sql);
-$stmt->bindParam(":email", $email, PDO::PARAM_STR);
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$sql = "SELECT * FROM profil WHERE email = '$email'";
+$result = $dbh->query($sql);
 
-if(count($result) > 0){
+if($result->num_rows > 0){
     $_SESSION['error'] = "L'email existe déjà";
     header('Location: /inscription.php');
-    exit;
 }
 
-$description = "Je m'apelle $prenom $nom et je suis dans le groupe $groupe";
-echo $password . "<br>" . $groupe . "<br>" . $description;
+$description = "Je m\'apelle $prenom $nom et je suis dans le groupe $groupe";
+echo $password. "<br>". $groupe. "<br>". $description;
 
-$sql = "INSERT INTO profil (email, password, nom, prenom, description, groups) VALUES (:email, :password, :nom, :prenom, :description, :groupe)";
-$stmt = $dbh->prepare($sql);
-$stmt->bindParam(":email", $email, PDO::PARAM_STR);
-$stmt->bindParam(":password", $password, PDO::PARAM_STR);
-$stmt->bindParam(":nom", $nom, PDO::PARAM_STR);
-$stmt->bindParam(":prenom", $prenom, PDO::PARAM_STR);
-$stmt->bindParam(":description", $description, PDO::PARAM_STR);
-$stmt->bindParam(":groupe", $groupe, PDO::PARAM_STR);
+$password = mysqli_real_escape_string($dbh, $password); // Escape the password value
 
-if ($stmt->execute()) {
-    $_SESSION['error'] = "Inscription réussie";
-    header('Location: /connexion.php');
+$sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
+
+if ($dbh->query($sql) === TRUE) {
+    echo "Inscription réussie";
 } else {
     $_SESSION['error'] = "Erreur lors de l'inscription";
-    header('Location: /inscription.php');
+    echo $dbh->error;
 }
 
-$dbh = null;
-
+$dbh->close();
