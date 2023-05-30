@@ -15,19 +15,19 @@ if(empty($email) || empty($password)){
 
 $dbh = connect();
 
-$sql = "SELECT * FROM profil WHERE email = ?";
+$sql = "SELECT * FROM profil WHERE email = :email";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("s", $email);
+$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 $stmt->execute();
-$result = $stmt->get_result();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if($result->num_rows == 0){
+if(count($result) == 0){
     $_SESSION['error'] = "L'email n'existe pas";
     header('Location: /connexion.php');
     exit;
 }
 
-$user = $result->fetch_assoc();
+$user = $result[0];
 
 if(!password_verify($password, $user['password'])){
     $_SESSION['error'] = "Le mot de passe est incorrect";
@@ -36,7 +36,7 @@ if(!password_verify($password, $user['password'])){
 }
 
 $emailhash = password_hash($email, PASSWORD_DEFAULT);
-$username = $user["nom"];
+$username = $user['prenom'];
 
 setcookie('AMIMAIL', $emailhash, time() + 3600, '/');
 setcookie('AMINAME', $username, time() + 3600, '/');
