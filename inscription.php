@@ -23,7 +23,7 @@ if(isset($_SESSION['error'])){
 
 ?>
 
-    <form method="POST" action=".assets/php/vinscription.php">
+    <form method="POST" action="./assets/php/vinscription.php">
     <input type="text" name="nom" id="nom" placeholder="Nom">
     <input type="text" name="prenom" id="prenom" placeholder="Prénom">
     <input type="text" name="email" id="email" placeholder="Email">
