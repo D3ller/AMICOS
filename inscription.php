@@ -2,6 +2,12 @@
 //tjr laissez le session start en haut de la page
 session_start();
 
+if(isset($_COOKIE['AMIMAIL']) || isset($_COOKIE['AMINAME'])){
+    header('Location: /index.php');
+    exit;
+}
+
+
 ?>
 
 <!DOCTYPE html>
