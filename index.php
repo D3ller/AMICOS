@@ -37,8 +37,7 @@ require_once('./assets/php/lib.php');
             $stmt->execute();
             $user = $stmt->get_result()->fetch_assoc();    
 
-            echo "<p>Bienvenue ".$user['prenom']."</p>";
-            echo "<a href='./assets/php/deconnexion.php'>Déconnexion</a>";
+            echo "<p class='header-p-white'>Bienvenue ".$user['prenom']." <a href='./assets/php/deconnexion.php'>Déconnexion</a></p>";
         } else {
             // echo "<p>Vous n'êtes pas connecté</p>";
             echo "<a class='info-con' href='./connexion.php'>Connexion</a>";
