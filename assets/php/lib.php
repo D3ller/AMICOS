@@ -1,5 +1,7 @@
 <?php
 
+
+
 function connect() {
     $host_name = 'db5013211722.hosting-data.io';
     $database = 'dbs11084435';
@@ -16,4 +18,14 @@ function connect() {
 
   }
   
+
+  function disconnect() {
+
+    session_start();
+    session_destroy();
+    header('Location: /index.php');
+    exit;
+  }
+
+
 ?>

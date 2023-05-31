@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_COOKIE['AMIMAIL']) || isset($_COOKIE['AMINAME'])){
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     header('Location: /index.php');
     exit;
 }

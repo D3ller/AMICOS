@@ -35,11 +35,10 @@ if(!password_verify($password, $user['password'])){
     exit;
 }
 
-$emailhash = password_hash($email, PASSWORD_DEFAULT);
-$username = $user["nom"];
+$username = $user["nom"]." ".$user["prenom"];
 
-setcookie('AMIMAIL', $emailhash, time() + 3600, '/');
-setcookie('AMINAME', $username, time() + 3600, '/');
+$_SESSION['AMIMAIL'] = $email;
+$_SESSION['AMINAME'] = $username;
 
 header('Location: /index.php');
 
