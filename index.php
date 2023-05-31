@@ -27,7 +27,7 @@ require_once('./assets/php/lib.php');
         <?php
 
         if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
-            echo "<p>Vous êtes connecté</p>";
+            // echo "<p>Vous êtes connecté</p>";
 
             $dbh = connect();
 
@@ -40,7 +40,7 @@ require_once('./assets/php/lib.php');
             echo "<p>Bienvenue ".$user['prenom']."</p>";
             echo "<a href='./assets/php/deconnexion.php'>Déconnexion</a>";
         } else {
-            echo "<p>Vous n'êtes pas connecté</p>";
+            // echo "<p>Vous n'êtes pas connecté</p>";
             echo "<a class='info-con' href='./connexion.php'>Connexion</a>";
             echo ' | ';
             echo "<a class='info-con' href='./inscription.php'>Inscription</a>";
