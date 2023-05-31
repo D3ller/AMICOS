@@ -7,4 +7,3 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^mmi22c01\.sae202\.ovh$ [NC]
 RewriteRule ^$ /admin/admin.php [L]
-php_flag display_errors off
