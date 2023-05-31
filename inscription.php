@@ -17,6 +17,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/inscription.css">
+    <link rel="stylesheet" href="./assets/css/header-footer.css">
     <script src="./assets/js/script.js" DEEFER></script>
     <title>Inscription</title>
 </head>
