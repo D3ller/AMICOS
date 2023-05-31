@@ -52,6 +52,8 @@ $dbh = connect();
 $sql = "SELECT * FROM profil WHERE email = '$email'";
 $result = $dbh->query($sql);
 
+echo $result->num_rows;
+
 if($result->num_rows > 0){
     $_SESSION['error'] = "L'email existe déjà";
     header('Location: /inscription.php');
