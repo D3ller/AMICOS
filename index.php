@@ -34,6 +34,12 @@ require_once('./assets/php/lib.php');
 <input type="datetime-local" value="Date" onclick="">
 <input type="submit" value="Rechercher">
 
+<iframe src="https://storage.googleapis.com/maps-solutions-xnfwwwbqef/address-selection/68ir/address-selection.html"
+  width="100%" height="100%"
+  style="border:0;"
+  loading="lazy">
+</iframe>
+
     
     <?php
     require_once 'footer.php';
