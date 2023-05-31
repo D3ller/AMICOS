@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('./assets/php/lib.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,16 @@ session_start();
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     echo "<p>Vous êtes connecté</p>";
-    echo "<p>Bienvenue ".$_SESSION['AMIID']."</p>";
+
+    $dbh = connect();
+
+    $sql = "SELECT * FROM profil WHERE id = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("s", $_SESSION['AMIID']);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();    
+
+    echo "<p>Bienvenue ".$user['prenom']."</p>";
     echo "<a href='./assets/php/deconnexion.php'>Déconnexion</a>";
 } else {
     echo "<p>Vous n'êtes pas connecté</p>";
