@@ -34,7 +34,7 @@ if(isset($_SESSION['error'])){
         <input type="submit" name="submit" value="connexion">
     </form>
 
-    //Garde l'id sur le mot de pass oublié !!!!
+<script>alert("Garde l'id de mot de pass oublié j'ai mis du js")</script>
 
     <a href="./inscription.php">Inscription</a> | <a id='forget' href="./forget.php">Mot de passe oublié</a>
 

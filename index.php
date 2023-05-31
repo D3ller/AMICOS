@@ -32,13 +32,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     echo '<a href="./forget.php">Mot de passe oublié</a>';
 }
 ?>
-
-
-
-<form method='POST' action='./assets/php/'>
-
-
-</form>
     
     <?php
     require_once 'footer.php';
