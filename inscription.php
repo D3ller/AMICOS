@@ -11,12 +11,14 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/contacts.css">
+    <script src="./assets/js/script.js" DEEFER></script>
+    <title>Inscription</title>
 </head>
 <body>
 
