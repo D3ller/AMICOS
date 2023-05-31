@@ -1,10 +1,9 @@
-RewriteEngine On
+#RewriteEngine On
 
 # Redirection HTTP vers HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^mmi22c01\.sae202\.ovh$ [NC]
-RewriteRule ^$ /admin/admin.php [L]
-php_flag display_errors off
+#RewriteCond %{HTTP_HOST} ^mmi22c01\.sae202\.ovh$ [NC]
+#RewriteRule ^$ /admin/admin.php [L]
+
