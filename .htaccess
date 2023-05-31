@@ -4,5 +4,6 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Redirection /admin/ vers /admin.php
-RewriteRule ^admin/$ /admin.php [L]
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^mmi22c01\.sae202\.ovh$ [NC]
+RewriteRule ^$ /admin/admin.php [L]
