@@ -52,24 +52,27 @@ $dbh = connect();
 $sql = "SELECT * FROM profil WHERE email = '$email'";
 $result = $dbh->query($sql);
 
-echo $result->num_rows;
-
 if($result->num_rows > 0){
     $_SESSION['error'] = "L'email existe déjà";
     header('Location: /inscription.php');
+    exit;
 }
 
-$password = mysqli_real_escape_string($dbh, $password); // Escape the password value
-$description = "Je m\'apelle $prenom $nom et je suis dans le groupe $groupe";
+echo $result->num_rows;
 
-$sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
+// $password = mysqli_real_escape_string($dbh, $password); // Escape the password value
+// $description = "Je m\'apelle $prenom $nom et je suis dans le groupe $groupe";
 
-if ($dbh->query($sql) === TRUE) {
-$_SESSION['error'] = "Inscription réussie";
-header('Location: /connexion.php');
-} else {
-    $_SESSION['error'] = "Erreur lors de l'inscription";
-    echo $dbh->error;
-}
+// $sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
 
-$dbh->close();
+// if ($dbh->query($sql) === TRUE) {
+// $_SESSION['error'] = "Inscription réussie";
+// header('Location: /connexion.php');
+// } else {
+//     $_SESSION['error'] = "Erreur lors de l'inscription";
+//     echo $dbh->error;
+// }
+
+// $dbh->close();
+
+?>
