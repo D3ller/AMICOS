@@ -82,16 +82,15 @@ if($result->num_rows == 0){
     $stmt->execute();
 
     $to = $email;
+    $from = "mmi22c01@mmi-troyes.fr";
     $subject = "Changement de mot de passe";
-    $message = "
-    http://localhost/forget.php?token=$token";
+    $headers = "From: $from";
+    $message = "Bonjour, veuillez cliquer sur ce lien pour changer votre mot de passe : http://sae202.mmi-troyes.fr/forget.php?mail=$email&token=$token";
 
-    if(mail($to, $subject, $message)){
+    if(mail($to, $subject, $message, $headers)){
         echo "Un mail vous a été envoyé";
-
     } else {
         echo "Une erreur est survenue";
-        echo $message;
     }
 }
 }

@@ -58,6 +58,7 @@ if($result->num_rows > 0){
 }
 
 $password = mysqli_real_escape_string($dbh, $password); // Escape the password value
+$description = "Je m\'apelle $prenom $nom et je suis dans le groupe $groupe";
 
 $sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
 
