@@ -35,10 +35,8 @@ if(!password_verify($password, $user['password'])){
     exit;
 }
 
-$username = $user["nom"]." ".$user["prenom"];
-
 $_SESSION['AMIMAIL'] = $email;
-$_SESSION['AMINAME'] = $username;
+$_SESSION['AMIID'] = $user['id'];
 
 header('Location: /index.php');
 

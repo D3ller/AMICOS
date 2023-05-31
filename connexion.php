@@ -29,9 +29,23 @@ if(isset($_SESSION['error'])){
 ?>
 
     <form METHOD="POST" action="./assets/php/vconnexion.php">
-        <input type="mail" name="email" placeholder="email">
+        <input type="mail" id='mail' name="email" placeholder="email">
         <input type="password" name="password" placeholder="password">
         <input type="submit" name="submit" value="connexion">
     </form>
+
+    //Garde l'id sur le mot de pass oublié !!!!
+
+    <a href="./inscription.php">Inscription</a> | <a id='forget' href="./forget.php">Mot de passe oublié</a>
+
+    <script>
+var forget = document.getElementById('forget');
+var mail = document.getElementById('mail');
+
+mail.addEventListener('input', function(){
+    forget.href = './forget.php?mail='+mail.value;
+})
+   </script>
+
 </body>
 </html>

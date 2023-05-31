@@ -21,15 +21,24 @@ session_start();
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     echo "<p>Vous êtes connecté</p>";
-    echo "<p>Bienvenue ".$_SESSION['AMINAME']."</p>";
+    echo "<p>Bienvenue ".$_SESSION['AMIID']."</p>";
     echo "<a href='./assets/php/deconnexion.php'>Déconnexion</a>";
 } else {
     echo "<p>Vous n'êtes pas connecté</p>";
     echo "<a href='./connexion.php'>Connexion</a>";
     echo ' | ';
     echo "<a href='./inscription.php'>Inscription</a>";
+    echo ' | ';
+    echo '<a href="./forget.php">Mot de passe oublié</a>';
 }
 ?>
+
+
+
+<form method='POST' action='./assets/php/'>
+
+
+</form>
     
     <?php
     require_once 'footer.php';
