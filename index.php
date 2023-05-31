@@ -26,9 +26,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
 
     $dbh = connect();
 
-    $sql = "SELECT * FROM profil WHERE id = ?";
+    $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
     $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("s", $_SESSION['AMIID']);
+    $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();    
 

@@ -4,13 +4,6 @@ session_start();
 
 require_once('./assets/php/lib.php');
 
-//dont display errors
-
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(E_ALL);
-
-
 $email = $_GET['mail'];
 $token = $_GET['token'];
 
@@ -82,15 +75,16 @@ if($result->num_rows == 0){
     $stmt->execute();
 
     $to = $email;
-    $from = "mmi22c01@mmi-troyes.fr";
     $subject = "Changement de mot de passe";
-    $headers = "From: $from";
-    $message = "Bonjour, veuillez cliquer sur ce lien pour changer votre mot de passe : http://sae202.mmi-troyes.fr/forget.php?mail=$email&token=$token";
+    $message = "
+    http://localhost/forget.php?token=$token";
 
-    if(mail($to, $subject, $message, $headers)){
+    if(mail($to, $subject, $message)){
         echo "Un mail vous a été envoyé";
+
     } else {
         echo "Une erreur est survenue";
+        echo $message;
     }
 }
 }
