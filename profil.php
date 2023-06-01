@@ -33,8 +33,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     while($trajet = $result->fetch_assoc()) {
         $trajet['date'] = new DateTime($trajet['date']);
         $trajet['date'] = $trajet['date']->format('d/m/Y H:i');
-
-        $trajet['duree'] = $trajet['duree']->format('H:i');
     
         echo '<h2>Trajets</h2>';
         echo '<div>';
