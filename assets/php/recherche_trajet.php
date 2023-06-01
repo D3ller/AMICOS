@@ -17,7 +17,7 @@ echo '<h1>Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
 
 $dbh = connect();
 
-$sql = "SELECT * FROM trajet date >= ?";
+$sql = "SELECT * FROM trajet date > ?";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("s", $datetime);
 $stmt->execute();
