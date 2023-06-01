@@ -63,13 +63,20 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p> Nombre de place: '.$trajet['place'].' passager(s)</p>';
         echo '</div>';
 
-        echo '<div>';
-        echo '<h3>Passager(s)</h3>';
         $sql3 = "SELECT * FROM passager WHERE trajet_id = ?";
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->bind_param("s", $trajet['id']);
         $stmt3->execute();
         $result3 = $stmt3->get_result();
+        $num_rows = $result3->num_rows;
+
+        if($num_rows == 0) {
+            echo '<h3>Aucun passagers</h3>';
+        } else {
+            echo '<p>Passagers ('.$num_rows.')</p>';
+        }
+
+        echo '<div>';
 
         while($passager = $result3->fetch_assoc()) {
             $sql4 = "SELECT * FROM profil WHERE id = ?";
