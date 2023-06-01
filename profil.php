@@ -63,7 +63,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p> Nombre de place: '.$trajet['place'].' passager(s)</p>';
         echo '</div>';
 
-        echo '<div>'
+        echo '<div>';
         echo '<h3>Passager(s)</h3>';
         $sql3 = "SELECT * FROM passager WHERE trajet_id = ?";
         $stmt3 = $dbh->prepare($sql3);
