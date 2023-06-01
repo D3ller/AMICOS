@@ -23,6 +23,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 
     echo '<a href="./assets/php/deconnexion.php">Déconnexion</a>';
 
+    echo '<h2>Vos trajets</h2>';
+
+
     $sql = "SELECT * FROM trajet WHERE conducteur_id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("s", $user['id']);
@@ -49,7 +52,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $conducteur = $result2->fetch_assoc();
 
         
-        echo '<h2>Trajets</h2>';
         echo '<div>';
         
 
