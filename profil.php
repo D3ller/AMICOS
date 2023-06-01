@@ -74,7 +74,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         while($passager = $result3->fetch_assoc()) {
             $sql4 = "SELECT * FROM profil WHERE id = ?";
             $stmt4 = $dbh->prepare($sql4);
-            $stmt4->bind_param("s", $passager['passager_id']);
+            $stmt4->bind_param("s", $passager['user_id']);
             $stmt4->execute();
             $result4 = $stmt4->get_result();
             $passager = $result4->fetch_assoc();
