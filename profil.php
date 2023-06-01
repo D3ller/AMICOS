@@ -44,12 +44,21 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         
         echo '<h2>Trajets</h2>';
         echo '<div>';
-        echo '<h3>Conducteur: Vous</h3>';
+        
+        $sql = "SELECT * FROM profil WHERE id = ?";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bind_param("s", $trajet['conducteur_id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $conducteur = $result->fetch_assoc();
+        
+
+        echo '<h3>Conducteur:'.$conducteur["nom"]'</h3>';
         echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
         echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
         echo '<p> Date:'.$trajet['date'].'</p>';
         echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
-        echo '<p> Nombre de place: '.$trajet['place'].'€</p>';
+        echo '<p> Nombre de place: '.$trajet['place'].' passager(s)</p>';
         echo '</div>';
     }
     
