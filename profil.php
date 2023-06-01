@@ -48,7 +48,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
         echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
         echo '<p> Date:'.$trajet['date'].'</p>';
-        echo '<p>Durée'.$trajet['duree'].' | KM: '.$trajet['km'].' | CO2: '.$trajet['co2'].'</p>';
+        echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
+        echo '<p> Nombre de place: '.$trajet['place'].'€</p>';
         echo '</div>';
     }
     
