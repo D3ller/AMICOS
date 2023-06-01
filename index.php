@@ -149,6 +149,7 @@ function calculateDistanceAndCO2() {
         document.getElementById('distance').innerHTML = "Distance : " + round(distanceInKm) + " km";
 
         //transform 2.075833333333333 to 124.55 minutes
+        console.log(durationInHours);
         var minutes = durationInHours * 60;
         var hours = Math.floor(minutes / 60);
         var minutes = minutes - (hours * 60);
