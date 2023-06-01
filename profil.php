@@ -34,7 +34,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $trajet['date'] = new DateTime($trajet['date']);
         $trajet['date'] = $trajet['date']->format('d/m/Y H:i');
 
-        $trajet['duree'] = new DateTime($trajet['duree']);
         $trajet['duree'] = $trajet['duree']->format('H:i');
     
         echo '<h2>Trajets</h2>';
