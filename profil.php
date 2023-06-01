@@ -53,7 +53,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $conducteur = $result->fetch_assoc();
         
 
-        echo '<h3>Conducteur:'.$conducteur["nom"]'</h3>';
+        echo '<h3>Conducteur:'.$conducteur["nom"].'</h3>';
         echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
         echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
         echo '<p> Date:'.$trajet['date'].'</p>';
