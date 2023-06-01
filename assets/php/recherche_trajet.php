@@ -22,6 +22,8 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("s", $datetime);
 $stmt->execute();
 
+echo $datetime;
+
 $result = $stmt->get_result();
 
 while ($trajet = $result->fetch_assoc()) {
