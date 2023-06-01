@@ -23,7 +23,14 @@ require_once('./assets/php/lib.php');
 <body>
     <?php 
     require_once 'header.php';
+
+    if(isset($_SESSION['error'])) {
+        echo '<p class="error">'.$_SESSION['error'].'</p>';
+        unset($_SESSION['error']);
+    }
     ?>
+
+
     
 
     <main>
@@ -54,7 +61,7 @@ require_once('./assets/php/lib.php');
 
     </main>
 
-
+<form action="/assets/php/recherche_trajet.php" method="post">
 <input type="text" id="address" placeholder="Départ">
 <input id='adress2' type="text" placeholder="Arrivée">
 <input type="datetime-local" value="Date" onclick="">
@@ -148,7 +155,6 @@ function calculateDistanceAndCO2() {
 
         document.getElementById('distance').innerHTML = "Distance : " + round(distanceInKm) + " km";
 
-        //transform 2.075833333333333 to 124.55 minutes
         var minutes = durationInHours * 60;
         var hours = Math.floor(minutes / 60);
         var minutes = minutes - (hours * 60);

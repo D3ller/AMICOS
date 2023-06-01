@@ -2,6 +2,11 @@
 
 session_start();
 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+    header('Location: /index.php');
+    exit;
+}
+
 require_once('./lib.php');
 
 $email = $_POST['email'];

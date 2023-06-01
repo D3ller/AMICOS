@@ -2,6 +2,12 @@
 
 session_start();
 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+    $_SESSION['error'] = ['Vous êtes déjà connecté'];
+    header('Location: /index.php');
+    exit;
+}
+
 require_once('./assets/php/lib.php');
 
 $email = $_GET['mail'];

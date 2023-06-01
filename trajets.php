@@ -2,6 +2,13 @@
 
 session_start();
 
+if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMINAME'])){
+    $_SESSION['error'] = "Vous n'êtes pas connecté";
+    header('Location: ./connexion.php');
+    exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>

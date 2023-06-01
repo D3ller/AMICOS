@@ -3,6 +3,7 @@
 session_start();
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+    $_SESSION['error'] = "<p>Vous êtes déjà connecté</p>";
     header('Location: /index.php');
     exit;
 }
