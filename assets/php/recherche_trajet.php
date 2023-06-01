@@ -24,32 +24,14 @@ $stmt->execute();
 
 echo $datetime;
 
-function distance($lat1, $lon1, $lat2, $lon2) {
-    $theta = $lon1 - $lon2;
-    $dist = sin(deg2rad($lat1)) 
-        * sin(deg2rad($lat2))
-        + cos(deg2rad($lat1))
-        * cos(deg2rad($lat2))
-        * cos(deg2rad($theta));
-    $dist = acos($dist);
-    $dist = rad2deg($dist);
-
-    $miles = $dist * 60 * 1.1515;
-
-    return ($miles * 1.609344);
-}
-
 
 $result = $stmt->get_result();
 
 while ($trajet = $result->fetch_assoc()) {
     echo $trajet['lieu_depart'].'<br>';
     echo $trajet['lieu_arrivee'].'<br>';
-
-    $distance = distance($lat, $lng, $trajet['lat'], $trajet['lng']);
-    $distance2 = distance($lat2, $lng2, $trajet['lat2'], $trajet['lng2']);
-
-    echo $distance.'<br>';
+    echo $trajet['lat']. ' '.$trajet['lng'].'<br>';
+    echo $trajet['lat2']. ' '.$trajet['lng2'].'<br>';
 
 }
 
