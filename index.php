@@ -148,6 +148,7 @@ function calculateDistanceAndCO2() {
 
         document.getElementById('distance').innerHTML = "Distance : " + round(distanceInKm) + " km";
         document.getElementById('duree').innerHTML = "Durée : " + round(durationInHours) + " heures";
+        console.log(durationInHours);
         document.getElementById('c02').innerHTML = "CO2 : " + round(co2Emission) + " kg";
 
     } else {
