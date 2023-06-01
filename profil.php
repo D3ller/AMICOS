@@ -41,16 +41,16 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 
         $trajet['duree'] = $hours.'h'.$minutes;
 
-        
-        echo '<h2>Trajets</h2>';
-        echo '<div>';
-        
         $sql = "SELECT * FROM profil WHERE id = ?";
         $stmt = $dbh->prepare($sql);
         $stmt->bind_param("s", $trajet['conducteur_id']);
         $stmt->execute();
         $result = $stmt->get_result();
         $conducteur = $result->fetch_assoc();
+
+        
+        echo '<h2>Trajets</h2>';
+        echo '<div>';
         
 
         echo '<h3>Conducteur:'.$conducteur["nom"].'</h3>';
