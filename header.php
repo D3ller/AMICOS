@@ -3,7 +3,7 @@
         <a href='/'>Accueil</a>
         <div class="util-info">
             <?php
-require_once '/assets/php/lib.php';
+require_once '../assets/php/lib.php';
         if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
             // echo "<p>Vous êtes connecté</p>";
 
