@@ -147,8 +147,12 @@ function calculateDistanceAndCO2() {
       };
 
         document.getElementById('distance').innerHTML = "Distance : " + round(distanceInKm) + " km";
-        document.getElementById('duree').innerHTML = "Durée : " + round(durationInHours) + " heures";
-        console.log(durationInHours);
+
+        //transform 2.075833333333333 to 124.55 minutes
+        var minutes = durationInHours * 60;
+        var hours = Math.floor(minutes / 60);
+        var minutes = minutes - (hours * 60);
+        document.getElementById('duree').innerHTML = "Durée : " + hours + " heures et " + Math.round(minutes) + " minutes";
         document.getElementById('c02').innerHTML = "CO2 : " + round(co2Emission) + " kg";
 
     } else {
