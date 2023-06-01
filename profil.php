@@ -34,7 +34,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $trajet['date'] = new DateTime($trajet['date']);
         $trajet['date'] = $trajet['date']->format('d/m/Y H:i');
 
-        $trajet['duree'] = floor($trajet['duree']);
         $minutes = $trajet['duree'] * 60;
         $hours = floor($minutes / 60);
         $minutes = $minutes - ($hours * 60);
