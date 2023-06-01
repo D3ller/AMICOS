@@ -71,7 +71,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $num_rows = $result3->num_rows;
 
         if($num_rows == 0) {
-            echo '<h3>Aucun passagers</h3>';
+            echo '<h3>Passager ('.$num_rows.')</h3>';
+            echo '<p>Aucun passagers</p>';
         } else {
             echo '<h3>Passagers ('.$num_rows.')</h3>';
         }
