@@ -17,16 +17,15 @@ echo '<h1>Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
 
 $dbh = connect();
 
-$sql = "SELECT * FROM trajet date > ?";
+$sql = "SELECT * FROM trajet WHERE date > ?";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("s", $datetime);
 $stmt->execute();
 
 $result = $stmt->get_result();
 
-while($trajet = $result->fetch_assoc()) {
+while ($trajet = $result->fetch_assoc()) {
     echo $trajet['lieu_depart'].'<br>';
-
 }
 
 
