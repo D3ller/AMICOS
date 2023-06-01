@@ -31,17 +31,19 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     $result = $stmt->get_result();
 
     while($trajet = $result->fetch_assoc()) {
-        $trajet['date'] = date('d/m/Y', strtotime($trajet['date']));
-    
+        $trajet['date'] = new DateTime($trajet['date']);
+        $trajet['date'] = $trajet['date']->format('d/m/Y H:i');
+
+        $trajet['duree'] = new DateTime($trajet['duree']);
+        $trajet['duree'] = $trajet['duree']->format('H:i');
     
         echo '<h2>Trajets</h2>';
-    
         echo '<div>';
         echo '<h3>Conducteur: Vous</h3>';
-        echo '<p>'.$trajet['lieu_depart'].'</p>';
-        echo '<p>'.$trajet['lieu_arrivee'].'</p>';
-        echo '<p>'.$trajet['date'].'</p>';
-        echo '<p>'.$trajet['duree'].'</p> | <p>'.$trajet['km'].'</p> | <p>'.$trajet['co2'].'</p>';
+        echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
+        echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
+        echo '<p> Date:'.$trajet['date'].'</p>';
+        echo '<p>Durée'.$trajet['duree'].' | KM: '.$trajet['km'].' | CO2: '.$trajet['co2'].'</p>';
         echo '</div>';
     }
     
