@@ -28,20 +28,21 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     $stmt->bind_param("s", $user['id']);
 
     $result = $stmt->execute();
-    $trajet = $result->fetch_assoc();
 
-    $trajet['date'] = date('d/m/Y', strtotime($trajet['date']));
-
-
-    echo '<h2>Trajets</h2>';
-
-    echo '<div>';
-    echo '<h3>Conducteur: Vous</h3>';
-    echo '<p>'.$trajet['lieu_depart'].'</p>';
-    echo '<p>'.$trajet['lieu_arrivee'].'</p>';
-    echo '<p>'.$trajet['date'].'</p>';
-    echo '<p>'.$trajet['duree'].'</p> | <p>'.$trajet['distance'].'</p> | <p>'.$trajet['co2'].'</p>';
-    echo '</div>';
+    while($trajet = $result->fetch_assoc()) {
+        $trajet['date'] = date('d/m/Y', strtotime($trajet['date']));
+    
+    
+        echo '<h2>Trajets</h2>';
+    
+        echo '<div>';
+        echo '<h3>Conducteur: Vous</h3>';
+        echo '<p>'.$trajet['lieu_depart'].'</p>';
+        echo '<p>'.$trajet['lieu_arrivee'].'</p>';
+        echo '<p>'.$trajet['date'].'</p>';
+        echo '<p>'.$trajet['duree'].'</p> | <p>'.$trajet['distance'].'</p> | <p>'.$trajet['co2'].'</p>';
+        echo '</div>';
+    }
     
 
 } else {
