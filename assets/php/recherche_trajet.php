@@ -24,10 +24,18 @@ $stmt->execute();
 
 echo $datetime;
 
+
 $result = $stmt->get_result();
 
 while ($trajet = $result->fetch_assoc()) {
     echo $trajet['lieu_depart'].'<br>';
+    echo $trajet['lieu_arrivee'].'<br>';
+
+    $distance = distance($lat, $lng, $trajet['lat_depart'], $trajet['lng_depart']);
+    $distance2 = distance($lat2, $lng2, $trajet['lat_arrivee'], $trajet['lng_arrivee']);
+
+    echo $distance.'<br>';
+
 }
 
 
