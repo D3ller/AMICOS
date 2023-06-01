@@ -41,7 +41,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p>'.$trajet['lieu_depart'].'</p>';
         echo '<p>'.$trajet['lieu_arrivee'].'</p>';
         echo '<p>'.$trajet['date'].'</p>';
-        echo '<p>'.$trajet['duree'].'</p> | <p>'.$trajet['distance'].'</p> | <p>'.$trajet['co2'].'</p>';
+        echo '<p>'.$trajet['duree'].'</p> | <p>'.$trajet['km'].'</p> | <p>'.$trajet['co2'].'</p>';
         echo '</div>';
     }
     
