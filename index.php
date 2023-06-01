@@ -62,17 +62,20 @@ require_once('./assets/php/lib.php');
     </main>
 
 <form action="/assets/php/recherche_trajet.php" method="post">
-<input type="text" id="address" placeholder="Départ">
-<input id='adress2' type="text" placeholder="Arrivée">
-<input type="datetime-local" value="Date" onclick="">
+<input type="text" name='depart' id="address" placeholder="Départ">
+<input id='adress2' name='arrivee' type="text" placeholder="Arrivée">
+<input type="datetime-local" name='datetime' value="Date" onclick="">
+
+<input name='lat' type="hidden" id="lat" value="">
+<input name='lng' type="hidden" id="lng" value="">
+
+<input name='lat2' type="hidden" id="lat2" value="">
+<input name='lng2' type="hidden" id="lng2" value="">
+
 <input type="submit" value="Rechercher">
 
 
-<input type="hidden" id="lat" value="">
-<input type="hidden" id="lng" value="">
 
-<input type="hidden" id="lat2" value="">
-<input type="hidden" id="lng2" value="">
 
 <p id='c02'></p>
 <p id='distance'></p>
