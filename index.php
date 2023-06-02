@@ -73,7 +73,7 @@ require_once('./assets/php/lib.php');
 <input name='lng2' type="hidden" id="lng2" value="" required>
 
 <input type="submit" value="Rechercher">
-
+</form>
 
 
 
@@ -167,7 +167,8 @@ function calculateDistanceAndCO2() {
 
 
     } else {
-        console.log("Error: " + status);
+        document.getElementById('distance').innerHTML = "Le trajet n'a pas pu être calculé.";
+        console.log(status);
     }
   });
 }
