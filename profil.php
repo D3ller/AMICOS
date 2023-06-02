@@ -4,6 +4,24 @@ session_start();
 
 require_once('./assets/php/lib.php');
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
+</head>
+<body>
+    
+
+
+
+<?php
+
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 
     $dbh = connect();
@@ -17,13 +35,14 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     $user = $result->fetch_assoc();
 
     echo '<h1>Profil</h1>';
+
+    echo '<img src="'.$user["profil-picture"].'" alt="Photo de profil" width="200px" height="200px">';
     echo $user["prenom"]. ' ' .$user["nom"].'<br>';
     echo $user["email"].'<br>';
     echo $user["description"].'<br>';
 
     echo '<a href="./assets/php/deconnexion.php">Déconnexion</a>';
 
-    echo '<h2>Vos trajets</h2>';
 
 
     $sql = "SELECT * FROM trajet WHERE conducteur_id = ?";
@@ -32,6 +51,12 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     $stmt->execute();
 
     $result = $stmt->get_result();
+    $number = $result->num_rows;
+
+    echo '<h2>Vos trajets en cours ('. $number. ')</h2>';
+
+    echo '<div id="card-lister">';
+
 
     while($trajet = $result->fetch_assoc()) {
         $trajet['date'] = new DateTime($trajet['date']);
@@ -61,7 +86,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p> Date:'.$trajet['date'].'</p>';
         echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
         echo '<p> Nombre de place: '.$trajet['place'].' passager(s)</p>';
-        echo '</div>';
 
         $sql3 = "SELECT * FROM passager WHERE trajet_id = ?";
         $stmt3 = $dbh->prepare($sql3);
@@ -90,8 +114,10 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
             echo '<p>'.$passager['prenom'].' '.$passager['nom'].'</p>';
         }
         echo '</div>';
+        echo '</div>';
+
     }
-    
+    echo '</div>';
 
 } else {
     $_SESSION['error'] = "Vous n'êtes pas connecté";
@@ -100,3 +126,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 }
 
 ?>
+
+</body>
+</html>

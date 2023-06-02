@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+#card-lister {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
