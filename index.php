@@ -108,6 +108,7 @@ while ($row = $result->fetch_assoc()) {
     echo "<p>".$row['lieu_arrivee']."</p>";
     echo "<p>".$row['date']."</p>";
     echo "<p>".$row['num_rows']."/".$row['place']."</p>";
+    echo '<a href="./reserv/'.$row['id'].'">Voir</a>';
     echo '</div>';
 }
 

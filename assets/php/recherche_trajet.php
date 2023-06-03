@@ -2,6 +2,8 @@
 
 session_start();
 
+echo '<link type="text/css" rel="stylesheet" href="/assets/css/header-footer.css">';
+
 require_once('./lib.php');
 
 $depart = $_POST['depart'];
