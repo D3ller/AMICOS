@@ -41,8 +41,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
             <input type="text" name="nom" id="nom" placeholder="Nom">
             <input type="text" name="prenom" id="prenom" placeholder="Prénom">
             <input type="text" name="email" id="email" placeholder="Email">
-            <input type="text" name="password" id="password" placeholder="Mot de passe">
-            <input type="text" name="password2" id="password2" placeholder="Confirmer le mot de passe">
+            <input type="password" name="password" id="password" placeholder="Mot de passe">
+            <input type="password" name="password2" id="password2" placeholder="Confirmer le mot de passe">
             <select name="group" required>
                 <option value="">Groupe</option>
                 <option value="A">A</option>

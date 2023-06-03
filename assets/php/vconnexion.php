@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+$session_lifetime = 86400;
+ini_set('session.gc_maxlifetime', $session_lifetime);
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     header('Location: /index.php');

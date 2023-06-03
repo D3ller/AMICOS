@@ -14,7 +14,10 @@ require_once './assets/php/lib.php';
             $stmt->execute();
             $user = $stmt->get_result()->fetch_assoc();    
 
-            echo "<p class='header-p-white'>Bienvenue ".$user['prenom']." <a href='./assets/php/deconnexion.php'>Déconnexion</a> <a class='info-con' href='./trajets.php'>Crée un trajet</a> <a class='info-con' href='./profil.php'>Profil</a></p>";
+    echo "<p>Bienvenue ".$user['prenom']."</p>
+    <a href='./assets/php/deconnexion.php'>Déconnexion</a>
+    <a class='info-con' href='./trajets.php'>Crée un trajet</a>
+    <a id='pp' href='./profil.php'><img class='img-profil' src='".$user['profil-picture']."' width='30' height='30'></a>";
         } else {
             // echo "<p>Vous n'êtes pas connecté</p>";
             echo "<a class='info-con' href='./connexion.php'>Connexion</a>";

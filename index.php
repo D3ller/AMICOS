@@ -16,8 +16,8 @@ require_once('./assets/php/lib.php');
     <link rel="stylesheet" href="./assets/css/header-footer.css">
     <script src="./assets/js/script.js" DEEFER></script>
     <title>Accueil</title>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
 
 </head>
 <body>
@@ -38,7 +38,6 @@ require_once('./assets/php/lib.php');
         <?php
 
         if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
-            // echo "<p>Vous êtes connecté</p>";
 
             $dbh = connect();
 
@@ -50,7 +49,6 @@ require_once('./assets/php/lib.php');
 
             echo "<p class='header-p-white'>Bienvenue ".$user['prenom']." <a href='./assets/php/deconnexion.php'>Déconnexion</a></p>";
         } else {
-            // echo "<p>Vous n'êtes pas connecté</p>";
             echo "<a class='info-con' href='./connexion.php'>Connexion</a>";
             echo ' | ';
             echo "<a class='info-con' href='./inscription.php'>Inscription</a>";
@@ -82,6 +80,39 @@ require_once('./assets/php/lib.php');
 <p id='duree'></p>
 
 <button onclick="calculateDistanceAndCO2()">Calculer</button>
+
+<?php
+
+require_once './assets/php/lib.php';
+
+$dbh = connect();
+
+$sql = "SELECT t.*, COUNT(p.id) AS num_rows
+        FROM trajet t
+        LEFT JOIN passager p ON t.id = p.trajet_id
+        GROUP BY t.id
+        HAVING num_rows < t.place
+        ORDER BY RAND()
+        LIMIT 5";
+
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+
+echo '<h2>Trajets récents</h2>';
+echo '<div id="trajets">';
+
+while ($row = $result->fetch_assoc()) {
+    echo '<div class="trajet">';
+    echo "<p>".$row['lieu_depart']."</p>";
+    echo "<p>".$row['lieu_arrivee']."</p>";
+    echo "<p>".$row['date']."</p>";
+    echo "<p>".$row['num_rows']."/".$row['place']."</p>";
+    echo '</div>';
+}
+
+echo '</div>';
+?>
 
 
 

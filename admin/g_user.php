@@ -7,7 +7,7 @@ require_once('../assets/php/lib.php');
 
 $dbh = connect();
 
-$sql = "Select * from profil";
+$sql = "SELECT * from profil";
 
 $stmt = $dbh->prepare($sql);
 $stmt->execute();

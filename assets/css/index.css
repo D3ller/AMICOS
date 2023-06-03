@@ -1,3 +1,8 @@
-.info-con{
-    
+#trajets {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }

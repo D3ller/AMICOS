@@ -19,6 +19,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/header-footer.css">
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&components=country:FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
 </head>
 <body>
@@ -37,7 +38,7 @@ if(isset($_SESSION['error'])){
 
 
 
-<form method='POST' action='./assets/php/vtrajet.php'>
+<form style='margin-top: 70px'method='POST' action='./assets/php/vtrajet.php'>
 <input type="text" name='depart' id="address" placeholder="Départ" required>
 <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
 <input type="datetime-local" name='datetime' value="Date" onclick="" required>

@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once 'header.php';
+
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
     $_SESSION['error'] = ['Vous êtes déjà connecté'];
     header('Location: /index.php');

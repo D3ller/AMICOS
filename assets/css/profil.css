@@ -12,3 +12,22 @@ body {
     align-items: center;
     gap: 20px;
 }
+
+#profil-pic {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 10px;
+    color: #b5b5b5;
+}

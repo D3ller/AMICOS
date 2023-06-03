@@ -14,6 +14,7 @@ require_once('./assets/php/lib.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
+    <link rel="stylesheet" href="./assets/css/header-footer.css">
 </head>
 <body>
     
@@ -38,9 +39,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 
     echo '<h1>Profil</h1>';
 
-    echo '<img src="'.$user["profil-picture"].'" alt="Photo de profil" width="200px" height="200px">';
-    echo $user["prenom"]. ' ' .$user["nom"].'<br>';
-    echo $user["email"].'<br>';
+    echo '<img id="profil-pic" src="'.$user["profil-picture"].'" alt="Photo de profil">';
+    echo '<h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1>';
+    echo '<h4>'.$user["email"].'</h4>';
     echo $user["description"].'<br>';
 
     echo '<a href="./assets/php/deconnexion.php">Déconnexion</a>';
@@ -115,26 +116,30 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         $result3 = $stmt3->get_result();
         $num_rows = $result3->num_rows;
 
-        if($num_rows == 0) {
-            echo '<h3>Passager ('.$num_rows.')</h3>';
-            echo '<p>Aucun passagers</p>';
+        if ($num_rows == 0) {
+            echo '<details>';
+            echo '<summary>Passagers ('.$num_rows.')</summary>';
+            echo '<p>Aucun passager</p>';
+            echo '</details>';
         } else {
-            echo '<h3>Passagers ('.$num_rows.')</h3>';
+            echo '<details open>';
+            echo '<summary>Passagers ('.$num_rows.')</summary>';
+            echo '<div>';
+        
+            while ($passager = $result3->fetch_assoc()) {
+                $sql4 = "SELECT * FROM profil WHERE id = ?";
+                $stmt4 = $dbh->prepare($sql4);
+                $stmt4->bind_param("s", $passager['user_id']);
+                $stmt4->execute();
+                $result4 = $stmt4->get_result();
+                $passager = $result4->fetch_assoc();
+        
+                echo '<p>'.$passager['prenom'].' '.$passager['nom'].'</p>';
+            }
+        
+            echo '</details>';
+            echo '</div>';
         }
-
-        echo '<div>';
-
-        while($passager = $result3->fetch_assoc()) {
-            $sql4 = "SELECT * FROM profil WHERE id = ?";
-            $stmt4 = $dbh->prepare($sql4);
-            $stmt4->bind_param("s", $passager['user_id']);
-            $stmt4->execute();
-            $result4 = $stmt4->get_result();
-            $passager = $result4->fetch_assoc();
-
-            echo '<p>'.$passager['prenom'].' '.$passager['nom'].'</p>';
-        }
-        echo '</div>';
         echo '</div>';
 
         while($interior = $result5->fetch_assoc()) {
@@ -174,6 +179,37 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
             echo '<p> Date:'.$interior['date'].'</p>';
             echo '<p>Durée: '.$interior['duree'].' | KM: '.$interior['km'].'km | CO2: '.$interior['co2'].'kg</p>';
             echo '<p> Nombre de place:'.$num_rows.'/'.$interior['place'].'</p>';
+
+            echo '<details>';
+            echo '<summary>';
+            
+            if ($num_rows == 0) {
+                echo 'Passagers ('.$num_rows.')';
+            } else {
+                echo 'Passager ('.$num_rows.')';
+            }
+            
+            echo '</summary>';
+            echo '<div>';
+            
+            if ($num_rows == 0) {
+                echo '<p>Aucun passager</p>';
+            } else {
+                while ($passager = $result3->fetch_assoc()) {
+                    $sql4 = "SELECT * FROM profil WHERE id = ?";
+                    $stmt4 = $dbh->prepare($sql4);
+                    $stmt4->bind_param("s", $passager['user_id']);
+                    $stmt4->execute();
+                    $result4 = $stmt4->get_result();
+                    $passager = $result4->fetch_assoc();
+            
+                    echo '<p>'.$passager['prenom'].' '.$passager['nom'].'</p>';
+                }
+            }
+            
+            echo '</div>';
+            echo '</details>';
+            
 
             echo '</div>';
         }
