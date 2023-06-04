@@ -91,7 +91,7 @@ $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         FROM trajet t
         LEFT JOIN passager p ON t.id = p.trajet_id
         GROUP BY t.id
-        HAVING num_rows < t.place
+        HAVING num_rows < t.place WHERE t.date > NOW()
         ORDER BY RAND()
         LIMIT 5";
 
