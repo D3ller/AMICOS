@@ -33,12 +33,6 @@ while ($trajet = $result->fetch_assoc()) {
     $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
-
-    
-
-    $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
-    $distance = $distance / 1000;
-    
     // echo '<br><br><br><br>';
     // echo $apiUrl.'<br>';
 
