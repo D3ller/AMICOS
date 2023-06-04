@@ -50,6 +50,7 @@ while ($trajet = $result->fetch_assoc()) {
 
 
         $distance = $directions['routes'][0]['legs'][2]['distance']['value'] . '<br>';
+        echo $distance . ' ceci est la distance'. '<br>';
         $distance = $distance / 1000;
 //         echo $distance . ' ceci est la distance'. '<br>';
 //         echo $trajet['km'] . 'km'. '<br>';
