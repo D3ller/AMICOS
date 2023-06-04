@@ -5,6 +5,7 @@ session_start();
 echo '<link type="text/css" rel="stylesheet" href="/assets/css/header-footer.css">';
 
 require_once('./lib.php');
+include_once('./header.php');
 
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
@@ -34,29 +35,11 @@ while ($trajet = $result->fetch_assoc()) {
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
 
-    $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
-    $distance = $distance / 1000;
-    
-    // echo '<br><br><br><br>';
-    // echo $apiUrl.'<br>';
-
 
 
     if ($directions['status'] === 'OK') {
-        $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
+        $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
         $distance = $distance / 1000;
-
-        // echo '<br><br><br><br>';
-
-
-        $distance = $directions['routes'][0]['legs'][2]['distance']['value'] . '<br>';
-        $distance = $distance / 1000;
-//         echo $distance . ' ceci est la distance'. '<br>';
-//         echo $trajet['km'] . 'km'. '<br>';
-//                 echo '<br><br><br><br>';
-
-        
-// echo abs($distance) . ' ceci est la distance'. '<br>';
 
 if ($distance <= 20) {
     if ($trajetInteressant === null || abs($distance) < $distancePlusInteressante) {
