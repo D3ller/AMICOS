@@ -5,6 +5,7 @@ session_start();
 echo '<link type="text/css" rel="stylesheet" href="/assets/css/header-footer.css">';
 
 require_once('./lib.php');
+include_once('./header.php');
 
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
@@ -33,21 +34,12 @@ while ($trajet = $result->fetch_assoc()) {
     $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
-    
-    // echo '<br><br><br><br>';
-    // echo $apiUrl.'<br>';
 
 
 
     if ($directions['status'] === 'OK') {
         $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
         $distance = $distance / 1000;
-//         echo $distance . ' ceci est la distance'. '<br>';
-//         echo $trajet['km'] . 'km'. '<br>';
-//                 echo '<br><br><br><br>';
-
-        
-// echo abs($distance) . ' ceci est la distance'. '<br>';
 
 if ($distance <= 20) {
     if ($trajetInteressant === null || abs($distance) < $distancePlusInteressante) {
@@ -148,9 +140,5 @@ if ($trajetInteressant !== null) {
 } else {
     echo 'Aucun trajet trouvé.';
 }
-
-echo '<pre>';
-print_r($directions);
-echo '</pre>';
 
 ?>
