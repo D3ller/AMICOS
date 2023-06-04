@@ -91,6 +91,7 @@ $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         HAVING num_rows < t.place
         ORDER BY RAND()
         LIMIT 5";
+        
 
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
