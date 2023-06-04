@@ -34,6 +34,13 @@ while ($trajet = $result->fetch_assoc()) {
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
 
+    //echo 
+
+    echo '<pre>';
+    print_r($directions);
+    echo '</pre>';
+    
+
     $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
     $distance = $distance / 1000;
     
@@ -46,7 +53,6 @@ while ($trajet = $result->fetch_assoc()) {
         $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
         $distance = $distance / 1000;
 
-        // echo '<br><br><br><br>';
 
 
         $distance = $directions['routes'][0]['legs'][2]['distance']['value'] . '<br>';
