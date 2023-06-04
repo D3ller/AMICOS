@@ -34,11 +34,6 @@ while ($trajet = $result->fetch_assoc()) {
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
 
-    //echo 
-
-    echo '<pre>';
-    print_r($directions);
-    echo '</pre>';
     
 
     $distance = $directions['routes'][0]['legs'][1]['distance']['value'];
@@ -56,7 +51,6 @@ while ($trajet = $result->fetch_assoc()) {
 
 
         $distance = $directions['routes'][0]['legs'][2]['distance']['value'] . '<br>';
-        echo $distance . ' ceci est la distance'. '<br>';
         $distance = $distance / 1000;
 //         echo $distance . ' ceci est la distance'. '<br>';
 //         echo $trajet['km'] . 'km'. '<br>';
@@ -164,5 +158,9 @@ if ($trajetInteressant !== null) {
 } else {
     echo 'Aucun trajet trouvé.';
 }
+
+echo '<pre>';
+print_r($directions);
+echo '</pre>';
 
 ?>
