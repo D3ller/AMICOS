@@ -9,6 +9,7 @@
 
 main{
     margin-top: 5.5vh;
+    margin-bottom: 3.5vh;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -69,6 +70,7 @@ footer{
     bottom: 0;
     left: 0;
     height: 3.5vh;
+    z-index: 2000;
 }
 
 footer a{
