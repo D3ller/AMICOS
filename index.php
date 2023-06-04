@@ -83,15 +83,6 @@ require_once('./assets/php/lib.php');
 
         $dbh = connect();
 
-<<<<<<< HEAD
-        $sql = "SELECT t.*, COUNT(p.id) AS num_rows
-                FROM trajet t
-                LEFT JOIN passager p ON t.id = p.trajet_id
-                GROUP BY t.id
-                HAVING num_rows < t.place
-                ORDER BY RAND()
-                LIMIT 5";
-=======
 $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         FROM trajet t
         LEFT JOIN passager p ON t.id = p.trajet_id
@@ -100,7 +91,6 @@ $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         HAVING num_rows < t.place
         ORDER BY RAND()
         LIMIT 5";
->>>>>>> 549d6a9a1993135b502d42f7af71c360c479fe28
 
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
