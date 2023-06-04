@@ -70,7 +70,7 @@ if($result->num_rows > 0){
     exit();
 }
 
-$description = "Je m\'apelle $prenom $nom et je suis dans le groupe $groupe";
+$description = "Je m\'appelle $prenom $nom et je suis dans le groupe $groupe";
 echo $password. "<br>". $groupe. "<br>". $description;
 
 $password = mysqli_real_escape_string($dbh, $password); // Escape the password value

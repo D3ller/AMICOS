@@ -19,7 +19,7 @@ require_once('./assets/php/lib.php');
 <body>
     
 
-
+<main>
 
 <?php
 
@@ -278,7 +278,10 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     exit();
 }
 
+
+
 ?>
+</main>
 
 </body>
 </html>
