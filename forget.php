@@ -107,6 +107,8 @@ if($result->num_rows == 0){
 
     $send = mail($to, $subject, $message, $headers);
 
+    echo $send;
+
     if($send){
         echo "Un mail vous a été envoyé";
     } else {
