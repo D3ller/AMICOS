@@ -1,10 +1,16 @@
+<?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+?>
+
 <nav>
     <div class="ele-nav">
         <a href='/'>Accueil</a>
         <div class="util-info">
             <?php
 require_once './assets/php/lib.php';
-        if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+        if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
             $dbh = connect();
 
@@ -30,4 +36,5 @@ require_once './assets/php/lib.php';
         </div>
     </div>
 </nav>
+
 

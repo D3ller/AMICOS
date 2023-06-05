@@ -20,6 +20,7 @@ require_once('./assets/php/lib.php');
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
 
+
 </head>
 <body>
     <?php 
@@ -31,29 +32,14 @@ require_once('./assets/php/lib.php');
     }
     ?>
 
+
+
+
     <main>
 
-        <?php
 
-        if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
 
-            $dbh = connect();
 
-            $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
-            $stmt = $dbh->prepare($sql);
-            $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
-            $stmt->execute();
-            $user = $stmt->get_result()->fetch_assoc();    
-
-            echo "<p class='header-p-white'>Bienvenue ".$user['prenom']." <a href='./assets/php/deconnexion.php'>Déconnexion</a></p>";
-        } else {
-            echo "<a class='info-con' href='./connexion.php'>Connexion</a>";
-            echo ' | ';
-            echo "<a class='info-con' href='./inscription.php'>Inscription</a>";
-            echo ' | ';
-            echo "<a class='info-con' href='./forget.php'>Mot de passe oublié</a>";
-        }
-        ?>
 
         <form action="/assets/php/recherche_trajet.php" method="post" required>
         <input type="text" name='depart' id="address" placeholder="Départ" required >
@@ -91,7 +77,6 @@ $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         HAVING num_rows < t.place
         ORDER BY RAND()
         LIMIT 5";
-        
 
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
@@ -111,87 +96,191 @@ $sql = "SELECT t.*, COUNT(p.id) AS num_rows
         }
 
         echo '</div>';
+
+
         ?>
 
-        <!-- SWIPE -->
-        <div id="swipe">
-            <div class="tinder">
-                <div class="tinder--status">
-                <i class="fa fa-remove"></i>
-                <i class="fa fa-heart"></i>
-                </div>
-            
-                <div class="tinder--cards">
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/people">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-            
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/animals">
-                    <h3>Demo card 2</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/nature">
-                    <h3>Demo card 3</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/tech">
-                    <h3>Demo card 4</h3>
-                    <p></p>
-                </div>
-                <div class="tinder--card">
-                    <img src="https://placeimg.com/600/300/arch">
-                    <h3>Demo card 5</h3>
-                    <p>This is a demo for Tinder like swipe cards</p>
-                </div>
-                </div>
-            
-                <div class="tinder--buttons">
-                <button id="nope"><i class="fa fa-remove"></i></button>
-                <button id="love"><i class="fa fa-heart"></i></button>
-                </div>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
+
+<?php
+
+$sqluser = "SELECT * FROM profil WHERE email = ? AND id = ?";
+$stmtuser = $dbh->prepare($sqluser);
+$stmtuser->bind_param("ss", $_SESSION['AMIMAIL'], $_SESSION['AMIID']);
+$stmtuser->execute();
+$resultuser = $stmtuser->get_result();
+$user = $resultuser->fetch_assoc();
+
+$sql = "SELECT * FROM passager WHERE user_id = ? AND NOW() > (SELECT date FROM trajet WHERE id = passager.trajet_id) LIMIT 1";
+$stmt = $dbh->prepare($sql);
+$stmt->bind_param("i", $user['id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$trajet = $result->fetch_assoc();
+
+if($result->num_rows > 0) {
+echo '<h2>Votre dernier trajet</h2>';
+$sql2 = "SELECT * FROM trajet WHERE id = ?";
+$stmt2 = $dbh->prepare($sql2);
+$stmt2->bind_param("i", $trajet['trajet_id']);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+$trajet2 = $result2->fetch_assoc();
+
+$trajet2['date'] = date("d/m/Y H:i", strtotime($trajet2['date']));
+
+echo "Départ de ".$trajet2['lieu_depart']. " vers ". $trajet2['lieu_arrivee']." le ". $trajet2['date'];
+echo '<div id="map" style="width: 80%; height: 200px; border-radius: 20px; margin: 0 auto;"></div>';
+} else {
+echo '<h2>Vous n\'avez aucun trajet passés</h2>';
+echo '<a href="./recherche">Rechercher un trajet</a>';
+}
+
+
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
+
+echo '
+<div id="swipe">
+    <div class="tinder">
+        <div class="tinder--status">
+            <i class="fa fa-remove"></i>
+            <i class="fa fa-heart"></i>
         </div>
+
+        <div class="tinder--cards">
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/people">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/animals">
+                <h3>Demo card 2</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/nature">
+                <h3>Demo card 3</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/tech">
+                <h3>Demo card 4</h3>
+                <p></p>
+            </div>
+            <div class="tinder--card">
+                <img src="https://placeimg.com/600/300/arch">
+                <h3>Demo card 5</h3>
+                <p>This is a demo for Tinder like swipe cards</p>
+            </div>
+        </div>
+
+        <div class="tinder--buttons">
+            <button id="nope"><i class="fa fa-remove"></i></button>
+            <button id="love"><i class="fa fa-heart"></i></button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+</div>';
+
+} else {
+    echo '<h2>Connectez-vous pour voir les trajets</h2>';
+}
+
+?>
 
 </main>
 
+<?php
 
-    <?php
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
+echo "
+<script>
+var latDepart = $trajet2[lat];
+var lngDepart = $trajet2[lng];
+var latArrivee = $trajet2[lat2];
+var lngArrivee = $trajet2[lng2];
+
+function initMap() {
+  var startPoint = new google.maps.LatLng(latDepart, lngDepart);
+  var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
+
+  var mapOptions = {
+    center: startPoint,
+    zoom: 50,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    mapTypeControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: []
+    }
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer({
+    map: map,
+    polylineOptions: {
+      strokeColor: '#fe1269'
+    }
+  });
+
+  var request = {
+    origin: startPoint,
+    destination: endPoint,
+    travelMode: google.maps.TravelMode.DRIVING 
+  };
+
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsRenderer.setDirections(result);
+    }
+  });
+}
+
+window.onload = function() {
+  initMap();
+  map.getDiv().style.width = '100%';
+map.getDiv().style.height = '100px';
+};
+
+
+
+</script>
+";
+}
     require_once 'footer.php';
     ?>
     

@@ -25,7 +25,7 @@ require_once('./assets/php/lib.php');
 
 require_once 'header.php';
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
     $dbh = connect();
 
@@ -55,7 +55,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
     $num_rows5 = $result5->num_rows;
 
 
-    $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date > NOW() ORDER BY date ASC";
+    $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date > NOW()";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("s", $user['id']);
     $stmt->execute();
@@ -99,9 +99,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
         echo '<p> Date:'.$trajet['date'].'</p>';
         echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
 
-        $sql3 = "SELECT * FROM passager WHERE trajet_id = ?";
+        $sql3 = "SELECT * FROM passager WHERE trajet_id = ? AND user_id != ?";
         $stmt3 = $dbh->prepare($sql3);
-        $stmt3->bind_param("s", $trajet['id']);
+        $stmt3->bind_param("ss", $trajet['id'], $user['id']);
         $stmt3->execute();
         $result3 = $stmt3->get_result();
         $num_rows = $result3->num_rows;
@@ -213,7 +213,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
 
             echo '</div>';
         }
-
 
     }
     echo '</div>';

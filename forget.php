@@ -4,7 +4,7 @@ session_start();
 
 require_once 'header.php';
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     $_SESSION['error'] = ['Vous êtes déjà connecté'];
     header('Location: /index.php');
     exit;
@@ -84,15 +84,33 @@ if($result->num_rows == 0){
 
     $to = $email;
     $subject = "Changement de mot de passe";
-    $message = "
-    http://localhost/forget.php?token=$token";
+    $message = "http://mmi22c01.sae202.ovh/forget.php?token=$token";
 
-    if(mail($to, $subject, $message)){
+    $from = 'mmi22c01@mmic01.mmi-troyes.fr';
+    $fromName = 'Réinitialisation de mot de passe';
+
+    $message = '<html><body>';
+    $message .= '<h1>Changement de mot de passe</h1>';
+    $message .= '<p>Vous avez demandé un changement de mot de passe, veuillez cliquer sur le lien suivant pour le changer</p>';
+    $message .= '<a href="'.$message.'">Changer</a>';
+    $message .= '</body></html>';
+
+  
+    $headers = "MIME-Version: 1.0" . "\r\n"; 
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+            $headers .= "Organization: 2480\r\n";
+            $headers .= "X-Priority: 3\r\n";
+            $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
+            $headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n";
+            $headers .= 'Reply-to: no-reply@mmi-troyes.fr';
+    
+
+    $send = mail($to, $subject, $message, $headers);
+
+    if($send){
         echo "Un mail vous a été envoyé";
-
     } else {
         echo "Une erreur est survenue";
-        echo $message;
     }
 }
 }

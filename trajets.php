@@ -3,7 +3,7 @@
 session_start();
 
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
 } else {
   $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page';

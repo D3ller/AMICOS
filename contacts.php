@@ -27,7 +27,7 @@ session_start();
 
     <?php
 
-    if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+    if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
         $dbh = connect();
 
