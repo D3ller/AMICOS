@@ -82,7 +82,9 @@ if($result->num_rows == 0){
     $stmt->bind_param("ss", $token, $email);
     $stmt->execute();
 
+    echo $email;
     $to = $email;
+    echo $to;
     $subject = "Changement de mot de passe";
     $message = "http://mmi22c01.sae202.ovh/forget.php?token=$token";
 
