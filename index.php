@@ -279,6 +279,7 @@ echo '
 </main>
 
 <?php
+    require_once 'menu.php';
 
     require_once 'footer.php';
     ?>

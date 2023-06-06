@@ -117,20 +117,15 @@ menu{
 }
 
 /* BURGER */
-/* .visuallyHidden {
-    position: absolute; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height: 1px; 
-    width: 1px; 
-    margin: -1px; 
-    padding: 0; 
-    border: 0; 
-} */
+.burger button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;;
+}
 
 .hamburger {
     margin: 0 auto;
-    /* margin-top: 30px; */
     width: 30px;
     height: 30px;
     position: relative;
@@ -163,7 +158,7 @@ menu{
 .bar4 {
     bottom: 0;
 }
-/*  */
+
 .checkbox2.visuallyHidden {
     position: absolute;
     overflow: hidden;
