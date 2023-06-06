@@ -15,6 +15,22 @@ main{
 
 /* Header */
 
+header{
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 65px;
+}
+
+.logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* nav{
     display: flex;
     width: 100%;
@@ -121,7 +137,8 @@ menu{
     background-color: transparent;
     border: none;
     outline: none;
-    cursor: pointer;;
+    cursor: pointer;
+    margin-left: 15px;
 }
 
 .hamburger {
