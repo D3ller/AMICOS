@@ -32,24 +32,24 @@ require_once('./assets/php/lib.php');
     }
     ?>
 
+<?php
 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
+    $dbh = connect();
+    $sql = 'SELECT * FROM profil WHERE id = ?';
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("i", $_SESSION['AMIID']);
+    $stmt->execute();
 
+    $user = $stmt->get_result()->fetch_assoc();
+    echo '<p>Bienvenue '.$user['prenom'].'.</p>';
+}
+
+?>
 
     <main>
 
-        <?php
 
-            if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
-                $dbh = connect();
-                $sql = 'SELECT * FROM profil WHERE id = ?';
-                $stmt = $dbh->prepare($sql);
-                $stmt->bind_param("i", $_SESSION['AMIID']);
-                $stmt->execute();
-            
-                $user = $stmt->get_result()->fetch_assoc();
-                echo '<p>Bienvenue '.$user['prenom'].'.</p>';
-            }
-        ?>
 
 
 

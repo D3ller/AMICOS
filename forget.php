@@ -2,14 +2,9 @@
 
 session_start();
 
-require_once 'header.php';
-
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
-    $_SESSION['error'] = ['Vous êtes déjà connecté'];
-    header('Location: /index.php');
-    exit;
-}
-
+echo '<link rel="stylesheet" href="./assets/css/header-footer.css">';
+echo '<link rel="stylesheet" href="./assets/css/connexion.css">';
+require_once('header.php');
 require_once('./assets/php/lib.php');
 
 $email = $_GET['mail'];
@@ -30,9 +25,12 @@ $user = $result->fetch_assoc();
 if($result->num_rows == 0){
 echo "Le token n'existe pas";
 } else {
+
+echo '<div class="conn-logo"></div>';
+
 echo '<form action="./assets/php/vforget.php" method="POST">';
 echo '<input type="hidden" name="token" value="'.$token.'">';
-echo '<input type="mail" name="email" value="'.$user['email'].'" disabled>';
+echo '<input class="icon" type="mail" name="email" value="'.$user['email'].'" disabled>';
 echo '<input type="password" name="password" placeholder="password">';
 echo '<input type="submit" name="submit" value="Changer">';
 echo '</form>';
@@ -41,7 +39,7 @@ echo '</form>';
 } else {
 
 if(empty($email)){
-echo "<input type='text' id='mail' placeholder='email'>";
+echo "<input type='text' class='icon' id='mail' placeholder='E-mail'>";
 echo "<a id='forget' href=''>Envoyer</a>";
 echo "<script>mail.addEventListener('input', function(){
     forget.href = './forget.php?mail='+mail.value;
@@ -61,7 +59,7 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if($result->num_rows == 0){
-    echo "<input type='text' id='mail' placeholder='email'>";
+    echo "<input type='text' class='icon' id='mail' placeholder='E-mail'>";
     echo "<a id='forget' href=''>Envoyer</a>";
     echo "<script>mail.addEventListener('input', function(){
         forget.href = './forget.php?mail='+mail.value;

@@ -15,8 +15,10 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $password2 = $_POST['password2'];
 $groupe = $_POST['group'];
+$age = $_POST['age'];
+$sexe = $_POST['sexe'];
 
-if(empty($nom) || empty($prenom) || empty($email) || empty($password) || empty($password2) || empty($groupe)) {
+if(empty($nom) || empty($prenom) || empty($email) || empty($password) || empty($password2) || empty($groupe) || empty($age) || empty($sexe)) {
 $_SESSION['error'] = "Veuillez remplir tous les champs";
 header('Location: /inscription.php');
 exit();
@@ -53,6 +55,29 @@ if($groupe != 'A' && $groupe != 'B' && $groupe != 'C' && $groupe != 'D' && $grou
 
 }
 
+if($sexe != 'Homme' && $sexe != 'Femme' && $sexe != 'Autre'){
+    $_SESSION['error'] = "Le sexe n'est pas valide";
+    header('Location: /inscription.php');
+    exit();
+
+}
+
+if(!is_numeric($age)){
+    $_SESSION['error'] = "L'age n'est pas valide";
+    header('Location: /inscription.php');
+    exit();
+
+}
+
+if($age < 16 || $age > 25){
+    $_SESSION['error'] = "L'age n'est pas valide";
+    header('Location: /inscription.php');
+    exit();
+
+}
+
+
+
 $password = password_hash($password, PASSWORD_DEFAULT);
 
 
@@ -72,7 +97,7 @@ $description = "Je m\'appelle $prenom $nom et je suis dans le groupe $groupe";
 
 $password = mysqli_real_escape_string($dbh, $password);
 
-$sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
+$sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`, age, sexe) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe', '$age', '$sexe')";
 
 if ($dbh->query($sql) === TRUE) {
     $sql = "SELECT * FROM profil WHERE email = '$email'";

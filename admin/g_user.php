@@ -24,7 +24,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 while ($user = $result->fetch_assoc()) {
-    echo "<p>".$user['prenom']." ".$user['nom']."</p>";
+    echo "<p>".$user['prenom']." ".$user['nom']." - TP ".$user['groups']."</p>";
     echo "<a href='./user/delete.php?id=".$user['id']."'>Supprimer</a>";
     echo " | ";
     echo "<a href='./user/update.php?id=".$user['id']."'>Modifier</a>";

@@ -61,6 +61,8 @@ require_once 'header.php';
     echo '<h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1>';
     echo '<h4>'.$user["email"].'</h4>';
     echo $user["description"].'<br>';
+    echo $user['age'] . ' ans<br>';
+    echo $user['sexe'] . '<br>';
 
     echo '<a href="./assets/php/deconnexion.php">Déconnexion</a>';
     echo "  ";

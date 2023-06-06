@@ -8,6 +8,7 @@ if(!isset($id)) {
     exit();
 }
 
+
 require_once '../../assets/php/lib.php';
 
 $dbh = connect();
@@ -26,16 +27,16 @@ if($result->num_rows === 0) {
 }
 
 echo '<h2>Modifier un utilisateur</h2>';
-echo '<form id="update_user" action="./assets/php/vupdate.php" method="post">'
-echo '<input type="hidden" id="id" value="'.$user['id'].'">';
+echo '<form id="update_user" action="./vupdate.php" method="post">';
+echo '<input name="id" type="hidden" id="id" value="'.$user['id'].'">';
 echo '<label for="email">Email</label>';
-echo '<input type="email" id="email" value="'.$user['email'].'">';
+echo '<input name="email" type="email" id="email" value="'.$user['email'].'">';
 echo '<label for="nom">Nom</label>';
-echo '<input type="text" id="nom" value="'.$user['nom'].'">';
+echo '<input name="nom" type="text" id="nom" value="'.$user['nom'].'">';
 echo '<label for="prenom">Prénom</label>';
-echo '<input type="text" id="prenom" value="'.$user['prenom'].'">';
+echo '<input name="prenom" type="text" id="prenom" value="'.$user['prenom'].'">';
 echo '<label for="groups">Groupe</label>';
-echo '<select id="groups">';
+echo '<select name="groups" id="groups">';
 echo '<option value="A" '.($user['groups'] === 'A' ? 'selected' : '').'>A</option>';
 echo '<option value="B" '.($user['groups'] === 'B' ? 'selected' : '').'>B</option>';
 echo '<option value="C" '.($user['groups'] === 'C' ? 'selected' : '').'>C</option>';
@@ -47,3 +48,4 @@ echo '<textarea name="description" id="description" cols="30" rows="10">'.$user[
 echo '<button id="update">Modifier</button>';
 echo '</form>';
 
+?>

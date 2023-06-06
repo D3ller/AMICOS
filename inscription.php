@@ -52,6 +52,15 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 <option value="E">E</option>
                 <option value="F">F</option>
             </select>
+            
+            <select name='sexe'>
+                <option value="">Sexe</option>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+            </select>
+
+            <input name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
 
             <input type="submit" value="S'inscrire">
             </form>
