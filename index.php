@@ -274,7 +274,11 @@ echo '
     echo '<h2>Connectez-vous pour voir les trajets</h2>';
 }
 
+
+require_once 'menu.php';
 ?>
+
+
 
 </main>
 
