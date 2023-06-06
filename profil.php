@@ -38,8 +38,6 @@ if(isset($_SESSION['error'])){
 
 
 
-require_once 'header.php';
-
     $dbh = connect();
     //Je récupère les infos de l'utilisateur
     $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
@@ -49,8 +47,7 @@ require_once 'header.php';
 
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-
-    echo '<h1>Profil</h1>';
+echo '<div id="profil">';
     
     if($user["description"] == ""){
         $user["description"] = "Aucune description";
@@ -59,10 +56,79 @@ require_once 'header.php';
 
     echo '<img id="profil-pic" src="'.$user["profil-picture"].'" alt="Photo de profil">';
     echo '<h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1>';
-    echo '<h4>'.$user["email"].'</h4>';
-    echo $user["description"].'<br>';
-    echo $user['age'] . ' ans<br>';
-    echo $user['sexe'] . '<br>';
+    echo '<p class="grey">'.$user['sexe'] . '</p>';
+    echo '<p class="grey">'.$user['age'] . ' ans</p>';
+    echo '</div>';
+
+    echo '<div id="preference">';
+
+    echo '<div class="pref">';
+    echo '<h2 class="subtitle">Préférences de covoiturage</h2>';
+    echo '<div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="fumeur" name="fumeur" disabled checked>';
+    echo '<label for="fumeur" class="greys cb">Fumeur</label>';
+    echo '</div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="music" name="music" disabled checked>';
+    echo '<label for="music" class="greys cb">Musique</label>';
+    echo '</div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="animal" name="animal" disabled checked>';
+    echo '<label for="animal" class="greys cb">Animaux</label>';
+    echo '</div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="discussion" name="discussion" disabled checked>';
+    echo '<label for="discussion" class="greys cb">Discussion</label>';
+    echo '</div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled checked>';
+    echo '<label for="sharepayement" class="greys cb">Frais divisé</label>';
+    echo '</div>';
+    echo '<div class="subpref">';
+    echo '<input type="checkbox" id="sharecar" name="sharecar" disabled checked>';
+    echo '<label for="sharecar" class="greys cb">2nd pilote</label>';
+    echo '</div>';
+
+    echo '</div>';
+
+
+    echo '</div>';
+
+    if($user['voiture'] == NULL) {
+        $user['voiture'] = "Aucune voiture";
+    } else {
+        $user['voiture'] = "Voiture";
+    }
+
+    echo '<div class="pref">';
+    echo '<h2 class="subtitle">Voiture</h2>';
+    echo '<p class="greys">'.$user["voiture"].'</p>';
+    echo '</div>';
+
+    echo '<div class="pref">';
+    echo '<h2 class="subtitle">Description</h2>';
+    echo '<p class="greys">'.$user["description"].'</p>';
+    echo '</div>';
+
+    echo '</div>';
+
+    echo '<div id="buttons">';
+
+    echo '<div class="button">';
+    echo '<a><button id="stats"><img src="https://portfolio.karibsen.fr/assets/img/stats.svg" alt="Statistiques"></button><p class="title">Statistiques</p></a>';
+    echo '</div>';
+
+    echo '<div class="button">';
+    echo '<a><button id="stats"><img src="https://portfolio.karibsen.fr/assets/img/clock.svg" alt="historique"></button><p class="title">Historiques</p></a>';
+    echo '</div>';
+
+    echo '<div class="button">';
+    echo '<a><button id="stats"><img src="https://portfolio.karibsen.fr/assets/img/door.svg" alt="deconnexion"></button><p class="title">Déconnexion</p></a>';
+    echo '</div>';
+
+    echo '</div>';
+
 
     echo '<a href="./assets/php/deconnexion.php">Déconnexion</a>';
     echo "  ";
