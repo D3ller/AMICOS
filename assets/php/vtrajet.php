@@ -18,7 +18,7 @@ $km = $_GET['km'];
 $duree = $_GET['duree'];
 $place = $_POST['place'];
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])) {
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
 if(!is_numeric($km) || !is_numeric($co2) || !is_numeric($duree) || !is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($lng2)) {
     

@@ -82,14 +82,12 @@ if($result->num_rows == 0){
     $stmt->bind_param("ss", $token, $email);
     $stmt->execute();
 
-    echo $email;
     $to = $email;
-    echo $to;
     $subject = "Changement de mot de passe";
     $message = "http://mmi22c01.sae202.ovh/forget.php?token=$token";
 
-    $from = 'mmi22c01@mmic01.mmi-troyes.fr';
-    $fromName = 'Réinitialisation de mot de passe';
+    $from = 'sae202@karibsen.fr';
+    $fromName = 'SAE202';
 
     $message = '<html><body>';
     $message .= '<h1>Changement de mot de passe</h1>';

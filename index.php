@@ -111,6 +111,7 @@ $stmtuser->execute();
 $resultuser = $stmtuser->get_result();
 $user = $resultuser->fetch_assoc();
 
+
 $sql = "SELECT * FROM passager WHERE user_id = ? AND NOW() > (SELECT date FROM trajet WHERE id = passager.trajet_id) LIMIT 1";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("i", $user['id']);
@@ -131,6 +132,61 @@ $trajet2['date'] = date("d/m/Y H:i", strtotime($trajet2['date']));
 
 echo "Départ de ".$trajet2['lieu_depart']. " vers ". $trajet2['lieu_arrivee']." le ". $trajet2['date'];
 echo '<div id="map" style="width: 80%; height: 200px; border-radius: 20px; margin: 0 auto;"></div>';
+echo "
+<script>
+var latDepart = $trajet2[lat];
+var lngDepart = $trajet2[lng];
+var latArrivee = $trajet2[lat2];
+var lngArrivee = $trajet2[lng2];
+
+function initMap() {
+  var startPoint = new google.maps.LatLng(latDepart, lngDepart);
+  var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
+
+  var mapOptions = {
+    center: startPoint,
+    zoom: 50,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    mapTypeControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: []
+    }
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer({
+    map: map,
+    polylineOptions: {
+      strokeColor: '#fe1269'
+    }
+  });
+
+  var request = {
+    origin: startPoint,
+    destination: endPoint,
+    travelMode: google.maps.TravelMode.DRIVING 
+  };
+
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsRenderer.setDirections(result);
+    }
+  });
+}
+
+window.onload = function() {
+  initMap();
+  map.getDiv().style.width = '100%';
+map.getDiv().style.height = '100px';
+};
+
+
+
+</script>
+";
 } else {
 echo '<h2>Vous n\'avez aucun trajet passés</h2>';
 echo '<a href="./recherche">Rechercher un trajet</a>';
@@ -224,63 +280,6 @@ echo '
 
 <?php
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
-echo "
-<script>
-var latDepart = $trajet2[lat];
-var lngDepart = $trajet2[lng];
-var latArrivee = $trajet2[lat2];
-var lngArrivee = $trajet2[lng2];
-
-function initMap() {
-  var startPoint = new google.maps.LatLng(latDepart, lngDepart);
-  var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
-
-  var mapOptions = {
-    center: startPoint,
-    zoom: 50,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    disableDefaultUI: true,
-    mapTypeControl: false,
-    mapTypeControlOptions: {
-      mapTypeIds: []
-    }
-  };
-
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  var directionsService = new google.maps.DirectionsService();
-  var directionsRenderer = new google.maps.DirectionsRenderer({
-    map: map,
-    polylineOptions: {
-      strokeColor: '#fe1269'
-    }
-  });
-
-  var request = {
-    origin: startPoint,
-    destination: endPoint,
-    travelMode: google.maps.TravelMode.DRIVING 
-  };
-
-  directionsService.route(request, function(result, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsRenderer.setDirections(result);
-    }
-  });
-}
-
-window.onload = function() {
-  initMap();
-  map.getDiv().style.width = '100%';
-map.getDiv().style.height = '100px';
-};
-
-
-
-</script>
-";
-}
     require_once 'footer.php';
     ?>
     

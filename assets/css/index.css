@@ -155,3 +155,6 @@ body {
     color: #cdd6dd;
   }
   
+  .tinder--status {
+    cursor: pointer;
+  }

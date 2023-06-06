@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMINAME'])){
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     header('Location: /index.php');
     exit;
 }
@@ -53,8 +53,6 @@ if($groupe != 'A' && $groupe != 'B' && $groupe != 'C' && $groupe != 'D' && $grou
 
 }
 
-//hash password
-
 $password = password_hash($password, PASSWORD_DEFAULT);
 
 
@@ -71,14 +69,23 @@ if($result->num_rows > 0){
 }
 
 $description = "Je m\'appelle $prenom $nom et je suis dans le groupe $groupe";
-echo $password. "<br>". $groupe. "<br>". $description;
 
-$password = mysqli_real_escape_string($dbh, $password); // Escape the password value
+$password = mysqli_real_escape_string($dbh, $password);
 
 $sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
 
 if ($dbh->query($sql) === TRUE) {
-    echo "Inscription réussie";
+    // echo "Votre inscription à réussie! Veuillez activez votre compte avec le lien envoyé par mail ou en scannant le QR code ci-dessous";
+    $sql = "SELECT * FROM profil WHERE email = '$email'";
+    $result = $dbh->query($sql);
+    $user = $result->fetch_assoc();
+    $id = $user['id'];
+    $_SESSION['error'] = "Votre inscription à réussie!";
+    header('Location: /connexion.php');
+
+    // echo "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://portfolio.karibsen.fr/active?id=".$id.".png' alt='QR Code' />";
+
+
 } else {
     $_SESSION['error'] = "Erreur lors de l'inscription";
     echo $dbh->error;

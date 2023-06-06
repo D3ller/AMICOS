@@ -4,6 +4,7 @@ ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 ?>
 
+
 <nav>
     <div class="ele-nav">
         <a href='/'>Accueil</a>
