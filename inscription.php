@@ -42,7 +42,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <input class="profil" type="text" name="nom" id="nom" placeholder="Nom">
                     <input class="profil" type="text" name="prenom" id="prenom" placeholder="Prénom">
                 </div>
-                <input class="mail" type="text" name="email" id="email" placeholder="Email">
+                <input class="email" type="email" name="email" id="email" placeholder="Email">
                 <input class="lock" type="password" name="password" id="password" placeholder="Mot de passe">
                 <input class="lock" type="password" name="password2" id="password2" placeholder="Confirmer le mot de passe">
                 <select class="group" name="group" required>
@@ -67,10 +67,5 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             </form>
         </div>
     </main>
-
-    <?php 
-        require_once 'menu.php';
-        require_once 'footer.php';
-    ?>
 </body>
 </html>
