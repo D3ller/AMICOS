@@ -19,7 +19,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/conexion.css">
     <link rel="stylesheet" href="./assets/css/header-footer.css">
-    <script src="./assets/js/script.js" DEEFER></script>
+    <!-- <script src="./assets/js/script.js" DEEFER></script> -->
     <title>Inscription</title>
 </head>
 <body>
