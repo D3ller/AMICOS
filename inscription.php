@@ -33,38 +33,37 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
         }
 
         ?>
-
         <div class="conn-logo">
-            
+            <div class="nom-perso-logo"></div>
         </div>
         <div class="form-inscription">
             <form method="POST" action="./assets/php/vinscription.php">
-            <input type="text" name="nom" id="nom" placeholder="Nom">
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-            <input type="text" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Mot de passe">
-            <input type="password" name="password2" id="password2" placeholder="Confirmer le mot de passe">
-            <select name="group" required>
-                <option value="">Groupe</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
-                <option value="F">F</option>
-            </select>
-            
-            <select name='sexe'>
-                <option value="">Sexe</option>
-                <option value="Homme">Homme</option>
-                <option value="Femme">Femme</option>
-                <option value="Autre">Autre</option>
-            </select>
+                <div>
+                    <input class="profil" type="text" name="nom" id="nom" placeholder="Nom">
+                    <input class="profil" type="text" name="prenom" id="prenom" placeholder="Prénom">
+                </div>
+                <input class="mail" type="text" name="email" id="email" placeholder="Email">
+                <input class="lock" type="password" name="password" id="password" placeholder="Mot de passe">
+                <input class="lock" type="password" name="password2" id="password2" placeholder="Confirmer le mot de passe">
+                <select class="group" name="group" required>
+                    <option value="">Groupe</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                </select>    
+                <select class="profil" name='sexe'>
+                    <option value="">Sexe</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Autre">Autre</option>
+                </select>
+                <input class="profil" name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
 
-            <input name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
 
-
-                <input type="submit" value="S'inscrire">
+                <input class="center" type="submit" value="S'inscrire">
             </form>
         </div>
     </main>

@@ -1,0 +1,77 @@
+.perso-logo{
+    background: url(https://portfolio.karibsen.fr/assets/img/conn-logo) no-repeat center;
+    background-size: cover;
+    width: 16.27vw;
+    height: 16.27vw;
+    display: block;
+    margin: 0 auto;
+}
+
+.nom-perso-logo{
+    background: url(https://portfolio.karibsen.fr/assets/img/connlogowithtext) no-repeat center;
+    background-size: cover;
+    width: 40%;
+    height: 10vw;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+/* --------------- */
+
+.form-inscription{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-inscription form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-inscription form input[type="text"],
+.form-inscription form input[type="password"],
+.form-inscription form input[type="email"],
+.form-inscription form input[type="number"],
+.form-inscription form select{
+    height: 40px;
+    border: 4px solid black;
+    border-radius: 9PX;
+    background-color: white;
+    padding-left: 35px;
+    background-position: 10px 5px;
+    background-size: 20px;
+}
+
+.center{
+    height: 40px;
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 9PX;
+    background-color: rgb(0, 0, 0);
+    color:white;
+}
+
+.lock{
+    background: url(https://portfolio.karibsen.fr/assets/img/lock) no-repeat left;
+}
+
+.mail{
+    background: url(https://portfolio.karibsen.fr/assets/img/mail) no-repeat left;
+}
+
+.group{
+    background: url(https://portfolio.karibsen.fr/assets/img/group) no-repeat left;
+}
+
+.profil{
+    background: url(https://portfolio.karibsen.fr/assets/img/profil) no-repeat left;
+}
+
+.form-inscription form input:focus,
+.form-inscription form select:focus{
+    outline: none;
+}
