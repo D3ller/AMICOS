@@ -44,7 +44,6 @@
                 </clipPath>
                 </defs>
             </svg>
-
         </div>
     </div>
 </menu>
