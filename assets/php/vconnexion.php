@@ -46,6 +46,8 @@ $_SESSION['AMIMAIL'] = $email;
 $_SESSION['AMIID'] = $user['id'];
 
 header('Location: /index.php');
+exit();
+
 
 ?>
 

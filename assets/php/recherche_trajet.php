@@ -80,7 +80,7 @@ if ($trajetInteressant !== null) {
 
 
     if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
-        echo '<button onclick="window.location.href=\'./assets/php/vinscription.php?trajet='.$trajetInteressant['id'].'?url=https://portfolio.karibsen.fr'.$_SERVER['REQUEST_URI'].'\'" '.$complete.'>S\'inscrire à ce trajet</button>';
+        echo '<button onclick="window.location.href=\'/reserv/'.$trajetInteressant['id'].'\'" '.$complete.'>S\'inscrire à ce trajet</button>';
     } else {
         echo '<button onclick="window.location.href=\'./connexion.php\'">Connectez-vous pour vous inscrire à ce trajet</button><br><br>';
     }
@@ -123,7 +123,7 @@ if ($trajetInteressant !== null) {
             }
         
             if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
-                echo '<button onclick="window.location.href=\'./assets/php/vinscription.php?trajet='.$trajetInteressant['id'].'?url=https://portfolio.karibsen.fr'.$_SERVER['REQUEST_URI'].'\'" '.$complete.'>S\'inscrire à ce trajet</button>';
+                echo '<button onclick="window.location.href=\'/reserv/'.$trajet['id'].'\'" '.$complete.'>S\'inscrire à ce trajet</button>';
             } else {
                 echo '<button onclick="window.location.href=\'./connexion.php\'">Connectez-vous pour vous inscrire à ce trajet</button><br><br>';
             }

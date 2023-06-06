@@ -31,6 +31,13 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
 <?php
 
+if(isset($_SESSION['error'])){
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+
+
+
 require_once 'header.php';
 
     $dbh = connect();
@@ -178,11 +185,10 @@ require_once 'header.php';
 
             $sql3 = "SELECT * FROM passager WHERE trajet_id = ?";
             $stmt3 = $dbh->prepare($sql3);
-            $stmt3->bind_param("s", $trajet['id']);
+            $stmt3->bind_param("s", $interior['id']);
             $stmt3->execute();
             $result3 = $stmt3->get_result();
-            $num_rows = $result3->num_rows;
-            
+            $num_rows = $result3->num_rows;            
     
             echo '<h3>Conducteur:'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
             echo '<p> Lieu départ:'.$interior['lieu_depart'].'</p>';

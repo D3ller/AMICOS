@@ -75,16 +75,13 @@ $password = mysqli_real_escape_string($dbh, $password);
 $sql = "INSERT INTO profil (email, password, nom, prenom, description, `groups`) VALUES ('$email', '$password', '$nom', '$prenom', '$description', '$groupe')";
 
 if ($dbh->query($sql) === TRUE) {
-    // echo "Votre inscription à réussie! Veuillez activez votre compte avec le lien envoyé par mail ou en scannant le QR code ci-dessous";
     $sql = "SELECT * FROM profil WHERE email = '$email'";
     $result = $dbh->query($sql);
     $user = $result->fetch_assoc();
     $id = $user['id'];
     $_SESSION['error'] = "Votre inscription à réussie!";
     header('Location: /connexion.php');
-
-    // echo "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://portfolio.karibsen.fr/active?id=".$id.".png' alt='QR Code' />";
-
+    exit();
 
 } else {
     $_SESSION['error'] = "Erreur lors de l'inscription";

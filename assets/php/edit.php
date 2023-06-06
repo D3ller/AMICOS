@@ -22,36 +22,49 @@ $user = $result->fetch_assoc();
 if(!isset($_POST['id']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['email']) || !isset($_POST['description'])) {
     $_SESSION['error'] = "Veuillez remplir tous les champs";
     header('Location: /profil.php');
+    exit();
 }
 
 if($_POST['id'] != $_SESSION['AMIID'] || $_POST['email'] != $_SESSION['AMIMAIL']) {
     $_SESSION['error'] = "Vous n'avez pas le droit de modifier ce profil";
     header('Location: /profil.php');
+    exit();
+
 }
 
 if($result->num_rows == 0) {
     $_SESSION['error'] = "Ce profil n'existe pas";
     header('Location: /profil.php');
+    exit();
+
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['error'] = "Adresse email invalide";
     header('Location: /profil.php');
+    exit();
+
 }
 
 if(strlen($nom) < 2 || strlen($nom) > 50) {
     $_SESSION['error'] = "Nom invalide";
     header('Location: /profil.php');
+    exit();
+
 }
 
 if(strlen($prenom) < 2 || strlen($prenom) > 50) {
     $_SESSION['error'] = "Prénom invalide";
     header('Location: /profil.php');
+    exit();
+
 }
 
 if(strlen($description) < 2 || strlen($description) > 500) {
     $_SESSION['error'] = "Description invalide";
     header('Location: /profil.php');
+    exit();
+
 }
 
 $sql = "SELECT * FROM profil WHERE email = ? AND id != ?";
@@ -63,6 +76,8 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
     $_SESSION['error'] = "Cette adresse email est déjà utilisée";
     header('Location: /profil.php');
+    exit();
+
 }
 
 
@@ -82,8 +97,12 @@ if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['
     $_SESSION['AMIMAIL'] = $email;
     $_SESSION['success'] = "Profil modifié avec succès";
     header('Location: /profil.php');
+    exit();
+
 } else {
     $_SESSION['error'] = "Aucune modification effectuée";
     header('Location: /profil.php');
+    exit();
+
 }
 

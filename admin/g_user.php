@@ -3,9 +3,18 @@
 
 session_start();
 
+
+
+
 require_once('../assets/php/lib.php');
 
 $dbh = connect();
+
+if (isset($_SESSION['error'])) {
+    echo '<p>' . $_SESSION['error'] . '</p>';
+    unset($_SESSION['error']);
+}
+
 
 $sql = "SELECT * from profil";
 
@@ -16,8 +25,12 @@ $result = $stmt->get_result();
 
 while ($user = $result->fetch_assoc()) {
     echo "<p>".$user['prenom']." ".$user['nom']."</p>";
-    echo "<a href='./assets/php/delete.php?id=".$user['id']."'>Supprimer</a>";
+    echo "<a href='./user/delete.php?id=".$user['id']."'>Supprimer</a>";
     echo " | ";
-    echo "<a href='./assets/php/update.php?id=".$user['id']."'>Modifier</a>";
+    echo "<a href='./user/update.php?id=".$user['id']."'>Modifier</a>";
     echo "<br>";
 }
+
+
+
+?>

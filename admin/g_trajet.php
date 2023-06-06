@@ -4,6 +4,12 @@ session_start();
 
 require_once('../assets/php/lib.php');
 
+if (isset($_SESSION['error'])) {
+    echo '<p>' . $_SESSION['error'] . '</p>';
+    unset($_SESSION['error']);
+}
+
+
 $dbh = connect();
 
 $sql = "SELECT * from trajet";
