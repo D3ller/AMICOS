@@ -26,6 +26,7 @@ if($result->num_rows === 0) {
 }
 
 echo '<h2>Modifier un utilisateur</h2>';
+echo '<form id="update_user" action="./assets/php/vupdate.php" method="post">'
 echo '<input type="hidden" id="id" value="'.$user['id'].'">';
 echo '<label for="email">Email</label>';
 echo '<input type="email" id="email" value="'.$user['email'].'">';
@@ -43,3 +44,6 @@ echo '<option value="E" '.($user['groups'] === 'E' ? 'selected' : '').'>E</optio
 echo '<option value="F" '.($user['groups'] === 'F' ? 'selected' : '').'>F</option>';
 echo '</select>';
 echo '<textarea name="description" id="description" cols="30" rows="10">'.$user['description'].'</textarea>';
+echo '<button id="update">Modifier</button>';
+echo '</form>';
+

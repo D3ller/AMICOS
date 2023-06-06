@@ -51,6 +51,11 @@ require_once 'header.php';
     $user = $result->fetch_assoc();
 
     echo '<h1>Profil</h1>';
+    
+    if($user["description"] == ""){
+        $user["description"] = "Aucune description";
+    }
+
 
     echo '<img id="profil-pic" src="'.$user["profil-picture"].'" alt="Photo de profil">';
     echo '<h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1>';
