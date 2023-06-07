@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Magison";
+    src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 * {
@@ -207,4 +212,33 @@ menu{
     transform: translateX(-40px);
     background-color: transparent;
 }
+
+.legalfooter > summary {
+    font-family: 'Magison', sans-serif;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin: 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+  
+  summary span.marker {
+    width: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    height: 80px;
+    background-image: url('https://portfolio.karibsen.fr/assets/img/downarrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .legalfooter > details:open summary span.marker {
+    transform: rotate(180deg); 
+  }
+  
+
 
