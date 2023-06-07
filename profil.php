@@ -117,11 +117,11 @@ echo '<div id="profil">';
     echo '<div id="buttons">';
 
     echo '<div class="button">';
-    echo '<a><button><img src="https://portfolio.karibsen.fr/assets/img/stats.svg" alt="Statistiques"></button><p class="title">Statistiques</p></a>';
+    echo '<a href="./stats.php"><button><img src="https://portfolio.karibsen.fr/assets/img/stats.svg" alt="Statistiques"></button><p class="title">Statistiques</p></a>';
     echo '</div>';
 
     echo '<div class="button">';
-    echo '<a href="./historique.php"><button><img src="https://portfolio.karibsen.fr/assets/img/clock.svg" alt="historique"></button><p class="title">Historiques</p></a>';
+    echo '<a href="./historique.php"><button><img src="https://portfolio.karibsen.fr/assets/img/clock.svg" alt="historique"></button><p class="title">Historique</p></a>';
     echo '</div>';
 
     echo '<div class="button">';

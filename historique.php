@@ -2,7 +2,24 @@
 
 session_start();
 
-require_once('./assets/php/lib.php');
+require_once('./assets/php/lib.php');?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type='text/css' rel='stylesheet' href='/assets/css/historique.css'>
+    <link type='text/css' rel='stylesheet' href='/assets/css/header-footer.css'>
+    <title>Document</title>
+</head>
+<body>
+
+
+<?php
+require_once('customnav.php');
+
 $dbh = connect();
 
 $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
@@ -14,8 +31,7 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 require_once('customnav.php');
-echo '    <link rel="stylesheet" href="./assets/css/header-footer.css">';
-echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+
 
 $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY date ASC";
     $stmt = $dbh->prepare($sql);
@@ -119,3 +135,7 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
     }
 
 ?>
+
+    
+</body>
+</html>

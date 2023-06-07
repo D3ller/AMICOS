@@ -34,19 +34,19 @@ require_once('customnav.php');
 <div id='settings'>
 
 <div>
-    <p>Avis</p><div class='arrow'></div>
+    <a><p>Avis</p><div class='arrow'></div></a>
     </div>
 
     <div>
-    <p>Mot de passe</p><div class='arrow'></div>
+    <a href='./updatepassword'><p>Mot de passe</p><div class='arrow'></div></a>
     </div>
 
     <div>
-    <p>Condition générales</p><div class='arrow'></div>
+    <a href='./conditiongeneral'><p>Condition générales</p><div class='arrow'></div></a>
     </div>
 
     <div>
-    <p>Cookies</p><div class='arrow'></div>
+    <a href='./cookies'><p>Cookies</p><div class='arrow'></div></a>
     </div>
 
 </div>
