@@ -14,7 +14,10 @@ require_once('./assets/php/lib.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/header-footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./assets/js/index.js" DEFER></script>
     <title>Accueil</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
@@ -56,7 +59,17 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="datetime-local" name='datetime' value="Date" onclick="" required>
+
+                    <input type="text" id="datepicker">
+
+                    <script>document.addEventListener('DOMContentLoaded', function() {
+  flatpickr('#datepicker', {
+    // Options de configuration (facultatif)
+  });
+});
+</script>
+
+                    <!-- <input type="datetime-local" name='datetime' value="Date" onclick="" required> -->
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
 
