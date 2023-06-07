@@ -5,6 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
+
 body {
     margin: 0;
     padding: 0;
@@ -23,8 +24,8 @@ body {
 #profil-pic {
     display: block;
     margin: 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 h1 {
@@ -37,10 +38,10 @@ h1 {
 
 #profil  {
     width: 100%;
-    height: 300px;
+    height: 250px;
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
-    background: #e4c7c7;
+    background: #dcdcdc;
 }
 
 .grey {
@@ -115,6 +116,8 @@ justify-items: stretch;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    text-decoration: none;
+    color: black;
 }
 
 .button > a > button > img {
@@ -123,6 +126,9 @@ justify-items: stretch;
     object-fit: cover;
 }
 
+
+
 .subpref > input[type="checkbox"] {
     margin-top: 5px;
 }
+

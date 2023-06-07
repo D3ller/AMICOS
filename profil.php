@@ -31,6 +31,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
 <?php
 
+require_once('customnav.php');
+
 if(isset($_SESSION['error'])){
     echo $_SESSION['error'];
     unset($_SESSION['error']);
@@ -39,7 +41,6 @@ if(isset($_SESSION['error'])){
 
 
     $dbh = connect();
-    //Je récupère les infos de l'utilisateur
     $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
@@ -129,8 +130,10 @@ echo '<div id="profil">';
 
     echo '</div>';
 
-?>
+    require_once('./footer.php');
 
+
+?>
 
 
 </main>
