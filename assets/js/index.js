@@ -211,3 +211,23 @@ love.addEventListener("click", loveListener);
 // -----------------------------
 
 
+const dateInput = document.getElementById('date-input');
+const dateText = document.getElementById('date-text');
+const calendarIcon = document.getElementById('calendar-icon');
+
+calendarIcon.addEventListener('click', function() {
+  dateInput.click();
+});
+
+dateText.addEventListener('click', function() {
+  dateInput.click();
+});
+
+dateInput.addEventListener('change', function() {
+  const selectedDate = dateInput.value;
+  if (selectedDate !== '') {
+    dateText.textContent = selectedDate;
+  } else {
+    dateText.textContent = 'Quand ?';
+  }
+});

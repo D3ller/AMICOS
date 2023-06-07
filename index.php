@@ -49,10 +49,24 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     <main class="main-index">
         <div class="form-index">
             <form action="/assets/php/recherche_trajet.php" method="post" required>
-                <input type="text" name='depart' id="address" placeholder="Départ" required >
-                <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-                <input type="datetime-local" name='datetime' value="Date" onclick="" required>
-                <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
+                <div class="haut-form-index">
+                    <div class="barre-form-index"></div>
+                    <input type="text" name='depart' id="address" placeholder="Départ" required >
+                    <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
+                </div>
+                <div class="bas-form-index">
+                    <div class="barre-form-index"></div>
+
+                    <div class="custom-date-input">
+                        <label for="date-input">
+                            <img src="https://portfolio.karibsen.fr/assets/img/calendar.svg" alt="Calendrier" class="calendar-icon">
+                            <span>Quand ?</span>
+                        </label>
+                        <input type="date" id="date-input">
+                    </div>
+                    <!-- <input type="datetime-local" name='datetime' value="Date" onclick="" required> -->
+                    <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
+                </div>
 
                 <input name='lat' type="hidden" id="lat" value="" required>
                 <input name='lng' type="hidden" id="lng" value="" required>
