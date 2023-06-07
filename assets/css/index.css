@@ -12,6 +12,8 @@
   margin: 0 auto;
 }
 
+/* Form Voyager */
+
 .form-index{
   background-color: #FFFAFA;
   box-shadow: inset 0px 0px 10px 5px #00000014;
@@ -45,6 +47,7 @@
   border-radius: 20px;
   height: 50px;
   font-family: 'Quicksand', sans-serif;
+  font-size:4.7vw;
 }
 
 .haut-form-index input::placeholder,
@@ -114,6 +117,7 @@
   font-family: 'Magison', sans-serif;
   font-size: 4vw;
   font-weight: 400;
+  color:white;
 }
 
 .détail-stats{
