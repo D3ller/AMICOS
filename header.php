@@ -6,31 +6,6 @@ error_reporting(E_ALL);
 
 
 <header>
-    <nav>
-        <div class="burger">
-                <button>
-                    <!-- <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="28" height="5" rx="2.5" fill="#212121"/>
-                        <rect y="10" width="28" height="5" rx="2.5" fill="#212121"/>
-                        <rect y="19" width="28" height="5" rx="2.5" fill="#212121"/>
-                    </svg> -->
-
-                    <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
-                        <label for="checkbox2">
-                            <div class="hamburger hamburger2">
-                                <span class="bar bar1"></span>
-                                <span class="bar bar2"></span>
-                                <span class="bar bar3"></span>
-                                <span class="bar bar4"></span>
-                            </div>
-                    </label>
-                </button>
-        </div>
-        <div class="ele-nav">
-
-        </div>
-    </nav>
-
     <div class="logo">
         <svg width="106" height="39" viewBox="0 0 106 39" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20.6003 20.5321H20.6356V22.1761H20.6003C20.3534 27.9124 16.4026 30.8155 12.4872 31.1303C12.2403 31.1653 11.9933 31.1653 11.7464 31.1653C10.0885 31.1653 8.32478 30.7106 6.80797 29.7312V35.9922C6.80797 36.5868 6.3494 37.0415 5.74974 37.0415H2.64558C2.08118 37.0415 1.58734 36.5868 1.58734 35.9922V12.6971C1.58734 12.1375 2.08118 11.6478 2.64558 11.6478H3.35107C4.02128 11.6478 4.79732 12.2075 5.71446 13.3617C7.65456 11.6128 10.1943 10.9483 12.4872 11.1232C16.5085 11.438 20.5298 14.481 20.6003 20.5321ZM15.3797 22.1061V20.1474C15.3797 17.559 13.1927 16.2299 11.0409 16.2299C9.03027 16.2299 6.80797 17.4541 6.80797 20.1474V22.1061C6.80797 24.7994 9.03027 26.0236 11.0409 26.0236C13.1927 26.0236 15.3797 24.6945 15.3797 22.1061Z" fill="black"/>
