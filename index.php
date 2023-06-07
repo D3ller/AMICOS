@@ -51,7 +51,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             <form action="/assets/php/recherche_trajet.php" method="post" required>
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="text" name='depart' id="address" placeholder="Q Départ" required >
+                    <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
                 </div>
                 <div class="bas-form-index">
@@ -70,7 +70,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             </form>
         </div>
 
+        <!-- Uniquement visible étant connecté -->
         <div class="last-travel">
+            <!-- Dernier trajet : (nom du dernier conducteur qui nous à emmené) -->
             <?php 
                 $dbh = connect();
                 $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
@@ -80,10 +82,52 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             
                 $result = $stmt->get_result();
                 $user = $result->fetch_assoc();
-                echo '<h2>Dernier trajet : avec '.$user["prenom"].'</h2>';
+                echo '<h3>Dernier trajet : avec '.$user["prenom"].'</h3>';
             ?>
             <!-- Carte Gmap du dernier trajet -->
             </div>
+        </div>
+
+        <!-- Uniquement visible étant connecté -->
+        <div class="stats-util">
+            <div class="co2">
+                <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
+                <div class="info-stats">
+                    <h5>58.8 Kg</h5>
+                </div>
+            </div>
+            <div class="distance">
+                <h3>Distance <span class="détail-stats">(en km)</stats></h3>
+                <div class="info-stats">
+                    <h5>102 Km</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Uniquement visible étant connecté -->
+        <div class="trajets-inte-util">
+            <h3>Des trajets intéréssants pour vous !</h3>
+
+            <div class="scroll-container">
+                <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/carre.svg" alt="">
+                <div class="card">
+                    <div class="ele-util-card">
+                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                        <div>
+                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                        </div>
+                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+                    </div>
+
+                </div>
+                <div class="card">Carte 2</div>
+                <div class="card">Carte 3</div>
+                <div class="card">Carte 3</div>
+                <div class="card">Carte 3</div>
+            </div>
+
         </div>
 </main>
 
