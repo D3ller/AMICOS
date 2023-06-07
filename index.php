@@ -51,20 +51,12 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             <form action="/assets/php/recherche_trajet.php" method="post" required>
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="text" name='depart' id="address" placeholder="Départ" required >
+                    <input type="text" name='depart' id="address" placeholder="Q Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
                 </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-
-                    <div class="custom-date-input">
-                        <label for="date-input">
-                            <img src="https://portfolio.karibsen.fr/assets/img/calendar.svg" alt="Calendrier" class="calendar-icon">
-                            <span>Quand ?</span>
-                        </label>
-                        <input type="date" id="date-input">
-                    </div>
-                    <!-- <input type="datetime-local" name='datetime' value="Date" onclick="" required> -->
+                    <input type="datetime-local" name='datetime' value="Date" onclick="" required>
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
 
@@ -74,10 +66,25 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 <input name='lat2' type="hidden" id="lat2" value="" required>
                 <input name='lng2' type="hidden" id="lng2" value="" required>
 
-                <input type="submit" value="Rechercher">
+                <input type="submit" value="Voyager !">
             </form>
         </div>
 
+        <div class="last-travel">
+            <?php 
+                $dbh = connect();
+                $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
+                $stmt = $dbh->prepare($sql);
+                $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
+                $stmt->execute();
+            
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+                echo '<h2>Dernier trajet : avec '.$user["prenom"].'</h2>';
+            ?>
+            <!-- Carte Gmap du dernier trajet -->
+            </div>
+        </div>
 </main>
 
 <?php
