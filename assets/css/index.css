@@ -159,6 +159,7 @@
   scroll-snap-align: start;
   border-radius: 20px;
   position: relative;
+  color: white;
 }
 
 .card::before {
