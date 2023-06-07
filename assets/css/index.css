@@ -182,9 +182,10 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  position: relative;
+  position: absolute;
 
-  margin-top: 200px;
+  /* margin-top: 200px; */
+  bottom: 0px;
 }
 
 .ele-util-card img{
