@@ -54,6 +54,7 @@ while($row = $result->fetch_assoc()) {
 echo '</div>';
 
 
+require_once('./footer.php');
 
 
 
