@@ -13,9 +13,9 @@ if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])){
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <link href='/assets/css/header-footer.css' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -36,7 +36,13 @@ $user = $result->fetch_assoc();
 <form action="./assets/php/edit.php" method="post" enctype="multipart/form-data">
 
 
-<div id="profil"><img id="profil-pic" src="https://portfolio.karibsen.fr/assets/img/pp/6481ee5fdec886.21951936.jpg" alt="Photo de profil"><div id="edit-name">    <input type="text" name="nom" value="<?php echo $user['nom']; ?>" required><a href="./edit.php"><div id="edit"></div></a></div><p class="grey">Homme 18 ans</p></div>
+<div id="profil">
+  <img id="profil-pic" src="<?php echo $user['profil-picture']; ?>" alt="Photo de profil">
+  <div id="edit-name">
+    <input type="text" name="nom" value="<?php echo $user['nom']; ?>" required>
+  </div>
+  <p class="grey"><?php echo $user['sexe']. ' '.$user['age']  ?> ans</p>
+</div>
 
 
   <?php 
@@ -54,43 +60,5 @@ $user = $result->fetch_assoc();
     <input type="submit" value="Modifier">
 </form>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#mySelect').select2({
-        templateResult: function(option) {
-          if (!option.id) {
-            return option.text;
-          }
-
-          var imageUrl = option.element.getAttribute('data-image');
-          var optionText = $('<span>' + option.text + '</span>');
-
-          if (imageUrl) {
-            var optionImage = $('<img width="50" height="50" style="display: block; margin: 0 auto;" src="' + imageUrl + '">');
-            optionText.prepend(optionImage);
-          }
-
-          return optionText;
-        },
-        escapeMarkup: function(markup) {
-          return markup;
-        }
-      });
-    });
-  </script>
 </body>
 </html>

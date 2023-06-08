@@ -14,6 +14,11 @@ require_once('./assets/php/lib.php');
 $email = $_GET['mail'];
 $token = $_GET['token'];
 
+if(isset($_SESSION['error'])) {
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+
 if(!empty($token)) {
 
 $dbh = connect();
@@ -34,7 +39,7 @@ echo '<div class="conn-logo"></div>';
 
 echo '<form action="./assets/php/vforget.php" method="POST">';
 echo '<input type="hidden" name="token" value="'.$token.'">';
-echo '<input class="icon" type="mail" name="email" value="'.$user['email'].'" disabled>';
+echo '<input class="icon" type="mail" name="email" value="'.$user['email'].'" readonly>';
 echo '<input type="password" name="password" placeholder="password">';
 echo '<input type="submit" name="submit" value="Changer">';
 echo '</form>';
