@@ -31,16 +31,19 @@ $dbh = connect();
 
 $sql = "SELECT * FROM parking WHERE name = ?";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("i", $name);
+$stmt->bind_param("s", $name);
 $stmt->execute();
 $result = $stmt->get_result();
-$trajet = $result->fetch_assoc();
+$numRows = $result->num_rows;
 
-if($trajet) {
+if($numRows === 0) {
+
+} else {
     $_SESSION['error'] = "Ce parking existe déjà";
     header("Location: ../g_parking.php");
     exit();
 }
+
 
 $name = htmlspecialchars($name);
 $name = mysqli_real_escape_string($dbh, $name);
