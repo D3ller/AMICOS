@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "Magison";
+    src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+#conditions {
+    margin: 0 20px;
+}
+
+#conditions > h1 {
+    font-family: "Magison", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#conditions > h2 {
+    font-family: "Magison", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#conditions > p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    word-break: break-all;
+}
+
+
+#conditions > p:last-of-type {
+    margin-bottom: 100px;
+}

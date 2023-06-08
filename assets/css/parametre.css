@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Magison";
+    src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+#settings > div > a > p {
+    font-size: 22px;
+    font-family: "Magison", sans-serif;
+}
+
+.arrow {
+    background-image: url("https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+}
+
+#settings > div > a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px;
+    margin-top: 30px;
+    text-decoration: none;
+    color: black;
+
+}
+
+#settings > hr {
+    border: 1px solid black;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}

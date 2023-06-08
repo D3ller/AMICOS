@@ -33,7 +33,7 @@ $user = $result->fetch_assoc();
 require_once('customnav.php');
 
 
-$sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY date ASC";
+$sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY date DESC";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("s", $user['id']);
     $stmt->execute();
@@ -54,14 +54,16 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
     if($number == 0) {
 
     } else {
-        echo '<h2>Vos trajets terminés ('. $number. ')</h2>';
     }
 
     echo '<div id="card-lister">';
     while($trajet = $result->fetch_assoc()) {
         echo '<div class="card">';
+        setlocale(LC_TIME, 'fr_FR');
         $trajet['date'] = new DateTime($trajet['date']);
-        $trajet['date'] = $trajet['date']->format('d/m/Y H:i');
+        $trajet['date'] = strftime('%A %e %B à %H:%M', $trajet['date']->getTimestamp());
+        $trajet['date'] = ucfirst($trajet['date']);
+        
 
         $minutes = $trajet['duree'] * 60;
         $hours = floor($minutes / 60);
@@ -85,13 +87,14 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         $num_rows = $result3->num_rows;
         
         
-
-        echo '<h3>Conducteur:'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
-        echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
-        echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
-        echo '<p> Date:'.$trajet['date'].'</p>';
-        echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
-        echo '<p> Nombre de place:'.$num_rows. '/'.$trajet['place'].' passager(s)</p>';
+        echo '<p id="date">'.$trajet['date'].'</p>';
+        echo '<div class="card-img">';
+        echo '<img src="' . $conducteur["profil-picture"] . '" alt="voiture">';
+        echo '<div class="card-text">';
+        echo '<h3>'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
+        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet à durée '.$trajet['duree'].'</span></p>';
+        echo '</div>';
+        echo '</div>';
         echo '</div>';
 
     }

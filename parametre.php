@@ -36,19 +36,19 @@ require_once('customnav.php');
 <div>
     <a><p>Avis</p><div class='arrow'></div></a>
     </div>
-
+<hr>
     <div>
     <a href='./updatepassword'><p>Mot de passe</p><div class='arrow'></div></a>
     </div>
-
+<hr>
     <div>
     <a href='./conditiongeneral'><p>Condition générales</p><div class='arrow'></div></a>
     </div>
-
+<hr>
     <div>
     <a href='./cookies'><p>Cookies</p><div class='arrow'></div></a>
     </div>
-
+<hr>
 </div>
     
 </body>
