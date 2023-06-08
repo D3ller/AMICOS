@@ -15,6 +15,11 @@ require_once('./assets/php/lib.php');
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/header-footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
     <script src="./assets/js/index.js" DEFER></script>
     <title>Accueil</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
@@ -58,7 +63,18 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <div class="barre-form-index"></div>
                     <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"> -->
                     <!-- <input type="date" name='date' value="Date" onclick="" required> -->
-                    <input type="date" name="myDate" id="myDate" />
+
+                    <input type="text" id="myDate" placeholder="jj/mm/aaaa" />
+                    <script>
+                        flatpickr("#myDate", {
+                            dateFormat: "d/m/Y",
+                            minDate: "today",
+                            maxDate: new Date().fp_incr(30),
+                            locale: "fr",
+                        });
+
+
+
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
 
