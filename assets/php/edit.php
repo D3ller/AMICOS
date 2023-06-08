@@ -15,7 +15,7 @@ $dbh = connect();
 
 $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("ss", $id, $email);
+$stmt->bind_param("ss", $id, $_SESSION['AMIMAIL']);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
@@ -74,7 +74,7 @@ if(strlen($description) < 2 || strlen($description) > 500) {
 
 $sql = "SELECT * FROM profil WHERE email = ? AND id != ?";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("si", $_SESSION['AMIMAIL'], $id);
+$stmt->bind_param("si", $email, $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
