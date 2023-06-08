@@ -14,6 +14,8 @@
 require_once('customnav.php');
 ?>
 
+<main>
+
 <div id='conditions'>
 
     <h2>Informations générales</h2>
@@ -36,7 +38,7 @@ require_once('customnav.php');
     </p>
 
 </div>
-
+</main>
 <?php
 require_once('menu.php');
 ?>
