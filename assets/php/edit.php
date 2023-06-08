@@ -90,9 +90,7 @@ $nom = mysqli_real_escape_string($dbh, $nom);
 $prenom = mysqli_real_escape_string($dbh, $prenom);
 $email = mysqli_real_escape_string($dbh, $email);
 
-
 if($image['size'] == 0) {
-
 
 if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['description'] || $email != $user['email']) {
     $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ? WHERE id = ?";
@@ -146,7 +144,7 @@ $destination = '../img/pp/' . $filename;
 
 if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     $pp = $filename;
-    $pp = 'https://mmi22c01.sae202.ovh/assets/img/pp/' . $filename;
+    $pp = 'https://portfolio.karibsen.fr/assets/img/pp/' . $filename;
     
     $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, `profil-picture` = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);

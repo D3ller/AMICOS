@@ -33,9 +33,14 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
-} elseif($_SERVER['PHP_SELF'] == '/recherche.php') {
+} elseif($_SERVER['PHP_SELF'] == "/edit.php"){
+    echo '<nav class="cstm" style="background: #ffab02; margin-bottom: 0;">';
+    echo '<a href="./profil.php"><div id="backarrow"></div></a>';
+    echo '<p>Editer le profil</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
-} elseif($_SERVER['PHP_SELF'] == '/pdc.php') {
+}
+ elseif($_SERVER['PHP_SELF'] == '/pdc.php') {
     echo '<nav class="cstm" style="background: #fe1269; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
     echo '<a href="./parametre.php"><div id="backarrow"></div></a>';
     echo '<p>PDC</p>';
