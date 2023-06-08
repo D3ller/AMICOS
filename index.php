@@ -37,7 +37,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     $stmt->bind_param("i", $_SESSION['AMIID']);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
-    echo '<p>Bienvenue '.$user['prenom'].'.</p>';
+    echo '<p class="bvn">Bienvenue '.$user['prenom'].'.</p>';
 }
 ?>
     <main class="main-index">

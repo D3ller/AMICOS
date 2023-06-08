@@ -6,48 +6,96 @@ error_reporting(E_ALL);
 
 
 <header>
-    <div class="logo">
-        <svg width="106" height="39" viewBox="0 0 106 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.6003 20.5321H20.6356V22.1761H20.6003C20.3534 27.9124 16.4026 30.8155 12.4872 31.1303C12.2403 31.1653 11.9933 31.1653 11.7464 31.1653C10.0885 31.1653 8.32478 30.7106 6.80797 29.7312V35.9922C6.80797 36.5868 6.3494 37.0415 5.74974 37.0415H2.64558C2.08118 37.0415 1.58734 36.5868 1.58734 35.9922V12.6971C1.58734 12.1375 2.08118 11.6478 2.64558 11.6478H3.35107C4.02128 11.6478 4.79732 12.2075 5.71446 13.3617C7.65456 11.6128 10.1943 10.9483 12.4872 11.1232C16.5085 11.438 20.5298 14.481 20.6003 20.5321ZM15.3797 22.1061V20.1474C15.3797 17.559 13.1927 16.2299 11.0409 16.2299C9.03027 16.2299 6.80797 17.4541 6.80797 20.1474V22.1061C6.80797 24.7994 9.03027 26.0236 11.0409 26.0236C13.1927 26.0236 15.3797 24.6945 15.3797 22.1061Z" fill="black"/>
-            <path d="M23.1401 21.7211V20.0771H23.1754C23.4223 14.3408 27.373 11.4377 31.2532 11.1229C33.3697 10.948 35.6978 11.5426 37.5321 12.9417C38.1318 12.1722 39.0489 11.6475 40.1071 11.6475H40.9184C41.5887 11.6475 42.1883 12.2422 42.1883 12.9417V29.5211C42.1883 30.1157 41.6945 30.6054 41.0948 30.6054H40.4246C39.7544 30.6054 38.9431 30.0108 38.0612 28.8915C36.3328 30.4655 34.1105 31.165 31.994 31.165C31.7471 31.165 31.5001 31.165 31.2532 31.13C27.2672 30.8152 23.2106 27.7722 23.1401 21.7211ZM28.3607 20.0072V22.2457C28.3607 24.8341 30.5477 26.1632 32.6995 26.1632C35.0629 26.1632 36.9324 24.6942 36.9324 22.2457V20.0072C36.9324 17.5587 35.0629 16.0897 32.6995 16.0897C30.5477 16.0897 28.3607 17.4188 28.3607 20.0072Z" fill="black"/>
-            <path d="M50.7601 20.7417V29.556C50.7601 30.1157 50.3015 30.6054 49.7018 30.6054H46.5977C46.0333 30.6054 45.5394 30.1157 45.5394 29.556V12.7318C45.5394 12.1372 46.0333 11.6475 46.5977 11.6475H47.3032C47.9734 11.6475 48.7847 12.2421 49.7018 13.3614C50.9012 11.9973 52.5591 11.1229 54.8519 11.1229C55.8396 11.1229 56.8626 11.2978 57.815 11.6475C58.3088 11.8224 58.591 12.3821 58.4499 12.9067L57.6386 15.9148C57.4622 16.5444 56.792 16.8942 56.1923 16.6493C55.7338 16.4395 55.1694 16.2646 54.6403 16.2646C52.1005 16.2646 50.7601 17.8386 50.7601 20.7417Z" fill="black"/>
-            <path d="M79.544 28.5067C79.8262 28.8915 79.932 29.3812 79.7557 29.8009C79.544 30.2906 79.0855 30.6054 78.5563 30.6054H74.8878C74.3587 30.6054 73.8648 30.3605 73.5826 29.9058L68.2562 22.2457L66.1397 24.1695V29.556C66.1397 30.1157 65.6811 30.6054 65.0815 30.6054H61.9773C61.4129 30.6054 60.9191 30.1157 60.9191 29.556V4.23228C60.9191 3.63766 61.4129 3.18295 61.9773 3.18295H65.0815C65.6811 3.18295 66.1397 3.63766 66.1397 4.23228V17.5937L72.4538 12.0673C72.736 11.7874 73.1241 11.6475 73.5121 11.6475H77.0043C77.4628 11.6475 78.0272 12.0323 78.1683 12.487C78.3094 12.9067 78.2036 13.3614 77.8508 13.6762L72.0305 18.8879L79.544 28.5067Z" fill="black"/>
-            <path d="M89.1034 11.0529C91.6785 11.0529 94.3241 12.0673 95.5939 14.1309C95.9114 14.6206 95.735 15.2852 95.2059 15.565L93.6186 16.5094C93.4775 16.6144 93.3011 16.6493 93.1247 16.6493C92.8425 16.6493 92.5251 16.5094 92.3134 16.2996C91.5726 15.4601 90.2675 15.0753 89.1034 15.0753C87.8335 15.0753 86.74 15.565 86.74 16.4395C86.74 17.3839 87.8335 17.8735 89.4914 18.3982C94.8179 20.1121 96.6169 22.0009 96.6169 25.2538C96.6169 29.0314 92.9131 31.13 89.0682 31.13C85.8934 31.13 82.6482 29.696 81.3078 26.6179C81.0608 26.0583 81.3783 25.3587 81.978 25.1839L84.6236 24.3444C85.1527 24.2045 85.6818 24.4493 85.9287 24.974C86.5284 26.2332 87.7983 26.7928 88.9623 26.7928C90.2322 26.7928 91.3963 26.1283 91.3963 24.974C91.3963 23.8197 89.8795 22.9453 87.5513 22.0709C84.8705 21.0565 82.0485 19.7623 82.0485 16.4744C82.0485 12.9067 85.5407 11.0529 89.1034 11.0529Z" fill="black"/>
-            <path d="M104.554 27.7722C104.554 29.3462 103.284 30.6054 101.732 30.6054C100.18 30.6054 98.8745 29.3462 98.8745 27.7722C98.8745 26.1982 100.144 24.974 101.732 24.974C103.319 24.974 104.554 26.2332 104.554 27.7722Z" fill="black"/>
-        </svg>
+    <!-- Mobil -->
+    <span class="logo"></span>
+    <span class="double-star"></span>
+
+    <!-- PC -->
+    <div class="logo-desktop"></div>
+    <nav>
+        <a class="page-act" href="index.php">Accueil</a>
+        <a class="page-act" href="recherche.php">Recherche</a>
+        <a class="page-act" href="parkings.php">Parking</a>
+    </nav>
+
+    <div class="last-nav-header">
+        <div class="qrcode-header"></div>
+        <div class="profil-header"></div>
     </div>
+
+
 </header>
 
-<nav style='display:none;'>
-    <div class="ele-nav">
-        <a href='/'>Accueil</a>
-        <div class="util-info">
-            <?php
-require_once './assets/php/lib.php';
-        if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
-            $dbh = connect();
+<script>
 
-            $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
-            $stmt = $dbh->prepare($sql);
-            $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
-            $stmt->execute();
-            $user = $stmt->get_result()->fetch_assoc();    
 
-    echo "<p>Bienvenue ".$user['prenom']."</p>
-    <a href='./assets/php/deconnexion.php'>Déconnexion</a>
-    <a class='info-con' href='./trajets.php'>Crée un trajet</a>
-    <a id='pp' href='./profil.php'><img class='img-profil' src='".$user['profil-picture']."' width='30' height='30'></a>";
-        } else {
-            echo "<a class='info-con' href='./connexion.php'>Connexion</a>";
-            echo ' | ';
-            echo "<a class='info-con' href='./inscription.php'>Inscription</a>";
-            echo ' | ';
-            echo "<a class='info-con' href='./forget.php'>Mot de passe oublié</a>";
+function relief() {
+  var pageurl = location.href;
+  var dnl = document.getElementsByClassName("page-act");
+  var pageActive = null; // Variable pour stocker le lien de la page active
+  var originalStyles = {}; // Objet pour stocker les styles CSS originaux de la page active
+
+  for (var i = 0; i < dnl.length; i++) {
+    var x = dnl.item(i);
+
+    if (x.href === pageurl) {
+      // Si le lien correspond à la page active
+      pageActive = x; // Mettre à jour le lien de la page active
+      originalStyles.color = x.style.color;
+      originalStyles.backgroundColor = x.style.backgroundColor;
+      originalStyles.borderRadius = x.style.borderRadius;
+      originalStyles.border = x.style.border;
+
+      x.style.color = "#ffffff";
+      x.style.backgroundColor = "#000000";
+      x.style.borderRadius = "1000px";
+      x.style.border = "3px solid #000000";
+      x.style.transition = "all 0.5s ease-in-out";
+    } else {
+      x.addEventListener("mouseover", function() {
+        if (pageActive) {
+          // Réinitialiser les attributs CSS de la page active si un autre lien est survolé
+          pageActive.style.color = originalStyles.color;
+          pageActive.style.backgroundColor = originalStyles.backgroundColor;
+          pageActive.style.borderRadius = originalStyles.borderRadius;
+          pageActive.style.border = originalStyles.border;
         }
-        ?>
-        </div>
-    </div>
-</nav>
+
+        // Appliquer les attributs CSS au lien survolé
+        this.style.color = "#ffffff";
+        this.style.backgroundColor = "#000000";
+        this.style.borderRadius = "1000px";
+        this.style.border = "3px solid #000000";
+        this.style.transition = "all 0.5s ease-in-out";
+      });
+
+      x.addEventListener("mouseout", function() {
+        if (pageActive) {
+          // Réappliquer les attributs CSS à la page active lorsque le lien survolé est quitté
+          pageActive.style.color = "#ffffff";
+          pageActive.style.backgroundColor = "#000000";
+          pageActive.style.borderRadius = "1000px";
+          pageActive.style.border = "3px solid #000000";
+          pageActive.style.transition = "all 0.5s ease-in-out";
+        }
+
+        // Réinitialiser les attributs CSS du lien survolé
+        this.style.color = "";
+        this.style.backgroundColor = "";
+        this.style.borderRadius = "";
+        this.style.border = "";
+        this.style.transition = "";
+      });
+    }
+  }
+}
+window.onload = relief;
+
+
+
+
+</script>
+
 
 

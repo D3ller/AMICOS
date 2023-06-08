@@ -11,7 +11,17 @@
     position: relative;
     margin: 0 auto;
   }
+
+  /* Bienvenue $Prénom */
   
+  .bvn{
+    margin-top: 15px;
+    font-family: 'magison', sans-serif;
+    margin-left: 20px;
+    font-size: 7.8vw;
+    font-weight: 400;
+  }
+
   /* Form Voyager */
   
   .form-index{
@@ -194,7 +204,7 @@
     position: absolute;
     top:10vw;
     left: -10px;
-    z-index: 5000;
+    z-index: 1;
     width: 12vw;
   }
   
@@ -347,7 +357,6 @@
     background-position: right center;
     background-image: url("https://portfolio.karibsen.fr/assets/img/multi.svg");
   }
-  
   
   @media screen and (min-width: 768px){
     .card-cqnd-1 .card-inter-cqnd h6{

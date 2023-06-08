@@ -209,3 +209,21 @@ love.addEventListener("click", loveListener);
 // -----------------------------
 // Fin SWIPE SCRIPT
 // -----------------------------
+
+function relief()
+{
+  var pageurl = location.href;
+  var dnl = document.getElementsByClassName("page-act");
+  for(i = 0; i < dnl.length;i++)
+  {
+    var x = dnl.item(i);
+    if(x.href == pageurl) 
+    {
+      x.style.color = "#ffffff";
+      x.style.backgroundColor = "#000000";
+      x.style.borderRadius = "1000px";
+      x.style.border = "3px solid #000000";
+    }
+  }	
+}
+window.onload=relief;
