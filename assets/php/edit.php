@@ -144,7 +144,7 @@ $destination = '../img/pp/' . $filename;
 
 if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     $pp = $filename;
-    $pp = 'https://portfolio.karibsen.fr/assets/img/pp/' . $filename;
+    $pp = 'https://mmi22c01.sae202.ovh/assets/img/pp/' . $filename;
     
     $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, `profil-picture` = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
