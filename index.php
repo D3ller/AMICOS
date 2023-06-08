@@ -50,7 +50,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="text" id="myDateInput" placeholder="Date" />
+                    <input type="text" id="myDateInput" placeholder="Date" name="date"/>
                     <script>
                         const myDateInput = document.getElementById('myDateInput');
                         const picker = new Pikaday({
@@ -125,6 +125,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
         <!-- Uniquement visible étant connecté -->
         <div class="trajets-inte-util">
             <h3>Trajets qui peuvent vous intérésser</h3>
+            <!-- <div class="carre-card"></div> -->
             <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
             <div class="scroll-container">
                 <div class="card">
@@ -167,8 +168,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <div class="card-cqnd-1">
                         <div class="card-inter-cqnd">
                             <!-- Pin : https://portfolio.karibsen.fr/assets/img/doubleround.svg -->
-                            <h6>De meilleures<br>rencontres</h6>
-                            <p>
                             <h6>De meilleures <br>rencontres</h6>
                             <p class="tt">
                                 Avec Parks, rencontre des personnes 
