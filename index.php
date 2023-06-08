@@ -16,8 +16,9 @@ require_once('./assets/php/lib.php');
     <link rel="stylesheet" href="./assets/css/header-footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
 
 
     <script src="./assets/js/index.js" DEFER></script>
@@ -64,14 +65,17 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"> -->
                     <!-- <input type="date" name='date' value="Date" onclick="" required> -->
 
-                    <input type="text" id="myDate" placeholder="jj/mm/aaaa" />
+                    <input type="text" id="myDateInput" />
                     <script>
-                        flatpickr("#myDate", {
-                            dateFormat: "d/m/Y",
-                            minDate: "today",
-                            maxDate: new Date().fp_incr(30),
-                            locale: "fr",
+                        const myDateInput = document.getElementById('myDateInput');
+                        const picker = new Pikaday({
+                            field: myDateInput,
+                            format: 'DD/MM/YYYY',
+                            // Autres options de Pikaday
                         });
+                    </script>
+
+
 
 
 
