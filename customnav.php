@@ -35,6 +35,13 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
 
 } elseif($_SERVER['PHP_SELF'] == '/recherche.php') {
 
+} elseif($_SERVER['PHP_SELF'] == '/pdc.php') {
+    echo '<nav class="cstm" style="background: #fe1269; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="./parametre.php"><div id="backarrow"></div></a>';
+    echo '<p>PDC</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+
+
 
 } else {
     echo '<a href="javascript:history.back()"><div id="backarrow"></div></a>';
