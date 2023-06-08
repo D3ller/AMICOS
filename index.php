@@ -56,7 +56,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="datetime-local" name='datetime' value="Date" onclick="" required>
+                    <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
+                    <!-- <input type="datetime-local" name='datetime' value="Date" onclick="" required> -->
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
 
