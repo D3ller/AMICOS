@@ -294,6 +294,11 @@
 
 .card-cqnd-1 .card-inter-cqnd{
   padding: 20px;
+
+  font-size:5vw;
+  font-weight: 300;
+  font-family: 'QuickSand', sans-serif;
+  text-align: justify;
 }
 
 .card-cqnd-1 .card-inter-cqnd h6{
@@ -303,12 +308,7 @@
   margin-bottom: 15px;
 };
 
-.card-cqnd-1 .card-inter-cqnd p{
-  font-size:5vw;
-  font-weight: 300;
-  font-family: 'QuickSand', sans-serif;
-  text-align: justify;
-}
+
 
 .card-cqnd-1 .card-inter-cqnd .img-cqnd-1-pin{
   position: absolute;

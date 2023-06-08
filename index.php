@@ -198,11 +198,11 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <div class="card-cqnd-1">
                         <div class="card-inter-cqnd">
                             <h6>De meilleures <br>rencontres</h6>
-                            <p class="tt">
-                                Avec Parks, rencontre des personnes 
-                                selon vos centre d’intérêts commun. Grâce à 
-                                ça, tes voyages seront plus agréable, pour 
-                                toi comme pour le conducteur !
+                            <p>Avec Parks, rencontre des personnes 
+                                selon vos centre d’intérêts commun. 
+                                Grâce à ça, tes voyages seront plus 
+                                agréable, pour toi comme pour le 
+                                conducteur !
                             </p>
                         
                             <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt="">
