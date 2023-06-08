@@ -86,7 +86,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                                 close: 'Fermer'
                             }
                             onSelect: function(date) {
-                                myDateInput.value = moment(date).format('DD/MM/YYYY');
+                                myDateInput.value = date.toLocaleDateString('fr-FR');
                             }
                         });
                     </script>
