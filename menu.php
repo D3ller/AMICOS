@@ -27,7 +27,7 @@ require_once('./assets/php/lib.php');
         </div>
 
         <div class="menu__item">
-            <a href="parking.php">
+            <a href="parkings.php">
             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 28" width="22" height="28"><style></style><path fill-rule="evenodd" d="m21.3 11.1c0 2.6-0.9 5-2.5 6.9l-7.9 9.6-8-9.6c-1.6-1.9-2.5-4.3-2.5-6.9 0-5.9 4.7-10.7 10.5-10.7 5.7 0 10.4 4.8 10.4 10.7zm-6.1-0.4c0-2.4-2-4.4-4.3-4.4-2.4 0-4.4 2-4.4 4.4 0 2.5 2 4.4 4.4 4.4 2.3 0 4.3-1.9 4.3-4.4z"/></svg>
             </a>
         </div>
