@@ -9,17 +9,19 @@ include_once('./header.php');
 
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
-$datetime = $_POST['datetime'];
+$datetime = $_POST['date'];
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 $lat2 = $_POST['lat2'];
 $lng2 = $_POST['lng2'];
 
+$datetime = date("Y-d-m H:i:s", strtotime($datetime));
+
 echo '<h1>Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
 
 $dbh = connect();
 
-$sql = "SELECT * FROM trajet WHERE date > ? LIMIT 5";
+$sql = "SELECT * FROM trajet WHERE date > ?";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("s", $datetime);
 $stmt->execute();
@@ -30,6 +32,8 @@ $trajetInteressant = null;
 $distancePlusInteressante = null;
 
 while ($trajet = $result->fetch_assoc()) {
+
+    //get num rows
 
     $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
     $response = file_get_contents($apiUrl);
@@ -54,7 +58,7 @@ if ($distance <= 20) {
 
 
 if ($trajetInteressant !== null) {
-    echo '<h2>Trajet le plus intéressant :</h2>';
+    echo '<h2>Trajet intéressant :</h2>';
     echo 'Lieu de départ : '.$trajetInteressant['lieu_depart'].'<br>';
     echo 'Lieu d\'arrivée : '.$trajetInteressant['lieu_arrivee'].'<br>';
     echo 'Distance :'.round($trajetInteressant['km']).'km<br>';
@@ -85,7 +89,6 @@ if ($trajetInteressant !== null) {
         echo '<button onclick="window.location.href=\'./connexion.php\'">Connectez-vous pour vous inscrire à ce trajet</button><br><br>';
     }
 
-    echo '<h2>Découvrez d\'autre trajets :</h2>';
     $result->data_seek(0); 
     while ($trajet = $result->fetch_assoc()) {
         if ($trajet === $trajetInteressant) {
@@ -96,12 +99,15 @@ if ($trajetInteressant !== null) {
         $response = file_get_contents($apiUrl);
         $directions = json_decode($response, true);
 
+        
+
         if ($directions['status'] === 'OK') {
 
             $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
             $distance = $distance / 1000;
-    
 
+            if($distance < 50) {
+            echo '<br><br>';
             echo 'Lieu de départ : '.$trajet['lieu_depart'].'<br>';
             echo 'Lieu d\'arrivée : '.$trajet['lieu_arrivee'].'<br>';
             echo 'Temps de trajet : '. $trajet['duree'].'<br>';
@@ -130,7 +136,7 @@ if ($trajetInteressant !== null) {
 
 
             echo '<br>';
-
+        }
 
         } else {
             echo 'Erreur lors de la récupération du trajet.';

@@ -56,9 +56,17 @@ $user = $result->fetch_assoc();
     <input type="text" name="prenom" value="<?php echo $user['prenom']; ?>" required>
     <input type="email" name="email" value="<?php echo $user['email']; ?>" required>
     <textarea type="text" name="description" required><?php echo $user['description']; ?></textarea>
-    <input type='file' name='image' accept='image/*'>
+    <input type='file' id='imgs' name='image' accept='image/*'>
     <input type="submit" value="Modifier">
 </form>
+
+<script>
+    const imgs = document.getElementById('imgs');
+    const img = document.getElementById('profil-pic');
+    imgs.addEventListener('change', (e) => {
+        img.src = URL.createObjectURL(e.target.files[0]);
+    });
+</script>
 
 </body>
 </html>
