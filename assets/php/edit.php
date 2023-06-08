@@ -74,7 +74,7 @@ if(strlen($description) < 2 || strlen($description) > 500) {
 
 $sql = "SELECT * FROM profil WHERE email = ? AND id != ?";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("si", $email, $id);
+$stmt->bind_param("si", $_SESSION['AMIMAIL'], $id);
 $stmt->execute();
 $result = $stmt->get_result();
 
