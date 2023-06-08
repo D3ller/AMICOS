@@ -4,6 +4,7 @@
 session_start();
 
 
+echo '<a href="./admin.php">Retour au home</a><br><br>';
 
 
 require_once('../assets/php/lib.php');
@@ -29,6 +30,8 @@ while ($user = $result->fetch_assoc()) {
     echo " | ";
     echo "<a href='./user/update.php?id=".$user['id']."'>Modifier</a>";
     echo "<br>";
+    echo '<hr><br><br>';
+
 }
 
 

@@ -18,7 +18,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/conexion.css">
     <link rel="stylesheet" href="./assets/css/header-footer.css">
-    <script src="./assets/js/script.js" DEFER></script>
+    <script src="./assets/js/script.js" DEEFER></script>
     <title>Connexion</title>
 </head>
 <body>
@@ -39,9 +39,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
         <div class="form-inscription">
             <form METHOD="POST" action="./assets/php/vconnexion.php">
-                <input class="email" type="email" id='mail' name="email" placeholder="email">
-                <input class="lock" type="password" name="password" placeholder="password">
-                <input class="center" type="submit" name="submit" value="connexion">
+                <input class="email" type="email" id='mail' name="email" autocomplete="off" placeholder="email">
+                <input class="lock" type="password" name="password" autocomplete="off" placeholder="password">
+                <input class="center" type="submit" name="submit" value="Connexion">
             </form>
             <a class="center inscription" href="./inscription.php">Inscription</a> 
             <a class="lost-password" id='forget' href="./forget.php">Mot de passe oublié</a>

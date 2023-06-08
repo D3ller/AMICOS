@@ -22,7 +22,7 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 } elseif($_SERVER['PHP_SELF'] == "/parkings.php") {
     echo '<nav class="cstm" style="background: #b7e1cb; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
-    echo '<a href="javascript:history.back()"><div id="backarrow"></div></a>';
+    echo '<a href="./index.php"><div id="backarrow"></div></a>';
     echo '<div id="parkings"></div>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 } elseif($_SERVER['PHP_SELF'] == '/historique.php' || $_SERVER['PHP_SELF'] == '/statistique.php') {

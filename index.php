@@ -197,61 +197,26 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 <div class="cards-ce-qui-ns-diff">
                     <div class="card-cqnd-1">
                         <div class="card-inter-cqnd">
-                            <!-- Pin : https://portfolio.karibsen.fr/assets/img/doubleround.svg -->
-                            <h6>De meilleures<br>rencontres</h6>
-                            <p>
+                            <h6>De meilleures <br>rencontres</h6>
+                            <p class="tt">
                                 Avec Parks, rencontre des personnes 
-                                selon vos centre d’intérêts commun. 
-                                Grâce à ça, tes voyages seront plus 
-                                agréable, pour toi comme pour le 
-                                conducteur !
+                                selon vos centre d’intérêts commun. Grâce à 
+                                ça, tes voyages seront plus agréable, pour 
+                                toi comme pour le conducteur !
                             </p>
-                            <img src="" alt="">
-                            <div class="img-cqnd-1-persos img-cqnd"></div>
+                        
+                            <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt="">
+                            <img class="img-cqnd-1-persos" src="https://portfolio.karibsen.fr/assets/img/maindanslamain.svg" alt="">
                         </div>
                     </div>
-
                     <div class="card-cqnd-2">
-                        <div class="card-inter-cqnd">
-                            <!-- Pin :  -->
-                            <h6>Le respect<br>mis au centre</h6>
-                            <p>
-                                On a tenu à mettre au centre de notre 
-                                site le respect, que ce soit de 
-                                l’environnement mais aussi entre 
-                                nous et les utilisateurs de Parks. 
-                            </p>
-                            <div class="img-cqnd-2-persos img-cqnd"></div>
-                        </div>
+                        
                     </div>
-
                     <div class="card-cqnd-3">
-                        <div class="card-inter-cqnd">
-                            <!-- Pin :  -->
-                            <h6>L’importance<br>de la sécurité</h6>
-                            <p>
-                                Avec nous, tu ne roulera jamais avec quelqu’un 
-                                que tu connais pas du tout ! Tu seras avec 
-                                les autres personnes de ta promo en MMI et 
-                                souvent avec tes propres amis !
-                            </p>
-                            <div class="img-cqnd-3-persos img-cqnd"></div>
-                            <!-- <img class="img-cqnd-3-persos" src="https://portfolio.karibsen.fr/assets/img/rouejaune.svg" alt=""> -->
-                        </div>
+                        
                     </div>
                     <div class="card-cqnd-4">
-                        <div class="card-inter-cqnd">
-                            <!-- Pin :  -->
-                            <h6>Un esprit<br>convivial</h6>
-                            <p>
-                                C’est aussi ça notre force, faire rencontrer 
-                                des personne qui ne se serait jamais 
-                                rencontré ! MMI c’est un peut comme 
-                                une grande famille finalement ! 
-                            </p>
-                            <div class="img-cqnd-4-persos img-cqnd"></div>
-                            <!-- <img class="img-cqnd-4-persos" src="https://portfolio.karibsen.fr/assets/img/multi.svg" alt=""> -->
-                        </div>
+                        
                     </div>
                 </div>
 

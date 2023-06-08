@@ -101,6 +101,9 @@ echo '<div id="profil">';
         $user['voiture'] = "Voiture";
     }
 
+    $text = str_replace("\r\n",'', $user["description"]);
+    $text = str_ireplace(array("\r","\n",'\r','\n'),'', $text);
+
     echo '<div class="pref">';
     echo '<h2 class="subtitle">Voiture</h2>';
     echo '<p class="greys">'.$user["voiture"].'</p>';
@@ -108,7 +111,7 @@ echo '<div id="profil">';
 
     echo '<div class="pref">';
     echo '<h2 class="subtitle">Description</h2>';
-    echo '<p class="greys">'.$user["description"].'</p>';
+    echo '<p class="greys">'.$text.'</p>';
     echo '</div>';
 
     echo '</div>';
