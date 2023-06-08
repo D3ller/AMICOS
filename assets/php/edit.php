@@ -148,7 +148,6 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     $pp = $filename;
     $pp = 'https://portfolio.karibsen.fr/assets/img/pp/' . $filename;
     
-    if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['description'] || $email != $user['email']) {
     $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, `profil-picture` = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("sssssi", $nom, $prenom, $description, $email, $pp, $id);
@@ -159,12 +158,6 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     $_SESSION['success'] = "Profil modifié avec succès";
     header('Location: /profil.php');
     exit();
-} else {
-    $_SESSION['error'] = "Aucune modification effectuée";
-    header('Location: /profil.php');
-    exit();
-
-}
 } else {
     $_SESSION['error'] = "Erreur lors de l'upload de l'image";
     header('Location: /profil.php');
