@@ -12,18 +12,17 @@
 
 #conditions > h1 {
     font-family: "Magison", sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    margin: 0;
+    font-weight: 100;
+    font-size: 3vw;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-align: center;
+    color: rgb(115, 115, 115);
 }
 
 #conditions > h2 {
     font-family: "Magison", sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 4vw;
     margin: 0;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -32,12 +31,13 @@
 #conditions > p {
     font-family: "Quicksand", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 3.8vw;
     margin: 0;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: justify;
     word-break: break-all;
+    margin-left: 10px;
 }
 
 
