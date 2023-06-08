@@ -65,15 +65,18 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"> -->
                     <!-- <input type="date" name='date' value="Date" onclick="" required> -->
 
-                    <input type="text" id="myDateInput" />
+                    <input type="text" id="myDateInput" placeholder="Sélectionner une date" />
                     <script>
                         const myDateInput = document.getElementById('myDateInput');
                         const picker = new Pikaday({
                             field: myDateInput,
                             format: 'DD/MM/YYYY',
-                            // Autres options de Pikaday
+                            onSelect: function(date) {
+                            myDateInput.placeholder = '';
+                            }
                         });
                     </script>
+
 
 
 
