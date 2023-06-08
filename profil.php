@@ -56,9 +56,8 @@ echo '<div id="profil">';
 
 
     echo '<img id="profil-pic" src="'.$user["profil-picture"].'" alt="Photo de profil">';
-    echo '<h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1>';
-    echo '<p class="grey">'.$user['sexe'] . '</p>';
-    echo '<p class="grey">'.$user['age'] . ' ans</p>';
+    echo '<div id="edit-name"><h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1><a href="./edit.php"><div id="edit"></div></a></div>';
+    echo '<p class="grey">'.$user['sexe'] . ' '. $user['age']. ' ans</p>';
     echo '</div>';
 
     echo '<div id="preference">';
@@ -117,7 +116,7 @@ echo '<div id="profil">';
     echo '<div id="buttons">';
 
     echo '<div class="button">';
-    echo '<a href="./stats.php"><button><img src="https://portfolio.karibsen.fr/assets/img/stats.svg" alt="Statistiques"></button><p class="title">Statistiques</p></a>';
+    echo '<a href="./statistique.php"><button><img src="https://portfolio.karibsen.fr/assets/img/stats.svg" alt="Statistiques"></button><p class="title">Statistiques</p></a>';
     echo '</div>';
 
     echo '<div class="button">';
