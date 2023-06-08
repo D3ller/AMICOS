@@ -30,7 +30,7 @@ if(!isset($_POST['id']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || 
     exit();
 }
 
-if($_POST['id'] != $_SESSION['AMIID'] || $_POST['email'] != $_SESSION['AMIMAIL']) {
+if($_POST['id'] != $_SESSION['AMIID']) {
     $_SESSION['error'] = "Vous n'avez pas le droit de modifier ce profil";
     header('Location: /profil.php');
     exit();
