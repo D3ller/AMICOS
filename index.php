@@ -19,6 +19,8 @@ require_once('./assets/php/lib.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/js/i18n/fr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
 
 
 
@@ -74,14 +76,17 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                             field: myDateInput,
                             format: 'DD/MM/YYYY',
                             i18n: {
-                            previousMonth: 'Mois précédent',
-                            nextMonth: 'Mois suivant',
-                            months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                            weekdays: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-                            weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-                            today: 'Aujourd\'hui',
-                            clear: 'Effacer',
-                            close: 'Fermer'
+                                previousMonth: 'Mois précédent',
+                                nextMonth: 'Mois suivant',
+                                months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                                weekdays: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                                weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                                today: 'Aujourd\'hui',
+                                clear: 'Effacer',
+                                close: 'Fermer'
+                            }
+                            onSelect: function(date) {
+                                myDateInput.value = moment(date).format('DD/MM/YYYY');
                             }
                         });
                     </script>
