@@ -197,6 +197,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 <div class="cards-ce-qui-ns-diff">
                     <div class="card-cqnd-1">
                         <div class="card-inter-cqnd">
+                            <div class="img-cqdn-1-pin"></div>
+                        <!-- <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt=""> -->
                             <h6>De meilleures <br>rencontres</h6>
                             <p>Avec Parks, rencontre des personnes 
                                 selon vos centre d’intérêts commun. 
@@ -204,8 +206,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                                 agréable, pour toi comme pour le 
                                 conducteur !
                             </p>
-                        
-                            <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt="">
+                    
                             <img class="img-cqnd-1-persos" src="https://portfolio.karibsen.fr/assets/img/maindanslamain.svg" alt="">
                         </div>
                     </div>
