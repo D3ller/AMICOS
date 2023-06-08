@@ -34,7 +34,6 @@ require_once('./assets/php/lib.php');
 
         <div class="menu__item">
             <!-- Phot de profil à poser en php -->
-            <a href="profil.php">
                 <?php
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
@@ -45,7 +44,17 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+    echo '<a href="./profil.php">';
     echo '<img src='.$user['profil-picture'].' alt="Photo de profil" class="menu__profil-picture">';
+    echo '</a>';
+} else {
+    echo '<a href="./connexion.php">';
+    echo '<svg width="23" height="28" viewBox="0 0 26 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12.8315" cy="7.94304" r="7.94304" fill="black"/>
+    <path d="M0 29.9404C0 22.854 5.74467 17.1094 12.8311 17.1094V17.1094C19.9175 17.1094 25.6621 22.854 25.6621 29.9404V33.2491C25.6621 33.7839 25.2286 34.2175 24.6938 34.2175H0.968383C0.43356 34.2175 0 33.7839 0 33.2491V29.9404Z" fill="black"/>
+    </svg>
+    </a>
+    ';
 }
 
 ?>
@@ -54,6 +63,13 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     </div>
 </menu>
 
+<?php
+
+//si la page n'est pas la page d'accueil, on affiche pas le menu
+if($_SERVER['PHP_SELF'] != '/index.php') {
+
+} else {
+    echo '
 <div class="menu__plus">
     <a href="./trajets.php">
     <svg width="61" height="61" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,4 +81,5 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 </svg>
 
     </a>    
-</div>
+</div>';
+}

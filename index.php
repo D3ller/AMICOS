@@ -90,77 +90,86 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 <input type="submit" value="Voyager !">
             </form>
         </div>
-        <!-- Uniquement visible étant connecté -->
-        <div class="last-travel">
-            <!-- Dernier trajet : (nom du dernier conducteur qui nous à emmené) -->
-            <?php 
-                $dbh = connect();
-                $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
-                $stmt->execute();
-            
-                $result = $stmt->get_result();
-                $user = $result->fetch_assoc();
-                echo '<h3>Dernier trajet : avec '.$user["prenom"].'</h3>';
-            ?>
-            <!-- Carte Gmap du dernier trajet -->
+<?php 
+
+if (isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+    echo '
+    <div class="last-travel">
+        <!-- Dernier trajet : (nom du dernier conducteur qui nous à emmené) -->
+        ';
+    $dbh = connect();
+    $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    echo '<h3>Dernier trajet : avec ' . $user["prenom"] . '</h3>';
+
+    echo '
+        <!-- Carte Gmap du dernier trajet -->
+    </div>
+    </div>
+    <!-- Uniquement visible étant connecté -->
+    <div class="stats-util">
+        <div class="co2">
+            <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
+            <div class="info-stats">
+                <h5>58.8 Kg</h5>
             </div>
         </div>
-        <!-- Uniquement visible étant connecté -->
-        <div class="stats-util">
-            <div class="co2">
-                <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
-                <div class="info-stats">
-                    <h5>58.8 Kg</h5>
+        <div class="distance">
+            <h3>Distance <span class="détail-stats">(en km)</stats></h3>
+            <div class="info-stats">
+                <h5>102 Km</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Uniquement visible étant connecté -->
+    <div class="trajets-inte-util">
+        <h3>Trajets qui peuvent vous intérésser</h3>
+        <!-- <div class="carre-card"></div> -->
+        <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
+        <div class="scroll-container">
+            <div class="card">
+                <div class="ele-util-card">
+                    <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                    <div>
+                        <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                        <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                    </div>
+                    <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                    <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
                 </div>
             </div>
-            <div class="distance">
-                <h3>Distance <span class="détail-stats">(en km)</stats></h3>
-                <div class="info-stats">
-                    <h5>102 Km</h5>
+            <div class="card">
+                <div class="ele-util-card">
+                    <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                    <div>
+                        <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                        <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                    </div>
+                    <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                    <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="ele-util-card">
+                    <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                    <div>
+                        <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                        <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                    </div>
+                    <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                    <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
                 </div>
             </div>
         </div>
-        <!-- Uniquement visible étant connecté -->
-        <div class="trajets-inte-util">
-            <h3>Trajets qui peuvent vous intérésser</h3>
-            <!-- <div class="carre-card"></div> -->
-            <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
-            <div class="scroll-container">
-                <div class="card">
-                    <div class="ele-util-card">
-                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
-                        <div>
-                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
-                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
-                        </div>
-                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
-                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="ele-util-card">
-                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
-                        <div>
-                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
-                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
-                        </div>
-                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
-                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="ele-util-card">
-                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
-                        <div>
-                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
-                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
-                        </div>
-                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
-                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
-                    </div></div>
-            </div>
+    </div>
+    ';
+}
+?>
             <!-- Visible tout le temps -->
             <div class="ce-qui-ns-diff">
                 <h3>Ce qui nous différencie</h3>

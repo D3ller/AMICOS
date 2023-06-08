@@ -1,356 +1,356 @@
 @font-face {
-  font-family: "Magison";
-  src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-
-
-.main-index {
-  width: 90%;
-  position: relative;
-  margin: 0 auto;
-}
-
-/* Form Voyager */
-
-.form-index{
-  background-color: #FFFAFA;
-  box-shadow: inset 0px 0px 10px 5px #00000014;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 40px;
-  border-radius: 20px;
-}
-
-.form-index form{
-  width: 100%;
-}
-
-.haut-form-index,
-.bas-form-index{
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 0 20px;
-}
-
-.bas-form-index{
-  background-color: #FFE3E3;
-}
-
-.haut-form-index input,
-.bas-form-index input{
-  width: 45%;
-  background-color: transparent;
-  border:none;
-  outline: none;
-  border-radius: 20px;
-  height: 50px;
-  font-family: 'Quicksand', sans-serif;
-  font-size:4.7vw;
-}
-
-.haut-form-index input::placeholder,
-.bas-form-index input::placeholder{
-  color:black;
-}
-
-.form-index form input[type="submit"]{
-  width: 100%;
-  height: 60px;
-  border-radius: 0px 0px 20px 20px;
-  outline: none;
-  border: none;
-  background-color: #FE1269;
-  color: white;
-  font-family: 'Magison', sans-serif;
-  font-size: 4.5vw;
-}
-
-.barre-form-index{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2px;
-  height: 80%;
-  background-color: #000000;
-  border-radius: 100px;
-}
-/* ----- */
-
-/* DERNIER TRAJET */
-
-.last-travel{
-  margin-top: 40px;
-  background-color: #F8F8F8;
-  box-shadow: 5px 5px 15px 0px #b0424249;
-  height: 180px;
-  border-radius: 20px;
-  /* font-size: 2.5vw; */
-  padding: 20px;
-}
-
-.last-travel h3{
-  font-family: 'Magison', sans-serif;
-  font-size: 4.5vw;
-  font-weight: 400;
-}
-
-/* CO2 & DISTANCE STATS UTIL */
-
-.stats-util{
-  display: flex;
-  justify-content: space-between;
-}
-
-.co2, .distance{
-  margin-top: 40px;
-  width: 48%;
-  background-color: #FE1269;
-  border-radius: 20px;
-  padding: 20px;
-  position: relative;
-}
-
-.co2 h3, .distance h3{
-  font-family: 'Magison', sans-serif;
-  font-size: 4vw;
-  font-weight: 400;
-  color:white;
-}
-
-.détail-stats{
-  font-size: 2.5vw;
-  font-weight: 400;
-  font-family: 'Magison', sans-serif;
-}
-
-.info-stats{
-  margin-top: 5px;
-  background-color: #FFE3E3;
-  height: 8vw;
-  border-radius: 100px;
-  position: relative;
-}
-
-.info-stats h5{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3.3vw;
-  /* font-weight: 700; */
-  font-family: 'Magison', sans-serif;
-}
-
-/* Scroll Snap trajets intéréssant */
-.trajets-inte-util,
-.ce-qui-ns-diff{
-  margin-top: 40px;
-  position: relative;
-}
-.trajets-inte-util h3,
-.ce-qui-ns-diff h3{
-  font-family: 'Magison', sans-serif;
-  font-size: 6vw;
-  font-weight: 400;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.scroll-container {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 8px;
-
-  position: relative;
-}
-
-.card {
-  flex: 0 0 95%;
-  height: 460px;
-  margin-right: 15px;
-  background-color: #f0f0f0;
-  scroll-snap-align: start;
-  border-radius: 20px;
-  position: relative;
-  color: white;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 460px;
-  max-width: 100%;
-  background: linear-gradient(180deg, rgba(255, 4, 4, 0) 0%, #f0f0f000 40%, #FF478B 100%);
-  border-radius: 20px;
-}
-
-.carre-card{
-  position: absolute;
-  top:10vw;
-  left: -10px;
-  z-index: 5000;
-  width: 12vw;
-}
-
-.ele-util-card{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  position: absolute;
-  bottom: 0px;
-}
-
-.ele-util-card img{
-  width: 30px;
-}
-
-.ele-util-card div:nth-child(1){
-  position: relative;
-  height: auto;
-}
-
-.ele-util-card .perso{
-  position: absolute;
-  left: 24vw;
-  margin-top: -2.3vw;
-  width: 10vw;
-}
-
-.ele-util-card .pp-util{
-  width: 25vw;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 7px;
-}
-
-.ele-util-card .right-arrow{
-  position: absolute;
-  width: 14vw;
-  right: 20px;
-  bottom: 25.5vw;
-}
-
-.ele-util-card h6{
-  font-size: 4.5vw;
-  font-family: 'Magison', sans-serif;
-}
-
-.exemple-trajet{
-  font-size: 3vw;
-  font-weight: 300;
-  font-family: 'Magison', sans-serif;
-}
-
-.ele-util-card p{
-  margin-top: 7px;
-  font-size: 3.2vw;
-  font-weight: 300;
-  font-family: 'QuickSand', sans-serif;
-  text-align: justify;
-}
-
-/* Ce qui nous différencie */
-
-.cards-ce-qui-ns-diff{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.card-cqnd-1,
-.card-cqnd-2,
-.card-cqnd-3,
-.card-cqnd-4{
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  position: relative;
-  margin-bottom: 15px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-@media screen and (min-width: 768px){
+    font-family: "Magison";
+    src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+  
+  
+  .main-index {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  /* Form Voyager */
+  
+  .form-index{
+    background-color: #FFFAFA;
+    box-shadow: inset 0px 0px 10px 5px #00000014;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 20px;
+  }
+  
+  .form-index form{
+    width: 100%;
+  }
+  
+  .haut-form-index,
+  .bas-form-index{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px;
+  }
+  
+  .bas-form-index{
+    background-color: #FFE3E3;
+  }
+  
+  .haut-form-index input,
+  .bas-form-index input{
+    width: 45%;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    height: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-size:4.7vw;
+  }
+  
+  .haut-form-index input::placeholder,
+  .bas-form-index input::placeholder{
+    color:black;
+  }
+  
+  .form-index form input[type="submit"]{
+    width: 100%;
+    height: 60px;
+    border-radius: 0px 0px 20px 20px;
+    outline: none;
+    border: none;
+    background-color: #FE1269;
+    color: white;
+    font-family: 'Magison', sans-serif;
+    font-size: 4.5vw;
+  }
+  
+  .barre-form-index{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 80%;
+    background-color: #000000;
+    border-radius: 100px;
+  }
+  /* ----- */
+  
+  /* DERNIER TRAJET */
+  
+  .last-travel{
+    margin-top: 40px;
+    background-color: #F8F8F8;
+    box-shadow: 5px 5px 15px 0px #b0424249;
+    height: 180px;
+    border-radius: 20px;
+    /* font-size: 2.5vw; */
+    padding: 20px;
+  }
+  
+  .last-travel h3{
+    font-family: 'Magison', sans-serif;
+    font-size: 4.5vw;
+    font-weight: 400;
+  }
+  
+  /* CO2 & DISTANCE STATS UTIL */
+  
+  .stats-util{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .co2, .distance{
+    margin-top: 40px;
+    width: 48%;
+    background-color: #FE1269;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .co2 h3, .distance h3{
+    font-family: 'Magison', sans-serif;
+    font-size: 4vw;
+    font-weight: 400;
+    color:white;
+  }
+  
+  .détail-stats{
+    font-size: 2.5vw;
+    font-weight: 400;
+    font-family: 'Magison', sans-serif;
+  }
+  
+  .info-stats{
+    margin-top: 5px;
+    background-color: #FFE3E3;
+    height: 8vw;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  .info-stats h5{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.3vw;
+    /* font-weight: 700; */
+    font-family: 'Magison', sans-serif;
+  }
+  
+  /* Scroll Snap trajets intéréssant */
+  .trajets-inte-util,
+  .ce-qui-ns-diff{
+    margin-top: 40px;
+    position: relative;
+  }
+  .trajets-inte-util h3,
+  .ce-qui-ns-diff h3{
+    font-family: 'Magison', sans-serif;
+    font-size: 6vw;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 8px;
+  
+    position: relative;
+  }
+  
+  .card {
+    flex: 0 0 95%;
+    height: 460px;
+    margin-right: 15px;
+    background-color: #f0f0f0;
+    scroll-snap-align: start;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    max-width: 100%;
+    background: linear-gradient(180deg, rgba(255, 4, 4, 0) 0%, #f0f0f000 40%, #FF478B 100%);
+    border-radius: 20px;
+  }
+  
+  .carre-card{
+    position: absolute;
+    top:10vw;
+    left: -10px;
+    z-index: 5000;
+    width: 12vw;
+  }
+  
+  .ele-util-card{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: absolute;
+    bottom: 0px;
+  }
+  
+  .ele-util-card img{
+    width: 30px;
+  }
+  
+  .ele-util-card div:nth-child(1){
+    position: relative;
+    height: auto;
+  }
+  
+  .ele-util-card .perso{
+    position: absolute;
+    left: 24vw;
+    margin-top: -2.3vw;
+    width: 10vw;
+  }
+  
+  .ele-util-card .pp-util{
+    width: 25vw;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 7px;
+  }
+  
+  .ele-util-card .right-arrow{
+    position: absolute;
+    width: 14vw;
+    right: 20px;
+    bottom: 25.5vw;
+  }
+  
+  .ele-util-card h6{
+    font-size: 4.5vw;
+    font-family: 'Magison', sans-serif;
+  }
+  
+  .exemple-trajet{
+    font-size: 3vw;
+    font-weight: 300;
+    font-family: 'Magison', sans-serif;
+  }
+  
+  .ele-util-card p{
+    margin-top: 7px;
+    font-size: 3.2vw;
+    font-weight: 300;
+    font-family: 'QuickSand', sans-serif;
+    text-align: justify;
+  }
+  
+  /* Ce qui nous différencie */
+  
+  .cards-ce-qui-ns-diff{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
   .card-cqnd-1,
   .card-cqnd-2,
   .card-cqnd-3,
   .card-cqnd-4{
-    width: 48%;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
-}
-
-/* Card unique cqnd*/
-.card-cqnd-1{
-  background-color: #FFF1F1;;
-}
-
-.card-cqnd-2{
-  background-color: #ECFFEF;
-}
-
-.card-cqnd-3{
-  background-color: #FDFFEA;
-}
-
-.card-cqnd-4{
-  background-color: #E5F9FF;
-}
-
-.card-inter-cqnd{
-  padding: 20px;
-
-  font-size:5vw;
-  font-weight: 300;
-  font-family: 'QuickSand', sans-serif;
-  text-align: justify;
-}
-
-.card-inter-cqnd h6{
-  font-size: 7vw;
-  font-weight: 400;
-  font-family: 'Magison', sans-serif;
-  margin-bottom: 15px;
-}
-
-.img-cqnd{
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 40vw;
-  background-size: contain;
-  display: block;
-  object-fit: cover;
-  margin-top: 10px;
-}
-
-.img-cqnd-1-persos {
-  background-image: url("https://portfolio.karibsen.fr/assets/img/maindanslamain.svg");
-}
-
-.img-cqnd-2-persos {
-  background-image: url("https://portfolio.karibsen.fr/assets/img/terre.svg");
-  margin-bottom: -20.5px;
-}
-
-.img-cqnd-3-persos {
-  background-image: url("https://portfolio.karibsen.fr/assets/img/rouejaune.svg");
-}
-
-.img-cqnd-4-persos {
-  float: right;
-  margin-right: -20px;
-  background-position: right center;
-  background-image: url("https://portfolio.karibsen.fr/assets/img/multi.svg");
-}
-
-
-@media screen and (min-width: 768px){
-  .card-cqnd-1 .card-inter-cqnd h6{
-      font-size: 3.5vw;
+  
+  @media screen and (min-width: 768px){
+    .card-cqnd-1,
+    .card-cqnd-2,
+    .card-cqnd-3,
+    .card-cqnd-4{
+      width: 48%;
     }
   }
+  
+  /* Card unique cqnd*/
+  .card-cqnd-1{
+    background-color: #FFF1F1;;
+  }
+  
+  .card-cqnd-2{
+    background-color: #ECFFEF;
+  }
+  
+  .card-cqnd-3{
+    background-color: #FDFFEA;
+  }
+  
+  .card-cqnd-4{
+    background-color: #E5F9FF;
+  }
+  
+  .card-inter-cqnd{
+    padding: 20px;
+  
+    font-size:5vw;
+    font-weight: 300;
+    font-family: 'QuickSand', sans-serif;
+    text-align: justify;
+  }
+  
+  .card-inter-cqnd h6{
+    font-size: 7vw;
+    font-weight: 400;
+    font-family: 'Magison', sans-serif;
+    margin-bottom: 15px;
+  }
+  
+  .img-cqnd{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vw;
+    background-size: contain;
+    display: block;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  
+  .img-cqnd-1-persos {
+    background-image: url("https://portfolio.karibsen.fr/assets/img/maindanslamain.svg");
+  }
+  
+  .img-cqnd-2-persos {
+    background-image: url("https://portfolio.karibsen.fr/assets/img/terre.svg");
+    margin-bottom: -20.5px;
+  }
+  
+  .img-cqnd-3-persos {
+    background-image: url("https://portfolio.karibsen.fr/assets/img/rouejaune.svg");
+  }
+  
+  .img-cqnd-4-persos {
+    float: right;
+    margin-right: -20px;
+    background-position: right center;
+    background-image: url("https://portfolio.karibsen.fr/assets/img/multi.svg");
+  }
+  
+  
+  @media screen and (min-width: 768px){
+    .card-cqnd-1 .card-inter-cqnd h6{
+        font-size: 3.5vw;
+      }
+    }

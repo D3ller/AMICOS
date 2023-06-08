@@ -102,7 +102,8 @@ echo '<div id="profil">';
     }
 
     $text = str_replace("\r\n",'', $user["description"]);
-    $text = str_ireplace(array("\r","\n",'\r','\n'),'', $text);
+    $text = str_ireplace(array("\r","\n",'\r','\n'),'<br>', $text);
+    $text = str_replace(array("\r\n", "\r", "\n"), "<br>", $text);
 
     echo '<div class="pref">';
     echo '<h2 class="subtitle">Voiture</h2>';

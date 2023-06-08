@@ -18,13 +18,7 @@ if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])){
 </head>
 <body>
 
-<form action="./assets/php/edit.php" method="post">
-  <select id="mySelect" name='pp' required>
-    <option value="https://portfolio.karibsen.fr/assets/img/default-pp" data-image="https://portfolio.karibsen.fr/assets/img/default-pp">Avatar rose</option>
-    <option value="https://portfolio.karibsen.fr/assets/img/profil-orange" data-image="https://portfolio.karibsen.fr/assets/img/profil-orange">Avatar orange</option>
-    <option value="https://portfolio.karibsen.fr/assets/img/vert" data-image="https://portfolio.karibsen.fr/assets/img/vert">Avatar vert</option>
-    <option value="https://portfolio.karibsen.fr/assets/img/bleu" data-image="https://portfolio.karibsen.fr/assets/img/bleu">Avatar bleu</option>
-  </select>
+<form action="./assets/php/edit.php" method="post" enctype="multipart/form-data">
 
   <?php 
   
@@ -43,6 +37,7 @@ if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])){
     <input type="text" name="prenom" value="<?php echo $user['prenom']; ?>" required>
     <input type="email" name="email" value="<?php echo $user['email']; ?>" required>
     <textarea type="text" name="description" required><?php echo $user['description']; ?></textarea>
+    <input type='file' name='image' accept='image/*'>
     <input type="submit" value="Modifier">
 </form>
 
