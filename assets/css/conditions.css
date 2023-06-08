@@ -28,6 +28,16 @@
     margin-bottom: 20px;
 }
 
+#conditions > h4 {
+    font-family: "Magison", sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
 #conditions > p {
     font-family: "Quicksand", sans-serif;
     font-weight: 500;
@@ -40,7 +50,38 @@
     margin-left: 10px;
 }
 
-
 #conditions > p:last-of-type {
     margin-bottom: 100px;
+}
+
+.button-cookies{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.button-cookies button {
+    width: 45%;
+    background-color: white;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 2000px;
+    padding: 3.5vw;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 4.2vw;
+    box-shadow: 7px 7px 0px #000000;
+    transition: 0.25s ease-in-out all;
+}
+
+.button-cookies button:focus {
+    transform: translate(7px, 7px);
+    box-shadow: none;
+}
+
+.button-cookies button:focus:nth-child(2) {
+    background-color: #b0f6b3;
+}
+
+.button-cookies button:focus:nth-child(1) {
+    background-color: #f6b0b0;
 }

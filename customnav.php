@@ -41,6 +41,18 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<p>PDC</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
+} elseif($_SERVER['PHP_SELF'] == '/mentions.php') {
+    echo '<nav class="cstm" style="background: #fe1269; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="./parametre.php"><div id="backarrow"></div></a>';
+    echo '<p>Mentions légales</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+
+} elseif($_SERVER['PHP_SELF'] == '/cookie.php') {
+    echo '<nav class="cstm" style="background: #fe1269; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="./parametre.php"><div id="backarrow"></div></a>';
+    echo '<p>Cookies</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+
 
 
 } else {
