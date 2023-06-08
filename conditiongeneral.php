@@ -16,6 +16,8 @@ require_once('customnav.php');
 
 ?>
 
+<main>
+
 <div id='conditions'>
 
     <h1>Version applicable à compter du 7 juin 2023</h2>
@@ -35,6 +37,8 @@ require_once('customnav.php');
     </p>
 
 </div>
+
+</main>
 
 <?php
 require_once('menu.php');

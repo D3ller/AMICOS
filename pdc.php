@@ -14,6 +14,8 @@
 require_once('customnav.php');
 ?>
 
+<main>
+
 <div id='conditions'>
 
     <h2>Protection des données personnelles</h2>
@@ -46,6 +48,8 @@ Ces informations ne seront en aucun cas communiquées à des tiers. Seul le pers
         <br>- Langue</p>
 
 </div>
+
+    </main>
 
 <?php
 require_once('menu.php');

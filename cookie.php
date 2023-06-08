@@ -13,7 +13,7 @@
 <?php
 require_once('customnav.php');
 ?>
-
+<main>
 <div id='conditions'>
 
     <h2>Préférences de consentement</h2>
@@ -29,7 +29,7 @@ require_once('customnav.php');
     </div>
 
 </div>
-
+</main>
 <?php
 require_once('menu.php');
 ?>
