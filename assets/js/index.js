@@ -209,6 +209,3 @@ love.addEventListener("click", loveListener);
 // -----------------------------
 // Fin SWIPE SCRIPT
 // -----------------------------
-
-
-

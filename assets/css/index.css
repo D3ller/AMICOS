@@ -19,6 +19,7 @@
   box-shadow: inset 0px 0px 10px 5px #00000014;
   width: 100%;
   margin: 0 auto;
+  margin-top: 40px;
   border-radius: 20px;
 }
 
@@ -82,7 +83,7 @@
 /* DERNIER TRAJET */
 
 .last-travel{
-  margin-top: 25px;
+  margin-top: 40px;
   background-color: #F8F8F8;
   box-shadow: 5px 5px 15px 0px #b0424249;
   height: 180px;
@@ -105,7 +106,7 @@
 }
 
 .co2, .distance{
-  margin-top: 25px;
+  margin-top: 40px;
   width: 48%;
   background-color: #FE1269;
   border-radius: 20px;
@@ -145,6 +146,19 @@
 }
 
 /* Scroll Snap trajets intéréssant */
+.trajets-inte-util,
+.ce-qui-ns-diff{
+  margin-top: 40px;
+  position: relative;
+}
+.trajets-inte-util h3,
+.ce-qui-ns-diff h3{
+  font-family: 'Magison', sans-serif;
+  font-size: 6vw;
+  font-weight: 400;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
 .scroll-container {
   display: flex;
@@ -178,8 +192,10 @@
 
 .carre-card{
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: 20px;
+  left: -10px;
+  z-index: 5000;
+  width: 12vw;
 }
 
 .ele-util-card{
@@ -187,8 +203,6 @@
   flex-direction: column;
   padding: 20px;
   position: absolute;
-
-  /* margin-top: 200px; */
   bottom: 0px;
 }
 
@@ -240,3 +254,79 @@
   font-family: 'QuickSand', sans-serif;
   text-align: justify;
 }
+
+/* Ce qui nous différencie */
+
+.cards-ce-qui-ns-diff{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.card-cqnd-1,
+.card-cqnd-2,
+.card-cqnd-3,
+.card-cqnd-4{
+  width: 100%;
+  /* max-width: 400px; */
+  height: auto;
+  border-radius: 20px;
+  position: relative;
+  background-color: blue;
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 768px){
+  .card-cqnd-1,
+  .card-cqnd-2,
+  .card-cqnd-3,
+  .card-cqnd-4{
+    width: 48%;
+  }
+}
+
+/* Card 1 cqnd*/
+.card-cqnd-1{
+  background-color: #FFF1F1;
+  position: relative;
+}
+
+.card-cqnd-1 .card-inter-cqnd{
+  padding: 20px;
+}
+
+.card-cqnd-1 .card-inter-cqnd h6{
+  font-size: 7vw;
+  font-weight: 400;
+  font-family: 'Magison', sans-serif;
+  margin-bottom: 15px;
+};
+
+.card-cqnd-1 .card-inter-cqnd p{
+  font-size:5vw;
+  font-weight: 300;
+  font-family: 'QuickSand', sans-serif;
+  text-align: justify;
+}
+
+.card-cqnd-1 .card-inter-cqnd .img-cqnd-1-pin{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 13vw;
+}
+
+.card-cqnd-1 .card-inter-cqnd .img-cqnd-1-persos{
+  margin: 0 auto;
+  width: 80vw;
+  display: flex;
+  margin-top: 30px;
+  /* background-color: red; */
+}
+
+@media screen and (min-width: 768px){
+  .card-cqnd-1 .card-inter-cqnd h6{
+      font-size: 3.5vw;
+    };
+  }

@@ -15,17 +15,14 @@ require_once('./assets/php/lib.php');
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/header-footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Input date avec calendar Pikaday pour IOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/js/i18n/fr.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 
-
-
-
-    <script src="./assets/js/index.js" DEFER></script>
+    <script src="./assets/js/index.js" defer></script>
     <title>Accueil</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
@@ -66,10 +63,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                 </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-                    <!-- <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"> -->
-                    <!-- <input type="date" name='date' value="Date" onclick="" required> -->
+                    <input type="text" id="myDateInput" placeholder="Date" />
 
-                    <input type="text" id="myDateInput" placeholder="Sélectionner une date" />
                     <script>
                         const myDateInput = document.getElementById('myDateInput');
                         const picker = new Pikaday({
@@ -97,8 +92,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                                 const month = parseInt(parts[1], 10) - 1;
                                 const year = parseInt(parts[2], 10);
                                 return new Date(year, month, day);
-                            }
-                        });
+                            }  
+                        });    
                     </script>
 
 
@@ -158,8 +153,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
         <div class="trajets-inte-util">
             <h3>Des trajets intéréssants pour vous !</h3>
 
+            <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/carre.svg" alt="">
+
             <div class="scroll-container">
-                <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/carre.svg" alt="">
                 <div class="card">
                     <div class="ele-util-card">
                         <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
@@ -170,15 +166,64 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                         <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
                         <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
                     </div>
-
                 </div>
-                <div class="card">Carte 2</div>
-                <div class="card">Carte 3</div>
-                <div class="card">Carte 3</div>
-                <div class="card">Carte 3</div>
+                <div class="card">
+                    <div class="ele-util-card">
+                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                        <div>
+                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                        </div>
+                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="ele-util-card">
+                        <a href="reserv/id"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/arrowbuttonright.svg" alt=""></a>
+                        <div>
+                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                            <img class="pp-util" src="https://portfolio.karibsen.fr/assets/img/people.webp" alt="">
+                        </div>
+                        <h6>Jane Cooper  <span class="exemple-trajet">Troyes ➔ St André</span></h6>
+                        <p>Le trajet commencera au parking de l'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+                    </div></div>
             </div>
 
+            <!-- Visible tout le temps -->
+            <div class="ce-qui-ns-diff">
+                <h3>Ce qui nous différencie</h3>
+
+                <div class="cards-ce-qui-ns-diff">
+                    <div class="card-cqnd-1">
+                        <div class="card-inter-cqnd">
+                            <h6>De meilleures <br>rencontres</h6>
+                            <p class="tt">
+                                Avec Parks, rencontre des personnes 
+                                selon vos centre d’intérêts commun. Grâce à 
+                                ça, tes voyages seront plus agréable, pour 
+                                toi comme pour le conducteur !
+                            </p>
+                        
+                            <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt="">
+                            <img class="img-cqnd-1-persos" src="https://portfolio.karibsen.fr/assets/img/maindanslamain.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="card-cqnd-2">
+                        
+                    </div>
+                    <div class="card-cqnd-3">
+                        
+                    </div>
+                    <div class="card-cqnd-4">
+                        
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+
 </main>
 
 <?php
