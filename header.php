@@ -92,11 +92,6 @@ function relief() {
 }
 window.onload = relief;
 
-
-window.onload = function() {
-  relief();
-};
-
 </script>
 
 
