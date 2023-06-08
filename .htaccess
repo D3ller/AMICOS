@@ -5,7 +5,7 @@ RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /reservation\.php\?id=([0-9]+)\ HTTP/
 RewriteRule ^reservation\.php$ /reserv/%1? [L,R=301]
 
 # Rediriger de /gestion vers /admin/admin.php
-RewriteRule ^gestion$ /n/admin.php [L,R=301]
+RewriteRule ^gestion$ /admin/admin.php [L,R=301]
 
 # Réécrire de reserv/XXX vers reservation.php?id=XXX
 RewriteRule ^reserv/([0-9]+)$ /reservation.php?id=$1 [L]
