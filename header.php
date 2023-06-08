@@ -93,9 +93,9 @@ function relief() {
 window.onload = relief;
 
 
-document.addEventListener("DOMContentLoaded", function() {
+window.onload = function() {
   relief();
-});
+};
 
 </script>
 
