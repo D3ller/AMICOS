@@ -64,6 +64,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                             -webkit-appearance: textfield;
                             -moz-appearance: textfield;
                             min-height: 1.2em;
+                            color: blue;
                         }
                     </style>
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
