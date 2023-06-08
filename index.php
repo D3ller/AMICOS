@@ -124,8 +124,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
         </div>
         <!-- Uniquement visible étant connecté -->
         <div class="trajets-inte-util">
-            <h3>Des trajets intéréssants pour vous !</h3>
-            <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/carre.svg" alt="">
+            <h3>Trajets qui peuvent vous intérésser</h3>
+            <img class="carre-card"src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
             <div class="scroll-container">
                 <div class="card">
                     <div class="ele-util-card">
@@ -182,9 +182,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                             </p>
                             <img src="" alt="">
                             <div class="img-cqnd-1-persos img-cqnd"></div>
-
-                            <img class="img-cqnd-1-pin" src="https://portfolio.karibsen.fr/assets/img/doubleround.svg" alt="">
-                            <img class="img-cqnd-1-persos" src="https://portfolio.karibsen.fr/assets/img/maindanslamain.svg" alt="">
                         </div>
                     </div>
 
