@@ -58,6 +58,12 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<p>Cookies</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
+} elseif($_SERVER['PHP_SELF'] == '/swipe.php') {
+    echo '<nav class="cstm" style="background: #8EA7E3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="./parametre.php"><div style="opacity: 0; visibility: hide" id="backarrow"></div></a>';
+    echo '<p>Match</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+
 
 
 } else {
