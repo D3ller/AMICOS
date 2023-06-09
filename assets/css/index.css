@@ -259,9 +259,12 @@
     font-size: 3vw;
     font-weight: 300;
     font-family: 'Magison', sans-serif;
-    max-height: 55px;
+    max-height: 50px;
+    min-height: 55px;
+    height: 55px;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: block;
   }
   
   .ele-util-card p{
