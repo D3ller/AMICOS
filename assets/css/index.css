@@ -249,6 +249,9 @@
   .ele-util-card h6{
     font-size: 4.5vw;
     font-family: 'Magison', sans-serif;
+    width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .exemple-trajet{
