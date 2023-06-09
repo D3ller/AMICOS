@@ -93,40 +93,123 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 <?php 
 
 if (isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+
+    $sqluser = "SELECT * FROM profil WHERE email = ? AND id = ?";
+$stmtuser = $dbh->prepare($sqluser);
+$stmtuser->bind_param("ss", $_SESSION['AMIMAIL'], $_SESSION['AMIID']);
+$stmtuser->execute();
+$resultuser = $stmtuser->get_result();
+$user = $resultuser->fetch_assoc();
+$n = $resultuser->num_rows;
+
+if($n === 0) {
+    exit();
+}
+
+$sql = "SELECT trajet.*
+FROM passager
+INNER JOIN trajet ON passager.trajet_id = trajet.id
+WHERE passager.user_id = ? AND trajet.date < NOW()
+ORDER BY trajet.date DESC
+LIMIT 1";
+$stmt = $dbh->prepare($sql);
+$stmt->bind_param("i", $user['id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$trajet = $result->fetch_assoc();
+
+if($result->num_rows > 0) {
+//savoir tout
     echo '
     <div class="last-travel">
-        <!-- Dernier trajet : (nom du dernier conducteur qui nous à emmené) -->
         ';
-    $dbh = connect();
-    $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
-    $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
-    $stmt->execute();
 
+    $sql = "SELECT * FROM profil WHERE id = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("i", $trajet['conducteur_id']);
+    $stmt->execute();
     $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-    echo '<h3>Dernier trajet : avec ' . $user["prenom"] . '</h3>';
+    $conducteur = $result->fetch_assoc();
+
+    echo '<h3>Dernier trajet : avec ' . $conducteur["prenom"] . '</h3>';
 
     echo '
-        <!-- Carte Gmap du dernier trajet -->
+    <div id="map" style="width: 80%; height: 120px; border-radius: 20px; margin: 0 auto;"></div>
     </div>
     </div>
-    <!-- Uniquement visible étant connecté -->
     <div class="stats-util">
         <div class="co2">
             <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
             <div class="info-stats">
-                <h5>58.8 Kg</h5>
+                <h5>'.$trajet["co2"].'kg</h5>
             </div>
         </div>
         <div class="distance">
             <h3>Distance <span class="détail-stats">(en km)</stats></h3>
             <div class="info-stats">
-                <h5>102 Km</h5>
+                <h5>'.$trajet["km"].' Km</h5>
             </div>
         </div>
-    </div>
-    <!-- Uniquement visible étant connecté -->
+    </div>';
+
+echo "    <script>
+var latDepart = $trajet[lat];
+var lngDepart = $trajet[lng];
+var latArrivee = $trajet[lat2];
+var lngArrivee = $trajet[lng2];
+
+function initMap() {
+  var startPoint = new google.maps.LatLng(latDepart, lngDepart);
+  var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
+
+  var mapOptions = {
+    center: startPoint,
+    zoom: 50,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    mapTypeControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: []
+    }
+  };
+
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer({
+    map: map,
+    polylineOptions: {
+      strokeColor: '#fe1269'
+    }
+  });
+
+  var request = {
+    origin: startPoint,
+    destination: endPoint,
+    travelMode: google.maps.TravelMode.DRIVING 
+  };
+
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsRenderer.setDirections(result);
+    }
+  });
+}
+
+window.onload = function() {
+  initMap();
+  map.getDiv().style.width = '100%';
+map.getDiv().style.height = '100px';
+};
+
+
+
+</script>";
+
+} else {
+    
+}
+   echo '<!-- Uniquement visible étant connecté -->
     <div class="trajets-inte-util">
         <h3>Trajets qui peuvent vous intérésser</h3>
         <!-- <div class="carre-card"></div> -->
@@ -168,6 +251,7 @@ if (isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
         </div>
     </div>
     ';
+
 }
 ?>
             <!-- Visible tout le temps -->
