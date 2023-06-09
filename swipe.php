@@ -233,4 +233,34 @@ button2.addEventListener('animationend', () => {
   button2.blur();
 });
 
+// Repress Tel
+// b1
+const button = document.getElementById('nope');
+
+function activateAnimation() {
+  button.classList.add('active');
+}
+
+function deactivateAnimation() {
+  button.classList.remove('active');
+}
+
+button.addEventListener('mousedown', activateAnimation);
+button.addEventListener('touchstart', activateAnimation);
+button.addEventListener('animationend', deactivateAnimation);
+// b2
+const button2 = document.getElementById('love');
+
+function activateAnimation() {
+  button2.classList.add('active');
+}
+
+function deactivateAnimation() {
+  button2.classList.remove('active');
+}
+
+button2.addEventListener('mousedown', activateAnimation);
+button2.addEventListener('touchstart', activateAnimation);
+button2.addEventListener('animationend', deactivateAnimation);
+
 </script>
