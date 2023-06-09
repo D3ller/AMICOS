@@ -237,6 +237,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 7px;
+    height: 25vw;
   }
   
   .ele-util-card .right-arrow{
@@ -258,6 +259,9 @@
     font-size: 3vw;
     font-weight: 300;
     font-family: 'Magison', sans-serif;
+    max-height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .ele-util-card p{
