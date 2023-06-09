@@ -1,0 +1,2 @@
+# Rediriger de /gestion vers /admin/admin.php
+RewriteRule ^gestion$ /var/www/sae202/admin/admin.php
