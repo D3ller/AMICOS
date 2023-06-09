@@ -142,11 +142,6 @@
     animation: press 0.25s linear;
   }
 
-  #nope.active,
-  #love.active{
-    animation: press 0.25s linear;
-  }
-
   @keyframes press{
     0% {
       transform: translate(0px, 0px);
