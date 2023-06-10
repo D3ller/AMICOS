@@ -210,8 +210,9 @@ map.getDiv().style.height = '100px';
     
 }
 
-$sql = "SELECT * FROM trajet WHERE date > NOW() ORDER BY RAND() LIMIT 3";
+$sql = "SELECT * FROM trajet WHERE date > NOW() AND conducteur_id != ? ORDER BY RAND() LIMIT 3";
 $stmt = $dbh->prepare($sql);
+$stmt->bind_param("i", $user['id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $num_rows = $result->num_rows;
@@ -223,8 +224,6 @@ if ($num_rows > 0) {
         <div class="scroll-container">';
 
     while ($row = $result->fetch_assoc()) {
-
-        echo $row['id'];
 
         $sql = "SELECT * FROM profil WHERE id = ?";
         $stmt = $dbh->prepare($sql);
