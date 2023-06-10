@@ -32,33 +32,33 @@ echo "<p id='pk'>Il y a " . $num_rows . " parkings enregistrés</p>";
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&callback=initMap" async defer></script>
 <script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 46.227638, lng: 2.213749},
-            zoom: 6,
-            disableDefaultUI: true
-        });
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 46.227638, lng: 2.213749},
+        zoom: 6,
+        disableDefaultUI: true
+    });
 
-        <?php
-
-
-        while ($row = $result->fetch_assoc()) {
-            echo "var marker = new google.maps.Marker({";
-                echo "position: {lat: " . $row['lat'] . ", lng: " . $row['lng'] . "},";
-                echo "map: map,";
-                echo "title: '" . $row['name'] . "',";
-                echo "icon: 'https://portfolio.karibsen.fr/assets/img/parkpin.svg'";
-                echo "});";
-        
-                echo "marker.addListener('click', function() {";
-                echo "var infoWindow = new google.maps.InfoWindow({";
-                echo "content: '" . $row['name'] . "'";
-                echo "});";
-                echo "infoWindow.open(map, marker);";
-                echo "});";
-        }
-        ?>
+    <?php
+    while ($row = $result->fetch_assoc()) {
+        echo "(function() {"; // Début de la fonction anonyme auto-exécutée
+        echo "var marker = new google.maps.Marker({";
+        echo "position: {lat: " . $row['lat'] . ", lng: " . $row['lng'] . "},";
+        echo "map: map,";
+        echo "title: '" . $row['name'] . "',";
+        echo "icon: 'https://portfolio.karibsen.fr/assets/img/parkpin.svg'";
+        echo "});";
+    
+        echo "marker.addListener('click', function() {";
+        echo "var infoWindow = new google.maps.InfoWindow({";
+        echo "content: '" . $row['name'] . "'";
+        echo "});";
+        echo "infoWindow.open(map, marker);";
+        echo "});";
+        echo "})();"; // Fin de la fonction anonyme auto-exécutée
     }
+    ?>
+}
 </script>
 
 <div id="map"></div>
