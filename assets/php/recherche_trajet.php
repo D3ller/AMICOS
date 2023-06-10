@@ -21,12 +21,17 @@ echo '<h1>Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
 
 $dbh = connect();
 
-$sql = "SELECT * FROM trajet WHERE date > ?";
+$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ?";
 $stmt = $dbh->prepare($sql);
-$stmt->bind_param("s", $datetime);
+$stmt->bind_param("si", $datetime, $_POST['place']);
 $stmt->execute();
-
 $result = $stmt->get_result();
+$num_rows = $result->num_rows;
+
+if($num_rows == 0){
+    echo 'Aucun trajet n\'a été trouvé';
+    exit();
+}
 
 $trajetInteressant = null;
 $distancePlusInteressante = null;
@@ -105,6 +110,10 @@ if ($trajetInteressant !== null) {
 
             $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
             $distance = $distance / 1000;
+
+            if($distance == 0) {
+                continue;
+            }
 
             if($distance < 50) {
             echo '<br><br>';

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -151,6 +157,7 @@ allCards.forEach(function (el) {
       "px) rotate(" +
       rotate +
       "deg)";
+
   });
 
   hammertime.on("panend", function (event) {
@@ -162,6 +169,7 @@ allCards.forEach(function (el) {
     var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
 
     event.target.classList.toggle("removed", !keep);
+    
 
     if (keep) {
       event.target.style.transform = "";
@@ -186,6 +194,9 @@ allCards.forEach(function (el) {
         rotate +
         "deg)";
       initCards();
+
+      console.log(event.deltaY);
+
     }
   });
 });
@@ -202,15 +213,16 @@ function createButtonListener(love) {
     card.classList.add("removed");
 
     if (love) {
+        console.log(love ? "Liked" : "Disliked")
       card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
     } else {
+        console.log(love ? "Liked" : "Disliked")
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
 
     initCards();
-
     event.preventDefault();
   };
 }

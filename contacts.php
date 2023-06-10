@@ -23,7 +23,7 @@ session_start();
 
     ?>
 
-    <form method='POST' action=''>
+    <form method='POST' action='./assets/php/vcontact.php'>
 
     <?php
 

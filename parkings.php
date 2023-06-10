@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 ?>
 
@@ -23,41 +22,52 @@ require_once './assets/php/lib.php';
 $dbh = connect();
 
 $sql = "SELECT * FROM parking";
+$result = $dbh->query($sql);
 
-$stmt = $dbh->prepare($sql);
-$stmt->execute();
-$result = $stmt->get_result();
+$num_rows = $result->num_rows;
 
-$num_results = $result->num_rows;
-
-if($num_results == 0) {
-echo '<div id="noparkings">';
-echo '<div id="badnews"></div>';
-echo '<p id="noparking">Aucun parking disponible</p>';
-echo '</div>';
-exit();
-} 
-
-echo '<p id="pk">Parking disponible ('.$num_results.')</p>';
-echo '<div id="parking">';
-
-while($row = $result->fetch_assoc()) {
-
-
-    echo '<div class="maps">';
-    echo "<p class='title'>{$row['name']}</p>";
-    echo '<a href="https://www.google.com/maps?q='.$row['lat'].','.$row['lng'].'"><div class="more"></div></a>';
-    echo '</div>';
-
-}
-
-echo '</div>';
-
-
-require_once('./footer.php');
-
-
+echo "<p id='pk'>Il y a " . $num_rows . " parkings enregistrés</p>";
 
 ?>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 46.227638, lng: 2.213749},
+            zoom: 6,
+            disableDefaultUI: true
+        });
+
+        <?php
+
+
+        while ($row = $result->fetch_assoc()) {
+            echo "var marker = new google.maps.Marker({";
+                echo "position: {lat: " . $row['lat'] . ", lng: " . $row['lng'] . "},";
+                echo "map: map,";
+                echo "title: '" . $row['name'] . "',";
+                echo "icon: 'https://portfolio.karibsen.fr/assets/img/parkpin.svg'";
+                echo "});";
+        
+                echo "marker.addListener('click', function() {";
+                echo "var infoWindow = new google.maps.InfoWindow({";
+                echo "content: '" . $row['name'] . "'";
+                echo "});";
+                echo "infoWindow.open(map, marker);";
+                echo "});";
+        }
+        ?>
+    }
+</script>
+
+<div id="map"></div>
+
+<style>
+    #map {
+        height: 400px;
+        margin: 0 20px;
+    }
+</style>
 </body>
 </html>

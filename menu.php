@@ -69,7 +69,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 if($_SERVER['PHP_SELF'] != '/index.php') {
 
 } else {
-    echo '
+
+    if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+        echo '
 <div class="menu__plus">
     <a href="./trajets.php">
     <svg width="61" height="61" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,4 +84,5 @@ if($_SERVER['PHP_SELF'] != '/index.php') {
 
     </a>    
 </div>';
+    }
 }

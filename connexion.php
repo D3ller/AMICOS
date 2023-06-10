@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     $_SESSION['error'] = "<p>Vous êtes déjà connecté</p>";
-    header('Location: /index.php');
+    header('Location: /');
     exit;
 }
 
@@ -39,12 +39,12 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
         <div class="form-inscription">
             <form METHOD="POST" action="./assets/php/vconnexion.php">
-                <input class="email" type="email" id='mail' name="email" autocomplete="off" placeholder="email">
-                <input class="lock" type="password" name="password" autocomplete="off" placeholder="password">
+                <input class="email" type="email" id='mail' name="email" autocomplete="off" placeholder="Email">
+                <input class="lock" type="password" name="password" autocomplete="off" placeholder="Mot de passe">
                 <input class="center" type="submit" name="submit" value="Connexion">
             </form>
-            <a class="center inscription" href="./inscription.php">Inscription</a> 
-            <a class="lost-password" id='forget' href="./forget.php">Mot de passe oublié</a>
+            <a class="center inscription" href="./inscription">Inscription</a> 
+            <a class="lost-password" id='forget' href="./forget">Mot de passe oublié</a>
         </div>
 
         <!-- <script>alert("Garde l'id de mot de pass oublié j'ai mis du js")</script> -->
