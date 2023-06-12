@@ -19,6 +19,10 @@ main{
 
 /* Header */
 
+.legalfooter > a {
+    text-align: center;
+}
+
 header{
     width: 100%;
     position: relative;
@@ -286,6 +290,13 @@ menu{
     .double-star {
       display: none;
     }
+
+    .cstm {
+        display: none;
+    }
+
+
+
 
     header{
         position: fixed;
