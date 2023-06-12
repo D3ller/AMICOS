@@ -44,7 +44,7 @@ require_once('customnav.php');
     $lng2 = $trajet['lng2'];
 
 ?>
-  <div data-link="https://portfolio.karibsen.fr/reserv/<?php echo $trajet['id'] ?>" class="tinder--card">
+  <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id'] ?>" class="tinder--card">
     <div class="map-container" style="width: 100%; height: 300px;"></div>
     <h3><?php echo $trajet['lieu_depart']; ?></h3>
     <p><?php echo $trajet['lieu_arrivee']; ?></p>
