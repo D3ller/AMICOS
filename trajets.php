@@ -41,7 +41,7 @@ if(isset($_SESSION['error'])){
     <input type="text" name='depart' id="address" placeholder="Départ" required>
     <label for="">Arrivée :</label>
     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-    <label for="">Date :</label><br>
+    <label for="">Date :</label>
     <input type="datetime-local" name='datetime' value="Date" onclick="" required>
     <label for="">Nombre de places :</label>
     <select name='place' required>
