@@ -22,6 +22,17 @@
     font-weight: 400;
   }
 
+  @media screen and (min-width: 1024px){
+    .main-index{
+      padding-top: 150px;
+      width: 75%;
+    }
+
+    .bvn{
+      font-size: 2.5vw;
+    }
+  }
+
   /* Form Voyager */
   
   .form-index{
@@ -87,6 +98,31 @@
     height: 80%;
     background-color: #000000;
     border-radius: 100px;
+  }
+
+  @media screen and (min-width: 1024px){
+    .form-index form{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-index form input[type="submit"]{
+      border-radius: 0px 20px 20px 0px;
+      font-size: 2vw;
+      width: 25%;
+    }
+
+    .haut-form-index,
+    .bas-form-index{
+      width: 60%;
+    }
+
+  .haut-form-index input,
+  .bas-form-index input{
+    font-size:2vw;
+    line-height: 50px;
+    display: block;
+  }
   }
   /* ----- */
   
@@ -171,7 +207,7 @@
     margin-bottom: 10px;
     text-align: center;
   }
-  
+
   .scroll-container {
     display: flex;
     overflow-x: scroll;
@@ -208,6 +244,43 @@
     left: -10px;
     z-index: 1;
     width: 12vw;
+  }
+
+  @media screen and (min-width: 1024px){
+    .trajets-inte-util h3,
+    .ce-qui-ns-diff h3{
+      font-size: 2vw;
+      text-align: left;
+      margin-left: 80px;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      width: 8px;
+      background-color: #fe126924;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+      background-color: #FE1269;
+      border-radius: 10px; 
+  }
+  
+    .card{
+      flex: 0 0 45%;
+      margin-right: 55px;
+      margin-bottom: 15px;
+      height: 400px;
+    }
+
+    .card::before{
+      height: 400px;
+    }
+
+    .carre-card{
+      width: 5vw;
+      top: 0vw;
+    }
+
+
   }
   
   .ele-util-card{
@@ -253,8 +326,7 @@
     font-size: 4.5vw;
     font-family: 'Magison', sans-serif;
     width: 190px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden; */
   }
   
   .exemple-trajet{
@@ -265,8 +337,6 @@
     min-height: 55px;
     height: 55px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
   }
   
   .ele-util-card p{
@@ -275,6 +345,31 @@
     font-weight: 300;
     font-family: 'QuickSand', sans-serif;
     text-align: justify;
+  }
+
+  @media screen and (min-width: 1024px){
+    .exemple-trajet{
+      font-size: 1.2vw;
+    }
+    .ele-util-card h6{
+      font-size: 1.5vw;
+      width: 100%;
+    }
+
+    .ele-util-card p{
+      font-size: 1vw;
+    }
+
+    .ele-util-card .pp-util{
+      width: 7vw;
+      height: 7vw;
+    }
+
+    .ele-util-card .perso{
+      left: 5.7vw;
+      margin-top: -0.8vw;
+      width: 4vw;
+    }
   }
   
   /* Ce qui nous différencie */

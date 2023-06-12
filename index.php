@@ -29,7 +29,9 @@ require_once('./assets/php/lib.php');
         unset($_SESSION['error']);
     }
     ?>
-<?php
+
+    <main class="main-index">
+    <?php
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     $dbh = connect();
     $sql = 'SELECT * FROM profil WHERE id = ?';
@@ -40,7 +42,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     echo '<p class="bvn">Bienvenue '.$user['prenom'].'.</p>';
 }
 ?>
-    <main class="main-index">
         <div class="form-index">
 
             <?php
@@ -241,7 +242,7 @@ $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
     echo '<div class="trajets-inte-util">
-        <h3>Trajets qui peuvent vous intéresser</h3>
+        <h3>Trajets qui peuvent vous intéresser :</h3>
         <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
         <div class="scroll-container">';
 
