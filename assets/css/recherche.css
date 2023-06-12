@@ -31,7 +31,16 @@
     padding:10px;
     border: none;
     font-family: 'Magison', sans-serif;
-    font-size: 16px;
+    font-size: 16px;;
+}
+
+@supports (-webkit-touch-callout: none) {
+    #address,
+    #address2,
+    #date,
+    #place {
+        border: 1px solid black;
+    }
 }
 
 #address,
