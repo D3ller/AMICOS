@@ -276,17 +276,6 @@ menu{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* VERSION PC DESKTOP */
 
 @media screen and (min-width: 1024px) {
@@ -374,14 +363,88 @@ menu{
     }
 
 
+    /* Footer Laptop */
 
+    .legalfooter{
+        display: none;
+    }
 
+    #footer-laptop{
+        margin-top: 25px;
+        width: 100%;
+        height: 550px;
+        background-color: #FFA5CA;
+        border-radius: 50px 50px 0px 0px;
+        position: relative;
+    }
 
+    .ele-footer-laptop{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        height: 450px;
+        justify-content: space-between; 
+    }
 
+    .ele-footer-laptop > div{
+        width: 65%;
+        margin-top: 50px;
 
+        background: rgba(217, 217, 217, 0.57);
+        border: 1px solid rgba(255, 255, 255, 0.29);
+        box-shadow: 4px 4px 26px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(12.5px);
+        border-radius: 30px;
+    }
 
+    .ele-footer-laptop > p{
+        width: 30%;
+        margin-top: 50px;
+        align-self: flex-end;
+        font-family: 'Magison', sans-serif;
+        font-size: 18px;
+    }
 
+    .ele-footer-laptop > div > div{
+        width: 75%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .ele-footer-laptop div div .left-laptop a,
+    .ele-footer-laptop div div .right-laptop a{
+        font-family: 'Magison', sans-serif;
+        text-decoration: none;
+        color: black;
+    }
 
-  }
+    .ele-footer-laptop div div .left-laptop,
+    .ele-footer-laptop div div .right-laptop{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .ele-footer-laptop div div .left-laptop a,
+    .ele-footer-laptop div div .right-laptop a{
+        font-size: 18px;
+        font-family: 'QuickSand', sans-serif;
+    }
+
+    .ele-footer-laptop div div .left-laptop h5,
+    .ele-footer-laptop div div .right-laptop h5{
+        font-size: 25px;
+        margin-top: 5px;
+    }
+
+    .ele-footer-laptop div img{
+        width: 200px;
+        margin-left: 10.5%;
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
+}
   

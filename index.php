@@ -277,7 +277,7 @@ if ($num_rows > 0) {
 ?>
             <!-- Visible tout le temps -->
             <div class="ce-qui-ns-diff">
-                <h3>Ce qui nous différencie</h3>
+                <h3>Ce qui nous différencie !</h3>
                 <div class="cards-ce-qui-ns-diff">
                     <div class="card-cqnd-1">
                         <div class="card-inter-cqnd">

@@ -399,7 +399,7 @@
     .card-cqnd-2,
     .card-cqnd-3,
     .card-cqnd-4{
-      width: 48%;
+      width: 23.5%;
     }
   }
   
@@ -467,7 +467,31 @@
   }
   
   @media screen and (min-width: 768px){
-    .card-cqnd-1 .card-inter-cqnd h6{
-        font-size: 3.5vw;
+    .card-inter-cqnd h6{
+        font-size: 1.5vw;
       }
+
+    .card-inter-cqnd{
+      font-size: 0.8vw;
     }
+
+    .img-cqnd{
+      height: 8vw;
+    }
+
+    .img-cqnd-3-persos{
+      margin-top: 55px;
+      margin-left: 20px;
+    }
+
+    .img-cqnd-4-persos{
+      margin-top: 25px;
+      height: 12vw;
+    }
+
+    .img-cqnd-2-persos{
+      position: absolute;
+      bottom: 20px;
+      height: 12vw;
+    }
+  }
