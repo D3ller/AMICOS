@@ -119,7 +119,8 @@
 
   .haut-form-index input,
   .bas-form-index input{
-    font-size:2vw;
+    font-size:1.5vw;
+    margin-top: 0.25vw;
     line-height: 50px;
     display: block;
   }
