@@ -223,6 +223,9 @@ menu{
     transform: rotate(180deg); 
   }
   
+  #footer-laptop{
+    display: none;
+  }
 .cstm {
     width: 100%;
     height: 110px;
@@ -370,6 +373,7 @@ menu{
     }
 
     #footer-laptop{
+        display: block;
         margin-top: 25px;
         width: 100%;
         height: 550px;
