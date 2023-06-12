@@ -101,9 +101,6 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 
-
-
-
 $sql = "INSERT INTO trajet (conducteur_id, duree, km, co2, lat, lng, lat2, lng2, lieu_depart, lieu_arrivee, date, place) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("iddddddsssss", $user['id'], $duree, $km, $co2, $lat, $lng, $lat2, $lng2, $depart, $arrivee, $datetime, $place);

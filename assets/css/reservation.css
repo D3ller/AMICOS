@@ -1,0 +1,40 @@
+.container-conducteur {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+
+.container-conducteur > .conducteur-text > h1 {
+    font-family: "Magison", sans-serif;
+    font-size: 4.171875vw;
+}
+
+.container-conducteur > img {
+    width: 25.416667vw;
+    height: 25.416667vw;
+    border-radius: 50%;
+}
+
+.container-reservation {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.container-conducteur > .conducteur-text > p:first-of-type {
+    font-family: "Magison", sans-serif;
+    font-size: 2.34375vw;
+    text-align: left;
+
+}
+
+.bold  {
+    font-weight: bold;
+    font-family: "Magison", sans-serif;
+}
+
+main {
+    margin: 0 20px;
+}
+

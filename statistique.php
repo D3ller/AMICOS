@@ -32,9 +32,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     $dbh = connect();
 
     $sql = "SELECT 
-    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ?) AS occurrences_trajet,
+    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ? AND date < CURRENT_DATE()) AS occurrences_trajet,
     (SELECT COUNT(*) FROM passager WHERE user_id = ?) AS occurrences_passager,
-    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ?) + (SELECT COUNT(*) FROM passager WHERE user_id = ?) AS total_occurrences;";
+    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ? AND date < CURRENT_DATE()) + (SELECT COUNT(*) FROM passager WHERE user_id = ?) AS total_occurrences;";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("iiii", $_SESSION['AMIID'], $_SESSION['AMIID'], $_SESSION['AMIID'], $_SESSION['AMIID']);
     $stmt->execute();

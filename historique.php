@@ -2,6 +2,14 @@
 
 session_start();
 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
+
+} else {
+    $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page.';
+    header('Location: /connexion.php');
+    exit();
+}
+
 require_once('./assets/php/lib.php');?>
 
 <!DOCTYPE html>
@@ -69,8 +77,10 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         $hours = floor($minutes / 60);
         $minutes = $minutes - ($hours * 60);
         $minutes = round($minutes / 60 * 60);
-
-        $trajet['duree'] = $hours.'h'.$minutes;
+        
+        $minutes = sprintf("%02d", $minutes);
+        
+        $trajet['duree'] = $hours . 'h' . $minutes;
 
         $sql2 = "SELECT * FROM profil WHERE id = ?";
         $stmt2 = $dbh->prepare($sql2);
