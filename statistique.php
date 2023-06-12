@@ -31,13 +31,16 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
     $dbh = connect();
 
-    $sql = "SELECT COUNT(*) AS total FROM trajet INNER JOIN passager ON trajet.conducteur_id = passager.user_id WHERE passager.user_id = ?";
+    $sql = "SELECT 
+    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ?) AS occurrences_trajet,
+    (SELECT COUNT(*) FROM passager WHERE user_id = ?) AS occurrences_passager,
+    (SELECT COUNT(*) FROM trajet WHERE conducteur_id = ?) + (SELECT COUNT(*) FROM passager WHERE user_id = ?) AS total_occurrences;";
     $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("i", $_SESSION['AMIID']);
+    $stmt->bind_param("iiii", $_SESSION['AMIID'], $_SESSION['AMIID'], $_SESSION['AMIID'], $_SESSION['AMIID']);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    $total = $row['total'];
+    $total = $row['total_occurrences'];
     
     echo "Vos avez réalise un total de ".$total." trajets.";
 
