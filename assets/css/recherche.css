@@ -1,0 +1,53 @@
+.form-recherche{
+    background-color: white;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(45, 93, 208, 0.42);
+}
+
+.form-recherche form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+
+#address,
+#adress2,
+#date,
+#place{
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px 0 15px 0;
+    text-indent: 10px;
+    border: none;
+    font-family: 'Magison', sans-serif;
+}
+
+#address,
+#adress2{
+    width: 100%;
+}
+
+#date,
+#place{
+    width: 48%;
+}
+
+#rechercher-submit{
+    width: 100%;
+    padding: 15px 0 15px 0;
+    background-color: #2859D1;
+    color: white;
+    border-radius: 100px;
+    border: none;
+    font-family: 'Magison', sans-serif;
+    font-size: 18px;
+}
