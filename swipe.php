@@ -29,12 +29,21 @@ require_once('customnav.php');
 
         <div class="tinder--cards">
             <?php
+            if(isset($_SESSION["AMIID"])) {
+                $amiid = ' AND conducteur_id != '.$_SESSION["AMIID"];
+            } else {
+                $amiid = "";
+            }
+
+
             $dbh = connect();
-            $sql = "SELECT * FROM trajet ORDER BY RAND() LIMIT 10";
+            $sql = "SELECT * FROM trajet WHERE date > NOW() $amiid ORDER BY RAND() ";
             $query = $dbh->prepare($sql);
             $query->execute();
             $result = $query->get_result();
+
             while ($trajet = $result->fetch_assoc()) {
+
                 $lat = $trajet['lat'];
                 $lng = $trajet['lng'];
                 $lat2 = $trajet['lat2'];
@@ -115,6 +124,8 @@ require_once('customnav.php');
 require_once('footer.php');
 ?>
 </main>
+
+
 
 
 <?php
