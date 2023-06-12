@@ -10,10 +10,9 @@ require_once('./assets/php/lib.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type='text/css' rel='stylesheet' href='/assets/css/match.css'>
-    <link type='text/css' rel='stylesheet' href='/assets/css/header-footer.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
+    <link type='text/css' rel='stylesheet' href='/assets/css/header-footer.css'>
+    <!--  -->
     <title>Match</title>
 </head>
 <body>
@@ -41,7 +40,7 @@ require_once('customnav.php');
                 $lat2 = $trajet['lat2'];
                 $lng2 = $trajet['lng2'];
             ?>
-            <div class="tinder--card">
+            <div data-links="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id']; ?>" class="tinder--card">
                 <div id="map-<?php echo $trajet['id']; ?>" class="map-container" style="width: 100%; height: 300px;"></div>
                 <h3><?php echo $trajet['lieu_depart']; ?></h3>
                 <p><?php echo $trajet['lieu_arrivee']; ?></p>
