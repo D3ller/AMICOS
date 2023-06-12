@@ -42,7 +42,29 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 ?>
     <main class="main-index">
         <div class="form-index">
-            <form action="/assets/php/recherche_trajet.php" method="post" required>
+
+            <?php
+
+$agent_utilisateur = $_SERVER['HTTP_USER_AGENT'];
+
+$is_mobile = false;
+
+
+
+if (strpos($agent_utilisateur, 'Mobile') !== false || strpos($agent_utilisateur, 'Android') !== false || strpos($agent_utilisateur, 'iPhone') !== false || strpos($agent_utilisateur, 'iPad') !== false || strpos($agent_utilisateur, 'iPod') !== false || strpos($agent_utilisateur, 'BlackBerry') !== false || strpos($agent_utilisateur, 'Windows Phone') !== false) {
+    $is_mobile = true;
+}
+
+if ($is_mobile) {
+    $action = "/assets/php/swipe.php";
+
+} else {
+    $action = "/assets/php/recherche_trajet.php";
+}
+?>
+
+
+            <form action="<?php echo $action; ?>" method="post" required>
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >

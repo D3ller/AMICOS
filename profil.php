@@ -62,35 +62,97 @@ echo '<div id="profil">';
 
     echo '<div id="preference">';
 
+    // Vérifier si les préférences de l'utilisateur existent et définir l'état des cases à cocher en conséquence
+    $preferences = $user['preferences'];
+    $checked = "";
+    
     echo '<div class="pref">';
     echo '<h2 class="subtitle">Préférences de covoiturage</h2>';
     echo '<div>';
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="fumeur" name="fumeur" disabled checked>';
+    echo '<input type="checkbox" id="fumeur" name="fumeur" disabled';
+    
+    // Vérifier si la préférence "fumeur" est cochée
+    if ($preferences !== NULL && in_array('fumeur', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="fumeur" class="greys cb">Fumeur</label>';
     echo '</div>';
+    
+    $checked = "";
+    
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="music" name="music" disabled checked>';
+    echo '<input type="checkbox" id="music" name="music" disabled';
+    
+    // Vérifier si la préférence "music" est cochée
+    if ($preferences !== NULL && in_array('music', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="music" class="greys cb">Musique</label>';
     echo '</div>';
+    
+    $checked = "";
+    
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="animal" name="animal" disabled checked>';
+    echo '<input type="checkbox" id="animal" name="animal" disabled';
+    
+    // Vérifier si la préférence "animal" est cochée
+    if ($preferences !== NULL && in_array('animal', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="animal" class="greys cb">Animaux</label>';
     echo '</div>';
+    
+    $checked = "";
+    
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="discussion" name="discussion" disabled checked>';
+    echo '<input type="checkbox" id="discussion" name="discussion" disabled';
+    
+    if ($preferences !== NULL && in_array('discussion', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="discussion" class="greys cb">Discussion</label>';
     echo '</div>';
+    
+    $checked = "";
+    
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled checked>';
+    echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled';
+    
+    if ($preferences !== NULL && in_array('sharepayement', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="sharepayement" class="greys cb">Frais divisé</label>';
     echo '</div>';
+    
+    $checked = "";
+    
     echo '<div class="subpref">';
-    echo '<input type="checkbox" id="sharecar" name="sharecar" disabled checked>';
+    echo '<input type="checkbox" id="sharecar" name="sharecar" disabled';
+    
+    if ($preferences !== NULL && in_array('sharecar', $preferences)) {
+        $checked = "checked";
+    }
+    echo $checked;
+    echo '>';
     echo '<label for="sharecar" class="greys cb">2nd pilote</label>';
     echo '</div>';
-
+    
     echo '</div>';
+    echo '</div>';
+    
+    // Continuer avec le reste de votre code...
+    
 
 
     echo '</div>';
@@ -104,13 +166,14 @@ echo '<div id="profil">';
     $text = str_replace("\r\n",'', $user["description"]);
     $text = str_ireplace(array("\r","\n",'\r','\n'),'<br>', $text);
     $text = str_replace(array("\r\n", "\r", "\n"), "<br>", $text);
+    $text = stripslashes($text);
 
-    echo '<div class="pref">';
+    echo '<div class="pref" style="margin: 0 20px; margin-bottom: 20px">';
     echo '<h2 class="subtitle">Voiture</h2>';
     echo '<p class="greys">'.$user["voiture"].'</p>';
     echo '</div>';
 
-    echo '<div class="pref">';
+    echo '<div class="pref" style="margin: 0 20px; margin-bottom: 20px">';
     echo '<h2 class="subtitle">Description</h2>';
     echo '<p class="greys">'.$text.'</p>';
     echo '</div>';

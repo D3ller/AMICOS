@@ -70,6 +70,18 @@
     cursor: -moz-grab;
     cursor: grab;
   }
+
+  .tinder--card::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 90vw;
+    background: linear-gradient(rgba(0,0,0,0), #2858d18c, #2859D1);
+    height: 70vh;
+
+  }
   
   .moving.tinder--card {
     transition: none;
