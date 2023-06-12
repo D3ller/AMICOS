@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if(!isset($_SESSION['AMIID']) || !isset($_SESSION['AMIMAIL'])) {
     $_SESSION['error'] = "Vous n'avez pas le droit de réserver un trajet sans être connecté";
     header('Location: ../connexion.php');

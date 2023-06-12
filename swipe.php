@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once('./assets/php/lib.php');
 
 ?>
 
@@ -12,7 +13,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type='text/css' rel='stylesheet' href='/assets/css/match.css'>
     <link type='text/css' rel='stylesheet' href='/assets/css/header-footer.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
     <title>Match</title>
 </head>
 <body>
@@ -24,69 +25,86 @@ require_once('customnav.php');
 
 
 <div class="tinder">
-        <div class="tinder--status">
-          <i class="fa fa-remove"></i>
-          <i class="fa fa-heart"></i>
-        </div>
-      
-        <div class="tinder--cards">
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-      
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/animals">
-            <h3>Demo card 2</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/nature">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/tech">
-            <h3>Demo card 4</h3>
-            <p></p>
-          </div>
-          <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/arch">
-            <h3>Demo card 5</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-          </div>
-        </div>
+  <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
+
+  <div class="tinder--cards">
+  <?php
+  $dbh = connect();
+  $sql = "SELECT * FROM trajet ORDER BY RAND() LIMIT 10";
+  $query = $dbh->prepare($sql);
+  $query->execute();
+  $result = $query->get_result();
+  while ($trajet = $result->fetch_assoc()) {
+    $lat = $trajet['lat'];
+    $lng = $trajet['lng'];
+    $lat2 = $trajet['lat2'];
+    $lng2 = $trajet['lng2'];
+
+?>
+  <div data-link="https://portfolio.karibsen.fr/reserv/<?php echo $trajet['id'] ?>" class="tinder--card">
+    <div class="map-container" style="width: 100%; height: 300px;"></div>
+    <h3><?php echo $trajet['lieu_depart']; ?></h3>
+    <p><?php echo $trajet['lieu_arrivee']; ?></p>
+    <p><?php echo $trajet['conducteur_id']; ?></p>
+  </div>
+  <script>
+    var latDepart = <?php echo $lat; ?>;
+    var lngDepart = <?php echo $lng; ?>;
+    var latArrivee = <?php echo $lat2; ?>;
+    var lngArrivee = <?php echo $lng2; ?>;
+  
+    function initMap<?php echo $trajet['id']; ?>() {
+      var startPoint = new google.maps.LatLng(latDepart, lngDepart);
+      var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
+  
+      var mapOptions = {
+        center: startPoint,
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        mapTypeControl: false,
+        mapTypeControlOptions: {
+          mapTypeIds: []
+        }
+      };
+  
+      var map = new google.maps.Map(document.querySelector('.map-container'), mapOptions);
+  
+      var directionsService = new google.maps.DirectionsService();
+      var directionsRenderer = new google.maps.DirectionsRenderer({
+        map: map,
+        polylineOptions: {
+          strokeColor: "#fe1269"
+        }
+      });
+  
+      var request = {
+        origin: startPoint,
+        destination: endPoint,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+  
+      directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsRenderer.setDirections(result);
+        }
+      });
+    }
+  
+    window.onload = function() {
+      initMap<?php echo $trajet['id']; ?>();
+    };
+  </script>
+<?php
+  }
+?>
+
+  </div>
+</div>
+
       
         <div class="tinder--buttons">
           <button id="nope"></button>
@@ -127,6 +145,7 @@ function initCards(card, index) {
   });
 
   tinderContainer.classList.add("loaded");
+
 }
 
 initCards();
@@ -144,6 +163,7 @@ allCards.forEach(function (el) {
 
     tinderContainer.classList.toggle("tinder_love", event.deltaX > 0);
     tinderContainer.classList.toggle("tinder_nope", event.deltaX < 0);
+
 
     var xMulti = event.deltaX * 0.03;
     var yMulti = event.deltaY / 80;
@@ -195,7 +215,13 @@ allCards.forEach(function (el) {
         "deg)";
       initCards();
 
-      console.log(event.deltaY);
+      if (event.deltaX > 0) {
+    var link = event.target.getAttribute('data-link');
+    window.location.href = link;
+} else {
+}
+
+
 
     }
   });
@@ -213,11 +239,12 @@ function createButtonListener(love) {
     card.classList.add("removed");
 
     if (love) {
-        console.log(love ? "Liked" : "Disliked")
-      card.style.transform =
+var link = card.getAttribute('data-link');
+window.location.href = link;
+    
+    card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
     } else {
-        console.log(love ? "Liked" : "Disliked")
       card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
@@ -234,7 +261,6 @@ nope.addEventListener("click", nopeListener);
 love.addEventListener("click", loveListener);
 
 
-// Repress
 const button = document.getElementById('nope');
 const button2= document.getElementById('love');
 
