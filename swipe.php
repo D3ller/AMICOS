@@ -1,8 +1,6 @@
 <?php
-
 session_start();
 require_once('./assets/php/lib.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +11,9 @@ require_once('./assets/php/lib.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type='text/css' rel='stylesheet' href='/assets/css/match.css'>
     <link type='text/css' rel='stylesheet' href='/assets/css/header-footer.css'>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
     <title>Match</title>
 </head>
 <body>
@@ -22,88 +22,84 @@ require_once('./assets/php/lib.php');
 require_once('customnav.php');
 ?>
 <main>
+    <div class="tinder">
+        <div class="tinder--status">
+            <i class="fa fa-remove"></i>
+            <i class="fa fa-heart"></i>
+        </div>
 
+        <div class="tinder--cards">
+            <?php
+            $dbh = connect();
+            $sql = "SELECT * FROM trajet ORDER BY RAND() LIMIT 10";
+            $query = $dbh->prepare($sql);
+            $query->execute();
+            $result = $query->get_result();
+            while ($trajet = $result->fetch_assoc()) {
+                $lat = $trajet['lat'];
+                $lng = $trajet['lng'];
+                $lat2 = $trajet['lat2'];
+                $lng2 = $trajet['lng2'];
+            ?>
+            <div class="tinder--card">
+                <div id="map-<?php echo $trajet['id']; ?>" class="map-container" style="width: 100%; height: 300px;"></div>
+                <h3><?php echo $trajet['lieu_depart']; ?></h3>
+                <p><?php echo $trajet['lieu_arrivee']; ?></p>
+                <p><?php echo $trajet['conducteur_id']; ?></p>
+            </div>
+            <script>
+                var latDepart<?php echo $trajet['id']; ?> = <?php echo $lat; ?>;
+                var lngDepart<?php echo $trajet['id']; ?> = <?php echo $lng; ?>;
+                var latArrivee<?php echo $trajet['id']; ?> = <?php echo $lat2; ?>;
+                var lngArrivee<?php echo $trajet['id']; ?> = <?php echo $lng2; ?>;
 
-<div class="tinder">
-  <div class="tinder--status">
-    <i class="fa fa-remove"></i>
-    <i class="fa fa-heart"></i>
-  </div>
+                function initMap<?php echo $trajet['id']; ?>() {
+                    var startPoint = new google.maps.LatLng(latDepart<?php echo $trajet['id']; ?>, lngDepart<?php echo $trajet['id']; ?>);
+                    var endPoint = new google.maps.LatLng(latArrivee<?php echo $trajet['id']; ?>, lngArrivee<?php echo $trajet['id']; ?>);
 
-  <div class="tinder--cards">
-  <?php
-  $dbh = connect();
-  $sql = "SELECT * FROM trajet ORDER BY RAND() LIMIT 10";
-  $query = $dbh->prepare($sql);
-  $query->execute();
-  $result = $query->get_result();
-  while ($trajet = $result->fetch_assoc()) {
-    $lat = $trajet['lat'];
-    $lng = $trajet['lng'];
-    $lat2 = $trajet['lat2'];
-    $lng2 = $trajet['lng2'];
+                    var mapOptions = {
+                        center: startPoint,
+                        zoom: 10,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        disableDefaultUI: true,
+                        mapTypeControl: false,
+                        mapTypeControlOptions: {
+                            mapTypeIds: []
+                        }
+                    };
 
-?>
-  <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id'] ?>" class="tinder--card">
-    <div class="map-container" style="width: 100%; height: 300px;"></div>
-    <h3><?php echo $trajet['lieu_depart']; ?></h3>
-    <p><?php echo $trajet['lieu_arrivee']; ?></p>
-    <p><?php echo $trajet['conducteur_id']; ?></p>
-  </div>
-  <script>
-    var latDepart = <?php echo $lat; ?>;
-    var lngDepart = <?php echo $lng; ?>;
-    var latArrivee = <?php echo $lat2; ?>;
-    var lngArrivee = <?php echo $lng2; ?>;
-  
-    function initMap<?php echo $trajet['id']; ?>() {
-      var startPoint = new google.maps.LatLng(latDepart, lngDepart);
-      var endPoint = new google.maps.LatLng(latArrivee, lngArrivee);
-  
-      var mapOptions = {
-        center: startPoint,
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true,
-        mapTypeControl: false,
-        mapTypeControlOptions: {
-          mapTypeIds: []
-        }
-      };
-  
-      var map = new google.maps.Map(document.querySelector('.map-container'), mapOptions);
-  
-      var directionsService = new google.maps.DirectionsService();
-      var directionsRenderer = new google.maps.DirectionsRenderer({
-        map: map,
-        polylineOptions: {
-          strokeColor: "#fe1269"
-        }
-      });
-  
-      var request = {
-        origin: startPoint,
-        destination: endPoint,
-        travelMode: google.maps.TravelMode.DRIVING
-      };
-  
-      directionsService.route(request, function(result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsRenderer.setDirections(result);
-        }
-      });
-    }
-  
-    window.onload = function() {
-      initMap<?php echo $trajet['id']; ?>();
-    };
-  </script>
-<?php
-  }
-?>
+                    var map = new google.maps.Map(document.getElementById('map-<?php echo $trajet['id']; ?>'), mapOptions);
 
-  </div>
-</div>
+                    var directionsService = new google.maps.DirectionsService();
+                    var directionsRenderer = new google.maps.DirectionsRenderer({
+                        map: map,
+                        polylineOptions: {
+                            strokeColor: "#fe1269"
+                        }
+                    });
+
+                    var request = {
+                        origin: startPoint,
+                        destination: endPoint,
+                        travelMode: google.maps.TravelMode.DRIVING
+                    };
+
+                    directionsService.route(request, function(result, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            directionsRenderer.setDirections(result);
+                        }
+                    });
+                }
+
+                window.onload = function() {
+                    initMap<?php echo $trajet['id']; ?>();
+                };
+            </script>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
 
       
         <div class="tinder--buttons">
