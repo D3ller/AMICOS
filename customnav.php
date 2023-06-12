@@ -69,6 +69,13 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<p>Réserver</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
+} elseif($_SERVER['PHP_SELF'] == '/trajets.php') {
+    echo '<nav class="cstm" style="background: #FE1269; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a style="opacity: 0; visibility: hide"><div id="backarrow"></div></a>';
+    echo '<p style="color:white;">Ajouter un trajets</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+
+
 } elseif($_SERVER['PHP_SELF'] == '/recherche.php') {
     echo '<nav class="cstm" style="background: #8fa7e3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
     echo '<a href="/"><div id="backarrow"></div></a>';

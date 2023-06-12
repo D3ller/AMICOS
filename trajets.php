@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
@@ -26,7 +24,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     
 <?php
 
-require_once 'header.php';
+require_once 'customnav.php';
 
 if(isset($_SESSION['error'])){
     echo $_SESSION['error'];
@@ -39,13 +37,13 @@ if(isset($_SESSION['error'])){
 
 <div class="form-trajets">
 <form style='margin-top: 70px'method='POST' action='./assets/php/vtrajet.php'>
-    <label for="">Départ</label>
+    <label for="">Départ :</label>
     <input type="text" name='depart' id="address" placeholder="Départ" required>
-    <label for="">Arrivée</label>
+    <label for="">Arrivée :</label>
     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-    <label for="">Date</label>
+    <label for="">Date :</label>
     <input type="datetime-local" name='datetime' value="Date" onclick="" required>
-    <label for="">Nombre de places</label>
+    <label for="">Nombre de places :</label>
     <select name='place' required>
         <option value="1">1 place</option>
         <option value="2">2 places</option>
@@ -166,11 +164,13 @@ setTimeout(function() {
 
 }
 
-
-
-
 </script>
 
+
+<?php
+  require_once 'footer.php';
+  require_once 'menu.php'
+?>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&components=country:FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
 
 
