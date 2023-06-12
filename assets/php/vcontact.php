@@ -63,7 +63,7 @@ $send = mail($to, $subject, $message, $headers);
     $message .= '<h1>'.$prenom. ' ' . $nom. ' nous a envoyé un message</h1>';
     $message .= '<h2>A propos de : '.$sujet.'</h2>';
     $message .= '<p>Voici le message que '.$prenom.' '.$nom.' nous a envoyé :</p>';
-    $message .= '<p>'.$message.'</p>';
+    $message .= '<p>'.$messages.'</p>';
     $message .= '</body></html>';
 
     $headers = "MIME-Version: 1.0" . "\r\n";
