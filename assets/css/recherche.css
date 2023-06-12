@@ -34,14 +34,30 @@
     font-size: 16px;;
 }
 
-@supports (-webkit-touch-callout: none) {
-    #address,
-    #address2,
-    #date,
-    #place {
-        border: 1px solid black;
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        /* Safari seulement */
+        @media screen and (-webkit-min-device-pixel-ratio:0) { 
+            /* Safari 6.1+ */
+            #address,
+            #address2,
+            #date,
+            #place {
+                border: 1px solid black;
+            }
+        }
+        and (color-index: -webkit-min-device-pixel-ratio:0) { 
+            /* Safari 3.1 to 6.0 */
+            #address,
+            #address2,
+            #date,
+            #place {
+                border: 1px solid black;
+            }
+        }
     }
 }
+
 
 #address,
 #adress2{
