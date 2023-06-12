@@ -19,7 +19,10 @@ session_start();
     <h1>Contacts</h1>
 
     <?php
-    require_once 'header.php';
+    if(isset($_SESSION['error'])){
+        echo '<p class="error">'.$_SESSION['error'].'</p>';
+        unset($_SESSION['error']);
+    }
 
     ?>
 
@@ -47,6 +50,7 @@ session_start();
     }
 
     ?>
+    <input type="text" name="sujet" placeholder="Sujet" required>
     
     <textarea name="message" placeholder="Message" required></textarea>
 
