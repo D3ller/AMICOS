@@ -20,6 +20,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/header-footer.css">
+    <link rel="stylesheet" href="./assets/css/trajets.css">
 </head>
 <body>
     
@@ -36,34 +37,40 @@ if(isset($_SESSION['error'])){
 
 
 
-
+<div class="form-trajets">
 <form style='margin-top: 70px'method='POST' action='./assets/php/vtrajet.php'>
-<input type="text" name='depart' id="address" placeholder="Départ" required>
-<input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-<input type="datetime-local" name='datetime' value="Date" onclick="" required>
-<select name='place' required>
-    <option value="1">1 place</option>
-    <option value="2">2 places</option>
-    <option value="3">3 places</option>
-    <option value="4">4 places</option>
-    <option value="5">5 places</option>
-    <option value="6">6 places</option>
-</select>
+    <label for="">Départ</label>
+    <input type="text" name='depart' id="address" placeholder="Départ" required>
+    <label for="">Arrivée</label>
+    <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
+    <label for="">Date</label>
+    <input type="datetime-local" name='datetime' value="Date" onclick="" required>
+    <label for="">Nombre de places</label>
+    <select name='place' required>
+        <option value="1">1 place</option>
+        <option value="2">2 places</option>
+        <option value="3">3 places</option>
+        <option value="4">4 places</option>
+        <option value="5">5 places</option>
+        <option value="6">6 places</option>
+    </select>
 
 
-<input type="hidden" name='lat' id="lat" value="" required>
-<input type="hidden" name='lng' id="lng" value="" required>
+    <input type="hidden" name='lat' id="lat" value="" required>
+    <input type="hidden" name='lng' id="lng" value="" required>
 
-<input type="hidden" name='lat2' id="lat2" value="" required>
-<input type="hidden" name='lng2' id="lng2" value="" required>
+    <input type="hidden" name='lat2' id="lat2" value="" required>
+    <input type="hidden" name='lng2' id="lng2" value="" required>
 
-<input type="hidden" name='duree' id="duree" value="" required>
-<input type="hidden" name='co2' id="co2" value="" required>
-<input type="hidden" name='km' id="km" value="" required>
+    <input type="hidden" name='duree' id="duree" value="" required>
+    <input type="hidden" name='co2' id="co2" value="" required>
+    <input type="hidden" name='km' id="km" value="" required>
 
-<input type="submit" value="Proposer le trajet" onclick='waiting()'>
+    <input type="submit" value="Ajouter le trajet" onclick='waiting()'>
 
 </form>
+  
+</div>
 
 <script type="text/javascript">
   function initAutocomplete() {

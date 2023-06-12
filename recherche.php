@@ -55,8 +55,13 @@ if ($is_mobile) {
 }
 ?>
 
+
+
     <div class="form-recherche">
+
+        <button id='reverse' onclick="reverse()">⬇⬆</button>
         <form action="<?php echo $action; ?>" method="post" required>
+
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
                     <!-- <input type="date" name='date' id="date" placeholder="Date" required> -->
@@ -110,8 +115,6 @@ if ($is_mobile) {
 
         </form>
     </div>
-
-<button id='reverse' onclick="reverse()">Inverser</button>
 
 </main>
 <?php
