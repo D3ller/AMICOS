@@ -187,7 +187,7 @@ justify-items: stretch;
     top: -10px;
     left: 0;
     font-size: 14px;
-    color: #ffdd98;
+    color: #000000c0;
     transition: all 0.2s ease-in-out;
     font-family: 'Magison', sans-serif;
 }
@@ -243,7 +243,7 @@ justify-items: stretch;
     line-height: 35px;
     outline: none;
     white-space: nowrap;
-    -webkit-user-select: none;
+        -webkit-user-select: none;
     cursor: pointer;
     font-weight: 400;
     outline: none;
@@ -251,7 +251,8 @@ justify-items: stretch;
     height: 35px;
     border-radius: 15px;
     box-shadow: 5px 5px 0px 0px black;
-    border: 2px solid black
+    border: 2px solid black;
+    transition: all 0.25s ease-in-out;
 }
 
 .custom-file-input:focus::before  {

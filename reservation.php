@@ -219,12 +219,25 @@ window.onload = function() {
 };
 </script>';
 
-echo '<a href="/assets/php/vreservation.php?id='.$trajet['id'].'"><button class="btn-reservation">Réserver</button></a>';
+?>
 
+<a class="resa-button" href="/assets/php/vreservation.php?id='.$trajet['id'].'"><button class="btn-reservation">Réserver</button></a>
+<script>
+  const buttonResa= document.getElementByClassName('btn-reservation');
+
+  buttonResa.addEventListener('animationend', () => {
+    button.blur();
+  });
+</script>
+
+</main>
+
+<?php
 require_once 'footer.php';
-echo "</main>";
+?>
+</body>
 
-echo "</body>";
+<?php
 
 // $sql = "INSERT INTO passager (user_id, trajet_id) VALUES (?, ?)";
 // $stmt = $dbh->prepare($sql);

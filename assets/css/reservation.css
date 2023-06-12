@@ -38,3 +38,38 @@ main {
     margin: 0 20px;
 }
 
+.resa-button{
+    text-decoration: none
+}
+
+.btn-reservation{
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 5px 5px 0px black;
+    border-radius: 200px;
+    margin-top: 20px;
+}
+
+.btn-reservation:focus{
+    animation: press 0.25s linear forwards;
+}
+
+
+@keyframes press{
+    0% {
+      transform: translate(0px, 0px);
+      box-shadow:4px 4px 0px rgb(0, 0, 0);
+    }
+    50%{
+      transform: translate(4px, 4px);
+      box-shadow:0px 0px 0px rgb(0, 0, 0);
+    }
+    100%{
+      transform: translate(0px, 0px);
+      box-shadow:4px 4px 0px rgb(0, 0, 0);
+    }
+  }
+  
