@@ -4,7 +4,7 @@ session_start();
 $email = $_POST['email'];
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
-$message = $_POST['message'];
+$messages = $_POST['message'];
 $sujet = $_POST['sujet'];
 
 
@@ -39,7 +39,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL)){
     $message .= '<h1>'.$prenom. ' ' . $nom. ' nous avons bien reçu votre message</h1>';
     $message .= '<h2>A propos de : '.$sujet.'</h2>';
     $message .= '<p>Voici le message que vous nous avez envoyé :</p>';
-    $message .= '<p>'.$message.'</p>';
+    $message .= '<p>'.$messages.'</p>';
     $message .= '</body></html>';
 
     $headers = "MIME-Version: 1.0" . "\r\n"; 
@@ -56,14 +56,14 @@ $send = mail($to, $subject, $message, $headers);
     $to = "corentinnelhomme@karibsen.fr";
     $subject = "Nouveau message de ".$prenom." ".$nom;
 
-    $from = 'sae202@amicos.fr';
+    $from = 'noreply@amicos.fr';
     $fromName = 'SAE202';
 
     $message = '<html><body>';
     $message .= '<h1>'.$prenom. ' ' . $nom. ' nous a envoyé un message</h1>';
     $message .= '<h2>A propos de : '.$sujet.'</h2>';
     $message .= '<p>Voici le message que '.$prenom.' '.$nom.' nous a envoyé :</p>';
-    $message .= '<p>'.$message.'</p>';
+    $message .= '<p>'.$messages.'</p>';
     $message .= '</body></html>';
 
     $headers = "MIME-Version: 1.0" . "\r\n";
@@ -72,6 +72,9 @@ $send = mail($to, $subject, $message, $headers);
     $headers .= "X-Priority: 3\r\n";
     $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
     $headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n";
+
+    $send2 = mail($to, $subject, $message, $headers);
+
 
 
 if($send){

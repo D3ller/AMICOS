@@ -46,7 +46,7 @@ require_once('customnav.php');
     </div>
 <hr>
     <div>
-    <a href='./cookies'><p>Cookies</p><div class='arrow'></div></a>
+    <a href='./cookie'><p>Cookies</p><div class='arrow'></div></a>
     </div>
 <hr>
 </div>
