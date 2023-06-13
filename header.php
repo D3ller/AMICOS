@@ -19,8 +19,7 @@ error_reporting(E_ALL);
     </nav>
 
     <div class="last-nav-header">
-        <div class="qrcode-header"></div>
-        <div class="profil-header"></div>
+        <a href="connexion.php"><div class="profil-header"></div></a>
     </div>
 
 
