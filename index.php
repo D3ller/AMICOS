@@ -70,7 +70,6 @@ if ($is_mobile) {
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-                </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" id="myDateInput" placeholder="Date" name="date"/>
