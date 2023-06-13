@@ -1,0 +1,79 @@
+#contact {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#contact > div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact > div > label {
+    text-align: left;
+    width: 100%;
+    font-family: "Magison", sans-serif;
+}
+
+#contact > div > input, #contact>div>textarea {
+    width: 100%;
+}
+
+#contact > div > input {
+    height: 40px;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    text-indent: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #b5b5b5;
+    font-size: 16px;
+}
+
+#contact > div > textarea {
+    resize: none; 
+    height: 200px;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    text-indent: 20px;
+    padding-top: 10px;
+    border: 1px solid #b5b5b5;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#contact > div > div {
+    width: 100%;
+
+
+}
+
+#contact > div > div > input {
+    margin-top: 20px;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background-color: #ff804a;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 16px;
+
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
