@@ -165,8 +165,37 @@
 
 
 
-@media screen and (min-width: 1000px) {
-
-    
-    
+@media screen and (min-width: 1024px) {
+    .nom-perso-logo {
+        width: 15%;
+    }
+    .nom-perso-logo-2 {
+        background: url(https://portfolio.karibsen.fr/assets/img/biglogowithtext.svg) no-repeat center;
+        background-size: contain;
+        width: 15%;
+    }
+    .form-inscription form,
+    .form-inscription a {
+        width: 25%;
+    }
+    .form-inscription form input[type="text"],
+    .form-inscription form input[type="password"],
+    .form-inscription form input[type="email"],
+    .form-inscription form input[type="number"],
+    .form-inscription form select {
+        font-size: 2vw;
+    }
+    .center {
+        font-size: 2vw;
+        margin-top: 14px;
+    }
+    .conn-logo {
+        height: 550px;
+    }
+    .conn-logo1 {
+        height: 150px !important;
+    }
+    .lost-password {
+        font-size: 1vw;
+    }
 }
