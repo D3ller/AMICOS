@@ -5,9 +5,10 @@ error_reporting(0);
 
 require_once './lib.php';
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])) {
     $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet sans être connecté";    
     header('Location: /../../connexion.php');
+    exit();
 }
 
 $id = $_GET['id'];
@@ -62,6 +63,8 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("ii", $_SESSION['AMIID'], $trajet['id']);
 $stmt->execute();
 
-echo 'zizi';
+$_SESSION['error'] = 'Votre réservation a bien été prise en compte!';
+header('Location: /../../');
+exit();
 
 ?>

@@ -1,4 +1,4 @@
-.perso-logo{
+.perso-logo {
     background: url(https://portfolio.karibsen.fr/assets/img/conn-logo) no-repeat center;
     background-size: cover;
     width: 16.27vw;
@@ -7,8 +7,8 @@
     margin: 0 auto;
 }
 
-.nom-perso-logo{
-    background: url(https://portfolio.karibsen.fr/assets/img/connlogowithtext) no-repeat center;
+.nom-perso-logo {
+    background: url(https://portfolio.karibsen.fr/assets/img/parkspink.svg) no-repeat center;
     background-size: contain;
     width: 45%;
     height: 12vw;
@@ -17,7 +17,7 @@
     margin-bottom: 25px;
 }
 
-.nom-perso-logo-2{
+.nom-perso-logo-2 {
     background: url(https://portfolio.karibsen.fr/assets/img/biglogowithtext.svg) no-repeat center;
     background-size: contain;
     width: 40%;
@@ -27,9 +27,10 @@
     margin-bottom: 50px;
 }
 
+
 /* --------------- */
 
-.form-inscription{
+.form-inscription {
     width: 100%;
     height: auto;
     display: flex;
@@ -38,19 +39,19 @@
     flex-direction: column;
 }
 
-.form-inscription form, .form-inscription a{
+.form-inscription form,
+.form-inscription a {
     display: flex;
     flex-direction: column;
     gap: 17px;
     width: 80%;
 }
 
-
 .form-inscription form input[type="text"],
 .form-inscription form input[type="password"],
 .form-inscription form input[type="email"],
 .form-inscription form input[type="number"],
-.form-inscription form select{
+.form-inscription form select {
     height: 60px;
     border: 4px solid rgb(255, 255, 255);
     /* border: none; */
@@ -64,24 +65,24 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.center{
-    margin-top:50px;
+.center {
+    margin-top: 50px;
     height: 60px;
     border: 4px solid #fe1269;
     border-radius: 9PX;
     background-color: #fe1269;
-    color:white;
+    color: white;
     font-size: 4.5vw;
     border-radius: 20px;
     filter: drop-shadow(0px 4px 4px rgba(209, 0, 76, 0.56))
 }
 
-.inscription{
+.inscription {
     margin-top: 17px;
     border: 4px solid #fe1269;
     border-radius: 9PX;
     background-color: #fe1269;
-    color:white;
+    color: white;
     font-size: 4.5vw;
     border-radius: 20px;
     height: 60px;
@@ -93,77 +94,44 @@
     filter: drop-shadow(0px 4px 4px rgba(209, 0, 76, 0.56))
 }
 
-.lock{
+.lock {
     background: url(https://portfolio.karibsen.fr/assets/img/lock) no-repeat left;
 }
 
-.email{
+.email {
     background: url(https://portfolio.karibsen.fr/assets/img/mail) no-repeat left;
 }
 
-.group{
+.group {
     background: url(https://portfolio.karibsen.fr/assets/img/group) no-repeat left;
 }
 
-.form-inscription form div{
+.form-inscription form div {
     flex-direction: row;
     display: flex;
     justify-content: space-between;
 }
 
-.form-inscription form div input{
+.form-inscription form div input {
     width: 47%;
 }
 
-.profil{
+.profil {
     background: url(https://portfolio.karibsen.fr/assets/img/profil) no-repeat left;
 }
 
 .form-inscription form input:focus,
-.form-inscription form select:focus{
+.form-inscription form select:focus {
     outline: none;
 }
 
-.lost-password{
+.lost-password {
     text-align: center;
     font-size: 3.2vw;
     margin-top: 17px;
     text-decoration: none;
     color: #686565;
 }
-
-#forgets {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#forgets input[type="text"] {
-    width: 80%;
-    height: 45px;
-    text-indent: 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #b3b3b3;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-#forgets a {
-    width: 40%;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    background-color: #ffab02;
-    border-radius: 10px;
-    height: 45px;
-    padding: 10px;
-    line-height: 25px;
-}
-
-
 
 @media screen and (min-width: 1024px) {
     .nom-perso-logo {
