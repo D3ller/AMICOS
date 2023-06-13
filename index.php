@@ -72,7 +72,7 @@ if ($is_mobile) {
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
-                    <input type="text" id="myDateInput" placeholder="Dateeeeeeee" name="date"/>
+                    <input type="text" id="myDateInput" placeholder="Date" name="date"/>
                     <script>
                         const myDateInput = document.getElementById('myDateInput');
                         const picker = new Pikaday({
