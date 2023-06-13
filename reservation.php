@@ -221,7 +221,9 @@ window.onload = function() {
 
 ?>
 
-<a class="resa-button" href="/assets/php/vreservation.php?id='.$trajet['id'].'"><button class="btn-reservation">Réserver</button></a>
+<a class="resa-button" href="/assets/php/vreservation.php?id=<?php echo $trajet['id']; ?>">
+    <button class="btn-reservation">Réserver</button>
+</a>
 <script>
   const buttonResa= document.getElementByClassName('btn-reservation');
 

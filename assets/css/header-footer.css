@@ -372,14 +372,16 @@ menu{
         display: none;
     }
 
-    #footer-laptop{
+    #footer-laptop {
         display: block;
         margin-top: 25px;
         width: 100%;
-        height: 550px;
-        background-color: #FFA5CA;
+        height: 500px;
+        background-image: url(https://portfolio.karibsen.fr/assets/img/footer.svg);
         border-radius: 50px 50px 0px 0px;
         position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .ele-footer-laptop{

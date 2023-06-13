@@ -11,13 +11,12 @@
     </details>
 
     <details class='legalfooter'>
-        <summary>Condition Générales<span class="marker"></span> </summary>
+        <summary onclick='window.location.href="https://mmi22c01.sae202.ovh/conditiongeneral"'>Condition Générales<span class="marker"></span> </summary>
         <a href='conditiongeneral'>Accéder</a>
     </details>
 
     <details class='legalfooter'>
-        <summary>Cookies<span class="marker"></span> </summary>
-        <a href='cookie'>Accéder</a>
+    <summary onclick='window.location.href="https://mmi22c01.sae202.ovh/cookie"'> Cookies<span class="marker"></span></summary>
     </details>
 
 
