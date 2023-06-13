@@ -26,6 +26,7 @@
     .main-index{
       padding-top: 150px;
       width: 75%;
+      margin-top: 20px;
     }
 
     .bvn{
@@ -321,6 +322,13 @@
     width: 14vw;
     right: 20px;
     bottom: 25.5vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ele-util-card .right-arrow{
+      width: 4vw;
+      bottom: 6.5vw;
+    }
   }
   
   .ele-util-card h6{

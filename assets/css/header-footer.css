@@ -17,12 +17,6 @@ main{
     font-family: 'Roboto', sans-serif;
 }
 
-@media screen and (min-width: 1024px){
-    main{
-        margin-top: 2000px;
-    }
-  }
-
 /* Header */
 
 .legalfooter > a {

@@ -33,8 +33,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
         }
 
         ?>
-        <div class="conn-logo">
-            <div class="nom-perso-logo"></div>
+        <div class="conn-logo1">
+                <div class="nom-perso-logo"></div>
         </div>
         <div class="form-inscription">
             <form method="POST" action="./assets/php/vinscription.php">
@@ -42,6 +42,14 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <input class="profil" type="text" name="nom" id="nom" placeholder="Nom">
                     <input class="profil" type="text" name="prenom" id="prenom" placeholder="Prénom">
                 </div>
+                <select class="profil" name='sexe'>
+                    <option value="">Sexe</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Autre">Autre</option>
+                </select>
+                <input class="profil" name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
+
                 <input class="email" type="email" name="email" id="email" placeholder="Email">
                 <input class="lock" type="password" name="password" id="password" placeholder="Mot de passe">
                 <input class="lock" type="password" name="password2" id="password2" placeholder="Confirmer le mot de passe">
@@ -54,13 +62,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <option value="E">E</option>
                     <option value="F">F</option>
                 </select>    
-                <select class="profil" name='sexe'>
-                    <option value="">Sexe</option>
-                    <option value="Homme">Homme</option>
-                    <option value="Femme">Femme</option>
-                    <option value="Autre">Autre</option>
-                </select>
-                <input class="profil" name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
+                
 
 
                 <input class="center" type="submit" value="S'inscrire">
