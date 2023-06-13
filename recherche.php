@@ -35,26 +35,6 @@ require_once('./assets/php/lib.php');
     ?>
 <main>
 
-<?php
-
-$agent_utilisateur = $_SERVER['HTTP_USER_AGENT'];
-
-$is_mobile = false;
-
-
-
-if (strpos($agent_utilisateur, 'Mobile') !== false || strpos($agent_utilisateur, 'Android') !== false || strpos($agent_utilisateur, 'iPhone') !== false || strpos($agent_utilisateur, 'iPad') !== false || strpos($agent_utilisateur, 'iPod') !== false || strpos($agent_utilisateur, 'BlackBerry') !== false || strpos($agent_utilisateur, 'Windows Phone') !== false) {
-    $is_mobile = true;
-}
-
-if ($is_mobile) {
-    $action = "/swipe.php";
-
-} else {
-    $action = "/assets/php/recherche_trajet.php";
-}
-?>
-
 
 
     <div class="form-recherche">
@@ -64,7 +44,7 @@ if ($is_mobile) {
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8777 6.76964L11.8777 8.32002L13.0405 8.32002L15.3661 6.38205C16.2742 5.62522 17.6916 2.8937 17.6916 2.8937L17.6917 2.8937L17.6917 19.9479L19.2421 19.9479L19.2421 2.8937L19.2421 2.8937C19.2421 2.8937 20.6595 5.62523 21.5677 6.38205L23.8932 8.32002L25.056 8.32002L25.056 6.76964C25.056 6.76964 23.5669 5.92047 22.7305 5.21927C20.9905 3.76067 19.2421 0.568138 19.2421 0.568138L18.4669 0.568138L18.4669 0.56817L18.4668 0.56817L18.4668 0.568136L17.6916 0.568136C17.6916 0.568136 15.9433 3.76067 14.2033 5.21927C13.3668 5.92047 11.8777 6.76964 11.8777 6.76964Z" fill="black"/>
 </svg>
 </button>
-        <form action="<?php echo $action; ?>" method="post" required>
+        <form action="/swipe.php" method="post" required>
 
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>

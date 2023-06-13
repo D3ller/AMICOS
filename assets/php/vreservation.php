@@ -7,7 +7,7 @@ require_once './lib.php';
 
 if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])) {
     $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet sans être connecté";    
-    header('Location: /../../connexion.php');
+    header('Location: /../../');
     exit();
 }
 
