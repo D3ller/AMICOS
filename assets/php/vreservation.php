@@ -57,6 +57,20 @@ if($result->num_rows > 0) {
 
 }
 
+$sql = "SELECT * FROM passager WHERE trajet_id = ?";
+$stmt = $dbh->prepare($sql);
+$stmt->bind_param("i", $trajet['id']);
+$stmt->execute();
+$result = $stmt->get_result();
+$passagers = $result->fetch_assoc();
+
+if($result->num_rows >= $trajet['nb_places']) {
+    $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet qui est complet";
+    header('Location: /../../');
+    exit();
+
+}
+
 
 $sql = "INSERT INTO passager (user_id, trajet_id) VALUES (?, ?)";
 $stmt = $dbh->prepare($sql);
