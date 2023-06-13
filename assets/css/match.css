@@ -59,7 +59,7 @@
     width: 90vw;
     max-width: 400px;
     height: 70vh;
-    background: #8EA7E3;
+    background: #ffffff;
     padding-bottom: 40px;
     border-radius: 8px;
     overflow: hidden;
@@ -169,3 +169,67 @@
     }
   }
   
+  #pics {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    top: 250px;
+    left: -100px;
+  }
+
+  #cdt-name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'Magison', cursive;
+    color: white;
+    top: 250px;
+
+  }
+
+  #trajet {
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    font-family: 'Magison', cursive;
+    color: white;
+    margin: 0 20px;
+    margin-top: 0px;
+    top: 250px;
+  }
+
+  #place {
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    font-family: 'Quicksand', cursive;
+    color: white;
+    margin: 0 20px;
+    margin-top: 0px;
+    top: 250px;
+  }
+
+  #search-h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    position: relative;
+    margin-top: 20px;
+    font-family: 'Magison', cursive;
+    color: black;
+  }

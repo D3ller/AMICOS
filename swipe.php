@@ -1,6 +1,23 @@
 <?php
 session_start();
 require_once('./assets/php/lib.php');
+
+$depart = $_POST['depart'];
+$arrivee = $_POST['arrivee'];
+$datetime = $_POST['date'];
+$lat = $_POST['lat'];
+$lng = $_POST['lng'];
+$lat2 = $_POST['lat2'];
+$lng2 = $_POST['lng2'];
+
+$datetime = date("Y-d-m H:i:s", strtotime($datetime));
+
+if(!isset($depart) || !isset($arrivee) || !isset($datetime) || !isset($lat) || !isset($lng) || !isset($lat2) || !isset($lng2)){
+    $_SESSION['error'] = 'Veuillez remplir tous les champs';
+    header('Location: /index.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,100 +38,202 @@ require_once('./assets/php/lib.php');
 require_once('customnav.php');
 ?>
 <main>
+
+<?php 
+
+echo '<h1 id="search-h1">Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
+
+$dbh = connect();
+
+$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ?";
+$stmt = $dbh->prepare($sql);
+$stmt->bind_param("si", $datetime, $_POST['place']);
+$stmt->execute();
+$result = $stmt->get_result();
+$num_rows = $result->num_rows;
+
+if($num_rows == 0){
+    echo 'Aucun trajet n\'a été trouvé';
+    exit();
+}
+
+$trajetInteressant = null;
+$distancePlusInteressante = null;
+
+while ($trajet = $result->fetch_assoc()) {
+
+
+    $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
+    $response = file_get_contents($apiUrl);
+    $directions = json_decode($response, true);
+
+
+
+    if ($directions['status'] === 'OK') {
+        $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
+        $distance = $distance / 1000;
+
+if ($distance <= 20) {
+    if ($trajetInteressant === null || abs($distance) < $distancePlusInteressante) {
+        $trajetInteressant = $trajet;
+        $distancePlusInteressante = abs($distance);
+    }
+}
+    } else {
+        echo 'Erreur lors de la récupération du trajet.';
+    }
+}
+
+?>
+
     <div class="tinder">
         <div class="tinder--status">
             <i class="fa fa-remove"></i>
             <i class="fa fa-heart"></i>
         </div>
-
+        <?php
+if ($trajetInteressant !== null) {
+            ?>
         <div class="tinder--cards">
-            <?php
-            if(isset($_SESSION["AMIID"])) {
-                $amiid = ' AND conducteur_id != '.$_SESSION["AMIID"];
-            } else {
-                $amiid = "";
-            }
 
+            <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajetInteressant['id']; ?>" class="tinder--card">
 
-            $dbh = connect();
-            $sql = "SELECT * FROM trajet WHERE date > NOW() $amiid ORDER BY RAND() ";
-            $query = $dbh->prepare($sql);
-            $query->execute();
-            $result = $query->get_result();
+                <?php
 
-            while ($trajet = $result->fetch_assoc()) {
+                $sqluser = "SELECT * FROM profil WHERE id = ?";
+                $stmtuser = $dbh->prepare($sqluser);
+                $stmtuser->bind_param("i", $trajetInteressant['conducteur_id']);
+                $stmtuser->execute();
+                $resultuser = $stmtuser->get_result();
+                $conducteur = $resultuser->fetch_assoc();
 
-                $lat = $trajet['lat'];
-                $lng = $trajet['lng'];
-                $lat2 = $trajet['lat2'];
-                $lng2 = $trajet['lng2'];
-            ?>
-            <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id']; ?>" class="tinder--card">
-                <div id="map-<?php echo $trajet['id']; ?>" class="map-container" style="width: 100%; height: 300px;"></div>
-                <h3><?php echo $trajet['lieu_depart']; ?></h3>
-                <p><?php echo $trajet['lieu_arrivee']; ?></p>
-                <p><?php echo $trajet['conducteur_id']; ?></p>
-            </div>
-            <script>
-                var latDepart<?php echo $trajet['id']; ?> = <?php echo $lat; ?>;
-                var lngDepart<?php echo $trajet['id']; ?> = <?php echo $lng; ?>;
-                var latArrivee<?php echo $trajet['id']; ?> = <?php echo $lat2; ?>;
-                var lngArrivee<?php echo $trajet['id']; ?> = <?php echo $lng2; ?>;
+                echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+                echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+                echo '<p id="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
 
-                function initMap<?php echo $trajet['id']; ?>() {
-                    var startPoint = new google.maps.LatLng(latDepart<?php echo $trajet['id']; ?>, lngDepart<?php echo $trajet['id']; ?>);
-                    var endPoint = new google.maps.LatLng(latArrivee<?php echo $trajet['id']; ?>, lngArrivee<?php echo $trajet['id']; ?>);
-
-                    var mapOptions = {
-                        center: startPoint,
-                        zoom: 10,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                        disableDefaultUI: true,
-                        mapTypeControl: false,
-                        mapTypeControlOptions: {
-                            mapTypeIds: []
-                        }
-                    };
-
-                    var map = new google.maps.Map(document.getElementById('map-<?php echo $trajet['id']; ?>'), mapOptions);
-
-                    var directionsService = new google.maps.DirectionsService();
-                    var directionsRenderer = new google.maps.DirectionsRenderer({
-                        map: map,
-                        polylineOptions: {
-                            strokeColor: "#fe1269"
-                        }
-                    });
-
-                    var request = {
-                        origin: startPoint,
-                        destination: endPoint,
-                        travelMode: google.maps.TravelMode.DRIVING
-                    };
-
-                    directionsService.route(request, function(result, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            directionsRenderer.setDirections(result);
-                        }
-                    });
+                $sqls = "SELECT * FROM passager WHERE trajet_id = ?";
+                $stmts = $dbh->prepare($sqls);
+                $stmts->bind_param("i", $trajetInteressant['id']);
+                $stmts->execute();
+                $results = $stmts->get_result();
+                $num_rows = $results->num_rows;
+            
+                echo '<p id="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
+            
+                if($num_rows == $trajetInteressant['place']){
+                    $complete = 'disabled';
+                } else {
+                    $complete = '';
                 }
+                ?>
 
-                window.onload = function() {
-                    initMap<?php echo $trajet['id']; ?>();
-                };
-            </script>
+            </div>
+
             <?php
+
+$result->data_seek(0); 
+while ($trajet = $result->fetch_assoc()) {
+    if ($trajet === $trajetInteressant) {
+        continue;
+    }
+
+    $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
+    $response = file_get_contents($apiUrl);
+    $directions = json_decode($response, true);
+
+    if ($directions['status'] === 'OK') {
+
+        $distance = $directions['routes'][0]['legs'][2]['distance']['value'];
+        $distance = $distance / 1000;
+
+        if($distance == 0) {
+            continue;
+        }
+
+        if($distance < 50) {
+
+
+    ?>
+            <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id']; ?>" class="tinder--card">
+
+
+            <?php
+
+$sqluser = "SELECT * FROM profil WHERE id = ?";
+$stmtuser = $dbh->prepare($sqluser);
+$stmtuser->bind_param("i", $trajet['conducteur_id']);
+$stmtuser->execute();
+$resultuser = $stmtuser->get_result();
+$conducteur = $resultuser->fetch_assoc();
+
+$minutes = $trajet['duree'] * 60;
+$hours = floor($minutes / 60);
+$minutes = $minutes - ($hours * 60);
+$minutes = round($minutes / 60 * 60);
+
+$minutes = sprintf("%02d", $minutes);
+
+$trajet['duree'] = $hours . 'h' . $minutes;
+
+echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+echo '<p id="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
+
+$sqls = "SELECT * FROM passager WHERE trajet_id = ?";
+$stmts = $dbh->prepare($sqls);
+$stmts->bind_param("i", $trajet['id']);
+$stmts->execute();
+$results = $stmts->get_result();
+$num_rows = $results->num_rows;
+
+echo '<p id="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
+
+if($num_rows == $trajet['place']){
+    $complete = 'disabled';
+} else {
+    $complete = '';
+}
+
+?>
+
+
+
+            </div>
+    
+
+
+        <?php
+
+        }
+    } else {
+        echo 'Erreur lors de la récupération du trajet.';
+    }
+} 
+
+            } else {
+                echo 'Aucun trajet n\'a été trouvé';
             }
             ?>
-        </div>
+                    </div>
+
     </div>
 
-      
-        <div class="tinder--buttons">
+      <?php
+      if ($trajetInteressant !== null) {
+
+        echo '<div class="tinder--buttons">
           <button id="nope"></button>
           <button id="love"></button>
         </div>
-      </div>
+      </div>';
+
+      } else {
+        echo '';
+      }
+
+      ?>
+
+
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 
