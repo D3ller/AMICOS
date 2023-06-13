@@ -27,10 +27,10 @@
             <div>
                 <div class="left-laptop">
                     <h5>A propos</h5>
-                    <a href="">Cookies</a>
-                    <a href="">Mentions légales</a>
-                    <a href="">Conditions Générales</a>
-                    <a href="">Politique de confidentialité</a>
+                    <a href="cookie">Cookies</a>
+                    <a href="mentions">Mentions légales</a>
+                    <a href="conditiongeneral">Conditions Générales</a>
+                    <a href="pdc">Politique de confidentialité</a>
                 </div>
                 <div class="right-laptop">
                     <h5>Déplacements</h5>
