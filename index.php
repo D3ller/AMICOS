@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 session_start();
 require_once('./assets/php/lib.php');
