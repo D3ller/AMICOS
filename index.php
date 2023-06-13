@@ -127,33 +127,34 @@ $trajet = $result->fetch_assoc();
 if($result->num_rows > 0) {
 //savoir tout
     echo '
-    <div class="last-travel">
-        ';
+    <div id="banner-travel">
+        <div class="last-travel">
+            ';
 
-    $sql = "SELECT * FROM profil WHERE id = ?";
-    $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("i", $trajet['conducteur_id']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $conducteur = $result->fetch_assoc();
+            $sql = "SELECT * FROM profil WHERE id = ?";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bind_param("i", $trajet['conducteur_id']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $conducteur = $result->fetch_assoc();
 
-    echo '<h3>Dernier trajet : avec ' . $conducteur["prenom"] . '</h3>';
+            echo '<h3>Dernier trajet : avec ' . $conducteur["prenom"] . '</h3>';
 
-    echo '
-    <div id="map" style="width: 80%; height: 120px; border-radius: 20px; margin: 0 auto;"></div>
-    </div>
-    </div>
-    <div class="stats-util">
-        <div class="co2">
-            <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
-            <div class="info-stats">
-                <h5>'.$trajet["co2"].'kg</h5>
-            </div>
+            echo '
+            <div id="map" style="width: 80%; height: 120px; border-radius: 20px; margin: 0 auto;"></div>
         </div>
-        <div class="distance">
-            <h3>Distance <span class="détail-stats">(en km)</stats></h3>
-            <div class="info-stats">
-                <h5>'.$trajet["km"].' Km</h5>
+        <div class="stats-util">
+            <div class="co2">
+                <h3>CO2 émit <span class="détail-stats">(en kg)</span></h3>
+                <div class="info-stats">
+                    <h5>'.$trajet["co2"].'kg</h5>
+                </div>
+            </div>
+            <div class="distance">
+                <h3>Distance <span class="détail-stats">(en km)</stats></h3>
+                <div class="info-stats">
+                    <h5>'.$trajet["km"].' Km</h5>
+                </div>
             </div>
         </div>
     </div>';
@@ -207,8 +208,6 @@ window.onload = function() {
   map.getDiv().style.width = '100%';
 map.getDiv().style.height = '100px';
 };
-
-
 
 </script>";
 
