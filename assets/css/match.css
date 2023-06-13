@@ -59,7 +59,7 @@
     width: 90vw;
     max-width: 400px;
     height: 70vh;
-    background: #ffffff;
+    background: url("https://portfolio.karibsen.fr/assets/img/maps.svg") no-repeat center center;
     padding-bottom: 40px;
     border-radius: 8px;
     overflow: hidden;
@@ -232,4 +232,12 @@
     margin-top: 20px;
     font-family: 'Magison', cursive;
     color: black;
+  }
+
+  #none {
+    color: red;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Quicksand';
+    text-align: center;
   }
