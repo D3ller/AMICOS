@@ -109,7 +109,7 @@
 
     .form-index form input[type="submit"]{
       border-radius: 0px 20px 20px 0px;
-      font-size: 2vw;
+      font-size: 1.3vw;
       width: 25%;
     }
 
@@ -120,7 +120,7 @@
 
   .haut-form-index input,
   .bas-form-index input{
-    font-size:1.5vw;
+    font-size:1.3vw;
     margin-top: 0.25vw;
     line-height: 50px;
     display: block;
@@ -149,8 +149,8 @@
 
   @media screen and (min-width: 1024px){
     .last-travel{
-      height: 400px;
-      width: 69%;
+      height: 300px;
+      width: 68%;
     }
 
     .last-travel h3{
@@ -159,7 +159,7 @@
 
     #map{
       margin-top: 15px !important;
-      height: 300px !important;
+      height: 200px !important;
       width: 95% !important;
     }
 
@@ -208,7 +208,7 @@
     margin-top: 5px;
     background-color: #FFE3E3;
     height: 8vw;
-    border-radius: 100px;
+    border-radius: 20px;
     position: relative;
   }
   
@@ -227,22 +227,26 @@
     .co2, .distance{
       width: 100%;
       height: 48%;
+      padding: 20px 45px;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
     }
 
     .info-stats{
-      font-size: 1vw;
+      height: 4vw;
     }
 
     .info-stats h5{
-      font-size: 1.5vw;
+      font-size: 1.3vw;
     }
 
     .co2 h3, .distance h3{
-      font-size: 1.5vw;
+      font-size: 1.3vw;
     }
 
     .détail-stats{
-      font-size: 0.7vw;
+      font-size: 1vw;
     }
   }
   
