@@ -5,6 +5,7 @@ require_once('./assets/php/lib.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,7 @@ if (strpos($agent_utilisateur, 'Mobile') !== false || strpos($agent_utilisateur,
 }
 
 if ($is_mobile) {
-    $action = "/assets/php/swipe.php";
+    $action = "/swipe.php";
 
 } else {
     $action = "/assets/php/recherche_trajet.php";
@@ -98,7 +99,7 @@ if ($is_mobile) {
                             parse(dateString) {
                                 const parts = dateString.split('/');
                                 const day = parseInt(parts[0], 10);
-                                co nst month = parseInt(parts[1], 10) - 1;
+                                const month = parseInt(parts[1], 10) - 1;
                                 const year = parseInt(parts[2], 10);
                                 return new Date(year, month, day);
                             }  
@@ -113,8 +114,8 @@ if ($is_mobile) {
                 <input type="submit" value="Voyager !">
             </form>
         </div>
-<?php 
 
+<?php
 if (isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
     $sqluser = "SELECT * FROM profil WHERE email = ? AND id = ?";
