@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 require_once('./assets/php/lib.php');
@@ -70,6 +71,7 @@ if ($is_mobile) {
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
+                </div>
                 <div class="bas-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" id="myDateInput" placeholder="Date" name="date"/>
@@ -97,7 +99,7 @@ if ($is_mobile) {
                             parse(dateString) {
                                 const parts = dateString.split('/');
                                 const day = parseInt(parts[0], 10);
-                                const month = parseInt(parts[1], 10) - 1;
+                                co nst month = parseInt(parts[1], 10) - 1;
                                 const year = parseInt(parts[2], 10);
                                 return new Date(year, month, day);
                             }  
