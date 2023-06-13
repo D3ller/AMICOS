@@ -57,7 +57,7 @@ if (strpos($agent_utilisateur, 'Mobile') !== false || strpos($agent_utilisateur,
 }
 
 if ($is_mobile) {
-    $action = "/assets/php/swipe.php";
+    $action = "/swipe.php";
 
 } else {
     $action = "/assets/php/recherche_trajet.php";
