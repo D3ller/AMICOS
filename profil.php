@@ -162,7 +162,7 @@ echo '<div id="profil">';
     if($user['voiture'] == NULL) {
         $user['voiture'] = "Aucune voiture";
     } else {
-        $user['voiture'] = "Voiture";
+        $user['voiture'] = $user['voiture'];
     }
 
     $text = str_replace("\r\n",'', $user["description"]);

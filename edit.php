@@ -72,6 +72,12 @@ $user = $result->fetch_assoc();
       <textarea type="text" name="description" required><?php echo $user['description']; ?></textarea>
       <label class="label-input-modif l-i-m-2">Déscription</label>
     </div>
+
+
+    <div class="input-modif i-mod-2">
+      <textarea type="text" name="voiture" required><?php echo $user['voiture']; ?></textarea>
+      <label class="label-input-modif l-i-m-2">Voiture</label>
+    </div>
     
     <!-- <input type="submit" value="Modifier"> -->
 
