@@ -15,6 +15,7 @@ $lng = $_POST['lng'];
 $lat2 = $_POST['lat2'];
 $lng2 = $_POST['lng2'];
 
+
 $datetime = date("Y-d-m H:i:s", strtotime($datetime));
 
 echo '<h1>Recherche de trajet entre '. $depart. ' et '. $arrivee .'</h1>';
@@ -38,7 +39,6 @@ $distancePlusInteressante = null;
 
 while ($trajet = $result->fetch_assoc()) {
 
-    //get num rows
 
     $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
     $response = file_get_contents($apiUrl);

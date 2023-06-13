@@ -10,10 +10,31 @@ $lng = $_POST['lng'];
 $lat2 = $_POST['lat2'];
 $lng2 = $_POST['lng2'];
 
-$datetime = date("Y-d-m H:i:s", strtotime($datetime));
+$dateFormat = 'd/m/Y';
+
+$dateTimeObj = DateTime::createFromFormat($dateFormat, $datetime);
+$datetime = $dateTimeObj->format('Y-m-d H:i:s');
 
 if(!isset($depart) || !isset($arrivee) || !isset($datetime) || !isset($lat) || !isset($lng) || !isset($lat2) || !isset($lng2)){
     $_SESSION['error'] = 'Veuillez remplir tous les champs';
+    header('Location: /index.php');
+    exit();
+}
+
+if($depart == $arrivee){
+    $_SESSION['error'] = 'Le départ et l\'arrivée ne peuvent pas être identiques';
+    header('Location: /index.php');
+    exit();
+}
+
+if($datetime < date('Y-m-d H:i:s')){
+    $_SESSION['error'] = 'La date ne peut pas être antérieure à la date actuelle';
+    header('Location: /index.php');
+    exit();
+}
+
+if(!is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($lng2)){
+    $_SESSION['error'] = 'Les coordonnées GPS ne sont pas valides';
     header('Location: /index.php');
     exit();
 }
@@ -53,7 +74,7 @@ $result = $stmt->get_result();
 $num_rows = $result->num_rows;
 
 if($num_rows == 0){
-    echo 'Aucun trajet n\'a été trouvé';
+    echo '<p id="none">Aucun trajet n\'a été trouvé</p>';
     exit();
 }
 
@@ -207,11 +228,13 @@ if($num_rows == $trajet['place']){
         }
     } else {
         echo 'Erreur lors de la récupération du trajet.';
+        //afficher une seule fois
+        exit();
     }
 } 
 
             } else {
-                echo 'Aucun trajet n\'a été trouvé';
+                echo '<p id="none">Aucun trajet n\'a été trouvé</p>';
             }
             ?>
                     </div>

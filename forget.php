@@ -37,7 +37,7 @@ echo "Le token n'existe pas";
 
 echo '<div class="conn-logo"></div>';
 
-echo '<form action="./assets/php/vforget.php" method="POST">';
+echo '<form id="forgets" action="./assets/php/vforget.php" method="POST">';
 echo '<input type="hidden" name="token" value="'.$token.'">';
 echo '<input class="icon" type="mail" name="email" value="'.$user['email'].'" readonly>';
 echo '<input type="password" name="password" placeholder="password">';
@@ -48,15 +48,17 @@ echo '</form>';
 } else {
 
 if(empty($email)){
+echo '<div  class="conn-logo"></div>';
+echo '<form id="forgets" action="./forget.php" method="GET">';
 echo "<input type='text' class='icon' id='mail' placeholder='E-mail'>";
 echo "<a id='forget' href=''>Envoyer</a>";
 echo "<script>mail.addEventListener('input', function(){
     forget.href = './forget.php?mail='+mail.value;
 })
 </script>";
+echo '</form>';
 } else {
 
-//Lorsque l'utilisateur a mis son mail dans connexion et qu'il est transmis à forget.php, on vérifie si l'utilisateur existe dans la base de données
 $dbh = connect();
 
 $sql = "SELECT * FROM profil WHERE email = ?";
@@ -68,12 +70,14 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if($result->num_rows == 0){
+    echo '<form id="forgets" action="./forget.php" method="GET">';
     echo "<input type='text' class='icon' id='mail' placeholder='E-mail'>";
     echo "<a id='forget' href=''>Envoyer</a>";
     echo "<script>mail.addEventListener('input', function(){
         forget.href = './forget.php?mail='+mail.value;
     })
     </script>";
+    echo '</form>';
 } else {
 
     if($user['token'] != NULL)   {

@@ -8,7 +8,7 @@
 }
 
 .nom-perso-logo{
-    background: url(https://portfolio.karibsen.fr/assets/img/parkspink.svg) no-repeat center;
+    background: url(https://portfolio.karibsen.fr/assets/img/connlogowithtext) no-repeat center;
     background-size: contain;
     width: 45%;
     height: 12vw;
@@ -132,47 +132,41 @@
     color: #686565;
 }
 
-@media screen and (min-width: 1024px) {
+#forgets {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
 
-    .nom-perso-logo{
-        width: 15%;
-    }
+#forgets input[type="text"] {
+    width: 80%;
+    height: 45px;
+    text-indent: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #b3b3b3;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
 
-    .nom-perso-logo-2{
-        background: url(https://portfolio.karibsen.fr/assets/img/biglogowithtext.svg) no-repeat center;
-        background-size: contain;
-        width: 15%; 
-    }
-
-    .form-inscription form, .form-inscription a{
-        width: 25%;
-        
-    }
-
-    .form-inscription form input[type="text"],
-.form-inscription form input[type="password"],
-.form-inscription form input[type="email"],
-.form-inscription form input[type="number"],
-.form-inscription form select{
-    font-size: 2vw;
+#forgets a {
+    width: 40%;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #ffab02;
+    border-radius: 10px;
+    height: 45px;
+    padding: 10px;
+    line-height: 25px;
 }
 
 
-.center {
-    font-size: 2vw;
-    margin-top: 14px;
-}
 
-.conn-logo{
-    height: 550px;
-}
+@media screen and (min-width: 1000px) {
 
-.conn-logo1{
-    height: 150px !important;
-}
-
-.lost-password{
-    font-size: 1vw;
-}
     
-  }
+    
+}

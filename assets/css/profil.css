@@ -56,7 +56,8 @@ h1 {
 #edit-name {
     display: flex;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
     align-items: center;
     width: 80%;
     margin-top: 20px;
@@ -243,7 +244,7 @@ justify-items: stretch;
     line-height: 35px;
     outline: none;
     white-space: nowrap;
-        -webkit-user-select: none;
+    -webkit-user-select: none;
     cursor: pointer;
     font-weight: 400;
     outline: none;

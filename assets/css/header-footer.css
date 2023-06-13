@@ -17,6 +17,12 @@ main{
     font-family: 'Roboto', sans-serif;
 }
 
+@media screen and (min-width: 1024px){
+    main{
+        margin-top: 2000px;
+    }
+  }
+
 /* Header */
 
 .legalfooter > a {
@@ -255,7 +261,7 @@ menu{
 }
 
 #parkings {
-    background-image: url("https://portfolio.karibsen.fr/assets/img/parkings.svg");
+    background-image: url("https://portfolio.karibsen.fr/assets/img/parkingmap.svg");
     background-repeat: no-repeat;
     background-position: center;
     width: 180px;

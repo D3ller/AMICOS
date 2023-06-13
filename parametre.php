@@ -33,10 +33,10 @@ require_once('customnav.php');
 
 <div id='settings'>
 
-<div>
+<!-- <div>
     <a><p>Avis</p><div class='arrow'></div></a>
     </div>
-<hr>
+<hr> -->
     <div>
     <a href='./updatepassword'><p>Mot de passe</p><div class='arrow'></div></a>
     </div>

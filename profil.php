@@ -62,96 +62,96 @@ echo '<div id="profil">';
     echo '<p class="grey">'.$user['sexe'] . ' '. $user['age']. ' ans</p>';
     echo '</div>';
 
-    echo '<div id="preference">';
+    // echo '<div id="preference">';
 
-    // Vérifier si les préférences de l'utilisateur existent et définir l'état des cases à cocher en conséquence
-    $preferences = $user['preferences'];
-    $checked = "";
+    // // Vérifier si les préférences de l'utilisateur existent et définir l'état des cases à cocher en conséquence
+    // $preferences = $user['preferences'];
+    // $checked = "";
     
-    echo '<div class="pref">';
-    echo '<h2 class="subtitle">Préférences de covoiturage</h2>';
-    echo '<div>';
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="fumeur" name="fumeur" disabled';
+    // echo '<div class="pref">';
+    // echo '<h2 class="subtitle">Préférences de covoiturage</h2>';
+    // echo '<div>';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="fumeur" name="fumeur" disabled';
     
-    // Vérifier si la préférence "fumeur" est cochée
-    if ($preferences !== NULL && in_array('fumeur', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="fumeur" class="greys cb">Fumeur</label>';
-    echo '</div>';
+    // // Vérifier si la préférence "fumeur" est cochée
+    // if ($preferences !== NULL && in_array('fumeur', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="fumeur" class="greys cb">Fumeur</label>';
+    // echo '</div>';
     
-    $checked = "";
+    // $checked = "";
     
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="music" name="music" disabled';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="music" name="music" disabled';
     
-    // Vérifier si la préférence "music" est cochée
-    if ($preferences !== NULL && in_array('music', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="music" class="greys cb">Musique</label>';
-    echo '</div>';
+    // // Vérifier si la préférence "music" est cochée
+    // if ($preferences !== NULL && in_array('music', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="music" class="greys cb">Musique</label>';
+    // echo '</div>';
     
-    $checked = "";
+    // $checked = "";
     
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="animal" name="animal" disabled';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="animal" name="animal" disabled';
     
-    // Vérifier si la préférence "animal" est cochée
-    if ($preferences !== NULL && in_array('animal', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="animal" class="greys cb">Animaux</label>';
-    echo '</div>';
+    // // Vérifier si la préférence "animal" est cochée
+    // if ($preferences !== NULL && in_array('animal', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="animal" class="greys cb">Animaux</label>';
+    // echo '</div>';
     
-    $checked = "";
+    // $checked = "";
     
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="discussion" name="discussion" disabled';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="discussion" name="discussion" disabled';
     
-    if ($preferences !== NULL && in_array('discussion', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="discussion" class="greys cb">Discussion</label>';
-    echo '</div>';
+    // if ($preferences !== NULL && in_array('discussion', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="discussion" class="greys cb">Discussion</label>';
+    // echo '</div>';
     
-    $checked = "";
+    // $checked = "";
     
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled';
     
-    if ($preferences !== NULL && in_array('sharepayement', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="sharepayement" class="greys cb">Frais divisé</label>';
-    echo '</div>';
+    // if ($preferences !== NULL && in_array('sharepayement', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="sharepayement" class="greys cb">Frais divisé</label>';
+    // echo '</div>';
     
-    $checked = "";
+    // $checked = "";
     
-    echo '<div class="subpref">';
-    echo '<input type="checkbox" id="sharecar" name="sharecar" disabled';
+    // echo '<div class="subpref">';
+    // echo '<input type="checkbox" id="sharecar" name="sharecar" disabled';
     
-    if ($preferences !== NULL && in_array('sharecar', $preferences)) {
-        $checked = "checked";
-    }
-    echo $checked;
-    echo '>';
-    echo '<label for="sharecar" class="greys cb">2nd pilote</label>';
-    echo '</div>';
+    // if ($preferences !== NULL && in_array('sharecar', $preferences)) {
+    //     $checked = "checked";
+    // }
+    // echo $checked;
+    // echo '>';
+    // echo '<label for="sharecar" class="greys cb">2nd pilote</label>';
+    // echo '</div>';
     
-    echo '</div>';
-    echo '</div>';
+    // echo '</div>';
+    // echo '</div>';
     
     // Continuer avec le reste de votre code...
     
@@ -170,7 +170,7 @@ echo '<div id="profil">';
     $text = str_replace(array("\r\n", "\r", "\n"), "<br>", $text);
     $text = stripslashes($text);
 
-    echo '<div class="pref" style="margin: 0 20px; margin-bottom: 20px">';
+    echo '<div class="pref" style="margin: 0 20px; margin-bottom: 20px; margin-top:20px;">';
     echo '<h2 class="subtitle">Voiture</h2>';
     echo '<p class="greys">'.$user["voiture"].'</p>';
     echo '</div>';

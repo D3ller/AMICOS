@@ -85,3 +85,37 @@
 .button-cookies button:focus:nth-child(1) {
     background-color: #f6b0b0;
 }
+
+@media screen and (min-width: 1024px) {
+    #conditions>h2 {
+        font-family: "Magison", sans-serif;
+        font-size: 1.5vw;
+    }
+    #conditions>p {
+        font-family: "Quicksand", sans-serif;
+        font-size: 1vw;
+    }
+    #conditions>p:last-of-type {
+        margin-bottom: 0px;
+    }
+    #conditions>h4 {
+        font-size: 1vw;
+    }
+    .button-cookies {
+        display: flex;
+        width: 30%;
+        justify-content: space-between;
+    }
+    .button-cookies button {
+        background-color: white;
+        outline: none;
+        max-width: 200px;
+        border: 2px solid black;
+        border-radius: 2000px;
+        padding: 1.5vw;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1.3vw;
+        box-shadow: 7px 7px 0px #000000;
+        transition: 0.25s ease-in-out all;
+    }
+}

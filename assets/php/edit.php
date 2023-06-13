@@ -9,6 +9,7 @@ $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 $description = $_POST['description'];
 $pp = $_POST['pp'];
+$voiture = $_POST['voiture'];
 $image = $_FILES['image'];
 
 $dbh = connect();
@@ -24,7 +25,7 @@ $old = $user['profil-picture'];
 
 
 
-if(!isset($_POST['id']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['email']) || !isset($_POST['description'])) {
+if(!isset($_POST['id']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['email']) || !isset($_POST['description']) || !isset($_POST['voiture'])) {
     $_SESSION['error'] = "Veuillez remplir tous les champs";
     header('Location: /profil.php');
     exit();
@@ -92,10 +93,10 @@ $email = mysqli_real_escape_string($dbh, $email);
 
 if($image['size'] == 0) {
 
-if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['description'] || $email != $user['email']) {
-    $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ? WHERE id = ?";
+if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['description'] || $email != $user['email'] || $voiture != $user['voiture']) {
+    $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, voiture = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("ssssi", $nom, $prenom, $description, $email, $id);
+    $stmt->bind_param("sssssi", $nom, $prenom, $description, $email, $voiture, $id);
     $stmt->execute();
 
     $_SESSION['AMIID'] = $id;
@@ -146,9 +147,9 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     $pp = $filename;
     $pp = 'https://mmi22c01.sae202.ovh/assets/img/pp/' . $filename;
     
-    $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, `profil-picture` = ? WHERE id = ?";
+    $sql = "UPDATE profil SET nom = ?, prenom = ?, description = ?, email = ?, `profil-picture` = ?, voiture = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("sssssi", $nom, $prenom, $description, $email, $pp, $id);
+    $stmt->bind_param("ssssssi", $nom, $prenom, $description, $email, $pp, $voiture, $id);
     $stmt->execute();
 
     $_SESSION['AMIID'] = $id;
