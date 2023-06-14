@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 
     <div class="last-nav-header">
         <a href="connexion.php"><div class="profil-header"></div></a>
-        <a href="trajets"><div class="plus-header"></a>
+        <a href="trajets.php"><div class="plus-header"></div></a>
     </div>
 
 

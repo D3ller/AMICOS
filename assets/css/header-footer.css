@@ -364,15 +364,7 @@ menu{
         height: 3vw;
         background-size: contain;
         background-repeat: no-repeat;
-    }
-
-    .qrcode-header{
-        background-image:url("https://portfolio.karibsen.fr/assets/img/qrcode.svg");
-        width: 3vw;
-        height: 3vw;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-right: 1vw;
+        margin-left: 15px;
     }
 
     .active-header{

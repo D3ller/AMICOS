@@ -29,7 +29,9 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     <?php
 
     require_once('customnav.php');  
-
+    
+    ?>
+    <?php
     $dbh = connect();
 
     $sql = "SELECT 
@@ -45,8 +47,8 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     
     echo "<p id='stats'>Vous avez réalise un total de ".$total." trajets.</p>";
 
-
-    echo '<div class="container" style="position: relative; height:40vh; width:100vw">';
+    echo "<main>";
+    echo '<div class="container" style="position: relative; height:auto; width:100%">';
     $sql1 = "SELECT MONTH(date) AS mois, SUM(co2) AS total_co2 
         FROM trajet 
         WHERE conducteur_id = ? 
@@ -210,6 +212,11 @@ $data = array_values($kmByMonth);
 </script>
 
 </div>
+
+</main>
+<?php
+require_once('./footer.php');
+?>
 
 
 
