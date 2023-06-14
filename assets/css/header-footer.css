@@ -376,6 +376,7 @@ menu{
         height: 3vw;
         background-size: contain;
         background-repeat: no-repeat;
+        margin-left: 15px;
     }
 
     .qrcode-header{

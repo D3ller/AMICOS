@@ -430,4 +430,8 @@ button.expand.finished > .expand-icon > svg.second {
     .grey {
         font-size: 22px;
     }
+
+    .cstm{
+        display: none;
+    }
 }
