@@ -230,35 +230,35 @@ $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
     echo '<div class="trajets-inte-util">
-        <h3>Trajets qui peuvent vous intéresser :</h3>
-        <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
-        <div class="scroll-container">';
+            <h3>Trajets qui peuvent vous intéresser :</h3>
+            <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
+          <div class="scroll-container">';
 
-    while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
 
-        $sql = "SELECT * FROM profil WHERE id = ?";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bind_param("i", $row['conducteur_id']);
-        $stmt->execute();
-        $result2 = $stmt->get_result();
-        $conducteur = $result2->fetch_assoc();
+            $sql = "SELECT * FROM profil WHERE id = ?";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bind_param("i", $row['conducteur_id']);
+            $stmt->execute();
+            $result2 = $stmt->get_result();
+            $conducteur = $result2->fetch_assoc();
 
-        $row['date'] = date("d/m/Y à H:i", strtotime($row['date']));
+            $row['date'] = date("d/m/Y à H:i", strtotime($row['date']));
 
-        echo '<div class="card">
-            <div class="ele-util-card">
-                <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
-                <div>
-                    <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
-                    <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
-                </div>
-                <h6>Départ le '.$row['date']. '<br>'.$conducteur['prenom'] . ' '. $conducteur["nom"].'<br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
-                <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
-            </div>
-        </div>';
-    }
+            echo '<div class="card">
+                    <div class="ele-util-card">
+                        <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
+                        <div>
+                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                            <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
+                        </div>
+                        <h6>Départ le '.$row['date']. '<br>'.$conducteur['prenom'] . ' '. $conducteur["nom"].'<br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
+                        <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+                    </div>
+                </div>';
+            }
 
-    echo '</div>
+        echo '</div>
     </div>';
 } else {
 }
@@ -280,7 +280,6 @@ if ($num_rows > 0) {
                             en complétant votre profil, vous pourrez partager vos 
                             trajets avec des personnes qui vous ressemblent.
                             </p>
-                            <img src="" alt="">
                             <div class="img-cqnd-1-persos img-cqnd"></div>
                         </div>
                     </div>
