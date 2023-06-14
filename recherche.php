@@ -29,6 +29,7 @@ require_once('./assets/php/lib.php');
         unset($_SESSION['error']);
     }
 
+    require_once 'header.php';
 
     require_once 'customnav.php';
 

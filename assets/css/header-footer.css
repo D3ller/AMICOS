@@ -321,6 +321,7 @@ menu{
         z-index: 2000;
         padding-left: 15px;
         padding-right: 15px;
+        top:0;
     }
 
 
@@ -484,7 +485,7 @@ menu{
 
     .cstm {
         height: 150px;
-        
+        margin-top: 130px;
     }
 
     .cstm > a {
