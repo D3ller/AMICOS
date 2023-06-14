@@ -259,7 +259,7 @@ if ($num_rows > 0) {
             }
 
         echo '</div>
-    </div>';
+';
 } else {
 }
 

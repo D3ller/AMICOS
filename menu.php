@@ -57,7 +57,6 @@ require_once('./assets/php/lib.php');
             }
 
             ?>
-
         </div>
     </ul>
 </menu>
