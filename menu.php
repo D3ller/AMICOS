@@ -8,7 +8,7 @@ require_once('./assets/php/lib.php');
 ?>
 
 <menu>
-    <section class="menu">
+    <ul class="menu">
         <div class="menu__item">
             <a href="index.php">
             <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +60,7 @@ require_once('./assets/php/lib.php');
             ?>
             </a>
         </div>
-</section>
+    </ul>
 </menu>
 
 <?php
