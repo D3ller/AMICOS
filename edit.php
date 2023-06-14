@@ -16,11 +16,12 @@ if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])){
   <link href='/assets/css/header-footer.css' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>.cstm{display:flex;}</style>
 </head>
 <body>
 
 <?php
-
+require_once 'header.php';
 require_once('customnav.php');
 
 $dbh = connect();

@@ -18,11 +18,16 @@ if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mes réservations</title>
     <link type='text/css' rel='stylesheet' href='./assets/css/header-footer.css'>
     <link type='text/css' rel='stylesheet' href='./assets/css/mesreservations.css'>
 </head>
 <body>
+
+<?php
+require_once 'header.php';
+require_once 'customnav.php';
+?>
 
 <main>
 <?php

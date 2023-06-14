@@ -29,7 +29,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     <?php
 
     require_once('customnav.php');  
-    
+    require_once 'header.php';
     ?>
     <?php
     $dbh = connect();

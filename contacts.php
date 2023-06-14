@@ -18,8 +18,13 @@ require_once('./assets/php/lib.php');
     <title>Contacts</title>
 </head>
 <body>
-    <h1>Contacts</h1>
 
+<?php
+require_once 'header.php';
+require_once('customnav.php');
+?>
+
+<main>
     <?php
     if(isset($_SESSION['error'])){
         echo '<p class="error">'.$_SESSION['error'].'</p>';
@@ -92,5 +97,10 @@ require_once('./assets/php/lib.php');
 
 
     </form>
+</main>
+<?php
+require_once 'footer.php';
+?>
+
 </body>
 </html>

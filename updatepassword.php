@@ -32,7 +32,7 @@ if($result->num_rows === 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modifier mot de passe</title>
 </head>
 <body>
 
@@ -42,6 +42,8 @@ if(isset($_SESSION['error'])) {
     echo '<p class="error">'.$_SESSION['error'].'</p>';
     unset($_SESSION['error']);
 }
+
+require_once 'header.php';
 
 ?>
 

@@ -12,6 +12,7 @@
 
 <?php
 require_once('customnav.php');
+require_once 'header.php';
 ?>
 
 <div id='conditions'>

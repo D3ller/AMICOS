@@ -89,6 +89,7 @@ echo "  </head>";
 echo "  <body>";
 
 require_once('customnav.php'); 
+require_once 'header.php';
 
 echo '<main>';
 

@@ -57,6 +57,7 @@ if(!is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($
 
 <?php
 require_once('customnav.php');
+require_once 'header.php';
 ?>
 <main>
 
