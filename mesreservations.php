@@ -30,6 +30,8 @@ require_once 'customnav.php';
 ?>
 
 <main>
+
+<div class="ele-resa">
 <?php
 
 $dbh = connect();
@@ -40,7 +42,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo '<h2 id="conducteur">En tant que conducteur</h2>';
+    echo '<h2  class="conducteur">En tant que conducteur</h2>';
 
     setlocale(LC_TIME, 'fr_FR');
     $row['date'] = new DateTime($row['date']);
@@ -130,7 +132,7 @@ while ($row = $result->fetch_assoc()) {
     $trajet = $result2->fetch_assoc();
 
 
-    echo '<h2 id="conducteur">En tant que passager</h2>';
+    echo '<h2 class="conducteur">En tant que passager</h2>';
 
     setlocale(LC_TIME, 'fr_FR');
     $trajet['date'] = new DateTime($trajet['date']);
@@ -199,7 +201,12 @@ while ($row = $result->fetch_assoc()) {
 }
 
 ?>
+</div>
 </main>
+
+<?php
+require_once 'footer.php';
+?>
     
 </body>
 </html>
