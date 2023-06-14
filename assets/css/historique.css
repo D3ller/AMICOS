@@ -1,7 +1,7 @@
 #card-lister {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     align-items: center;
     margin: 0 20px;
 }
@@ -64,4 +64,10 @@ text-align: left;
     color: rgb(179, 179, 179);
     font-family: "Magison", sans-serif;
     font-size: 14px;
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 65%;
+    }
 }

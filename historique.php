@@ -137,14 +137,15 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         
         
 
-        echo '<h3>Conducteur:'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
-        echo '<p> Lieu départ:'.$trajet['lieu_depart'].'</p>';
-        echo '<p> Lieu arrivé:'.$trajet['lieu_arrivee'].'</p>';
-        echo '<p> Date:'.$trajet['date'].'</p>';
-        echo '<p>Durée: '.$trajet['duree'].' | KM: '.$trajet['km'].'km | CO2: '.$trajet['co2'].'kg</p>';
-        echo '<p> Nombre de place:'.$num_rows. '/'.$trajet['place'].' passager(s)</p>';
+        echo '<p id="date">'.$trajet['date'].'</p>';
+        echo '<div class="card-img">';
+        echo '<img src="' . $conducteur["profil-picture"] . '" alt="voiture">';
+        echo '<div class="card-text">';
+        echo '<h3>'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
+        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet à durée '.$trajet['duree'].'</span></p>';
         echo '</div>';
-
+        echo '</div>';
+        echo '</div>';
     }
 
 ?>

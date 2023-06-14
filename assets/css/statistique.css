@@ -4,3 +4,21 @@
     font-family: 'Magison', sans-serif;
     margin-top: 20px;
 }
+
+#co2, #km {
+    margin: 0 auto;
+    width: 90% !important;
+    height: auto !important;
+}
+
+@media screen and (min-width: 900px) {
+    #co2, #km {
+        width: 800px !important;
+        height: auto !important;
+    }
+    
+}
+
+body {
+    overflow-x: hidden;
+}

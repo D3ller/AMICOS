@@ -64,7 +64,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $passagers = $result->fetch_assoc();
 
-if($result->num_rows >= $trajet['nb_places']) {
+if($result->num_rows >= $trajet['place']) {
     $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet qui est complet";
     header('Location: /../../');
     exit();

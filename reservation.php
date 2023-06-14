@@ -71,12 +71,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $passagers = $result->fetch_assoc();
 
-if($passagers['num_rows'] >= $trajet['place']) {
-    $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet qui est complet";
-    header('Location: ../');
-    exit();
-}
-
 echo "<!DOCTYPE html>";
 echo "<html lang='fr'>";
 echo "  <head>";
@@ -222,7 +216,16 @@ window.onload = function() {
 ?>
 
 <a class="resa-button" href="/assets/php/vreservation.php?id=<?php echo $trajet['id']; ?>">
-    <button class="btn-reservation">Réserver</button>
+
+<?php
+
+if($passagers['num_rows'] >= $trajet['place']) {
+    echo '<button class="btn-reservation" disabled>Complet</button>';
+} else {
+    echo '<button class="btn-reservation">Réserver</button>';
+}
+
+?>
 </a>
 <script>
   const buttonResa= document.getElementByClassName('btn-reservation');
