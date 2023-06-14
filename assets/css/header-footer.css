@@ -290,8 +290,20 @@ menu{
     }
 
     .cstm {
-        display: none;
+        height: 150px;
+        
     }
+
+    .cstm > a {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        cursor: default; 
+        color: inherit;
+        text-decoration: none;
+    }
+
+
 
 
 
@@ -352,14 +364,6 @@ menu{
 
    .profil-header{
         background-image:url("https://portfolio.karibsen.fr/assets/img/profils.svg");
-        width: 3vw;
-        height: 3vw;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    .plus-header{
-        background-image:url("https://portfolio.karibsen.fr/assets/img/plus.svg");
         width: 3vw;
         height: 3vw;
         background-size: contain;
