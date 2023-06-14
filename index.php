@@ -31,11 +31,6 @@ require_once('./assets/php/lib.php');
     }
     ?>
 
-    <header>
-    <span class="logo"></span>
-    <span class="double-star"></span>
-</header>
-
     <main class="main-index">
     <?php
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){

@@ -7,6 +7,9 @@ require_once('./assets/php/lib.php');
 
 
 <header>
+    <!-- Mobil -->
+    <span class="logo"></span>
+    <span class="double-star"></span>
 
     <!-- PC -->
     <div class="logo-desktop"></div>
@@ -17,7 +20,22 @@ require_once('./assets/php/lib.php');
     </nav>
 
     <div class="last-nav-header">
-    <a href="connexion.php"><div class="profil-header"></div></a>
+        <?php 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+    $dbh = connect();
+    $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+
+    echo '<a href="profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a>';    
+
+    echo '<a href="profil.php">Bienvenue test</a>';
+} else {
+    echo '<a href="connexion.php"><div class="profil-header"></div></a>';
+}
+?>
         <a href="trajets.php"><div class="plus-header"></div></a>
     </div>
 
