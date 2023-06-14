@@ -30,7 +30,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
 
-    echo '<div><a href="profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a></div>';    
+    echo '<a href="profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a>';    
 
     echo '<a href="profil.php">Bienvenue test</a>';
 } else {
