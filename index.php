@@ -244,6 +244,8 @@ if ($num_rows > 0) {
         $result2 = $stmt->get_result();
         $conducteur = $result2->fetch_assoc();
 
+        $row['date'] = date("d/m/Y à H:i", strtotime($row['date']));
+
         echo '<div class="card">
             <div class="ele-util-card">
                 <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
@@ -251,7 +253,7 @@ if ($num_rows > 0) {
                     <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
                     <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
                 </div>
-                <h6>' . $conducteur['nom'] . ' <br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
+                <h6>Départ le '.$row['date']. ' '. $conducteur['nom'] . ' <br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
                 <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
             </div>
         </div>';
