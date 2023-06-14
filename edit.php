@@ -147,5 +147,9 @@ $user = $result->fetch_assoc();
     });
 </script>
 
+<?php
+require_once 'footer.php';
+?>
+
 </body>
 </html>
