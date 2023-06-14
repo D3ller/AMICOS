@@ -1,5 +1,4 @@
 <?php
-session_start();
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
@@ -8,6 +7,10 @@ require_once('./assets/php/lib.php');
 
 
 <header>
+    <!-- Mobil -->
+    <span class="logo"></span>
+    <span class="double-star"></span>
+
     <!-- PC -->
     <div class="logo-desktop"></div>
     <nav>
