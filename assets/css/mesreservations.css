@@ -1,0 +1,51 @@
+#conducteur {
+    text-align: left;
+    font-family: 'Magison', sans-serif;
+    font-size: 18px;
+}
+
+.trajet {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+.trajet-info {
+    margin: 0 20px;
+}
+
+.trajet > .trajet-info > .trajet-conducteur  > img {
+
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.trajet-conducteur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
+.trajet-conducteur-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trajet-details {
+text-align: left;
+margin-top: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+

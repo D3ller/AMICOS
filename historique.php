@@ -61,6 +61,8 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
 
     if($number == 0) {
 
+        echo "Pas de trajet pour le moment.";
+
     } else {
     }
 

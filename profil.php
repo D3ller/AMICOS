@@ -193,12 +193,17 @@ echo '<div id="profil">';
     echo '</div>';
 
     echo '<div class="button">';
+    echo '<a href="./mesreservations.php"><button><img src="https://portfolio.karibsen.fr/assets/img/door.svg" alt="reservation"></button><p class="title">Réservation</p></a>';
+    echo '</div>';
+
+    echo '<div class="button">';
     echo '<a href="./historique.php"><button><img src="https://portfolio.karibsen.fr/assets/img/clock.svg" alt="historique"></button><p class="title">Historique</p></a>';
     echo '</div>';
 
     echo '<div class="button">';
     echo '<a href="./assets/php/deconnexion.php"><button><img src="https://portfolio.karibsen.fr/assets/img/door.svg" alt="deconnexion"></button><p class="title">Déconnexion</p></a>';
     echo '</div>';
+
 
     echo '</div>';
 
