@@ -22,15 +22,15 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
+    <title>Profil</title>
     <link rel="stylesheet" href="./assets/css/header-footer.css">
+    <link type="text/css" rel="stylesheet" href="/assets/css/profil.css">
 </head>
 <body>
     
-
-<main>
-
+<?php
+require_once('./header.php');
+?>
 <?php
 
 require_once('customnav.php');
@@ -61,6 +61,10 @@ echo '<div id="profil">';
     echo '<div id="edit-name"><h1>'.$user["prenom"]. ' ' .$user["nom"].'</h1><a href="./edit.php"><div id="edit"></div></a></div>';
     echo '<p class="grey">'.$user['sexe'] . ' '. $user['age']. ' ans</p>';
     echo '</div>';
+
+?>
+<main>
+<?php
 
     // echo '<div id="preference">';
 
@@ -198,13 +202,14 @@ echo '<div id="profil">';
 
     echo '</div>';
 
-    require_once('./footer.php');
-
-
 ?>
 
 
 </main>
+
+<?php
+require_once('./footer.php');
+?>
 
 </body>
 </html>

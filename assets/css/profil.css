@@ -5,11 +5,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
-
 body {
     margin: 0;
     padding: 0;
 
+}
+
+header{
+    display: none;
 }
 
 #card-lister {
@@ -141,11 +144,35 @@ justify-items: stretch;
     height: 50px;
     border: none;
     cursor: pointer;
-    /* background-color: rgb(157, 157, 157); */
     color: rgb(157, 157, 157);
     border-radius: 5px;
     border: 3px black solid;
+    box-shadow: 5px 5px 0px 0px black;
+    transition: background-color 0.25s ease-in-out;
+    transition: animation 3s ease;
+}
 
+.button > a > button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.button > a > button:active {
+    animation: click 0.1s ease-in-out;
+}
+
+@keyframes click {
+    0% {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 5px 0px 0px black;
+    }
+    50% {
+        transform: translate(5px, 5px);
+        box-shadow: none;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 5px 0px 0px black;
+    }
 }
 
 .button > a {
@@ -383,4 +410,25 @@ button.expand.loaded > .expand-icon > svg.second {
 
 button.expand.finished > .expand-icon > svg.second {
 	transform: scale(1.5) translateY(0px);
+}
+
+
+
+@media screen and (min-width: 1024px){
+    header{
+        display: flex;
+    }
+
+    main{
+        margin-top: 0;
+    }
+
+    #profil {
+        height: 375px;
+        padding-top: 125px;
+    }
+
+    .grey {
+        font-size: 22px;
+    }
 }

@@ -34,7 +34,6 @@
                 </div>
                 <div class="right-laptop">
                     <h5>Déplacements</h5>
-                    <a href="">Tous les trajets</a>
                     <a href="">Comment ça marche ?</a>
                     <h5>Nous connaitre</h5>
                     <a href="https://mmi22c01.sae202.ovh/agence">Agence Amicos</a>

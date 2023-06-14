@@ -266,14 +266,11 @@ if ($num_rows > 0) {
                             <!-- Pin : https://portfolio.karibsen.fr/assets/img/doubleround.svg -->
                             <h6>De meilleures <br>rencontres</h6>
                             <p class="tt">
-                                Avec Parks, rencontre des personnes 
-                                selon vos centre d’intérêts commun. 
-                                Grâce à ça, tes voyages seront plus 
-                                agréable, pour toi comme pour le 
-                                conducteur !
-                                selon vos centre d’intérêts commun. Grâce à 
-                                ça, tes voyages seront plus agréable, pour 
-                                toi comme pour le conducteur !
+                            Parks vous assure des voyages de très haute qualité en 
+                            mettant en lien des personnes partageant les mêmes 
+                            centres d'intérêt. En renseignant vos préférences et 
+                            en complétant votre profil, vous pourrez partager vos 
+                            trajets avec des personnes qui vous ressemblent.
                             </p>
                             <img src="" alt="">
                             <div class="img-cqnd-1-persos img-cqnd"></div>
@@ -285,10 +282,11 @@ if ($num_rows > 0) {
                             <!-- Pin :  -->
                             <h6>Le respect<br>mis au centre</h6>
                             <p>
-                                On a tenu à mettre au centre de notre 
-                                site le respect, que ce soit de 
-                                l’environnement mais aussi entre 
-                                nous et les utilisateurs de Parks. 
+                            Parks privilégie le respect, tant entre ses 
+                            utilisateurs qu'envers l'environnement. Parks 
+                            est une plateforme éco-conçue à 98% (selon des 
+                            normes strictes) et aide ses utilisateurs 
+                            à suivre leurs émissions de CO2.
                             </p>
                             <div class="img-cqnd-2-persos img-cqnd"></div>
                         </div>
@@ -300,10 +298,12 @@ if ($num_rows > 0) {
                             <!-- Pin :  -->
                             <h6>L’importance<br>de la sécurité</h6>
                             <p>
-                                Avec nous, tu ne roulera jamais avec quelqu’un 
-                                que tu connais pas du tout ! Tu seras avec 
-                                les autres personnes de ta promo en MMI et 
-                                souvent avec tes propres amis !
+                            Parks veille à vous assurer des trajets sécurisés. 
+                            Tu ne rouleras jamais avec des personnes que tu ne 
+                            connais pas ! Grâce aux profils personnalisés, tu 
+                            pourras connaître le modèle conduit par ton chauffeur, 
+                            son groupe de TP, ainsi que son type de permis et 
+                            éventuellement ses années d'expérience.
                             </p>
                             <div class="img-cqnd-3-persos img-cqnd"></div>
                             <!-- <img class="img-cqnd-3-persos" src="https://portfolio.karibsen.fr/assets/img/rouejaune.svg" alt=""> -->
@@ -315,10 +315,10 @@ if ($num_rows > 0) {
                             <!-- Pin :  -->
                             <h6>Un esprit<br>convivial</h6>
                             <p>
-                                C’est aussi ça notre force, faire rencontrer 
-                                des personne qui ne se serait jamais 
-                                rencontré ! MMI c’est un peut comme 
-                                une grande famille finalement ! 
+                            Le concept Parks réside dans la solidarité et la 
+                            bienveillance de ses utilisateurs. Nous invitons 
+                            tous nos utilisateurs à faire preuve de bienséance. 
+                            Nous vous souhaitons un agréable voyage.
                             </p>
                             <div class="img-cqnd-4-persos img-cqnd"></div>
                             <!-- <img class="img-cqnd-4-persos" src="https://portfolio.karibsen.fr/assets/img/multi.svg" alt=""> -->
