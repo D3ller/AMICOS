@@ -245,15 +245,3 @@ if($passagers['num_rows'] >= $trajet['place']) {
 require_once 'footer.php';
 ?>
 </body>
-
-<?php
-
-// $sql = "INSERT INTO passager (user_id, trajet_id) VALUES (?, ?)";
-// $stmt = $dbh->prepare($sql);
-// $stmt->bind_param("ii", $user['id'], $trajet['id']);
-// $stmt->execute();
-
-// $_SESSION['error'] = "Vous avez réservé un trajet";
-// header('Location: ../profil');
-// exit();
-?>

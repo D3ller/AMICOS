@@ -5,7 +5,6 @@ require_once('./assets/php/lib.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +47,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
 
 
-            <form action="/swipe.php" method="post" required>
+            <form action="/swipe.php" method="post">
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
@@ -89,10 +88,10 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     </script>
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
-                <input name='lat' type="hidden" id="lat" value="" required>
-                <input name='lng' type="hidden" id="lng" value="" required>
-                <input name='lat2' type="hidden" id="lat2" value="" required>
-                <input name='lng2' type="hidden" id="lng2" value="" required>
+                <input name='lat' type="hidden" id="lat" value="">
+                <input name='lng' type="hidden" id="lng" value="">
+                <input name='lat2' type="hidden" id="lat2" value="">
+                <input name='lng2' type="hidden" id="lng2" value="">
                 <input type="submit" value="Voyager !">
             </form>
         </div>
