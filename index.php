@@ -215,7 +215,14 @@ map.getDiv().style.height = '100px';
     
 }
 
-$sql = "SELECT * FROM trajet WHERE date > NOW() AND conducteur_id != ? ORDER BY RAND() LIMIT 3";
+$sql = "SELECT trajet.*, COUNT(passager.id) AS nombre_passagers
+FROM trajet
+LEFT JOIN passager ON trajet.id = passager.trajet_id
+WHERE trajet.date > NOW() AND trajet.conducteur_id != ?
+GROUP BY trajet.id
+HAVING COUNT(passager.id) < trajet.place
+ORDER BY RAND()
+LIMIT 3;";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("i", $user['id']);
 $stmt->execute();
