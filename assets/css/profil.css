@@ -149,7 +149,6 @@ justify-items: stretch;
     border: 3px black solid;
     box-shadow: 5px 5px 0px 0px black;
     transition: background-color 0.25s ease-in-out;
-    transition: animation 3s ease;
 }
 
 .button > a > button:hover {

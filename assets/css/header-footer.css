@@ -358,6 +358,14 @@ menu{
         background-repeat: no-repeat;
     }
 
+    .plus-header{
+        background-image:url("https://portfolio.karibsen.fr/assets/img/plus.svg");
+        width: 3vw;
+        height: 3vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
     .qrcode-header{
         background-image:url("https://portfolio.karibsen.fr/assets/img/qrcode.svg");
         width: 3vw;
