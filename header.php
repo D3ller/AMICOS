@@ -8,8 +8,18 @@ require_once('./assets/php/lib.php');
 
 <header>
     <!-- Mobil -->
+
+    <?php 
+  if($_SERVER['PHP_SELF'] == "/index.php") {
+    ?>
+
     <span class="logo"></span>
     <span class="double-star"></span>
+<?php
+  }
+
+?>
+
 
     <!-- PC -->
     <div class="logo-desktop"></div>
