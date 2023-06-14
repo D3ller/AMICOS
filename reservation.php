@@ -146,9 +146,12 @@ if ($minutes < 10) {
 
 $heures_minutes_depart = $heures . ':' . $minutes;
 
+$trajet['date'] = date('d/m/Y', strtotime($trajet['date']));
+
 echo '<p>Heure de départ: <span class="bold">'.$heures_minutes_depart.'</span></p>';
 
 echo '<p>Heure d\'arrivée: <span class="bold">'.$heure_minutes_total.'</span></p>';
+echo '<p>Date du trajet: <span class="bold">'.$trajet['date'].'</span></p>';
 
 
 echo '</div>';
