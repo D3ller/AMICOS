@@ -8,8 +8,18 @@ require_once('./assets/php/lib.php');
 
 <header>
     <!-- Mobil -->
+
+    <?php 
+  if($_SERVER['PHP_SELF'] == "/index.php") {
+    ?>
+
     <span class="logo"></span>
     <span class="double-star"></span>
+<?php
+  }
+
+?>
+
 
     <!-- PC -->
     <div class="logo-desktop"></div>
@@ -30,8 +40,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
     $user = $stmt->get_result()->fetch_assoc();
 
     echo '<a href="profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a>';    
-
-    echo '<a href="profil.php">Bienvenue test</a>';
 } else {
     echo '<a href="connexion.php"><div class="profil-header"></div></a>';
 }
