@@ -7,9 +7,6 @@ require_once('./assets/php/lib.php');
 
 
 <header>
-    <!-- Mobil -->
-    <span class="logo"></span>
-    <span class="double-star"></span>
 
     <!-- PC -->
     <div class="logo-desktop"></div>
