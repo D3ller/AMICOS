@@ -259,7 +259,7 @@ if ($num_rows > 0) {
             }
 
         echo '</div>
-';
+    </div>';
 } else {
 }
 
@@ -335,7 +335,6 @@ if ($num_rows > 0) {
                 </div>
 
             </div>
-        </div>
 </main>
 <?php
     require_once 'menu.php';
