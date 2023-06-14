@@ -6,10 +6,6 @@ error_reporting(E_ALL);
 
 
 <header>
-    <!-- Mobil -->
-    <span class="logo"></span>
-    <span class="double-star"></span>
-
     <!-- PC -->
     <div class="logo-desktop"></div>
     <nav>
