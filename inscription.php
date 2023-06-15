@@ -48,7 +48,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <option value="Femme">Femme</option>
                     <option value="Autre">Autre</option>
                 </select>
-                <input class="profil" name='age' type='number' id='age' min='16' max='25' placeholder='Age'>
+                <input class="profil" name='age' type='number' id='age' min='16' max='80' placeholder='Age'>
 
                 <input class="email" type="email" name="email" id="email" placeholder="Email">
                 <input class="lock" type="password" name="password" id="password" placeholder="Mot de passe">
@@ -61,6 +61,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     <option value="D">D</option>
                     <option value="E">E</option>
                     <option value="F">F</option>
+                    <option value='Prof'>Professeur</option>
                 </select>    
                 
 

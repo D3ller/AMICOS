@@ -48,7 +48,7 @@ if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/', $password))
     exit();
 }
 
-if($groupe != 'A' && $groupe != 'B' && $groupe != 'C' && $groupe != 'D' && $groupe != 'E' && $groupe != 'F'){
+if($groupe != 'A' && $groupe != 'B' && $groupe != 'C' && $groupe != 'D' && $groupe != 'E' && $groupe != 'F' && $groupe != 'Prof'){
     $_SESSION['error'] = "Le groupe n'est pas valide";
     header('Location: /inscription.php');
     exit();
@@ -69,11 +69,10 @@ if(!is_numeric($age)){
 
 }
 
-if($age < 16 || $age > 25){
+if($age < 16 || $age > 85){
     $_SESSION['error'] = "L'age n'est pas valide";
     header('Location: /inscription.php');
     exit();
-
 }
 
 
