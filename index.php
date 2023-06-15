@@ -275,7 +275,7 @@ if ($num_rows > 0) {
 
             echo '<div class="card">
                     <div class="ele-util-card">
-                        <a aria-label="Fleche de reservation de trajet" href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
+                        <a aria-label="Fleche de reservation de trajet" href="reserv/' . $row['id'] . '"><img loading="lazy" class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
                         <div>
                             <img loading="lazy" class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
                             <img loading="lazy" class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
