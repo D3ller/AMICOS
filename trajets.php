@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-// if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
-// } else {
-//   $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page';
-//   header('Location: ./index.php');
-// }
+} else {
+  $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page';
+  header('Location: ./index.php');
+}
 
 ?>
 
@@ -40,7 +40,7 @@ if(isset($_SESSION['error'])){
 <form style='margin-top: 70px' method='POST' action='./assets/php/vtrajet.php'>
     <label for="address">Départ :</label>
     <input type="text" name='depart' id="address" placeholder="Départ" required>
-    <label for="adess2">Arrivée :</label>
+    <label for="adress2">Arrivée :</label>
     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
     <label for="datetime">Date :</label>
     <input id="datetime" type="datetime-local" name='datetime' onclick="" required>
