@@ -1,9 +1,7 @@
-.conducteur {
+#conducteur {
     text-align: left;
     font-family: 'Magison', sans-serif;
     font-size: 18px;
-    text-align: center;
-    margin-top: 20px;
 }
 
 .trajet {
@@ -51,18 +49,9 @@ margin-top: 20px;
     font-weight: bold;
 }
 
-.ele-resa{
-    margin-bottom: 70px;
-}
-
-@media screen and (max-width: 1023px) {
-    header{
-        display: none;
-    }
-}
-
-@media screen and (min-width: 1024px){
-    .ele-resa{
-        margin-bottom: 150px;
-    }
+#cancel {
+    color: rgb(255, 44, 44);
+    font-weight: bold;
+    font-size: 18px;
+    
 }

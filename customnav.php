@@ -94,6 +94,15 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
     echo '</nav>';
 
+} elseif($_SERVER['PHP_SELF'] == '/mesreservations.php') {
+    echo '<nav class="cstm" style="background: #ff804a; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="/"><div id="backarrow"></div></a>';
+    echo '<p style="color: white">';
+    echo 'Mes réservations';
+    echo '</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+    echo '</nav>';
+
 } else {
     echo '<nav class="cstm" style="background: #8fa7e3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
     echo '<a href="javascript:history.back()"><div id="backarrow"></div></a>';
