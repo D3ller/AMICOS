@@ -63,11 +63,14 @@ require_once('customnav.php');
 <input id="subnewpass" type="submit" value="Modifier">
 </form>
 
+<?php
+    require_once('footer.php');
+?>
+
 </main>
 
 <?php
 require_once('menu.php');
-require_once('footer.php');
 ?>
     
 </body>
