@@ -5,6 +5,7 @@ require_once('./assets/php/lib.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +19,35 @@ require_once('./assets/php/lib.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
     <title>Accueil</title>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo"></script>
+
+<script defer>
+  function initAutocomplete() {
+    var address = document.getElementById('address');
+    var autocomplete = new google.maps.places.Autocomplete(address);
+
+    var address2 = document.getElementById('adress2');
+    var autocomplete2 = new google.maps.places.Autocomplete(address2);
+
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+      document.getElementById('lat').value = latitude;
+      document.getElementById('lng').value = longitude;
+    });
+
+    autocomplete2.addListener('place_changed', function() {
+      var place = autocomplete2.getPlace();
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+      document.getElementById('lat2').value = latitude;
+      document.getElementById('lng2').value = longitude;
+    });
+  }
+</script>
+
 </head>
 <body>
     <?php 
@@ -47,7 +75,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
 
 
-            <form action="/swipe.php" method="post">
+            <form action="/swipe.php" method="post" required>
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
@@ -88,10 +116,10 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     </script>
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
-                <input name='lat' type="hidden" id="lat" value="">
-                <input name='lng' type="hidden" id="lng" value="">
-                <input name='lat2' type="hidden" id="lat2" value="">
-                <input name='lng2' type="hidden" id="lng2" value="">
+                <input name='lat' type="hidden" id="lat" value="" required>
+                <input name='lng' type="hidden" id="lng" value="" required>
+                <input name='lat2' type="hidden" id="lat2" value="" required>
+                <input name='lng2' type="hidden" id="lng2" value="" required>
                 <input type="submit" value="Voyager !">
             </form>
         </div>
@@ -230,35 +258,33 @@ $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
     echo '<div class="trajets-inte-util">
-            <h3>Trajets qui peuvent vous intéresser :</h3>
-            <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
-          <div class="scroll-container">';
+        <h3>Trajets qui peuvent vous intéresser :</h3>
+        <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
+        <div class="scroll-container">';
 
-        while ($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
 
-            $sql = "SELECT * FROM profil WHERE id = ?";
-            $stmt = $dbh->prepare($sql);
-            $stmt->bind_param("i", $row['conducteur_id']);
-            $stmt->execute();
-            $result2 = $stmt->get_result();
-            $conducteur = $result2->fetch_assoc();
+        $sql = "SELECT * FROM profil WHERE id = ?";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bind_param("i", $row['conducteur_id']);
+        $stmt->execute();
+        $result2 = $stmt->get_result();
+        $conducteur = $result2->fetch_assoc();
 
-            $row['date'] = date("d/m/Y à H:i", strtotime($row['date']));
+        echo '<div class="card">
+            <div class="ele-util-card">
+                <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
+                <div>
+                    <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
+                    <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
+                </div>
+                <h6>' . $conducteur['nom'] . ' <br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
+                <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
+            </div>
+        </div>';
+    }
 
-            echo '<div class="card">
-                    <div class="ele-util-card">
-                        <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
-                        <div>
-                            <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
-                            <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
-                        </div>
-                        <h6>Départ le '.$row['date']. '<br>'.$conducteur['prenom'] . ' '. $conducteur["nom"].'<br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
-                        <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
-                    </div>
-                </div>';
-            }
-
-        echo '</div>
+    echo '</div>
     </div>';
 } else {
 }
@@ -280,6 +306,7 @@ if ($num_rows > 0) {
                             en complétant votre profil, vous pourrez partager vos 
                             trajets avec des personnes qui vous ressemblent.
                             </p>
+                            <img src="" alt="">
                             <div class="img-cqnd-1-persos img-cqnd"></div>
                         </div>
                     </div>
@@ -335,17 +362,13 @@ if ($num_rows > 0) {
                 </div>
 
             </div>
+        </div>
 </main>
 <?php
     require_once 'menu.php';
     require_once 'footer.php';
     ?>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initAutocomplete();
-        });
-    </script>
     
 </body>
 </html>
