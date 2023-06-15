@@ -206,7 +206,6 @@
     gap: 17px;
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 50px;
 }
 
 #formmodifpass input{
@@ -231,4 +230,26 @@
     background-color: #ce8900;
 }
 
+
+@media screen and (min-width: 1024px) {
+    #mainupdtpass{
+        width: 75%;
+    }
+
+    #mainupdtpass h1{
+        font-size: 2vw;
+    }
+
+    #mainupdtpass p{
+        font-size: 1.5vw;
+    }
+
+    #formmodifpass input{
+        font-size: 1.5vw;
+    }
+
+    #formmodifpass input[type="submit"]{
+        font-size: 2vw;
+    }
+}
 

@@ -71,7 +71,7 @@ $user = $result->fetch_assoc();
 
     <div class="input-modif i-mod-2">
       <textarea type="text" name="description" required><?php echo $user['description']; ?></textarea>
-      <label class="label-input-modif l-i-m-2">Déscription</label>
+      <label class="label-input-modif l-i-m-2">Description</label>
     </div>
 
 

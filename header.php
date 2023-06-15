@@ -31,19 +31,19 @@ require_once('./assets/php/lib.php');
 
     <div class="last-nav-header">
         <?php 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
-    $dbh = connect();
-    $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
-    $stmt = $dbh->prepare($sql);
-    $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
-    $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();
+          if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+              $dbh = connect();
+              $sql = "SELECT * FROM profil WHERE id = ? AND email = ?";
+              $stmt = $dbh->prepare($sql);
+              $stmt->bind_param("ss", $_SESSION['AMIID'], $_SESSION['AMIMAIL']);
+              $stmt->execute();
+              $user = $stmt->get_result()->fetch_assoc();
 
-    echo '<a href="/profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a>';    
-} else {
-    echo '<a href="/connexion.php"><div class="profil-header"></div></a>';
-}
-?>
+              echo '<a href="/profil.php"><div class="profil-header" style="background-image: url('.$user["profil-picture"].'); border-radius: 50%"></div></a>';    
+          } else {
+              echo '<a href="/connexion.php"><div class="profil-header"></div></a>';
+          }
+        ?>
         <a href="trajets.php"><div class="plus-header"></div></a>
     </div>
 

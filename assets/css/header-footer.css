@@ -453,13 +453,13 @@ transform: translate(-50%, -50%) scale(0);
         background-repeat: no-repeat;
     }
 
-    .qrcode-header{
-        background-image:url("https://portfolio.karibsen.fr/assets/img/qrcode.svg");
+    .plus-header{
+        background-image:url("https://portfolio.karibsen.fr/assets/img/plus.svg");
         width: 3vw;
         height: 3vw;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-right: 1vw;
+        margin-left: 15px;
     }
 
     .active-header{
@@ -467,7 +467,6 @@ transform: translate(-50%, -50%) scale(0);
         background-color: black;
         border: 2px solid black;
     }
-
 
     /* Footer Laptop */
 
