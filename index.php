@@ -383,7 +383,7 @@ if ($num_rows > 0) {
           "background": "#000000"
         },
         "button": {
-          "background": "#f1d600"
+          "background": "#fe1269"
         }
       },
       "position": "bottom-right",
@@ -391,7 +391,7 @@ if ($num_rows > 0) {
         "message": "Ce site utilise des cookies pour vous garantir la meilleure expérience. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.",
         "dismiss": "Compris !",
         "link": "En savoir plus",
-        "href": "/cookies"
+        "href": "/cookie"
       }
     });
   });
