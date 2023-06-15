@@ -128,7 +128,19 @@ require_once('../assets/php/lib.php');
 
         while ($row = $result->fetch_assoc()) {
             echo "<p>".$row['id']." - ".$row['date']." - ".$row['co2']." kg</p>";
-            echo "Prenom nom". $row['prenom']." ".$row['nom'];
+
+            $sql = "SELECT * FROM profil WHERE id = ?";
+            $stmt2 = $dbh->prepare($sql);
+            $stmt2->bind_param("i", $row['conducteur_id']);
+            $stmt2->execute();
+            $result2 = $stmt2->get_result();
+            $row2 = $result2->fetch_assoc();
+
+
+
+
+
+            echo "Prenom nom". $row2['prenom']." ".$row2['nom'];
         }
 
         ?>
