@@ -31,6 +31,11 @@ require_once 'customnav.php';
 
 <main>
 
+<?php if(isset($_SESSION['error'])) { ?>
+    <div class="error">
+        <p><?php echo $_SESSION['error']; ?></p>
+    </div>
+
 <div class="ele-resa">
 <?php
 
