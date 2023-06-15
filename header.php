@@ -6,20 +6,17 @@ require_once('./assets/php/lib.php');
 ?>
 
 <?php
-
-
 if($_SERVER['PHP_SELF'] == "/index.php") {
   
 } else {
-
-
-echo '<style>@media screen and (max-width: 1024px) {
-    header {
-        none;
-    }
-}</style>';
+    echo '<style>@media screen and (max-width: 1024px) {
+        header {
+            display: none;
+        }
+    }</style>';
 }
 ?>
+
 
 
 
