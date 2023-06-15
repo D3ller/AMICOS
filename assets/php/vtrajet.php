@@ -106,7 +106,16 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("iddddddsssss", $user['id'], $duree, $km, $co2, $lat, $lng, $lat2, $lng2, $depart, $arrivee, $datetime, $place);
 $stmt->execute();
 
-$_SESSION['error'] = "Votre trajet a bien été ajouté";
+$_SESSION['error'] = '<div class="errorred ">
+<div class="errorunderred valided">
+    <div class="errorredcaracter validedcaracter">
+    </div>
+
+</div>
+<h1>Validé !</h1>
+<p>Votre trajet a bien été ajouté.
+</p>
+</div>';
 header('Location: /profil.php');
 exit;
 

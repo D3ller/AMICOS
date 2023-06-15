@@ -105,7 +105,16 @@ $send = mail($to, $subject, $message, $headers);
 
 
 if($send){
-    $_SESSION['error'] = "Votre message a bien été envoyé";
+    $_SESSION['error'] = '<div class="errorred ">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p>Votre message a bien été envoyé
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 } else {

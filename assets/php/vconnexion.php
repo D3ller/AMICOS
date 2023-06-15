@@ -83,7 +83,16 @@ $_SESSION['AMIMAIL'] = $email;
 $_SESSION['AMIID'] = $user['id'];
 
 header('Location: /index.php');
-$_SESSION["error"] = 'zizi';
+$_SESSION["error"] = '<div class="errorred ">
+<div class="errorunderred valided">
+    <div class="errorredcaracter validedcaracter">
+    </div>
+
+</div>
+<h1>Validé !</h1>
+<p>Vous êtes connecté
+</p>
+</div>';
 exit();
 
 

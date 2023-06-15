@@ -77,5 +77,14 @@ $stmt->bind_param("si", password_hash($password, PASSWORD_DEFAULT), $_SESSION['A
 $stmt->execute();
 
 header('Location: /updatepassword.php');    
-$_SESSION['error'] = "zizi";
+$_SESSION['error'] = '<div class="errorred ">
+<div class="errorunderred valided">
+    <div class="errorredcaracter validedcaracter">
+    </div>
+
+</div>
+<h1>Validé !</h1>
+<p>Votre mot de passe a bien été modifié
+</p>
+</div>';
 exit();

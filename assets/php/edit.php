@@ -165,7 +165,16 @@ if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['
 
     $_SESSION['AMIID'] = $id;
     $_SESSION['AMIMAIL'] = $email;
-    $_SESSION['success'] = "Profil modifié avec succès";
+    $_SESSION['success'] = '<div class="errorred ">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p>Votre profil a bien été modifié</p>
+    </p>
+    </div>';
     header('Location: /profil.php');
     exit();
 } else {
@@ -249,7 +258,16 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
 
     $_SESSION['AMIID'] = $id;
     $_SESSION['AMIMAIL'] = $email;
-    $_SESSION['success'] = "Profil modifié avec succès";
+    $_SESSION['error'] = '<div class="errorred ">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p>Votre profil a été modifié avec succès
+    </p>
+    </div>';
     header('Location: /profil.php');
     exit();
 } else {

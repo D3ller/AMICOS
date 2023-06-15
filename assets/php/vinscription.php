@@ -185,7 +185,16 @@ if ($dbh->query($sql) === TRUE) {
     $result = $dbh->query($sql);
     $user = $result->fetch_assoc();
     $id = $user['id'];
-    $_SESSION['error'] = "Votre inscription à réussie!";
+    $_SESSION['error'] = '<div class="errorred ">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p>Vous êtes bien inscrit
+    </p>
+    </div>';
     header('Location: /connexion.php');
     exit();
 

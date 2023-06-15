@@ -77,7 +77,16 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("ii", $_SESSION['AMIID'], $trajet['id']);
 $stmt->execute();
 
-$_SESSION['error'] = 'Votre réservation a bien été prise en compte!';
+$_SESSION['error'] = '<div class="errorred ">
+<div class="errorunderred valided">
+    <div class="errorredcaracter validedcaracter">
+    </div>
+
+</div>
+<h1>Validé !</h1>
+<p>Votre trajet a bien été réservé !
+</p>
+</div>';
 header('Location: /../../');
 exit();
 

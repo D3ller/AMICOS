@@ -150,7 +150,16 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("ss", $hash, $email);
 $stmt->execute();
 
-$_SESSION['error'] = "zizi";
+$_SESSION['error'] = '<div class="errorred ">
+<div class="errorunderred valided">
+    <div class="errorredcaracter validedcaracter">
+    </div>
+
+</div>
+<h1>Validé !</h1>
+<p>Votre mot de passe a bien été modifié
+</p>
+</div>';
 header('Location: /connexion.php');
 exit();
 
