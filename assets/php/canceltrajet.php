@@ -44,8 +44,8 @@ if($type == "Conducteur") {
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
-    header('Location: /mesreservations.php');
     $_SESSION['error'] = "Votre trajet a bien été annulé, les passagers ont été prévenus";
+    header('Location: /mesreservations.php');
     exit();
 }
 
