@@ -202,7 +202,7 @@ menu{
 .legalfooter > summary {
     font-family: 'Magison', sans-serif;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
     margin: 0 20px;
     font-size: 22px;
@@ -282,7 +282,7 @@ menu{
     border: 1px solid #ccc;
     animation: spawn 5s ease-in-out forwards;
     position: absolute;
-    top: 50% ;
+    top: 50% ; 
     left: 50% ;
     transform: translate(-50%, -50%) scale(0);
     z-index: 1000000;
