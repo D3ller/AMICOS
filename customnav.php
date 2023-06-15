@@ -102,7 +102,7 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
 
 } elseif($_SERVER['PHP_SELF'] == '/mesreservations.php') {
     echo '<nav class="cstm" style="background: #8ea7e3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
-    echo '<a href="/"><div id="backarrow"></div></a>';
+    echo '<a href="/profil"><div id="backarrow"></div></a>';
     echo '<p style="color: white">';
     echo 'Mes réservations';
     echo '</p>';
