@@ -175,6 +175,10 @@
     .lost-password {
         font-size: 1vw;
     }
+
+    .lost-password:hover{
+        text-decoration: underline;
+    }
 }
 
 

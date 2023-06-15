@@ -46,9 +46,6 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
             <a class="center inscription" href="./inscription">Inscription</a> 
             <a class="lost-password" id='forget' href="./forget">Mot de passe oublié</a>
         </div>
-
-        <!-- <script>alert("Garde l'id de mot de pass oublié j'ai mis du js")</script> -->
-
     </main>
 
         <script>
