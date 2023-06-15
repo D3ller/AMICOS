@@ -68,8 +68,6 @@ echo '<h1 id="search-h1">Recherche de trajet entre '. $depart. ' et '. $arrivee 
 $dbh = connect();
 
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
-  //and where trajet_id is not in the table passager
-
 $plus = "AND conducteur_id != ".$_SESSION['AMIID']."";
 
 } else {

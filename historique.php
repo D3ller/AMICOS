@@ -27,6 +27,8 @@ require_once('./assets/php/lib.php');?>
 
 <?php
 require_once('customnav.php');
+require_once 'header.php';
+require_once 'menu.php';
 
 $dbh = connect();
 
@@ -38,7 +40,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-require_once('customnav.php');
 
 
 $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY date DESC";
