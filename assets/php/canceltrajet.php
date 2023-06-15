@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once './assets/php/lib.php';
+require_once './lib.php';
 $dbh = connect();
 
 ini_set('display_errors', 0);
