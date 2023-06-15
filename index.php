@@ -340,6 +340,12 @@ if ($num_rows > 0) {
     require_once 'menu.php';
     require_once 'footer.php';
     ?>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initAutocomplete();
+        });
+    </script>
     
 </body>
 </html>

@@ -104,6 +104,7 @@ require_once('./assets/php/lib.php');
 </main>
 <?php
     require_once 'footer.php';
+    require_once 'menu.php';
     ?>
 
     <script>
@@ -124,6 +125,5 @@ require_once('./assets/php/lib.php');
         }
 
         </script>
-    
 </body>
 </html>

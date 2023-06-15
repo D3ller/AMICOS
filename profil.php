@@ -66,101 +66,6 @@ echo '<div id="profil">';
 <main>
 <?php
 
-    // echo '<div id="preference">';
-
-    // // Vérifier si les préférences de l'utilisateur existent et définir l'état des cases à cocher en conséquence
-    // $preferences = $user['preferences'];
-    // $checked = "";
-    
-    // echo '<div class="pref">';
-    // echo '<h2 class="subtitle">Préférences de covoiturage</h2>';
-    // echo '<div>';
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="fumeur" name="fumeur" disabled';
-    
-    // // Vérifier si la préférence "fumeur" est cochée
-    // if ($preferences !== NULL && in_array('fumeur', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="fumeur" class="greys cb">Fumeur</label>';
-    // echo '</div>';
-    
-    // $checked = "";
-    
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="music" name="music" disabled';
-    
-    // // Vérifier si la préférence "music" est cochée
-    // if ($preferences !== NULL && in_array('music', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="music" class="greys cb">Musique</label>';
-    // echo '</div>';
-    
-    // $checked = "";
-    
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="animal" name="animal" disabled';
-    
-    // // Vérifier si la préférence "animal" est cochée
-    // if ($preferences !== NULL && in_array('animal', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="animal" class="greys cb">Animaux</label>';
-    // echo '</div>';
-    
-    // $checked = "";
-    
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="discussion" name="discussion" disabled';
-    
-    // if ($preferences !== NULL && in_array('discussion', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="discussion" class="greys cb">Discussion</label>';
-    // echo '</div>';
-    
-    // $checked = "";
-    
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="sharepayement" name="sharepayement" disabled';
-    
-    // if ($preferences !== NULL && in_array('sharepayement', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="sharepayement" class="greys cb">Frais divisé</label>';
-    // echo '</div>';
-    
-    // $checked = "";
-    
-    // echo '<div class="subpref">';
-    // echo '<input type="checkbox" id="sharecar" name="sharecar" disabled';
-    
-    // if ($preferences !== NULL && in_array('sharecar', $preferences)) {
-    //     $checked = "checked";
-    // }
-    // echo $checked;
-    // echo '>';
-    // echo '<label for="sharecar" class="greys cb">2nd pilote</label>';
-    // echo '</div>';
-    
-    // echo '</div>';
-    // echo '</div>';
-    
-    // Continuer avec le reste de votre code...
-    
-
-
     echo '</div>';
 
     if($user['voiture'] == NULL) {
@@ -213,7 +118,8 @@ echo '<div id="profil">';
 </main>
 
 <?php
-require_once('./footer.php');
+    require_once('./menu.php');
+    require_once('./footer.php');
 ?>
 
 </body>

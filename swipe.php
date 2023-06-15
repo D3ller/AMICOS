@@ -266,9 +266,6 @@ if($num_rows == $trajet['place']){
 
 
 
-<?php
-require_once('footer.php');
-?>
 </main>
 
 
@@ -276,6 +273,7 @@ require_once('footer.php');
 
 <?php
 require_once('menu.php');
+require_once('footer.php');
 ?>
 
 <script>

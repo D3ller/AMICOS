@@ -1,6 +1,6 @@
 <!-- Footer Tél -->
 
-<details class='legalfooter'>
+    <details class='legalfooter'>
         <summary>Mention légales<span class="marker"></span> </summary>
         <a href='mentions'>Accéder</a>
     </details>
@@ -16,7 +16,11 @@
     </details>
 
     <details class='legalfooter'>
-    <summary onclick='window.location.href="https://mmi22c01.sae202.ovh/cookie"'> Cookies<span class="marker"></span></summary>
+    <summary onclick='window.location.href="https://mmi22c01.sae202.ovh/cookie"'>Cookies<span class="marker"></span></summary>
+    </details>
+
+    <details class='legalfooter'>
+    <summary onclick='window.location.href="https://mmi22c01.sae202.ovh/contacts"'>Contacts<span class="marker"></span></summary>
     </details>
 
 
