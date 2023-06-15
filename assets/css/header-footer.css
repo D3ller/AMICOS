@@ -38,6 +38,7 @@ header{
     display: flex;
     align-items: center;
     height: 65px;
+    top:0;
 }
 
 .logo{
@@ -553,6 +554,20 @@ transform: translate(-50%, -50%) scale(0);
         margin-left: 10.5%;
         margin-top: 30px;
         margin-bottom: 5px;
+    }
+
+    .cstm {
+        height: 150px;
+        margin-top: 130px;
+    }
+
+    .cstm > a {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        cursor: default; 
+        color: inherit;
+        text-decoration: none;
     }
 }
   
