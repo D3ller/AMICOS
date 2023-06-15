@@ -52,22 +52,25 @@ require_once('customnav.php');
 <main id="mainupdtpass">
 
 <h1>Modifier le mot de passe</h1>
-<p>il doit comporter au moins 8 caractères dont 1 lettre majuscule, 1 chiffre et 1 caractère spécial.</p>
+<p>Il doit comporter au moins 8 caractères dont 1 lettre majuscule, 1 chiffre et 1 caractère spécial.</p>
 
 <form id="formmodifpass" action="./assets/php/updatepassword.php" method="post">
     
-<input id="oldpass" name='oldpassword' type='password' id='oldpassword' placeholder='Ancien mot de passe'>
-<input id="newpass" name='password' type='password' id='newpassword' placeholder='Nouveau mot de passe'>
-<input id="newpassv2" name='confirmpassword' type='password' id='newpassword2' placeholder='Confirmer le nouveau mot de passe'>
+<input name='oldpassword' type='password' id='oldpassword' placeholder='Mot de passe actuel'>
+<input name='password' type='password' id='newpassword' placeholder='Nouveau mot de passe'>
+<input name='confirmpassword' type='password' id='newpassword2' placeholder='Confirmer le nouveau mot de passe'>
 
 <input id="subnewpass" type="submit" value="Modifier">
 </form>
+
+<?php
+    require_once('footer.php');
+?>
 
 </main>
 
 <?php
 require_once('menu.php');
-require_once('footer.php');
 ?>
     
 </body>
