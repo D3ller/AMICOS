@@ -70,7 +70,7 @@ $dbh = connect();
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
   //and where trajet_id is not in the table passager
 
-$plus = "AND conducteur_id != ".$_SESSION['AMIID']. " AND id NOT IN (SELECT trajet_id FROM passager WHERE passager_id = ".$_SESSION['AMIID'].")";
+$plus = "AND conducteur_id != ".$_SESSION['AMIID']."";
 
 } else {
 $plus = "";
