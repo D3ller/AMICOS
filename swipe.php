@@ -2,6 +2,13 @@
 session_start();
 require_once('./assets/php/lib.php');
 
+
+if(!isset($_POST['depart']) || !isset($_POST['arrivee']) || !isset($_POST['date']) || !isset($_POST['lat']) || !isset($_POST['lng']) || !isset($_POST['lat2']) || !isset($_POST['lng2'])){
+    $_SESSION['error'] = 'Veuillez remplir tous les champs';
+    header('Location: /index.php');
+    exit();
+}
+
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
 $datetime = $_POST['date'];
