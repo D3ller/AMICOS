@@ -3,7 +3,16 @@
 session_start();
 
 if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])){
-    $_SESSION['error'] = "Vous n'êtes pas connecté";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous n\'êtes pas connecté
+    </p>
+    </div>';
     header('Location: ./index.php');
     exit();
 }
@@ -41,7 +50,7 @@ if($result->num_rows === 0) {
 <?php
 
 if(isset($_SESSION['error'])) {
-    echo '<p class="error">'.$_SESSION['error'].'</p>';
+    echo $_SESSION['error'];
     unset($_SESSION['error']);
 }
 

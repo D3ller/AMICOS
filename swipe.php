@@ -4,7 +4,16 @@ require_once('./assets/php/lib.php');
 
 
 if(!isset($_POST['depart']) || !isset($_POST['arrivee']) || !isset($_POST['date']) || !isset($_POST['lat']) || !isset($_POST['lng']) || !isset($_POST['lat2']) || !isset($_POST['lng2'])){
-    $_SESSION['error'] = 'Veuillez remplir tous les champs';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Un ou plusieurs champs sont vides
+    </p>
+    </div>';
     header('Location: /index.php');
     exit();
 }
@@ -23,25 +32,61 @@ $dateTimeObj = DateTime::createFromFormat($dateFormat, $datetime);
 $datetime = $dateTimeObj->format('Y-m-d H:i:s');
 
 if(!isset($depart) || !isset($arrivee) || !isset($datetime) || !isset($lat) || !isset($lng) || !isset($lat2) || !isset($lng2)){
-    $_SESSION['error'] = 'Veuillez remplir tous les champs';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Un ou plusieurs champs sont vides
+    </p>
+    </div>';
     header('Location: /index.php');
     exit();
 }
 
 if($depart == $arrivee){
-    $_SESSION['error'] = 'Le départ et l\'arrivée ne peuvent pas être identiques';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le départ et l\'arrivée ne peuvent pas être identiques
+    </p>
+    </div>';
     header('Location: /index.php');
     exit();
 }
 
 if($datetime < date('Y-m-d H:i:s')){
-    $_SESSION['error'] = 'La date ne peut pas être antérieure à la date actuelle';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>La date et l\'heure ne peuvent pas être antérieures à la date et l\'heure actuelles
+    </p>
+    </div>';
     header('Location: /index.php');
     exit();
 }
 
 if(!is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($lng2)){
-    $_SESSION['error'] = 'Les coordonnées GPS ne sont pas valides';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Les coordonnées GPS ne sont pas valides
+    </p>
+    </div>';
     header('Location: /index.php');
     exit();
 }

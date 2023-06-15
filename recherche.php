@@ -54,7 +54,7 @@ require_once('./assets/php/lib.php');
 <body>
     <?php 
     if(isset($_SESSION['error'])) {
-        echo '<p class="error">'.$_SESSION['error'].'</p>';
+        echo $_SESSION['error'];
         unset($_SESSION['error']);
     }
 

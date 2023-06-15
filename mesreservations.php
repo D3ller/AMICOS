@@ -34,9 +34,7 @@ setlocale(LC_TIME, 'fr_FR.utf8');
 <main>
 
 <?php if(isset($_SESSION['error'])) { ?>
-    <div class="error">
-        <p><?php echo $_SESSION['error']; ?></p>
-    </div>
+    <?php echo $_SESSION['error']; ?>
 
 <?php unset($_SESSION['error']); } ?>
 

@@ -3,7 +3,16 @@ session_start();
 
 
 if(!isset($_SESSION['AMIID']) || !isset($_SESSION['AMIMAIL'])) {
-    $_SESSION['error'] = "Vous n'avez pas le droit de réserver un trajet sans être connecté";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous devez être connecté pour réserver un trajet
+    </p>
+    </div>';
     header('Location: ../connexion.php');
     exit();
 
@@ -12,7 +21,16 @@ if(!isset($_SESSION['AMIID']) || !isset($_SESSION['AMIMAIL'])) {
 $id = $_GET['id'];
 
 if(!isset($id)) {
-    $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet sans avoir sélectionné un trajet";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous devez sélectionner un trajet à réserver
+    </p>
+    </div>';
     header('Location: ../');
     exit();
 
@@ -30,7 +48,16 @@ $result = $stmt->get_result();
 $trajet = $result->fetch_assoc();
 
 if($result->num_rows == 0) {
-    $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet qui n'existe pas";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous ne pouvez pas réserver un trajet qui n\'existe pas
+    </p>
+    </div>';
     header('Location: ../');
     exit();
 
@@ -44,7 +71,16 @@ $resultuser = $stmtuser->get_result();
 $user = $resultuser->fetch_assoc();
 
 if($trajet['conducteur_id'] == $user['id']) {
-    $_SESSION['error'] = "Vous ne pouvez pas réserver votre propre trajet";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous ne pouvez pas réserver votre propre trajet
+    </p>
+    </div>';
     header('Location: ../');
     exit();
 
@@ -58,7 +94,16 @@ $result = $stmt->get_result();
 $passager = $result->fetch_assoc();
 
 if($result->num_rows > 0) {
-    $_SESSION['error'] = "Vous ne pouvez pas réserver un trajet que vous avez déjà réservé";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous avez déjà réservé ce trajet
+    </p>
+    </div>';
     header('Location: ../');
     exit();
 

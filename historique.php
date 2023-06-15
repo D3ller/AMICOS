@@ -5,7 +5,16 @@ session_start();
 if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
 } else {
-    $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page.';
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous n\'êtes pas connecté
+    </p>
+    </div>';
     header('Location: /connexion.php');
     exit();
 }
