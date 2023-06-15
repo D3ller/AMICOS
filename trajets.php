@@ -38,14 +38,14 @@ if(isset($_SESSION['error'])){
 
 <div class="form-trajets">
 <form style='margin-top: 70px' method='POST' action='./assets/php/vtrajet.php'>
-    <label for="depart">Départ :</label>
+    <label for="address">Départ :</label>
     <input type="text" name='depart' id="address" placeholder="Départ" required>
-    <label for="arrivee">Arrivée :</label>
+    <label for="adess2">Arrivée :</label>
     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-    <label for="date">Date :</label>
-    <input type="datetime-local" name='datetime' onclick="" required>
-    <label for="nombredeplaces">Nombre de places :</label>
-    <select name='place' required>
+    <label for="datetime">Date :</label>
+    <input id="datetime" type="datetime-local" name='datetime' onclick="" required>
+    <label for="place">Nombre de places :</label>
+    <select id="place" name='place' required>
         <option value="">Nombre de places</option>
         <option value="1">1 place</option>
         <option value="2">2 places</option>
