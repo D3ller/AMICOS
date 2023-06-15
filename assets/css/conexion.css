@@ -145,18 +145,24 @@
     }
     .form-inscription form,
     .form-inscription a {
-        width: 25%;
+        width: 45%;
     }
     .form-inscription form input[type="text"],
     .form-inscription form input[type="password"],
     .form-inscription form input[type="email"],
     .form-inscription form input[type="number"],
     .form-inscription form select {
-        font-size: 2vw;
+        font-size: 1.3vw;
     }
     .center {
-        font-size: 2vw;
+        font-size: 1.5vw;
         margin-top: 14px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .center:hover{
+        background-color: #b90145;
+        border: 4px solid #b90145;
     }
 
     .nom-perso-logo-2 {
