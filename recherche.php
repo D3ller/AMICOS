@@ -60,6 +60,8 @@ require_once('./assets/php/lib.php');
 
 
     require_once 'customnav.php';
+    require_once 'header.php';
+    require_once 'menu.php';
 
     ?>
 <main>
@@ -153,11 +155,7 @@ require_once('./assets/php/lib.php');
 
         </script>
 
-<?php
 
-require_once 'menu.php';
-
-?>
     
 </body>
 </html>
