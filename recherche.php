@@ -153,7 +153,11 @@ require_once('./assets/php/lib.php');
 
         </script>
 
+<?php
 
+require_once 'menu.php';
+
+?>
     
 </body>
 </html>
