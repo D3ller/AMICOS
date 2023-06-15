@@ -89,8 +89,13 @@ if($type == "conducteur") {
     header('Location: /mesreservations.php');
     exit();
 
+
+
+
+
 } elseif($type == "user") {
-    $sql = "SELECT * FROM passager WHERE trajet_id = ? AND user_id = ? AND date > NOW()";
+
+    $sql = "SELECT * FROM passager WHERE trajet_id = ? AND user_id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
     $stmt->execute();
@@ -103,14 +108,28 @@ if($type == "conducteur") {
         exit();
     }
 
-    $sql = "DELETE FROM passager WHERE trajet_id = ? AND passager_id = ?";
+    $sql = "SELECT * FROM trajet WHERE id = ? AND date > NOW()";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $trajet = $result->fetch_assoc();
+
+    if($result->num_rows == 0) {
+        header('Location: /mesreservations.php');
+        $_SESSION['error'] = "Vous ne pouvez pas annuler un trajet qui n'existe pas ou qui est passé";
+        exit();
+    }
+
+    $sql = "DELETE FROM passager WHERE trajet_id = ? AND user_id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
     $stmt->execute();
 
-    $_SESSION['error'] = "Votre réservation a bien été annulée";
+    $_SESSION['error'] = "Votre trajet a bien été annulé";
     header('Location: /mesreservations.php');
     exit();
+
 } else {
     header('Location: /mesreservations.php');
     $_SESSION['error'] = "Vous devez sélectionner un trajet pour l'annuler";
