@@ -27,11 +27,36 @@ require_once('../assets/php/lib.php');
 
     <div class="block1">
         <div class="nbutil-admin">
+        <?php
+
+        $dbh = connect();
+
+        $sql = "SELECT COUNT(*) AS nombre_utilisateurs FROM profil";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $nombreUtilisateurs = $row['nombre_utilisateurs'];
+
+        echo "<p>Nombre d'utilisateurs : ".$nombreUtilisateurs."</p>";
+
+        ?>
+
 
         </div>
 
         <div class="co2-admin">
-            
+
+        <?php
+
+        $sql = "SELECT SUM(co2) AS co2 FROM trajet";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $co2 = $row['co2'];
+        echo "<p>CO2 économisé : ".$co2." kg</p>";
+        ?>            
         </div>
     </div>
 
@@ -40,11 +65,6 @@ require_once('../assets/php/lib.php');
     <h3>Nombre de trajets réalisés :</h3>
     <canvas id="nomnbretrajet"></canvas>
 
-    
-        <?php
-        $dbh = connect();
-
-        ?>
 
         <?php
 
@@ -96,6 +116,21 @@ require_once('../assets/php/lib.php');
 
     <div class="block3">
         <div class="derniers-trajet-admin">
+
+        <?php
+
+        $sql = "SELECT * FROM trajet ORDER BY `id` DESC LIMIT 2";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        echo "<h3>Derniers trajets :</h3>";
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<p>".$row['id']." - ".$row['date']." - ".$row['co2']." kg</p>";
+        }
+
+        ?>
 
         </div>
 
