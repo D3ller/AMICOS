@@ -129,9 +129,10 @@ if ($trajetInteressant !== null) {
                 $resultuser = $stmtuser->get_result();
                 $conducteur = $resultuser->fetch_assoc();
 
-                echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
-                echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
-                echo '<p id="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
+                echo '<div class="ele-swipe">';
+                echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+                echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+                echo '<p class="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
 
                 $sqls = "SELECT * FROM passager WHERE trajet_id = ?";
                 $stmts = $dbh->prepare($sqls);
@@ -140,8 +141,8 @@ if ($trajetInteressant !== null) {
                 $results = $stmts->get_result();
                 $num_rows = $results->num_rows;
             
-                echo '<p id="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
-            
+                echo '<p class="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
+                echo '</div>';
                 if($num_rows == $trajetInteressant['place']){
                     $complete = 'disabled';
                 } else {
@@ -197,9 +198,10 @@ $minutes = sprintf("%02d", $minutes);
 
 $trajet['duree'] = $hours . 'h' . $minutes;
 
-echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
-echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
-echo '<p id="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
+echo '<div class="ele-swipe">';
+echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+echo '<p class="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
 
 $sqls = "SELECT * FROM passager WHERE trajet_id = ?";
 $stmts = $dbh->prepare($sqls);
@@ -208,7 +210,8 @@ $stmts->execute();
 $results = $stmts->get_result();
 $num_rows = $results->num_rows;
 
-echo '<p id="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
+echo '<p class="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
+echo '</div>';
 
 if($num_rows == $trajet['place']){
     $complete = 'disabled';

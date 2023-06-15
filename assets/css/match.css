@@ -171,17 +171,19 @@
     }
   }
   
-  #pics {
+  .ele-swipe{
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .pics {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    position: relative;
-    top: 250px;
-    left: -100px;
   }
 
-  #cdt-name {
+  .cdt-name {
     font-size: 1.5rem;
     font-weight: 400;
     position: relative;
@@ -192,11 +194,10 @@
     white-space: nowrap;
     font-family: 'Magison', cursive;
     color: white;
-    top: 250px;
 
   }
 
-  #trajet {
+  .trajet {
     font-size: 1rem;
     font-weight: 400;
     position: relative;
@@ -208,10 +209,9 @@
     color: white;
     margin: 0 20px;
     margin-top: 0px;
-    top: 250px;
   }
 
-  #place {
+  .place {
     font-size: 1rem;
     font-weight: 400;
     position: relative;
@@ -223,7 +223,6 @@
     color: white;
     margin: 0 20px;
     margin-top: 0px;
-    top: 250px;
   }
 
   #search-h1 {
