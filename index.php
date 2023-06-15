@@ -5,7 +5,6 @@ require_once('./assets/php/lib.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +48,8 @@ require_once('./assets/php/lib.php');
 </script>
 
 </head>
+
+
 <body>
     <?php 
     require_once 'header.php';
@@ -75,7 +76,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
 
 
 
-            <form action="/swipe.php" method="post" required>
+        <form action="/swipe.php" method="post">
                 <div class="haut-form-index">
                     <div class="barre-form-index"></div>
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
@@ -116,10 +117,10 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
                     </script>
                     <input type="number" name='place' placeholder="Nombre de place" min="1" max="7" required>
                 </div>
-                <input name='lat' type="hidden" id="lat" value="" required>
-                <input name='lng' type="hidden" id="lng" value="" required>
-                <input name='lat2' type="hidden" id="lat2" value="" required>
-                <input name='lng2' type="hidden" id="lng2" value="" required>
+                <input name='lat' type="hidden" id="lat" value="">
+                <input name='lng' type="hidden" id="lng" value="">
+                <input name='lat2' type="hidden" id="lat2" value="">
+                <input name='lng2' type="hidden" id="lng2" value="">
                 <input type="submit" value="Voyager !">
             </form>
         </div>
@@ -257,28 +258,29 @@ $result = $stmt->get_result();
 $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
-    echo '<div class="trajets-inte-util">
-        <h3>Trajets qui peuvent vous intéresser :</h3>
-        <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
-        <div class="scroll-container">';
+    echo '<h3>Trajets qui peuvent vous intéresser :</h3>
+    <img class="carre-card" src="https://portfolio.karibsen.fr/assets/img/double.svg" alt="">
+  <div class="scroll-container">';
 
-    while ($row = $result->fetch_assoc()) {
+while ($row = $result->fetch_assoc()) {
 
-        $sql = "SELECT * FROM profil WHERE id = ?";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bind_param("i", $row['conducteur_id']);
-        $stmt->execute();
-        $result2 = $stmt->get_result();
-        $conducteur = $result2->fetch_assoc();
+    $sql = "SELECT * FROM profil WHERE id = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("i", $row['conducteur_id']);
+    $stmt->execute();
+    $result2 = $stmt->get_result();
+    $conducteur = $result2->fetch_assoc();
 
-        echo '<div class="card">
+    $row['date'] = date("d/m/Y à H:i", strtotime($row['date']));
+
+    echo '<div class="card">
             <div class="ele-util-card">
                 <a href="reserv/' . $row['id'] . '"><img class="right-arrow" src="https://portfolio.karibsen.fr/assets/img/flechedroite.svg" alt=""></a>
                 <div>
                     <img class="perso" src="https://portfolio.karibsen.fr/assets/img/persorose.svg" alt="">
                     <img class="pp-util" src="' . $conducteur['profil-picture'] . '" alt="">
                 </div>
-                <h6>' . $conducteur['nom'] . ' <br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
+                <h6>Départ le '.$row['date']. '<br>'.$conducteur['prenom'] . ' '. $conducteur["nom"].'<br><span class="exemple-trajet">' . $row["lieu_depart"] . ' ➔ ' . $row["lieu_arrivee"] . '</span></h6>
                 <p>Le trajet commencera au parking de l\'IUT de Troyes, où vous pourrez facilement garer votre véhicule avant de prendre la route en direction de St André les Vergé. Si vous avez prévu de partir vers 17h, cela vous donnera...</p>
             </div>
         </div>';
@@ -368,6 +370,12 @@ if ($num_rows > 0) {
     require_once 'menu.php';
     require_once 'footer.php';
     ?>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initAutocomplete();
+        });
+    </script>
 
     
 </body>
