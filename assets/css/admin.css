@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "Magison";
+    src: url("https://d3ller.github.io/sae202-font/Magison.ttf");
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    background-color: #f1f1f1;
+}
+
+main{
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+main img{
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+main h1{
+    text-align: center;
+    font-family: 'Magison', sans-serif;
+    font-size: 2vw;
+}
+
+.block1,
+.block3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.block1 div,
+.block3 div{
+    width: 48%;
+    height: 300px;
+}
+
+.block1 div,
+.block2,
+.block3 div{
+    background-color: #eeeeee;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.404);
+}
+
+.block2{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    position: relative;
+    padding: 25px;
+}
+
+.block2 h3{
+    font-family: 'Magison', sans-serif;
+    font-size: 1.5vw;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+#nomnbretrajet {
+    width: 70% !important; 
+    max-width: 500px !important;
+    height: 200px !important;; 
+    margin: 0 auto;
+}
+
+.block3 div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.block3 div:nth-child(2) a{
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-weight: 400;
+    font-family: 'Magison', sans-serif;
+    padding: 20px;
+    border: solid 2px #000000;
+    background-color: #d3d3d3;
+    border-radius: 15px;
+    width: 75%;
+    text-align: center;
+    transition: 0.25s ease-in-out all;
+}
+
+.block3 div:nth-child(2) a:hover{
+    background-color: #000000;
+    color: #ffffff;
+    transition: 0.5s;
+}
