@@ -16,6 +16,9 @@ require_once('./assets/php/lib.php');
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/js/i18n/fr.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css">
+
     <script src="./assets/js/index.js" defer></script>
     <title>Accueil</title>
     <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo"></script>
@@ -371,6 +374,29 @@ if ($num_rows > 0) {
             initAutocomplete();
         });
     </script>
+
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#000000"
+        },
+        "button": {
+          "background": "#f1d600"
+        }
+      },
+      "position": "bottom-right",
+      "content": {
+        "message": "Ce site utilise des cookies pour vous garantir la meilleure expérience. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.",
+        "dismiss": "Compris !",
+        "link": "En savoir plus",
+        "href": "/politique-cookies"
+      }
+    });
+  });
+</script>
+
     
 </body>
 </html>
