@@ -18,8 +18,33 @@ require_once('./assets/php/lib.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assets/js/index.js" defer></script>
     <title>Accueil</title>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo"></script>
+
+<script defer>
+  function initAutocomplete() {
+    var address = document.getElementById('address');
+    var autocomplete = new google.maps.places.Autocomplete(address);
+
+    var address2 = document.getElementById('adress2');
+    var autocomplete2 = new google.maps.places.Autocomplete(address2);
+
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+      document.getElementById('lat').value = latitude;
+      document.getElementById('lng').value = longitude;
+    });
+
+    autocomplete2.addListener('place_changed', function() {
+      var place = autocomplete2.getPlace();
+      var latitude = place.geometry.location.lat();
+      var longitude = place.geometry.location.lng();
+      document.getElementById('lat2').value = latitude;
+      document.getElementById('lng2').value = longitude;
+    });
+  }
+</script>
 </head>
 <body>
     <?php 
