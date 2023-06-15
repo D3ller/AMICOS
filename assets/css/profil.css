@@ -435,3 +435,10 @@ button.expand.finished > .expand-icon > svg.second {
         display: none;
     }
 }
+
+@media screen and (max-width: 1023px) {
+    .param{
+        display: none;
+    }
+    
+}
