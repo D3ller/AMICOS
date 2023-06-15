@@ -121,6 +121,13 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
 
     }
 
+    $sql2 = 'SELECT * FROM passager INNER JOIN trajet ON passager.trajet_id = trajet.id WHERE passager.user_id = ? AND trajet.date < NOW() ORDER BY trajet.date ASC';
+    $stmt2 = $dbh->prepare($sql2);
+    $stmt2->bind_param("s", $user['id']);
+    $stmt2->execute();
+
+    $result2 = $stmt2->get_result();
+
     while($trajet = $result2->fetch_assoc()) {
         echo '<div class="card">';
         $trajet['date'] = new DateTime($trajet['date']);
