@@ -60,7 +60,7 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
 
 } elseif($_SERVER['PHP_SELF'] == '/swipe.php') {
     echo '<nav class="cstm" style="background: #8EA7E3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
-    echo '<a href="./parametre.php"><div id="backarrow"></div></a>';
+    echo '<a href="javascript:history.back()"><div id="backarrow"></div></a>';
     echo '<p>Match</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 } elseif($_SERVER['PHP_SELF'] == '/reservation.php') {
@@ -80,6 +80,15 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<nav class="cstm" style="background: #8fa7e3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
     echo '<a href="/"><div id="backarrow"></div></a>';
     echo '<p>';
+    echo ucfirst(substr($_SERVER['PHP_SELF'], 1, -4));
+    echo '</p>';
+    echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
+    echo '</nav>';
+
+} elseif($_SERVER['PHP_SELF'] == '/contacts.php') {
+    echo '<nav class="cstm" style="background: #ff804a; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a href="/"><div id="backarrow"></div></a>';
+    echo '<p style="color: white">';
     echo ucfirst(substr($_SERVER['PHP_SELF'], 1, -4));
     echo '</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
