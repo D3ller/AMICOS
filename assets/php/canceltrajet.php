@@ -20,8 +20,8 @@ if(!isset($id) || !isset($type)) {
     exit();
 }
 
-if($type == "Conducteur") {
-    $sql = "SELECT * FROM trajet WHERE id = ? AND conducteur_id = ? WHERE date > NOW()";
+if($type == "conducteur") {
+    $sql = "SELECT * FROM trajet WHERE id = ? AND conducteur_id = ? AND date > NOW()";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
     $stmt->execute();
@@ -39,6 +39,47 @@ if($type == "Conducteur") {
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
+    $sql = "SELECT * FROM passager INNER JOIN profil ON user_id = profil.id WHERE trajet_id = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $sqlconducteur = "SELECT * FROM profil WHERE id = ?";
+    $stmtconducteur = $dbh->prepare($sqlconducteur);
+    $stmtconducteur->bind_param("i", $_SESSION['AMIID']);
+    $stmtconducteur->execute();
+    $resultconducteur = $stmtconducteur->get_result();
+    $conducteur = $resultconducteur->fetch_assoc();
+
+    $prenomnom = $conducteur['prenom'].' '.$conducteur['nom'];
+
+    while($row = $result->fetch_assoc()) {
+
+
+        $to = $row['email'];
+        $subject = "Annulation de votre trajet";
+    
+        $from = 'sae202@amicos.fr';
+        $fromName = 'SAE202';
+    
+        $message = '<html><body>';
+        $message .= '<h1>Le conducteur '.$prenomnom.' vient d\'annulée votre trajet</h1>';
+        $message .= '<p>Nous sommes désolée d\'apprendre que votre trajet à été annulé entre'.$trajet['lieu_depart'].' et '.$trajet['lieu_arrivee'].' le '.$trajet['date'].'</p>';
+        $message .= '</body></html>';
+    
+        $headers = "MIME-Version: 1.0" . "\r\n"; 
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+        $headers .= "Organization: 2480\r\n";
+        $headers .= "X-Priority: 3\r\n";
+        $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
+        $headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n";
+        $headers .= 'Reply-to: no-reply@mmi-troyes.fr';
+    
+    $send = mail($to, $subject, $message, $headers);
+
+    }
+
     $sql = "DELETE FROM passager WHERE trajet_id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -46,6 +87,33 @@ if($type == "Conducteur") {
 
     $_SESSION['error'] = "Votre trajet a bien été annulé, les passagers ont été prévenus";
     header('Location: /mesreservations.php');
+    exit();
+
+} elseif($type == "user") {
+    $sql = "SELECT * FROM passager WHERE trajet_id = ? AND user_id = ? AND date > NOW()";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $trajet = $result->fetch_assoc();
+
+    if($result->num_rows == 0) {
+        header('Location: /mesreservations.php');
+        $_SESSION['error'] = "Vous ne pouvez pas annuler un trajet qui n'existe pas ou qui est passé";
+        exit();
+    }
+
+    $sql = "DELETE FROM passager WHERE trajet_id = ? AND passager_id = ?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
+    $stmt->execute();
+
+    $_SESSION['error'] = "Votre réservation a bien été annulée";
+    header('Location: /mesreservations.php');
+    exit();
+} else {
+    header('Location: /mesreservations.php');
+    $_SESSION['error'] = "Vous devez sélectionner un trajet pour l'annuler";
     exit();
 }
 
