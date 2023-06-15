@@ -106,7 +106,7 @@ echo '<div id="profil">';
     echo '</div>';
 
     echo '<div class="button param">';
-    echo '<a href="./historique.php"><button><img src="https://portfolio.karibsen.fr/assets/img/settings.svg" alt="Paramètres"></button><p class="title">Paramètre de compte</p></a>';
+    echo '<a href="./parametre.php"><button><img src="https://portfolio.karibsen.fr/assets/img/settings.svg" alt="Paramètres"></button><p class="title">Paramètre de compte</p></a>';
     echo '</div>';
 
     echo '<div class="button">';
