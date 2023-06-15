@@ -84,7 +84,7 @@ if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['
     $stmt->bind_param("sssssi", $nom, $prenom, $email, $description, $groups, $id);
     $stmt->execute();
 
-    $_SESSION['error'] = "L'utilisateur a bien été modifié";
+    $_SESSION['error'] = "<br>L'utilisateur a bien été modifié";
     header('Location: ../g_user.php');
     exit();
 

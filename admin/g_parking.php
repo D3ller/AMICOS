@@ -9,9 +9,6 @@ if (isset($_SESSION['error'])) {
     unset($_SESSION['error']);
 }
 
-echo '<a href="./admin.php">Retour au home</a><br><br>';
-echo '<a href="./parking/add.php">Ajouter un parking</a><br><br>';
-
 ?>
 
 
@@ -26,8 +23,16 @@ echo '<a href="./parking/add.php">Ajouter un parking</a><br><br>';
 </head>
 <body>
 
-<main>
 
+<main>
+<img src="https://portfolio.karibsen.fr/assets/img/rosetext.svg" alt="Logo">
+
+
+<h1>Gestion des parkings</h1>
+
+<a href="./admin.php">Retour à l'accueil</a>
+
+<a href="./parking/add.php">Ajouter un parking</a>
 
 <?php
 
@@ -41,20 +46,25 @@ echo '<a href="./parking/add.php">Ajouter un parking</a><br><br>';
 
     $result = $stmt->get_result();
 
+    echo "<div class='tab-gen'>";
     if($result->num_rows == 0) {
         echo '<p>Aucun parking disponible</p>';
         exit();
     }
 
     while ($parking = $result->fetch_assoc()) {
-        echo $parking['name'];
         echo '<div class="tab-modif">';
+        echo $parking['name'];
+        echo '<div class="tab-modif-coord">';
         echo '<a href="./parking/update.php?id=' . $parking['id'] . '">Modifier</a>';
         echo '<a href="./parking/delete.php?id=' . $parking['id'] . '">Supprimer</a>';
         echo '<a href="https://www.google.com/maps?q='.$parking['lat'].','.$parking['lng'].'">Voir</a>';
         echo '</div>';
+        echo '</div>';
 
     }
+
+    echo "</div>";
 
     ?>
 </main>
