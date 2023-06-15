@@ -78,7 +78,7 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
 } elseif($_SERVER['PHP_SELF'] == '/updatepassword.php') {
     echo '<nav class="cstm" style="background: #FFAB02; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
     echo '<a href="javascript:history.back()"><div id="backarrow"></div></a>';
-    echo '<p style="color:white; text-align:center;">Modifier le mot de passe</p>';
+    echo '<p style="color:white; text-align:center;">Mot de passe</p>';
     echo '<div style="opacity: 0; visibility: hide" id="threepoint"></div>';
 
 

@@ -186,19 +186,18 @@
     width: 90%;
     margin: 0 auto;
     margin-top: 25px;
+    margin-bottom: 100px;
 }
 
 #mainupdtpass h1{
     font-family: 'Magison', sans-serif;
-    font-size: 3.5vw;
-    text-align: center;
+    font-size: 4vw;
     margin-bottom: 25px;
 }
 
 #mainupdtpass p{
     font-family: 'Quicksand', sans-serif;
-    font-size: 2.8vw;
-    text-align: center;
+    font-size: 3vw;
     margin-bottom: 25px;
 }
 #formmodifpass{
@@ -210,18 +209,25 @@
 }
 
 #formmodifpass input{
-    
+    padding: 15px;
+    text-indent: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #F2F2F2;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#oldpass{
-
+#formmodifpass input[type="submit"]{
+    background-color: #FFAB02;
+    box-shadow: 0px 4px 4px #ffab0260;
+    font-weight: 700;
+    font-size: 3.8vw;
 }
 
-#newpass{
-
+#formmodifpass input[type="submit"]:hover{
+    background-color: #ce8900;
 }
 
-#newpass2{
-
-}
 
