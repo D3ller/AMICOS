@@ -17,7 +17,7 @@ require_once('../assets/php/lib.php');
 </head>
 <body>
     
-</body>
+
 
 <main>
 
@@ -27,20 +27,21 @@ require_once('../assets/php/lib.php');
 
     <div class="block1">
         <div class="nbutil-admin">
-        <?php
+            <?php
 
-        $dbh = connect();
+            $dbh = connect();
 
-        $sql = "SELECT COUNT(*) AS nombre_utilisateurs FROM profil";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $nombreUtilisateurs = $row['nombre_utilisateurs'];
+            $sql = "SELECT COUNT(*) AS nombre_utilisateurs FROM profil";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $nombreUtilisateurs = $row['nombre_utilisateurs'];
 
-        echo "<p>Nombre d'utilisateurs : ".$nombreUtilisateurs."</p>";
+            echo "<p>Nombre d'utilisateurs :</p>";
+            echo "<p>".$nombreUtilisateurs." utilisateurs</p>";
 
-        ?>
+            ?>
 
 
         </div>
@@ -55,9 +56,11 @@ require_once('../assets/php/lib.php');
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
         $co2 = $row['co2'];
-        echo "<p>CO2 économisé : ".$co2." kg</p>";
+        echo "<p>CO2 économisé :</p>";
+        echo "<p>".$co2." kg</p"
         ?>            
         </div>
+    </div>
     </div>
 
     <div class="block2">
@@ -115,39 +118,40 @@ require_once('../assets/php/lib.php');
     </div>
 
     <div class="block3">
-        <div class="derniers-trajet-admin">
+        <div id="derniers-trajet-admin">
 
-        <?php
+            <?php
 
-        $sql = "SELECT * FROM trajet ORDER BY `id` DESC LIMIT 2";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
+            $sql = "SELECT * FROM trajet ORDER BY `id` DESC LIMIT 2";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-        echo "<h3>Derniers trajets :</h3>";
-
-        while ($row = $result->fetch_assoc()) {
-            echo "<p>".$row['id']." - ".$row['date']." - ".$row['co2']." kg</p>";
-
-            $sql = "SELECT * FROM profil WHERE id = ?";
-            $stmt2 = $dbh->prepare($sql);
-            $stmt2->bind_param("i", $row['conducteur_id']);
-            $stmt2->execute();
-            $result2 = $stmt2->get_result();
-            $row2 = $result2->fetch_assoc();
+            echo "<h3>Derniers trajets :</h3>";
 
 
+            echo '<div class="trajet-pack-admin">';
+            while ($row = $result->fetch_assoc()) {
 
+                $sql = "SELECT * FROM profil WHERE id = ?";
+                $stmt2 = $dbh->prepare($sql);
+                $stmt2->bind_param("i", $row['conducteur_id']);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+                $row2 = $result2->fetch_assoc();
 
+                echo '<div class="trajet-indiv-admin">';
+                echo "<p>".$row['date']." - ".$row['co2']." kg</p>";
+                echo $row2['prenom']." ".$row2['nom'];
+                echo '</div>';   
+            }
+            echo '</div>';
 
-            echo "Prenom nom". $row2['prenom']." ".$row2['nom'];
-        }
-
-        ?>
+            ?>
 
         </div>
 
-        <div>
+        <div id="link">
             <a href="./g_user.php">Gérer les utilisateurs</a>
             <a href="./g_trajet.php">Gérer les trajets</a>
             <a href="./g_parking.php">Gérer les parkings</a>
@@ -156,6 +160,7 @@ require_once('../assets/php/lib.php');
 
 </main>
 
+</body>
 </html>
 
 <body>
