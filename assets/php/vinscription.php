@@ -19,58 +19,140 @@ $age = $_POST['age'];
 $sexe = $_POST['sexe'];
 
 if(empty($nom) || empty($prenom) || empty($email) || empty($password) || empty($password2) || empty($groupe) || empty($age) || empty($sexe)) {
-$_SESSION['error'] = "Veuillez remplir tous les champs";
+$_SESSION['error'] = '<div class="errorred">
+<div class="errorunderred">
+    <div class="errorredcaracter">
+    </div>
+
+</div>
+<h1>Erreur !</h1>
+<p>Un ou plusieurs champs sont vides
+</p>
+</div>';
 header('Location: /inscription.php');
 exit();
 }
 
 if($password != $password2){
-    $_SESSION['error'] = "Les mots de passe ne sont pas identiques";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Les mots de passe ne correspondent pas
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 }
 
 if(strlen($password) < 8){
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins 8 caractères";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le mot de passe doit contenir au moins 8 caractères
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $_SESSION['error'] = "L'email n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>L\'email n\'est pas valide
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 }
 
 if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/', $password)){
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins une lettre majuscule et un chiffre et un caractere special";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 }
 
 if($groupe != 'A' && $groupe != 'B' && $groupe != 'C' && $groupe != 'D' && $groupe != 'E' && $groupe != 'F' && $groupe != 'Prof'){
-    $_SESSION['error'] = "Le groupe n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le groupe n\'est pas valide
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 
 }
 
 if($sexe != 'Homme' && $sexe != 'Femme' && $sexe != 'Autre'){
-    $_SESSION['error'] = "Le sexe n'est pas valide";
+    $_SESSION['error'] = '
+    <div class="errorred">
+        <div class="errorunderred">
+            <div class="errorredcaracter">
+            </div>
+        
+        </div>
+        <h1>Erreur !</h1>
+        <p>Le sexe n\'est pas valide
+        </p>
+        </div>';
     header('Location: /inscription.php');
     exit();
 
 }
 
 if(!is_numeric($age)){
-    $_SESSION['error'] = "L'age n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>L\'age n\'est pas valide
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 
 }
 
 if($age < 16 || $age > 85){
-    $_SESSION['error'] = "L'age n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>L\'age n\'est pas valide
+    </p>
+    </div>';
     header('Location: /inscription.php');
     exit();
 }
@@ -108,8 +190,18 @@ if ($dbh->query($sql) === TRUE) {
     exit();
 
 } else {
-    $_SESSION['error'] = "Erreur lors de l'inscription";
-    echo $dbh->error;
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Une erreur est survenue
+    </p>
+    </div>';
+    header('Location: /inscription.php');
+    exit();
 }
 
 $dbh->close();

@@ -9,47 +9,111 @@ $password = $_POST['password'];
 $token = $_POST['token'];
 
 if(!isset($email) || !isset($password) || !isset($token)) {
-    $_SESSION['error'] = "Veuillez remplir tous les champs";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Aucun champ ne doit être vide
+    </p>
+    </div>';
     header('Location: /forget.php');
     exit();
 
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $_SESSION['error'] = "Adresse email invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre email n\'est pas valide
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 
 }
 
 if(strlen($password) < 8 || strlen($password) > 50) {
-    $_SESSION['error'] = "Mot de passe invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre mot de passe doit contenir entre 8 et 50 caractères
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 
 }
 
 if(!preg_match("#[0-9]+#", $password)) {
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins un chiffre";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre mot de passe doit contenir au moins un chiffre
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 
 }
 
 if(!preg_match("#[a-z]+#", $password)) {
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins une minuscule";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre mot de passe doit contenir au moins une minuscule
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 }
 
 if(!preg_match("#[A-Z]+#", $password)) {
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins une majuscule";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre mot de passe doit contenir au moins une majuscule
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 }
 
 if(!preg_match("#\W+#", $password)) {
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins un caractère spécial";
+    $_SESSION['error'] = '
+    <div class="errorred">
+        <div class="errorunderred">
+            <div class="errorredcaracter">
+            </div>
+        
+        </div>
+        <h1>Erreur !</h1>
+        <p>Votre mot de passe doit contenir au moins un caractère spécial
+        </p>
+        </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 }
@@ -64,7 +128,16 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if($result->num_rows == 0) {
-    $_SESSION['error'] = "Ce profil n'existe pas";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le token est invalide
+    </p>
+    </div>';
     header('Location: /forget.php?token='.$token);
     exit();
 
@@ -77,7 +150,7 @@ $stmt = $dbh->prepare($sql);
 $stmt->bind_param("ss", $hash, $email);
 $stmt->execute();
 
-$_SESSION['error'] = "Mot de passe modifié avec succès";
+$_SESSION['error'] = "zizi";
 header('Location: /connexion.php');
 exit();
 

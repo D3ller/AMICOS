@@ -77,6 +77,5 @@ $stmt->bind_param("si", password_hash($password, PASSWORD_DEFAULT), $_SESSION['A
 $stmt->execute();
 
 header('Location: /updatepassword.php');    
-
 $_SESSION['error'] = "zizi";
 exit();

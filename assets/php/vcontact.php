@@ -9,19 +9,46 @@ $sujet = $_POST['sujet'];
 
 
 if(!preg_match("/^[a-zA-Z-' ]*$/", $nom)){
-    $_SESSION['error'] = "Le nom n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le nom n\'est pas valide
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 }
 
 if(!preg_match("/^[a-zA-Z-' ]*$/", $prenom)){
-    $_SESSION['error'] = "Le prénom n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le prénom n\'est pas valide
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 }
 
 if(!preg_match("/^[a-zA-Z-' ]*$/", $sujet)){
-    $_SESSION['error'] = "Le sujet n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le sujet n\'est pas valide
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 }
@@ -82,7 +109,16 @@ if($send){
     header('Location: ../../contacts.php');
     exit();
 } else {
-    $_SESSION['error'] = "Une erreur est survenue";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Une erreur est survenue lors de l\'envoi du message
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 }
@@ -92,7 +128,16 @@ if($send){
 
 
 } else {
-    $_SESSION['error'] = "L'email n'est pas valide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>L\'adresse email n\'est pas valide
+    </p>
+    </div>';
     header('Location: ../../contacts.php');
     exit();
 }
