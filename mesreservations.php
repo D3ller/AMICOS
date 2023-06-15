@@ -36,6 +36,8 @@ require_once 'customnav.php';
         <p><?php echo $_SESSION['error']; ?></p>
     </div>
 
+<?php unset($_SESSION['error']); } ?>
+
 <div class="ele-resa">
 <?php
 
