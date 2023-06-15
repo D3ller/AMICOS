@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+// if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
 
-} else {
-  $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page';
-  header('Location: ./index.php');
-}
+// } else {
+//   $_SESSION['error'] = 'Vous devez être connecté pour accéder à cette page';
+//   header('Location: ./index.php');
+// }
 
 ?>
 
