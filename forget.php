@@ -7,7 +7,7 @@ ini_set('display_errors', 0);
 
 
 echo '<link rel="stylesheet" href="./assets/css/header-footer.css">';
-echo '<link rel="stylesheet" href="./assets/css/connexion.css">';
+echo '<link rel="stylesheet" href="./assets/css/conexion.css">';
 require_once('header.php');
 require_once('./assets/php/lib.php');
 
