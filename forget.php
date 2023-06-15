@@ -10,7 +10,7 @@ echo '<link rel="stylesheet" href="./assets/css/header-footer.css">';
 echo '<link rel="stylesheet" href="./assets/css/conexion.css">';
 require_once('header.php');
 require_once('customnav.php');
-require_once("menu.php")
+require_once("menu.php");
 require_once('./assets/php/lib.php');
 
 $email = $_GET['mail'];
