@@ -75,7 +75,7 @@ require_once('./assets/php/lib.php');
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8777 6.76964L11.8777 8.32002L13.0405 8.32002L15.3661 6.38205C16.2742 5.62522 17.6916 2.8937 17.6916 2.8937L17.6917 2.8937L17.6917 19.9479L19.2421 19.9479L19.2421 2.8937L19.2421 2.8937C19.2421 2.8937 20.6595 5.62523 21.5677 6.38205L23.8932 8.32002L25.056 8.32002L25.056 6.76964C25.056 6.76964 23.5669 5.92047 22.7305 5.21927C20.9905 3.76067 19.2421 0.568138 19.2421 0.568138L18.4669 0.568138L18.4669 0.56817L18.4668 0.56817L18.4668 0.568136L17.6916 0.568136C17.6916 0.568136 15.9433 3.76067 14.2033 5.21927C13.3668 5.92047 11.8777 6.76964 11.8777 6.76964Z" fill="black"/>
 </svg>
 </button>
-        <form action="/swipe.php" method="post" required>
+        <form action="/swipe.php" method="post">
 
                     <input type="text" name='depart' id="address" placeholder="Départ" required >
                     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
@@ -111,7 +111,8 @@ require_once('./assets/php/lib.php');
                             }  
                         });    
                     </script>
-                    <select id="place" name='place' min="1" max="7" id="passager" required>
+                    <select name='place' id="passager" required>
+                        <option value="">Nombre de passager(s)</option>
                         <option value="1">1 passager</option>
                         <option value="2">2 passagers</option>
                         <option value="3">3 passagers</option>
@@ -121,10 +122,10 @@ require_once('./assets/php/lib.php');
                         <option value="7">7 passagers</option>
                     </select>
 
-                    <input name='lat' type="hidden" id="lat" value="" required>
-                <input name='lng' type="hidden" id="lng" value="" required>
-                <input name='lat2' type="hidden" id="lat2" value="" required>
-                <input name='lng2' type="hidden" id="lng2" value="" required>
+                    <input name='lat' type="hidden" id="lat" value="">
+                <input name='lng' type="hidden" id="lng" value="">
+                <input name='lat2' type="hidden" id="lat2" value="">
+                <input name='lng2' type="hidden" id="lng2" value="">
 
                     <input id="rechercher-submit" type="submit" value="Voyager !">
 
