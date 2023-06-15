@@ -151,6 +151,7 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         echo '</div>';
     }
 
+    require_once 'footer.php';
 ?>
 
     
