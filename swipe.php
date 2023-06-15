@@ -67,6 +67,12 @@ echo '<h1 id="search-h1">Recherche de trajet entre '. $depart. ' et '. $arrivee 
 
 $dbh = connect();
 
+if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
+$plus = "AND conducteur_id != ".$_SESSION['AMIID']."";
+} else {
+$plus = "";
+}
+
 $sql = "SELECT * FROM trajet WHERE date > ? AND place <= ?";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("si", $datetime, $_POST['place']);
