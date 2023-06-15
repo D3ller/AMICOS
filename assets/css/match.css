@@ -57,7 +57,7 @@
   }
   
   .tinder--card {
-    display: inline-block;
+    display: flex;
     width: 90vw;
     max-width: 400px;
     height: 70vh;
@@ -71,6 +71,9 @@
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: grab;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .tinder--card::before {
@@ -169,11 +172,6 @@
       transform: translate(0px, 0px);
       box-shadow:4px 4px 0px rgb(0, 0, 0);
     }
-  }
-  
-  .ele-swipe{
-    position: absolute;
-    bottom: 10px;
   }
 
   .pics {
