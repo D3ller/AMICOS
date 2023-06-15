@@ -81,6 +81,13 @@ if($_SERVER['PHP_SELF'] == "/profil.php"){
     echo '<p style="color:white; text-align:center;">Mot de passe</p>';
     echo '<div style="opacity: 0; visibility: hidden" id="threepoint"></div>';
 
+} elseif($_SERVER['PHP_SELF'] == '/updatepassword.php') {
+    echo '<nav class="cstm" style="background: #ffab02; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
+    echo '<a aria-label="Icon" href="/"><div id="backarrow"></div></a>';
+    echo '<p style="color:white; text-align:center;">Mot de passe</p>';
+    echo '<div style="opacity: 0; visibility: hidden" id="threepoint"></div>';
+
+
 
 } elseif($_SERVER['PHP_SELF'] == '/recherche.php') {
     echo '<nav class="cstm" style="background: #8fa7e3; margin-bottom: 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">';
