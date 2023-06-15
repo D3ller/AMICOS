@@ -27,7 +27,6 @@ require_once('./assets/php/lib.php');?>
 
 <?php
 require_once('customnav.php');
-require_once 'header.php';
 
 $dbh = connect();
 
@@ -105,7 +104,7 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         echo '<img src="' . $conducteur["profil-picture"] . '" alt="voiture">';
         echo '<div class="card-text">';
         echo '<h3>'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
-        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet à durée '.$trajet['duree'].'</span></p>';
+        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet a duré '.$trajet['duree'].'</span></p>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -145,7 +144,7 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
         echo '<img src="' . $conducteur["profil-picture"] . '" alt="voiture">';
         echo '<div class="card-text">';
         echo '<h3>'. $conducteur["prenom"].' '.$conducteur["nom"].'</h3>';
-        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet à durée '.$trajet['duree'].'</span></p>';
+        echo '<p>'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].'<br><span id="duration">Le trajet a duré '.$trajet['duree'].'</span></p>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
