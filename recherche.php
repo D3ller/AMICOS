@@ -20,7 +20,7 @@ require_once('./assets/php/lib.php');
     <script src="./assets/js/index.js" defer></script>
     <title>Accueil</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=fr&output=json&region=FR&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo" async defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo&libraries=places,geometry&region=FR" async defer></script>
 </head>
 <body>
     <?php 
@@ -29,7 +29,6 @@ require_once('./assets/php/lib.php');
         unset($_SESSION['error']);
     }
 
-    require_once 'header.php';
 
     require_once 'customnav.php';
 
@@ -104,7 +103,6 @@ require_once('./assets/php/lib.php');
 </main>
 <?php
     require_once 'footer.php';
-    require_once 'menu.php';
     ?>
 
     <script>
@@ -125,5 +123,13 @@ require_once('./assets/php/lib.php');
         }
 
         </script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+    initAutocomplete();
+  });
+
+    </script>
+    
 </body>
 </html>

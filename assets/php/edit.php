@@ -26,48 +26,104 @@ $old = $user['profil-picture'];
 
 
 if(!isset($_POST['id']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['email']) || !isset($_POST['description']) || !isset($_POST['voiture'])) {
-    $_SESSION['error'] = "Veuillez remplir tous les champs";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Veuillez remplir tous les champs</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 }
 
 if($_POST['id'] != $_SESSION['AMIID']) {
-    $_SESSION['error'] = "Vous n'avez pas le droit de modifier ce profil";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous n\'avez pas le droit de modifier ce profil</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
 }
 
 if($result->num_rows == 0) {
-    $_SESSION['error'] = "Ce profil n'existe pas";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Ce profil n\'existe ppas</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $_SESSION['error'] = "Adresse email invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Adresse email invalide</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
 }
 
 if(strlen($nom) < 2 || strlen($nom) > 50) {
-    $_SESSION['error'] = "Nom invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre nom est invalide</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
 }
 
 if(strlen($prenom) < 2 || strlen($prenom) > 50) {
-    $_SESSION['error'] = "Prénom invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre prénom est invalide</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
 }
 
 if(strlen($description) < 2 || strlen($description) > 500) {
-    $_SESSION['error'] = "Description invalide";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Description invalide</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
@@ -80,7 +136,15 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if($result->num_rows > 0) {
-    $_SESSION['error'] = "Cette adresse email est déjà utilisée";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre adresse mail est déja utilisé</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
@@ -105,7 +169,15 @@ if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['
     header('Location: /profil.php');
     exit();
 } else {
-    $_SESSION['error'] = "Aucune modification effectuée";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Aucune modification n\'a été effectué</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 
@@ -116,14 +188,29 @@ if($nom != $user['nom'] || $prenom != $user['prenom'] || $description != $user['
 } else {
 
 if($image['size'] > 2000000) {
-    $_SESSION['error'] = "Image trop volumineuse";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>La taille de l\'image est trop grande</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 }
 
 if(!getimagesize($image['tmp_name'])) {
-    $_SESSION['error'] = "Fichier invalide";
-    header('Location: /profil.php');
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Votre image est invalide </p>
+    </div>';    header('Location: /profil.php');
     exit();
 }
 
@@ -134,7 +221,15 @@ $ext = strtolower($ext);
 $allowed = ['jpg', 'jpeg', 'png', 'gif'];
 
 if(!in_array($ext, $allowed)) {
-    $_SESSION['error'] = "Extension non autorisée";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>L\'extension de votre image n\'est pas prise en compte</p>
+    </div>';
     header('Location: /profil.php');
     exit();
 }
@@ -158,8 +253,15 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
     header('Location: /profil.php');
     exit();
 } else {
-    $_SESSION['error'] = "Erreur lors de l'upload de l'image";
-    header('Location: /profil.php');
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Erreur lors de la publication de votre image</p>
+    </div>';    header('Location: /profil.php');
     exit();
 }
 
