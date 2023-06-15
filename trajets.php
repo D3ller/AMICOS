@@ -37,15 +37,16 @@ if(isset($_SESSION['error'])){
 
 
 <div class="form-trajets">
-<form style='margin-top: 70px'method='POST' action='./assets/php/vtrajet.php'>
-    <label for="">Départ :</label>
+<form style='margin-top: 70px' method='POST' action='./assets/php/vtrajet.php'>
+    <label for="depart">Départ :</label>
     <input type="text" name='depart' id="address" placeholder="Départ" required>
-    <label for="">Arrivée :</label>
+    <label for="arrivee">Arrivée :</label>
     <input id='adress2' name='arrivee' type="text" placeholder="Arrivée" required>
-    <label for="">Date :</label>
-    <input type="datetime-local" name='datetime' value="Date" onclick="" required>
-    <label for="">Nombre de places :</label>
+    <label for="date">Date :</label>
+    <input type="datetime-local" name='datetime' onclick="" required>
+    <label for="nombredeplaces">Nombre de places :</label>
     <select name='place' required>
+        <option value="">Nombre de places</option>
         <option value="1">1 place</option>
         <option value="2">2 places</option>
         <option value="3">3 places</option>
@@ -55,15 +56,15 @@ if(isset($_SESSION['error'])){
     </select>
 
 
-    <input type="hidden" name='lat' id="lat" value="" required>
-    <input type="hidden" name='lng' id="lng" value="" required>
+    <input type="hidden" name='lat' id="lat" value="">
+    <input type="hidden" name='lng' id="lng" value="">
 
-    <input type="hidden" name='lat2' id="lat2" value="" required>
-    <input type="hidden" name='lng2' id="lng2" value="" required>
+    <input type="hidden" name='lat2' id="lat2" value="">
+    <input type="hidden" name='lng2' id="lng2" value="">
 
-    <input type="hidden" name='duree' id="duree" value="" required>
-    <input type="hidden" name='co2' id="co2" value="" required>
-    <input type="hidden" name='km' id="km" value="" required>
+    <input type="hidden" name='duree' id="duree" value="">
+    <input type="hidden" name='co2' id="co2" value="">
+    <input type="hidden" name='km' id="km" value="">
 
     <input type="submit" value="Ajouter le trajet" onclick='waiting()'>
 
