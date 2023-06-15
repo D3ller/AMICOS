@@ -135,7 +135,7 @@ if ($trajetInteressant !== null) {
                 $resultuser = $stmtuser->get_result();
                 $conducteur = $resultuser->fetch_assoc();
 
-                echo '<div class="ele-swipe">';
+                
                 echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
                 echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
                 echo '<p class="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
@@ -148,7 +148,7 @@ if ($trajetInteressant !== null) {
                 $num_rows = $results->num_rows;
             
                 echo '<p class="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
-                echo '</div>';
+                
                 if($num_rows == $trajetInteressant['place']){
                     $complete = 'disabled';
                 } else {
@@ -204,7 +204,7 @@ $minutes = sprintf("%02d", $minutes);
 
 $trajet['duree'] = $hours . 'h' . $minutes;
 
-echo '<div class="ele-swipe">';
+
 echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
 echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
 echo '<p class="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
@@ -217,7 +217,6 @@ $results = $stmts->get_result();
 $num_rows = $results->num_rows;
 
 echo '<p class="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
-echo '</div>';
 
 if($num_rows == $trajet['place']){
     $complete = 'disabled';
