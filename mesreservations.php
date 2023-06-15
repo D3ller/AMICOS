@@ -82,7 +82,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<p class="trajet-date">' . $row['date'] . '</p>';
     echo '<p class="trajet-depart">' . $row['lieu_depart'] . '</p>';
     echo '<p class="trajet-arrivee">' . $row['lieu_arrivee'] . '</p>';
-    echo '<a id="cancel" href="./assets/php/canceltrajet.php?id=' . $row['id'] . '&?type=conducteur">Annuler</a>';
+    echo '<a id="cancel" href="./assets/php/canceltrajet.php?id=' . $row['id'] . '&type=conducteur">Annuler</a>';
     echo '</div>';
     echo '</div>';
     echo '<details class="trajet-details">';
@@ -173,7 +173,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<p class="trajet-date">' . $trajet['date'] . '</p>';
     echo '<p class="trajet-depart">' . $trajet['lieu_depart'] . '</p>';
     echo '<p class="trajet-arrivee">' . $trajet['lieu_arrivee'] . '</p>';
-    echo '<a id="cancel" href="./assets/php/canceltrajet.php?id=' . $row['id'] . '&?type=user">Annuler</a>';
+    echo '<a id="cancel" href="./assets/php/canceltrajet.php?id=' . $row['id'] . '&type=user">Annuler</a>';
     echo '</div>';
     echo '</div>';
     echo '<details class="trajet-details">';
