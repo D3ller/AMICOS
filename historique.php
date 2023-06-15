@@ -69,7 +69,7 @@ $sql = "SELECT * FROM trajet WHERE conducteur_id = ? AND date < NOW() ORDER BY d
     echo '<div id="card-lister">';
     while($trajet = $result->fetch_assoc()) {
         echo '<div class="card">';
-        setlocale(LC_TIME, 'fr_FR');
+        setlocale(LC_TIME, 'fr_FR.utf8');
         $trajet['date'] = new DateTime($trajet['date']);
         $trajet['date'] = strftime('%A %e %B à %H:%M', $trajet['date']->getTimestamp());
         $trajet['date'] = ucfirst($trajet['date']);

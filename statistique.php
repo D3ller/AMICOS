@@ -72,7 +72,7 @@ if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])){
     
     $co2ByMonth = array();
     
-    setlocale(LC_TIME, 'fr_FR');
+    setlocale(LC_TIME, 'fr_FR.utf8');
     
     while ($row = $result1->fetch_assoc()) {
         $mois = $row['mois'];
