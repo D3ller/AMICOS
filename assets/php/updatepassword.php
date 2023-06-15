@@ -24,24 +24,49 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if($result->num_rows === 0) {
+
     header('Location: ../assets/php/deconnexion.php');
     exit();
 }
 
 if(!password_verify($oldpassword, $user['password'])) {
-    $_SESSION['error'] = "Ancien mot de passe incorrect";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Mot de passe incorrect.</p>
+    </div>';
     header('Location: ../../updatepassword.php');
     exit();
 }
 
 if($password !== $confirmpassword) {
-    $_SESSION['error'] = "Les mots de passe ne correspondent pas";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vos deux mots de passe ne correspondent pas</p>
+    </div>';
     header('Location: ../../updatepassword.php');
     exit();
 }
 
 if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/', $password)) {
-    $_SESSION['error'] = "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+    </div>';
     header('Location: ../../updatepassword.php');
     exit();
 }
@@ -52,3 +77,6 @@ $stmt->bind_param("si", password_hash($password, PASSWORD_DEFAULT), $_SESSION['A
 $stmt->execute();
 
 header('Location: /updatepassword.php');    
+
+$_SESSION['error'] = "zizi";
+exit();

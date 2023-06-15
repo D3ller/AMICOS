@@ -73,7 +73,7 @@ $plus = "AND conducteur_id != ".$_SESSION['AMIID']."";
 $plus = "";
 }
 
-$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ?";
+$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ? $plus";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("si", $datetime, $_POST['place']);
 $stmt->execute();
