@@ -10,13 +10,29 @@ $type = $_GET['type'];
 
 if(!isset($_SESSION['AMIMAIL']) || !isset($_SESSION['AMIID'])) {
     header('Location: /connexion.php');
-    $_SESSION['error'] = "Vous devez être connecté pour annuler un trajet";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Veuillez vous connectez pour accéder à la page</p>
+    </div>';
     exit();
 }
 
 if(!isset($id) || !isset($type)) {
     header('Location: /mesreservations.php');
-    $_SESSION['error'] = "Vous devez sélectionner un trajet pour l'annuler";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred">
+        <div class="errorredcaracter">
+        </div>
+    
+    </div>
+    <h1>Erreur !</h1>
+    <p>Vous devez sélectionner un trajet à annuler</p>
+    </div>';
     exit();
 }
 
@@ -30,7 +46,16 @@ if($type == "conducteur") {
 
     if($result->num_rows == 0) {
         header('Location: /mesreservations.php');
-        $_SESSION['error'] = "Vous ne pouvez pas annuler un trajet qui n'existe pas ou qui est passé";
+        $_SESSION['error'] = '<div class="errorred">
+        <div class="errorunderred">
+            <div class="errorredcaracter">
+            </div>
+        
+        </div>
+        <h1>Erreur !</h1>
+        <p>Vous ne pouvez pas annuler un trajet qui n\'existe pas ou qui est passé
+        </p>
+        </div>';
         exit();
     }
 
@@ -85,7 +110,16 @@ if($type == "conducteur") {
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
-    $_SESSION['error'] = "Votre trajet a bien été annulé, les passagers ont été prévenus";
+    $_SESSION['error'] = '<div class="errorred ">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p>Votre trajet a bien été annulé, les passagers ont été prévenus
+    </p>
+    </div>';
     header('Location: /mesreservations.php');
     exit();
 
@@ -104,7 +138,16 @@ if($type == "conducteur") {
 
     if($result->num_rows == 0) {
         header('Location: /mesreservations.php');
-        $_SESSION['error'] = "Vous ne pouvez pas annuler un trajet qui n'existe pas ou qui est passé";
+        $_SESSION['error'] = '<div class="errorred">
+        <div class="errorunderred">
+            <div class="errorredcaracter">
+            </div>
+        
+        </div>
+        <h1>Erreur !</h1>
+        <p>Vous ne pouvez pas annuler un trajet qui n\'existe pas ou qui est passé
+        </p>
+        </div>';
         exit();
     }
 
@@ -117,7 +160,16 @@ if($type == "conducteur") {
 
     if($result->num_rows == 0) {
         header('Location: /mesreservations.php');
-        $_SESSION['error'] = "Vous ne pouvez pas annuler un trajet qui n'existe pas ou qui est passé";
+        $_SESSION['error'] = '<div class="errorred">
+        <div class="errorunderred">
+            <div class="errorredcaracter">
+            </div>
+        
+        </div>
+        <h1>Erreur !</h1>
+        <p>Vous ne pouvez pas annuler un trajet qui n\'existe pas ou qui est passé
+        </p>
+        </div>';
         exit();
     }
 
@@ -126,7 +178,16 @@ if($type == "conducteur") {
     $stmt->bind_param("ii", $id, $_SESSION['AMIID']);
     $stmt->execute();
 
-    $_SESSION['error'] = "Votre trajet a bien été annulé";
+    $_SESSION['error'] = '<div class="errorred">
+    <div class="errorunderred valided">
+        <div class="errorredcaracter validedcaracter">
+        </div>
+    
+    </div>
+    <h1>Validé !</h1>
+    <p> Votre réservation a bien été annulée
+    </p>
+    </div>';
     header('Location: /mesreservations.php');
     exit();
 

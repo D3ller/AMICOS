@@ -273,6 +273,89 @@ menu{
 
 /* MENU PLUS */
 
+.errorred{
+
+    width: 280px;
+    height: 300px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    animation: spawn 5s ease-in-out forwards;
+    position: absolute;
+    top: 50% ;
+    left: 50% ;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 1000000;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.42);
+        }
+
+.errorunderred {
+    background-color: #ff8c8c;
+    width: 100%;
+    height: 170px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0 auto;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.valided {
+    background-color: #52da80 !important;
+}
+
+.errorredcaracter {
+    background-image: url(https://portfolio.karibsen.fr/assets/img/errormain.svg);
+background-repeat: no-repeat;
+background-size: 100%;
+width: 120px;
+height: 120px;
+}
+
+.validedcaracter {
+    background-image: url(https://portfolio.karibsen.fr/assets/img/validmain.svg) !important;
+}
+
+
+@keyframes spawn {
+0% {
+transform: translate(-50%, -50%) scale(0);
+}
+
+5% {
+transform: translate(-50%, -50%) scale(1);
+}
+
+95% {
+transform: translate(-50%, -50%) scale(1);
+}
+
+100% {
+transform: translate(-50%, -50%) scale(0);
+}
+}
+
+.errorred h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.errorred p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 20px;
+    margin-top: 0px;
+}
 
 
 
@@ -321,7 +404,6 @@ menu{
         z-index: 2000;
         padding-left: 15px;
         padding-right: 15px;
-        top:0;
     }
 
 
@@ -369,15 +451,6 @@ menu{
         height: 3vw;
         background-size: contain;
         background-repeat: no-repeat;
-    }
-
-    .plus-header{
-        background-image:url("https://portfolio.karibsen.fr/assets/img/plus.svg");
-        width: 3vw;
-        height: 3vw;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-left: 15px;
     }
 
     .qrcode-header{
@@ -482,20 +555,5 @@ menu{
         margin-top: 30px;
         margin-bottom: 5px;
     }
-
-    .cstm {
-        height: 150px;
-        margin-top: 130px;
-    }
-
-    .cstm > a {
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        cursor: default; 
-        color: inherit;
-        text-decoration: none;
-    }
-
 }
   
