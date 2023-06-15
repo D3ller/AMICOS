@@ -70,5 +70,11 @@ function initMap() {
         margin: 0 20px;
     }
 </style>
+
+<?php
+require_once('menu.php');
+require_once('footer.php');
+?>
+
 </body>
 </html>
