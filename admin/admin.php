@@ -128,6 +128,7 @@ require_once('../assets/php/lib.php');
 
         while ($row = $result->fetch_assoc()) {
             echo "<p>".$row['id']." - ".$row['date']." - ".$row['co2']." kg</p>";
+            echo "Prenom nom". $row['prenom']." ".$row['nom'];
         }
 
         ?>
