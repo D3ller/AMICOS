@@ -125,7 +125,6 @@ $stmt->bind_param("si", $datetime, $_POST['place']);
 $stmt->execute();
 $result = $stmt->get_result();
 $num_rows = $result->num_rows;
-echo $num_rows;
 if($num_rows == 0){
     echo '<p id="none">Aucun trajet n\'a été trouvé</p>';
     exit();
@@ -133,6 +132,8 @@ if($num_rows == 0){
 $trajetInteressant = null;
 $distancePlusInteressante = null;
 while ($trajet = $result->fetch_assoc()) {
+  echo $num_rows;
+
     $apiUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin='.$lat.','.$lng.'&destination='.$lat2.','.$lng2.'&waypoints='.$trajet['lat'].','.$trajet['lng'].'|'.$trajet['lat2'].','.$trajet['lng2'].'&key=AIzaSyCd8vcZ5809PqtE13gop5pdAKe2gRezwGo';
     $response = file_get_contents($apiUrl);
     $directions = json_decode($response, true);
