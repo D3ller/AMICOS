@@ -33,6 +33,8 @@ if(!isset($id)) {
 
 <?php
 
+require_once '../../assets/php/lib.php';
+
 $dbh = connect();
 
 $sql = "SELECT * FROM parking WHERE id = ?";
