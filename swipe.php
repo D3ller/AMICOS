@@ -2,21 +2,7 @@
 session_start();
 require_once('./assets/php/lib.php');
 
-
-if(!isset($_POST['depart']) || !isset($_POST['arrivee']) || !isset($_POST['date']) || !isset($_POST['lat']) || !isset($_POST['lng']) || !isset($_POST['lat2']) || !isset($_POST['lng2'])){
-    $_SESSION['error'] = '<div class="errorred">
-    <div class="errorunderred">
-        <div class="errorredcaracter">
-        </div>
-    
-    </div>
-    <h1>Erreur !</h1>
-    <p>Un ou plusieurs champs sont vides
-    </p>
-    </div>';
-    header('Location: /index.php');
-    exit();
-}
+ini_set('display_errors', 0);
 
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
@@ -28,65 +14,30 @@ $lng2 = $_POST['lng2'];
 
 $dateFormat = 'd/m/Y';
 
+
 $dateTimeObj = DateTime::createFromFormat($dateFormat, $datetime);
 $datetime = $dateTimeObj->format('Y-m-d H:i:s');
 
 if(!isset($depart) || !isset($arrivee) || !isset($datetime) || !isset($lat) || !isset($lng) || !isset($lat2) || !isset($lng2)){
-    $_SESSION['error'] = '<div class="errorred">
-    <div class="errorunderred">
-        <div class="errorredcaracter">
-        </div>
-    
-    </div>
-    <h1>Erreur !</h1>
-    <p>Un ou plusieurs champs sont vides
-    </p>
-    </div>';
+    $_SESSION['error'] = 'Veuillez remplir tous les champs';
     header('Location: /index.php');
     exit();
 }
 
 if($depart == $arrivee){
-    $_SESSION['error'] = '<div class="errorred">
-    <div class="errorunderred">
-        <div class="errorredcaracter">
-        </div>
-    
-    </div>
-    <h1>Erreur !</h1>
-    <p>Le départ et l\'arrivée ne peuvent pas être identiques
-    </p>
-    </div>';
+    $_SESSION['error'] = 'Le départ et l\'arrivée ne peuvent pas être identiques';
     header('Location: /index.php');
     exit();
 }
 
 if($datetime < date('Y-m-d H:i:s')){
-    $_SESSION['error'] = '<div class="errorred">
-    <div class="errorunderred">
-        <div class="errorredcaracter">
-        </div>
-    
-    </div>
-    <h1>Erreur !</h1>
-    <p>La date et l\'heure ne peuvent pas être antérieures à la date et l\'heure actuelles
-    </p>
-    </div>';
+    $_SESSION['error'] = 'La date ne peut pas être antérieure à la date actuelle';
     header('Location: /index.php');
     exit();
 }
 
 if(!is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($lng2)){
-    $_SESSION['error'] = '<div class="errorred">
-    <div class="errorunderred">
-        <div class="errorredcaracter">
-        </div>
-    
-    </div>
-    <h1>Erreur !</h1>
-    <p>Les coordonnées GPS ne sont pas valides
-    </p>
-    </div>';
+    $_SESSION['error'] = 'Les coordonnées GPS ne sont pas valides';
     header('Location: /index.php');
     exit();
 }
@@ -109,7 +60,6 @@ if(!is_numeric($lat) || !is_numeric($lng) || !is_numeric($lat2) || !is_numeric($
 
 <?php
 require_once('customnav.php');
-require_once 'header.php';
 ?>
 <main>
 
@@ -119,14 +69,8 @@ echo '<h1 id="search-h1">Recherche de trajet entre '. $depart. ' et '. $arrivee 
 
 $dbh = connect();
 
-if(isset($_SESSION['AMIMAIL']) || isset($_SESSION['AMIID'])) {
-$plus = "AND conducteur_id != ".$_SESSION['AMIID']."";
 
-} else {
-$plus = "";
-}
-
-$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ? $plus";
+$sql = "SELECT * FROM trajet WHERE date > ? AND place <= ?";
 $stmt = $dbh->prepare($sql);
 $stmt->bind_param("si", $datetime, $_POST['place']);
 $stmt->execute();
@@ -188,10 +132,9 @@ if ($trajetInteressant !== null) {
                 $resultuser = $stmtuser->get_result();
                 $conducteur = $resultuser->fetch_assoc();
 
-                
-                echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
-                echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
-                echo '<p class="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
+                echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+                echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+                echo '<p id="trajet">'.$trajetInteressant['lieu_depart'].' ➔ '.$trajetInteressant['lieu_arrivee'].' | '.$trajetInteressant['duree'].'</p>';
 
                 $sqls = "SELECT * FROM passager WHERE trajet_id = ?";
                 $stmts = $dbh->prepare($sqls);
@@ -200,8 +143,8 @@ if ($trajetInteressant !== null) {
                 $results = $stmts->get_result();
                 $num_rows = $results->num_rows;
             
-                echo '<p class="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
-                
+                echo '<p id="place">Place restante :'.$num_rows.'/'.$trajetInteressant['place'].'</p>';
+            
                 if($num_rows == $trajetInteressant['place']){
                     $complete = 'disabled';
                 } else {
@@ -257,10 +200,9 @@ $minutes = sprintf("%02d", $minutes);
 
 $trajet['duree'] = $hours . 'h' . $minutes;
 
-
-echo '<img class="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
-echo '<p class="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
-echo '<p class="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
+echo '<img id="pics" src="'.$conducteur['profil-picture'].'" alt="Photo de profil" class="photo-profil">';
+echo '<p id="cdt-name">'.$conducteur['prenom'].' '.$conducteur['nom'].'</p>';
+echo '<p id="trajet">'.$trajet['lieu_depart'].' ➔ '.$trajet['lieu_arrivee'].' | '.$trajet['duree'].'</p>';
 
 $sqls = "SELECT * FROM passager WHERE trajet_id = ?";
 $stmts = $dbh->prepare($sqls);
@@ -269,7 +211,7 @@ $stmts->execute();
 $results = $stmts->get_result();
 $num_rows = $results->num_rows;
 
-echo '<p class="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
+echo '<p id="place">Place restante :'.$num_rows.'/'.$trajet['place'].'</p>';
 
 if($num_rows == $trajet['place']){
     $complete = 'disabled';
@@ -324,6 +266,9 @@ if($num_rows == $trajet['place']){
 
 
 
+<?php
+require_once('footer.php');
+?>
 </main>
 
 
@@ -331,7 +276,6 @@ if($num_rows == $trajet['place']){
 
 <?php
 require_once('menu.php');
-require_once('footer.php');
 ?>
 
 <script>
