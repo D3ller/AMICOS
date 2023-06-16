@@ -189,6 +189,8 @@ if ($trajetInteressant !== null) {
             <?php
 $result->data_seek(0); 
 while ($trajet = $result->fetch_assoc()) {
+
+  echo $trajet['lieu_depart'];
     if ($trajet === $trajetInteressant) {
         continue;
     }
@@ -202,7 +204,6 @@ while ($trajet = $result->fetch_assoc()) {
             continue;
         }
 
-        echo $distance;
         if($distance < 50) {
     ?>
             <div data-link="https://mmi22c01.sae202.ovh/reserv/<?php echo $trajet['id']; ?>" class="tinder--card">
