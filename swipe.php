@@ -125,6 +125,7 @@ $stmt->bind_param("si", $datetime, $_POST['place']);
 $stmt->execute();
 $result = $stmt->get_result();
 $num_rows = $result->num_rows;
+echo $num_rows;
 if($num_rows == 0){
     echo '<p id="none">Aucun trajet n\'a été trouvé</p>';
     exit();
@@ -190,7 +191,6 @@ if ($trajetInteressant !== null) {
 $result->data_seek(0); 
 while ($trajet = $result->fetch_assoc()) {
 
-  echo $trajet['lieu_depart'];
     if ($trajet === $trajetInteressant) {
         continue;
     }
