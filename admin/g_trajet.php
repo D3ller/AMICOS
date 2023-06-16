@@ -49,8 +49,6 @@ while ($trajet = $result->fetch_assoc()) {
     $trajet['date'] = date('d/m/Y H:i', strtotime($trajet['date']));
 
     echo '<h2>'. $trajet['lieu_depart'] . ' - ' . $trajet['lieu_arrivee'] . '</h2>';
-    echo '<p>' . $trajet['date'] . '</p>';
-    echo '<p>' . $trajet['place'] . ' places</p>';
     echo '<div class="tab-modif-coord">';
     echo '<a href="./trajet/delete.php?id=' . $trajet['id'] . '">Supprimer</a><br>';
     echo '<a href="./trajet/update.php?id=' . $trajet['id'] . '">Modifier</a>';    

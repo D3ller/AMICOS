@@ -57,7 +57,7 @@ require_once('../assets/php/lib.php');
         $row = $result->fetch_assoc();
         $co2 = $row['co2'];
         echo "<p>CO2 économisé :</p>";
-        echo "<p>".$co2." kg</p"
+        echo "<p>".round($co2)." kg</p"
         ?>            
         </div>
     </div>

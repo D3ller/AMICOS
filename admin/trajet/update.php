@@ -3,11 +3,35 @@
 $id=$_GET['id'];
 
 if(!isset($id)) {
-    $_SESSION['error'] = "Vous n'avez pas sélectionné d'utilisateur";
+    $_SESSION['error'] = "Vous n'avez pas sélectionné de trajet";
     header('Location: ../g_trajet.php');
     exit();
 }
 
+
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Administration</title>
+</head>
+<body>
+
+
+<main>
+<img src="https://portfolio.karibsen.fr/assets/img/rosetext.svg" alt="Logo">
+
+
+<h1>Gestion des utilisateurs</h1>
+
+<a href="../admin.php">Retour à l'accueil</a>
+<a href="../g_trajet.php">Retour aux trajet</a>
+
+<?php
 
 require_once '../../assets/php/lib.php';
 
@@ -21,55 +45,66 @@ $result = $stmt->get_result();
 $trajet = $result->fetch_assoc();
 
 if($result->num_rows === 0) {
-    $_SESSION['error'] = "Cet utilisateur n'existe pas";
+    $_SESSION['error'] = "Ce trajet n'existe pas";
     header('Location: ../g_trajet.php');
     exit();
 }
 
 echo '<h2>Modifier un trjaet</h2>';
-echo '<form action="vupdate.php" method="post">';
+echo '<form id="update_user" action="vupdate.php" method="post">';
 echo '<input type="hidden" name="id" value="'.$trajet['id'].'">';
 
+echo '<div class="updt">';
 echo '<label for="depart">Départ</label>';
 echo '<input type="text" name="depart" value="'.$trajet['lieu_depart'].'">';
-echo '<br>';
+echo '</div>';
+
+echo '<div class="updt">';
 echo '<label for="arrivee">Arrivée</label>';
 echo '<input type="text" name="arrivee" value="'.$trajet['lieu_arrivee'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label for="date">Date</label>';
 echo '<input type="datetime-local" name="date" value="'.$trajet['date'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label for="heure">Latitude 1</label>';
 echo '<input type="text" name="lat1" value="'.$trajet['lat'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label for="heure">Longitude 1</label>';
 echo '<input type="text" name="long1" value="'.$trajet['lng'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label for="heure">Latitude 2</label>';
 echo '<input type="text" name="lat2" value="'.$trajet['lat2'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label for="heure">Longitude 2</label>';
 echo '<input type="text" name="long2" value="'.$trajet['lng2'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label> Distance </label>';
 echo '<input type="text" name="distance" value="'.$trajet['km'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label> Durée </label>';
 echo '<input type="text" name="duree" value="'.$trajet['duree'].'">';
-echo '<br>';
+echo '</div>';
 
+echo '<div class="updt">';
 echo '<label> CO2 </label>';
 echo '<input type="text" name="co2" value="'.$trajet['co2'].'">';
-echo '<br>';
+echo '</div>';
 
-//select place allant de 1 a 7
+echo '<div class="updt">';
 echo '<label> Place </label>';
 echo '<select name="place">';
 for($i=1; $i<=7; $i++) {
@@ -79,14 +114,19 @@ for($i=1; $i<=7; $i++) {
         echo '<option value="'.$i.'">'.$i.'</option>';
     }
 }
+echo '</select>';
+echo '</div>';
 
-
-
-
+echo '<div class="updt">';
 echo '<input type="submit" value="Modifier">';
+echo '</div>';
 echo '</form>';
 
 ?>
+
+</main>
+</body>
+</html>
 
 
 
