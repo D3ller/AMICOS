@@ -11,4 +11,4 @@ RewriteRule ^reserv/([0-9]+)$ /reservation.php?id=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+)$ $1.php [L]
+RewriteRule ^(.*)$ /$1.php [QSA,L]
